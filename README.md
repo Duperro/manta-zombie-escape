@@ -169,3 +169,5 @@ Validación, ejecución detallada, arquitectura, variables y entrega AWS: [front
 main integra las entregas de feat/backend-simulator, feat/frontend-dashboard y chore/docs-contracts. Los commits agrupan backend/datos, frontend y documentación/contratos/evidencias; los merges conservan su historia. Guía en [docs/organizacion_git.md](docs/organizacion_git.md).
 
 La ampliación actual conserva refugios y flota, actualiza ejemplos y demo, y aumenta la envolvente geográfica unas 2,9 veces. Los reportes previos de Fase 3 corresponden al mapa archivado de 306 nodos. Ver docs/mapa.md y reports/map_expansion.json para la comparación.
+
+Averías temporales configurables en Pruebas de fuego: probabilidad y reparación por tipo de zombie, estado AVERIADA y contador en el mapa. Opción apagada por defecto; reglas comunes Base/Pro y pruebas reproducibles. Detalles en [docs/averias.md](docs/averias.md).

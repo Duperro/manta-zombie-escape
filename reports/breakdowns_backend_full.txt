@@ -1,0 +1,80 @@
+........................................................................ [ 76%]
+...............F......                                                   [100%]
+================================== FAILURES ===================================
+_________________ test_pro_reproducible_full_round_real_http __________________
+
+tmp_path = WindowsPath('C:/Users/rafae/AppData/Local/Temp/pytest-of-rafae/pytest-12/test_pro_reproducible_full_rou0')
+
+    def test_pro_reproducible_full_round_real_http(tmp_path):
+        settings=Settings(api_key='test',routing_strategy='pro',seed=7)
+        config=read_scenario(default_scenario(3))
+        app=create_app(settings,build_world(settings,config))
+        async def run():
+            server=uvicorn.Server(uvicorn.Config(app,host='127.0.0.1',port=0,log_level='error'))
+            task=asyncio.create_task(server.serve())
+            rows=[]
+            audits=[]
+            try:
+                while not server.started:
+                    if task.done(): await task;raise RuntimeError('Server failed')
+                    await asyncio.sleep(.01)
+                port=server.servers[0].sockets[0].getsockname()[1]
+                async with httpx.AsyncClient(base_url=f'http://127.0.0.1:{port}',trust_env=False,
+                    limits=httpx.Limits(max_connections=32,max_keepalive_connections=32)) as client:
+                    # 200 genuine HTTP requests, including consistent repeated decisions and reservations.
+                    initial=app.state.coordinator.published_state
+                    before=app.state.coordinator.world.reservations.snapshot()
+                    sem=asyncio.Semaphore(4)
+                    async def ask(s):
+                        async with sem:
+                            r=await client.post('/paso',headers={'x-api-key':'test'},json=dict(
+                                sobrevivienteId=s.id,nodoActual=s.nodoActual,turno=0))
+                            assert r.status_code==200 and set(r.json())=={'siguienteNodo'}
+                            return r.json()
+                    await asyncio.gather(*(ask(s) for s in initial.sobrevivientes))
+                    assert app.state.coordinator.world.reservations.snapshot()==before
+                    audits.append([])
+                    def audit(state):
+                        data=state.model_dump();data.pop('metricas')
+                        audits[-1].append(data)
+                    rows.append(await evaluate_round(app.state.coordinator,client,on_turn=audit))
+                    await app.state.coordinator.reset(build_world(settings,config),new_run=True)
+                    audits.append([])
+                    rows.append(await evaluate_round(app.state.coordinator,client,on_turn=audit))
+                    state=(await client.get('/estado')).json()
+                    assert state['estrategia']=='Pro' and len(state['camionetas'])==5
+                    assert not any(z['tipo']=='dormido' for z in state['zombies'])
+                    # No passenger gets an invalid two-edge foot jump via /paso.
+                    w=app.state.coordinator.world
+                    w.assert_invariants()
+            finally:
+                server.should_exit=True
+                await task
+            if rows[0]['firmaFinal']!=rows[1]['firmaFinal']:
+                first=next(i for i,(a,b) in enumerate(zip(*audits)) if a!=b)
+                (tmp_path/'repro_diagnostic.json').write_text(json.dumps(dict(rows=rows,
+                    firstDifferentTurn=first+1,first=audits[0][first],second=audits[1][first]),indent=2),encoding='utf-8')
+            return rows
+        rows=asyncio.run(run())
+        (tmp_path/'pro_repro_results.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2),encoding='utf-8')
+>       assert all(r['erroresHTTP']==0 for r in rows),[(r['erroresHTTP'],r['solicitudesSobre500ms']) for r in rows]
+E       AssertionError: [(2, 2), (0, 0)]
+E       assert False
+E        +  where False = all(<generator object test_pro_reproducible_full_round_real_http.<locals>.<genexpr> at 0x000001746876A260>)
+
+backend\tests\test_pro_integration.py:110: AssertionError
+============================== warnings summary ===============================
+backend\.venv312\Lib\site-packages\starlette\testclient.py:37
+  C:\xampp\htdocs\manta-zombie-escape\backend\.venv312\Lib\site-packages\starlette\testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 5 durations =============================
+408.08s call     tests/test_pro_integration.py::test_pro_reproducible_full_round_real_http
+186.68s call     tests/test_phase2.py::test_three_complete_rounds_real_http_and_report
+4.01s call     tests/test_dashboard_control.py::test_restart_replaces_task_reservations_and_public_state
+2.81s call     tests/test_backend.py::test_concurrent_survivors_and_single_turn_owner
+2.62s call     tests/test_phase2.py::test_http_timeout_invalid_and_server_error_stay
+=========================== short test summary info ===========================
+FAILED backend\tests\test_pro_integration.py::test_pro_reproducible_full_round_real_http
+1 failed, 93 passed, 1 warning in 629.93s (0:10:29)

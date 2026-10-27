@@ -70,3 +70,6 @@ Ampliación autorizada: capa Dormidos (solo pruebas), opt-in y separada. GET /co
 
 
 Mapa ampliado: 1.507 nodos y 3.319 aristas reales, con toda la red anterior conservada. Geometrías/sentidos/paralelas y ubicaciones de refugios/flota se mantienen. El dashboard y la demo consumen la nueva mapaVersion sin tamaños fijos; ver docs/mapa.md.
+
+
+Distribución actual autorizada: mapa a todo el ancho, sin panel lateral. La búsqueda vive sobre el mapa y la información de la entidad seleccionada se muestra en una tarjeta flotante, con X/Escape y detalles secundarios plegados. Los datos de refugios y flota se consultan al seleccionar o buscar. No se modifica la API ni el algoritmo.

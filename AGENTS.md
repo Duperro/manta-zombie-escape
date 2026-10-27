@@ -29,3 +29,5 @@ La evidencia HTTP/RTL no equivale a revisión visual de Leaflet en navegador. Ve
 Panel de pruebas: iniciar app.dashboard_server (loopback, un worker) para tener dueño persistente del reloj; la CLI anterior conserva su propio dueño y no se ejecuta en paralelo. Controles opt-in y protegidos; contratos adicionales en contracts/dashboard-control.openapi.yaml. runId distingue reinicios; metadata de ejecución excluida de la firma determinista.
 
 El usuario autoriza visualizar dormidos solo en una capa local de depuración opt-in, vía /control/dormidos protegido y sin cache. No incorporarlos a /estado, Observation, planificadores, rutas ni métricas. Verificar runId/ronda/turno antes de dibujar y eliminar al despertar.
+
+Averías autorizadas: física opt-in común Base/Pro, sorteos independientes por vehículo/ronda/turno/tipo; 1–30 turnos completos de reparación sin movimiento/embarque/desembarque. Preservar pasajeros supervivientes y sus reservas; liberar recogidas pendientes. Nunca pasar registros internos de contacto al planificador. Ver docs/averias.md.
