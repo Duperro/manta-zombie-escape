@@ -1,6 +1,8 @@
 .env
 .env.*
 !.env.example
+!.env.docker.example
+.secrets/
 .venv*/
 __pycache__/
 .pytest_cache/

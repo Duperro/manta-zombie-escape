@@ -9,5 +9,11 @@ frontend
 infra
 reports
 docs
-.env
+.env*
+**/.env*
+.secrets
+**/.secrets
+**/node_modules
+**/dist
+*.log
 backend/app/main.py

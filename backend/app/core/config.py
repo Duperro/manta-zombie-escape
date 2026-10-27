@@ -62,7 +62,8 @@ class Settings:
 
     @classmethod
     def from_env(cls):
-        defaults = cls(api_key=os.environ.get("API_KEY", ""))
+        from app.core.secrets import api_key_from_env
+        defaults = cls(api_key=api_key_from_env())
         return cls(api_key=defaults.api_key, seed=int(os.getenv("SEED", "7")),
                    turn_seconds=float(os.getenv("TURN_SECONDS", "2")),
                    horde_move_probability=float(os.getenv("HORDE_MOVE_PROBABILITY", "0")),
