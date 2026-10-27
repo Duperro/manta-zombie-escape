@@ -1,0 +1,15 @@
+
+> manta-operations-dashboard@1.0.0 build
+> tsc -b && vite build && node scripts/check-bundle.mjs
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 1993 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.55 kB │ gzip:   0.35 kB
+dist/assets/index-M-0hhruY.css   42.20 kB │ gzip:  12.90 kB
+dist/assets/index-BMHrSGx8.js   416.53 kB │ gzip: 129.63 kB
+
+✓ built in 1.02s
+Bundle check: no backend credential markers or private request headers.

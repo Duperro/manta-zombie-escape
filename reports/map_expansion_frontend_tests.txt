@@ -1,0 +1,16 @@
+
+> manta-operations-dashboard@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.5 C:/xampp/htdocs/manta-zombie-escape/frontend
+
+
+ Test Files  6 passed (6)
+      Tests  30 passed (30)
+   Start at  13:58:09
+   Duration  15.34s (environment 40%, tests 22%, setup 18%, import 15%, transform 4%, worker 1%)
+
+    Isolate  6 workers spawned · ~1.15s startup each (spawn + environment, per file)
+             at least ~5.73s faster with isolate: false — reuses workers across files instead of one per file
+

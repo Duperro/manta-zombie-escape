@@ -1,0 +1,17 @@
+{
+  "mapVersion": "manta-e14526d00c21d066",
+  "nodes": 1507,
+  "directedEdges": 3319,
+  "publicTurns": [
+    0,
+    1,
+    2
+  ],
+  "trucks": 5,
+  "shelters": 4,
+  "positionsAndRoutesResolve": true,
+  "httpRequests": 398,
+  "httpErrors": 0,
+  "httpP95Ms": 38.12689999904251,
+  "note": "Real HTTP through Vite; no claim of visual browser QA or production SLA"
+}
