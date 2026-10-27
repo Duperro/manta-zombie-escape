@@ -24,12 +24,24 @@ class Settings:
     meeting_risk_threshold: float = 0.7
     retreat_risk_threshold: float = 0.7
     retreat_min_improvement: float = 0.25
+    vehicle_breakdowns: bool = False
+    vehicle_breakdown_chances: dict[str, float] = field(default_factory=lambda: {
+        "caminante": .25, "corredor": .5, "horda": .8, "dormido": .35,
+    })
+    vehicle_repair_turns: dict[str, int] = field(default_factory=lambda: {
+        "caminante": 2, "corredor": 3, "horda": 5, "dormido": 2,
+    })
     cors_origins: tuple[str, ...] = ()
     speeds: dict[str, float] = field(default_factory=lambda: {
         "avenida": 1.5, "calle": 1.2, "callejón": 0.9, "puente": 1.0,
     })
 
     def __post_init__(self):
+        kinds = {"caminante", "corredor", "horda", "dormido"}
+        if set(self.vehicle_breakdown_chances) != kinds or any(not 0 <= p <= 1 for p in self.vehicle_breakdown_chances.values()):
+            raise ValueError("Probabilidades de avería entre 0 y 1 para los cuatro tipos")
+        if set(self.vehicle_repair_turns) != kinds or any(type(n) is not int or not 1 <= n <= 30 for n in self.vehicle_repair_turns.values()):
+            raise ValueError("Reparaciones de 1 a 30 turnos para los cuatro tipos")
         if not self.api_key or not 0 <= self.horde_move_probability <= 1:
             raise ValueError("API_KEY requerida y probabilidad de horda entre 0 y 1")
         if self.turn_seconds <= 0 or any(v <= 0 for v in self.speeds.values()):
@@ -70,6 +82,9 @@ class Settings:
                    meeting_risk_threshold=float(os.getenv("MEETING_RISK_THRESHOLD",".7")),
                    retreat_risk_threshold=float(os.getenv("RETREAT_RISK_THRESHOLD",".7")),
                    retreat_min_improvement=float(os.getenv("RETREAT_MIN_IMPROVEMENT",".25")),
+                   vehicle_breakdowns=os.getenv("VEHICLE_BREAKDOWNS","false").lower() in {"true","1","yes"},
+                   vehicle_breakdown_chances={kind:float(os.getenv(f"BREAKDOWN_CHANCE_{kind.upper()}",str(chance))) for kind,chance in defaults.vehicle_breakdown_chances.items()},
+                   vehicle_repair_turns={kind:int(os.getenv(f"REPAIR_TURNS_{kind.upper()}",str(turns))) for kind,turns in defaults.vehicle_repair_turns.items()},
                    cors_origins=tuple(s.strip() for s in os.getenv("CORS_ORIGINS", "").split(",") if s.strip()),
                    speeds={k: float(os.getenv(f"SPEED_{name}", str(defaults.speeds[k])))
                            for k, name in [("avenida", "AVENIDA"), ("calle", "CALLE"),

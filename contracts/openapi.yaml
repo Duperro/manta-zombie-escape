@@ -478,6 +478,21 @@ components:
       title: ValidationError
     VehicleView:
       properties:
+        turnosReparacionRestantes:
+          type: integer
+          minimum: 0.0
+          title: Turnosreparacionrestantes
+          default: 0
+        causaAveria:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Causaaveria
+        averiasSufridas:
+          type: integer
+          minimum: 0.0
+          title: Averiassufridas
+          default: 0
         id:
           type: string
           title: Id

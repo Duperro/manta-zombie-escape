@@ -9,6 +9,7 @@ from app.core.graph import traversable, edges
 from app.models.domain import Survivor, Zombie, Shelter, Vehicle, StateView, FOOT_STATES, SURVIVOR_STATES, living
 from app.routing.planner import Observation
 from app.simulator.collisions import Traversal, same_node, opposite_crossing, eliminate
+from app.simulator.breakdowns import try_breakdown, advance_repairs
 from app.evaluation.metrics import Metrics
 from app.storage.reservations import MemoryReservations
 
@@ -42,6 +43,7 @@ class World:
     def __post_init__(self):
         self.rng=random.Random(self.settings.seed)  # Legacy demo handle; decisions never receive this.
         self.traversed=[]
+        self.zombie_movements=[]
         self.reservations=MemoryReservations(self.shelters)
 
     def horde_nodes(self):
@@ -58,6 +60,7 @@ class World:
 
     def move_zombies(self):
         self.traversed=[]
+        self.zombie_movements=[]
         usable=traversable(self.graph)
         blocked=self.horde_nodes()
         ordinary=nx.subgraph_view(usable,filter_edge=lambda u,v:v not in blocked)
@@ -76,7 +79,9 @@ class World:
                                if living(s.status) and s.node in paths)
                 if targets and targets[0][0]==0: break
                 dest=paths[targets[0][2]][1] if targets else rng.choice(neighbors)
-                self.traversed.append(Traversal(z.node,dest,road_identity(self.graph,z.node,dest,graph[z.node][dest])))
+                track=Traversal(z.node,dest,road_identity(self.graph,z.node,dest,graph[z.node][dest]))
+                self.traversed.append(track)
+                self.zombie_movements.append((track,z.id,z.kind))
                 z.node=dest
 
     def observation(self):
@@ -131,6 +136,7 @@ class World:
         return True
 
     def resolve(self,decisions):
+        repairing={v.id for v in self.vehicles if v.repair_turns_remaining>0}
         usable,blocked=traversable(self.graph),self.horde_nodes()
         foot=[s for s in self.survivors if s.status in FOOT_STATES]
         people={s.id:s for s in self.survivors}
@@ -153,7 +159,8 @@ class World:
         # Vehicle paths use the same graph and restrictions; one physical edge per microstep.
         for v in self.vehicles:
             v.traversed=[]
-            path=v.route if v.route and v.route[0]==v.node else [v.node]
+            attempted=set()
+            path=v.route if v.id not in repairing and v.route and v.route[0]==v.node else [v.node]
             for dest in path[1:1+self.settings.vehicle_edges_per_turn]:
                 origin=v.node
                 if not usable.has_edge(origin,dest) or dest in blocked:
@@ -165,7 +172,12 @@ class World:
                                         calleFisica=token,distancia_m=attrs["distancia_m"]))
                 v.distance_m+=attrs["distancia_m"]
                 v.node=dest
-            if v.node in path:
+                if try_breakdown(self,v,origin,dest,token,attempted): break
+            if not v.traversed and v.id not in repairing:
+                try_breakdown(self,v,v.node,v.node,"",attempted)
+            if v.repair_turns_remaining:
+                v.route=[v.node]
+            elif v.node in path:
                 v.route=path[path.index(v.node):]
             for sid in v.passengers:
                 s=people[sid]
@@ -201,6 +213,8 @@ class World:
                 for refuge in self.shelters:
                     if s.node==refuge.node and self._admit(s,refuge,"caminando"): break
         for v in self.vehicles:
+            v.passengers=[sid for sid in v.passengers if people[sid].status=="EN_CAMIONETA"]
+            if v.repair_turns_remaining: continue
             delivered=0
             for sid in list(v.passengers):
                 s=people[sid]
@@ -244,6 +258,8 @@ class World:
                 v.status="HACIA_REFUGIO"
                 v.meeting=None
 
+        advance_repairs(self,repairing)
+
     def assert_invariants(self):
         people={s.id:s for s in self.survivors}
         assert len(people)==len(self.survivors)
@@ -253,6 +269,10 @@ class World:
         assigned=[sid for v in self.vehicles for sid in v.assigned]
         assert len(riders)==len(set(riders)) and len(assigned)==len(set(assigned))
         for v in self.vehicles:
+            assert type(v.repair_turns_remaining) is int and 0<=v.repair_turns_remaining<=30
+            assert (v.status=="AVERIADA")==bool(v.repair_turns_remaining)
+            if v.repair_turns_remaining:
+                assert not v.assigned and v.meeting is None and v.route==[v.node]
             assert v.node in self.graph and len(v.passengers)<=v.capacity<=4
             assert len(v.passengers)+len(v.assigned)<=v.capacity
             assert len(v.traversed)<=self.settings.vehicle_edges_per_turn
@@ -295,7 +315,7 @@ class World:
                 sobrevivientesAsignados=sorted(sid for sid,rid in reserved.items() if rid==r.id),
                 idAnterior=f"R-{int(r.id.split('-')[1])}" if r.id.startswith("R-00") else None) for r in self.shelters],
             nodosBloqueados=sorted(self.horde_nodes()),
-            camionetas=[dict(id=v.id,nodoActual=v.node,estado=v.status,capacidad=v.capacity,pasajeros=v.passengers,
+            camionetas=[dict(turnosReparacionRestantes=v.repair_turns_remaining,causaAveria=v.breakdown_cause,averiasSufridas=v.breakdowns,id=v.id,nodoActual=v.node,estado=v.status,capacidad=v.capacity,pasajeros=v.passengers,
                 capacidadUtilizada=len(v.passengers),sobrevivientesAsignados=v.assigned,puntoEncuentro=v.meeting,
                 refugioDestino=v.shelter_id,rutaPlanificada=v.route,aristasRecorridasEnTurno=[
                     {k:value for k,value in t.items() if k!="calleFisica"} for t in v.traversed],

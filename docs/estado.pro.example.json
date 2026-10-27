@@ -6370,6 +6370,9 @@
   ],
   "camionetas": [
     {
+      "turnosReparacionRestantes": 0,
+      "causaAveria": null,
+      "averiasSufridas": 0,
       "id": "V-001",
       "nodoActual": "N-363643278",
       "estado": "DISPONIBLE",
@@ -6387,6 +6390,9 @@
       "distanciaRecorrida_m": 0.0
     },
     {
+      "turnosReparacionRestantes": 0,
+      "causaAveria": null,
+      "averiasSufridas": 0,
       "id": "V-002",
       "nodoActual": "N-363665356",
       "estado": "HACIA_RECOGIDA",
@@ -6412,6 +6418,9 @@
       "distanciaRecorrida_m": 0.0
     },
     {
+      "turnosReparacionRestantes": 0,
+      "causaAveria": null,
+      "averiasSufridas": 0,
       "id": "V-003",
       "nodoActual": "N-3173813183",
       "estado": "DISPONIBLE",
@@ -6429,6 +6438,9 @@
       "distanciaRecorrida_m": 0.0
     },
     {
+      "turnosReparacionRestantes": 0,
+      "causaAveria": null,
+      "averiasSufridas": 0,
       "id": "V-004",
       "nodoActual": "N-363711184",
       "estado": "HACIA_RECOGIDA",
@@ -6460,6 +6472,9 @@
       "distanciaRecorrida_m": 0.0
     },
     {
+      "turnosReparacionRestantes": 0,
+      "causaAveria": null,
+      "averiasSufridas": 0,
       "id": "V-005",
       "nodoActual": "N-363677087",
       "estado": "DISPONIBLE",

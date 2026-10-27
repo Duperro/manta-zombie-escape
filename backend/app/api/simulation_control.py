@@ -29,6 +29,21 @@ class ZombieCounts(BaseModel):
         return self
 
 
+class BreakdownRule(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    probabilidad: float = Field(ge=0, le=1)
+    turnos: int = Field(ge=1, le=30)
+
+
+class BreakdownConfig(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    activadas: bool = False
+    caminante: BreakdownRule = Field(default_factory=lambda: BreakdownRule(probabilidad=.25, turnos=2))
+    corredor: BreakdownRule = Field(default_factory=lambda: BreakdownRule(probabilidad=.5, turnos=3))
+    horda: BreakdownRule = Field(default_factory=lambda: BreakdownRule(probabilidad=.8, turnos=5))
+    dormido: BreakdownRule = Field(default_factory=lambda: BreakdownRule(probabilidad=.35, turnos=2))
+
+
 class SimulationRequest(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
     ronda: int = Field(default=1, ge=1, le=3)
@@ -39,6 +54,7 @@ class SimulationRequest(BaseModel):
     estrategia: Literal["base", "pro"] = "pro"
     distribucion: Literal["equilibrada", "aleatoria"] = "equilibrada"
     bloqueos: bool = True
+    averias: BreakdownConfig = Field(default_factory=BreakdownConfig)
 
 
 class SimulationStatus(BaseModel):
@@ -87,7 +103,10 @@ class SimulationControl:
             events = [e for e in scenario["eventos"] if (e["turno"] or e["turnoAleatorio"][1]) <= config.turnos] if config.bloqueos else []
             scenario.update(sobrevivientes=config.sobrevivientes, zombies=config.zombies.model_dump(),
                             turnos=config.turnos, distribucion=config.distribucion, eventos=events)
-            settings = replace(self.settings, seed=config.semilla, routing_strategy=config.estrategia)
+            settings = replace(self.settings, seed=config.semilla, routing_strategy=config.estrategia,
+                vehicle_breakdowns=config.averias.activadas,
+                vehicle_breakdown_chances={kind:getattr(config.averias,kind).probabilidad for kind in ("caminante","corredor","horda","dormido")},
+                vehicle_repair_turns={kind:getattr(config.averias,kind).turnos for kind in ("caminante","corredor","horda","dormido")})
             # Validation/build happen before stopping the previous run.
             try:
                 world = build_world(settings, ScenarioConfig.model_validate(scenario))

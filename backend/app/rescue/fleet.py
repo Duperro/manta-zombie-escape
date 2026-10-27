@@ -10,6 +10,7 @@ class FleetPlanner:
             if s and s.status in FOOT_STATES and s.vehicle_id==vehicle.id:
                 s.status="CAMINANDO"
                 s.vehicle_id=None
+                if reason=="averia": s.planned_route=[s.node]
                 world.metrics.rescues_cancelled+=1
                 world.history.append(dict(id=f"cancelacion-{world.turn}-{vehicle.id}-{sid}",turno=world.turn,
                     tipo="rescate_cancelado",sobrevivienteId=sid,camionetaId=vehicle.id,motivo=reason))
@@ -24,6 +25,10 @@ class FleetPlanner:
         shelters={r.id:r for r in world.shelters}
         assigned=set()
         settings=world.settings
+        for vehicle in world.vehicles:
+            if vehicle.repair_turns_remaining:
+                self.cancel(world,vehicle,"averia")
+                vehicle.status="AVERIADA"
 
         def destination(s):
             r=shelters.get(s.assigned_shelter)
@@ -44,6 +49,7 @@ class FleetPlanner:
         candidates=candidates[:settings.pickup_candidates]
 
         for v in sorted(world.vehicles,key=lambda v:v.id):
+            if v.repair_turns_remaining: continue
             v.passengers=[sid for sid in v.passengers if sid in people and people[sid].status=="EN_CAMIONETA"]
             viable=[sid for sid in v.assigned if sid in people and people[sid].status in FOOT_STATES and
                     people[sid].vehicle_id==v.id and destination(people[sid])]
