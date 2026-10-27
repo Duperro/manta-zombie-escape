@@ -5,7 +5,8 @@ import { metricLabels } from '../components/Panels';
 describe('FastAPI → visual contract', () => {
   const map = prepareMap(mapFixture);
   it('preserves the real directed graph and swaps longitude/latitude', () => {
-    expect(map.nodes.size).toBe(306); expect(map.streets).toHaveLength(571);
+    expect(map.nodes.size).toBe(mapFixture.nodos.length); expect(map.streets).toHaveLength(mapFixture.aristas.length);
+    expect(map.nodes.size).toBeGreaterThanOrEqual(1500);
     const e = mapFixture.aristas[0]; expect(map.streets[0].points[0]).toEqual([e.geometria[0][1], e.geometria[0][0]]);
   });
   it('normalizes all five trucks using node IDs, passenger IDs and exact field names', () => {
