@@ -2,6 +2,8 @@
 
 Simulador Base/Pro sobre calles reales de Manta, con FastAPI, NetworkX y HTTP real. Pro integra predicción de corredores, asignación global con reservas y cinco camionetas con encuentros dinámicos y embarques físicos. Anochecer, Medianoche y Apocalipsis duran 150 turnos cada una. Incluye dashboard React/TypeScript/Leaflet conectado a los datos reales y demo local explícita. No se crearon recursos AWS.
 
+**Para instalar y utilizar la versión completa desde `main`, seguir la [guía de inicio rápido para compañeros](docs/inicio_rapido.md).** Incluye instalación, arranque del dashboard con controles, actualización y solución de problemas para Windows y comandos para Linux/macOS.
+
 Diseño, reglas propias de vehículos, parámetros y comandos completos en [docs/fase3.md](docs/fase3.md). Resultados y límites reales en [docs/verificacion_fase3.md](docs/verificacion_fase3.md).
 
 Los archivos generados por cada corrida se guardan localmente en `reports/` y se excluyen de Git. En GitHub se conservan los comandos, reglas y resúmenes de validación de `docs/`; ver [política de reportes](reports/README.md).
