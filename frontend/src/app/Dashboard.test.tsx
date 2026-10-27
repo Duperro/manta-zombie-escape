@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { Dashboard } from './Dashboard';
@@ -7,7 +8,7 @@ import { adaptState, prepareMap } from '../services/adapter';
 import { frameFixtures, mapFixture, clone } from '../test/fixtures';
 vi.mock('../components/MapBoard', async () => {
   const actual = await vi.importActual<typeof import('../components/MapBoard')>('../components/MapBoard');
-  return { ...actual, MapBoard: () => <div data-testid="map-shell" style={{ height: '510px' }}>Mapa operativo</div> };
+  return { ...actual, MapBoard: ({ children }: { children?: ReactNode }) => <div data-testid="map-shell" style={{ height: '510px' }}>Mapa operativo{children}</div> };
 });
 function fixture(demo = false, disconnected = false) {
   const state = adaptState(frameFixtures[6], prepareMap(mapFixture), demo);
@@ -20,6 +21,8 @@ describe('operations dashboard', () => {
     const { provider, state } = fixture(); const result = render(<SimulationContext provider={provider}><Dashboard/></SimulationContext>);
     expect(screen.getByRole('heading', { name: /MANTA/ })).toBeInTheDocument();
     expect(screen.getByText('DATOS REALES')).toBeInTheDocument();
+    expect(document.querySelector('.sidebar')).toBeNull();
+    fireEvent.change(screen.getByRole('textbox', { name: 'Buscar entidad' }), { target: { value: 'V-00' } });
     expect(screen.getAllByRole('button', { name: /V-00/ })).toHaveLength(5);
     expect(screen.getByText('Rescates completados')).toBeInTheDocument(); expect(screen.getByText('Rescates cancelados')).toBeInTheDocument();
     expect(screen.queryByRole('region', { name: 'Controles de demostración' })).not.toBeInTheDocument();
@@ -27,6 +30,7 @@ describe('operations dashboard', () => {
     fireEvent.click(screen.getByRole('button', { name: new RegExp(truck.id) }));
     expect(screen.getByText(truck.passengers.join(', '))).toBeInTheDocument();
     expect(screen.getByText('Punto de encuentro')).toBeInTheDocument();
+    expect(screen.getByTestId('map-shell')).toContainElement(screen.getByRole('region', { name: 'Detalle de entidad' }));
     result.unmount(); expect(provider.stop).toHaveBeenCalledTimes(1);
   });
   it('renders all 25 telemetry fields and missing values as unavailable', () => {
@@ -50,4 +54,31 @@ describe('operations dashboard', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Avanzar demostración' })); expect(provider.advance).toHaveBeenCalledTimes(1);
     expect(screen.getByText('DEMOSTRACIÓN')).toBeInTheDocument();
   });
+  it('finds a shelter by name, keeps its card in the map and closes on X or Escape', () => {
+    const { provider } = fixture(); render(<SimulationContext provider={provider}><Dashboard/></SimulationContext>);
+    const input = screen.getByRole('textbox', { name: 'Buscar entidad' });
+    fireEvent.change(input, { target: { value: 'Tarqui' } });
+    fireEvent.click(screen.getByRole('button', { name: /R-001/ }));
+    expect(screen.getByText('Plazas disponibles')).toBeInTheDocument();
+    expect(screen.getByTestId('map-shell')).toContainElement(screen.getByRole('region', { name: 'Detalle de entidad' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Cerrar detalle' }));
+    expect(screen.queryByRole('region', { name: 'Detalle de entidad' })).not.toBeInTheDocument();
+    fireEvent.change(input, { target: { value: 'V-001' } });
+    fireEvent.click(screen.getByRole('button', { name: /V-001/ }));
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(screen.queryByRole('region', { name: 'Detalle de entidad' })).not.toBeInTheDocument();
+    expect(document.querySelector('.map-detail-card')).toBeNull();
+  });
+
+  it('shows the real repair countdown in the selected truck card', () => {
+    const { provider, state } = fixture();
+    state.trucks[0] = { ...state.trucks[0], state: 'AVERIADA', repairTurns: 3, breakdownCause: 'corredor', breakdowns: 1 };
+    render(<SimulationContext provider={provider}><Dashboard/></SimulationContext>);
+    fireEvent.change(screen.getByRole('textbox', { name: 'Buscar entidad' }), { target: { value: state.trucks[0].id } });
+    fireEvent.click(screen.getByRole('button', { name: new RegExp(state.trucks[0].id) }));
+    expect(screen.getByText('AVERIADA')).toBeInTheDocument();
+    expect(screen.getByText('3 turnos')).toBeInTheDocument();
+    expect(screen.getByText('corredor')).toBeInTheDocument();
+  });
+
 });

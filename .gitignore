@@ -11,8 +11,9 @@ dist/
 data/maps/cache/
 data/maps/*.graphml
 
-# Artefactos locales de procesos; conservar informes reproducibles, no logs temporales.
+# Logs y resultados de corridas son locales; solo versionar la guía del directorio.
 *.log
-reports/*_processes.json
-reports/*_previous_config.json
-reports/*git_status.txt
+/reports/**
+!/reports/README.md
+!/reports/phase3_pilots/
+!/reports/phase3_pilots/README.md

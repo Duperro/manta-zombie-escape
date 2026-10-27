@@ -2,7 +2,11 @@
 
 Simulador Base/Pro sobre calles reales de Manta, con FastAPI, NetworkX y HTTP real. Pro integra predicción de corredores, asignación global con reservas y cinco camionetas con encuentros dinámicos y embarques físicos. Anochecer, Medianoche y Apocalipsis duran 150 turnos cada una. Incluye dashboard React/TypeScript/Leaflet conectado a los datos reales y demo local explícita. No se crearon recursos AWS.
 
+**Para instalar y utilizar la versión completa desde `main`, seguir la [guía de inicio rápido para compañeros](docs/inicio_rapido.md).** Incluye instalación, arranque del dashboard con controles, actualización y solución de problemas para Windows y comandos para Linux/macOS.
+
 Diseño, reglas propias de vehículos, parámetros y comandos completos en [docs/fase3.md](docs/fase3.md). Resultados y límites reales en [docs/verificacion_fase3.md](docs/verificacion_fase3.md).
+
+Los archivos generados por cada corrida se guardan localmente en `reports/` y se excluyen de Git. En GitHub se conservan los comandos, reglas y resúmenes de validación de `docs/`; ver [política de reportes](reports/README.md).
 
 Desde backend/, con API_KEY definida:
 
@@ -169,3 +173,5 @@ Validación, ejecución detallada, arquitectura, variables y entrega AWS: [front
 main integra las entregas de feat/backend-simulator, feat/frontend-dashboard y chore/docs-contracts. Los commits agrupan backend/datos, frontend y documentación/contratos/evidencias; los merges conservan su historia. Guía en [docs/organizacion_git.md](docs/organizacion_git.md).
 
 La ampliación actual conserva refugios y flota, actualiza ejemplos y demo, y aumenta la envolvente geográfica unas 2,9 veces. Los reportes previos de Fase 3 corresponden al mapa archivado de 306 nodos. Ver docs/mapa.md y reports/map_expansion.json para la comparación.
+
+Averías temporales configurables en Pruebas de fuego: probabilidad y reparación por tipo de zombie, estado AVERIADA y contador en el mapa. Opción apagada por defecto; reglas comunes Base/Pro y pruebas reproducibles. Detalles en [docs/averias.md](docs/averias.md).

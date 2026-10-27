@@ -3,6 +3,7 @@
 Ámbito autorizado por el usuario: backend, frontend/, contratos, datos, documentación y correcciones de .kiro/. Preservar archivos históricos de Kiro en archive/. No modificar infra/ del responsable AWS ni sobrescribir trabajo ajeno.
 Organización autorizada por el usuario: main integra feat/backend-simulator (backend/datos), feat/frontend-dashboard (interfaz) y chore/docs-contracts (entrega). Trabajar en la rama de su categoría. La solicitud actual autoriza crear ramas, commits y merges de integración; no desplegar. Para cambios posteriores no hacer push/merge sin autorización.
 No incluir secretos, caches OSM ni entornos virtuales en Git. Preservar main.py y .venv originales; entrada correcta app.server:app.
+No versionar ni subir resultados generados por corridas, pruebas, benchmarks o capturas en reports/. Conservarlos localmente; versionar solo los README de ese directorio y resúmenes documentales en docs/. No forzar su inclusión con git add -f.
 
 Python 3.11/3.12. Desde backend/: python -m app.export_contract y python -m pytest -q --durations=5.
 El conjunto incluye tres rondas de 150 turnos por TCP real; requiere acceso localhost.
@@ -29,3 +30,5 @@ La evidencia HTTP/RTL no equivale a revisión visual de Leaflet en navegador. Ve
 Panel de pruebas: iniciar app.dashboard_server (loopback, un worker) para tener dueño persistente del reloj; la CLI anterior conserva su propio dueño y no se ejecuta en paralelo. Controles opt-in y protegidos; contratos adicionales en contracts/dashboard-control.openapi.yaml. runId distingue reinicios; metadata de ejecución excluida de la firma determinista.
 
 El usuario autoriza visualizar dormidos solo en una capa local de depuración opt-in, vía /control/dormidos protegido y sin cache. No incorporarlos a /estado, Observation, planificadores, rutas ni métricas. Verificar runId/ronda/turno antes de dibujar y eliminar al despertar.
+
+Averías autorizadas: física opt-in común Base/Pro, sorteos independientes por vehículo/ronda/turno/tipo; 1–30 turnos completos de reparación sin movimiento/embarque/desembarque. Preservar pasajeros supervivientes y sus reservas; liberar recogidas pendientes. Nunca pasar registros internos de contacto al planificador. Ver docs/averias.md.

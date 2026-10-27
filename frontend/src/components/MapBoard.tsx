@@ -1,8 +1,8 @@
-import { Fragment, memo, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, memo, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { CircleMarker, MapContainer, Marker, Polyline, TileLayer, Tooltip, useMap } from 'react-leaflet';
 import { divIcon } from 'leaflet';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { Biohazard, Check, Crosshair, Layers, Minus, PersonStanding, Plus, ShieldPlus, Skull, Truck as TruckIcon, X, Zap } from 'lucide-react';
+import { Biohazard, Check, Crosshair, Layers, Minus, PersonStanding, Plus, ShieldPlus, Skull, Truck as TruckIcon, Wrench, X, Zap } from 'lucide-react';
 import type { Point, Selection, VisualState } from '../types/visual';
 import { SleeperDebugLayer } from './SleeperDebugLayer';
 import { survivorLabels } from '../services/adapter';
@@ -66,8 +66,8 @@ function Fit({ points, version, fitKey }: { points: Point[]; version: string; fi
   return null;
 }
 const shelterIcon = divIcon({ className: 'entity-icon', html: `<span class="shelter-pin">${renderToStaticMarkup(<ShieldPlus size={18} strokeWidth={2}/>)}</span>`, iconSize: [30, 30], iconAnchor: [15, 15] });
-function truckIcon(count: number) { return divIcon({ className: 'entity-icon', html: `<span class="truck-pin">${renderToStaticMarkup(<TruckIcon size={18}/>)}<b>${count}</b></span>`, iconSize: [32, 28], iconAnchor: [16, 14] }); }
-export const MapBoard = memo(function MapBoard({ state, selected, onSelect, layers }: { state: VisualState; selected: Selection; onSelect: (s: Selection) => void; layers: LayersState }) {
+function truckIcon(count: number, repairTurns: number) { return divIcon({ className: 'entity-icon', html: `<span class="truck-pin ${repairTurns ? 'truck-broken' : ''}">${renderToStaticMarkup(<TruckIcon size={18}/>)}<b>${count}</b>${repairTurns ? `<i>${renderToStaticMarkup(<Wrench size={11}/>)}</i><em>${repairTurns}t</em>` : ''}</span>`, iconSize: [32, 28], iconAnchor: [16, 14] }); }
+export const MapBoard = memo(function MapBoard({ state, selected, onSelect, layers, children }: { state: VisualState; selected: Selection; onSelect: (s: Selection) => void; layers: LayersState; children?: ReactNode }) {
   const [fitKey, setFitKey] = useState(0);
   const [tileError, setTileError] = useState(false);
   const baseRoads = useMemo(() => state.map.streets.filter(e => e.points.length >= 2).map(e => e.points), [state.map]);
@@ -92,11 +92,12 @@ export const MapBoard = memo(function MapBoard({ state, selected, onSelect, laye
       {layers.zombies && state.zombies.filter(z => z.position).map(z => <Marker key={z.id} position={z.position!} icon={threatIcon(z.type, selected?.id === z.id)} zIndexOffset={selected?.id === z.id ? 2000 : 200} eventHandlers={{ click: () => onSelect({ kind: 'zombie', id: z.id }) }}><Tooltip>{z.id} · {z.type}</Tooltip></Marker>)}
       {layers.shelters && state.shelters.filter(r => r.position).map(r => <Marker key={r.id} position={r.position!} icon={shelterIcon} zIndexOffset={selected?.id === r.id ? 2000 : 400} eventHandlers={{ click: () => onSelect({ kind: 'shelter', id: r.id }) }}><Tooltip>{r.name} · {r.available} plazas disponibles</Tooltip></Marker>)}
       {layers.trucks && state.trucks.map(v => <Fragment key={v.id}>
-        {v.position && <Marker position={v.position} icon={truckIcon(v.passengers.length)} zIndexOffset={selected?.id === v.id ? 2000 : 500} eventHandlers={{ click: () => onSelect({ kind: 'truck', id: v.id }) }}><Tooltip>{v.id} · {v.used}/{v.capacity} pasajeros · {v.state}</Tooltip></Marker>}
+        {v.position && <Marker position={v.position} icon={truckIcon(v.passengers.length, v.repairTurns)} zIndexOffset={selected?.id === v.id ? 2000 : 500} eventHandlers={{ click: () => onSelect({ kind: 'truck', id: v.id }) }}><Tooltip>{v.id} · {v.used}/{v.capacity} pasajeros · {v.state}{v.repairTurns ? ` · reparación: ${v.repairTurns} turnos` : ''}</Tooltip></Marker>}
         {v.meeting && state.map.nodes.has(v.meeting) && <CircleMarker center={state.map.nodes.get(v.meeting)!} radius={8} pathOptions={{ color: '#c4a0ff', fillOpacity: 0.05, weight: 2, dashArray: '3 3' }}><Tooltip>Encuentro · {v.id}</Tooltip></CircleMarker>}
       </Fragment>)}
       {target && selected && <CircleMarker center={target} radius={24} pathOptions={{ color: '#ffffff', weight: 2, opacity: 0.9, fillColor: '#ffffff', fillOpacity: 0.05, dashArray: '5 5' }} interactive={false}><Tooltip permanent direction="top" offset={[0, -23]} className="selection-tooltip">{selected.id}</Tooltip></CircleMarker>}
     </MapContainer>
+    {children}
     <div className="map-topline"><button className="icon-button" aria-label="Centrar mapa" title="Centrar mapa" onClick={() => setFitKey(x => x + 1)}><Crosshair size={18}/></button></div>
     {tileError && <div className="map-bottomline"><span>Mapa base sin conexión</span></div>}
     {state.demo && <div className="map-watermark">DEMOSTRACIÓN</div>}

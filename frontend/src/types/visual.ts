@@ -6,7 +6,7 @@ export type Selection = { kind: 'survivor' | 'truck' | 'shelter' | 'zombie'; id:
 export interface Street { id: string; from: string; to: string; points: Point[]; cost: number; type: string; blocked: boolean }
 export interface PreparedMap { version: string; attribution: string; nodes: Map<string, Point>; streets: Street[]; pairs: Map<string, Street[]>; bounds: Point[] }
 export interface Survivor { id: string; node: string; position?: Point; state: SurvivorState | 'DESCONOCIDO'; rawState: string; shelter: string | null; route: string[]; truck: string | null; evacuationMode: string | null; evacuationTurn: number | null; cause: string | null; distanceWalk: number; distanceTruck: number }
-export interface Truck { id: string; node: string; position?: Point; state: string; capacity: number; passengers: string[]; used: number; assigned: string[]; meeting: string | null; shelter: string | null; route: string[]; trips: number; distance: number }
+export interface Truck { repairTurns: number; breakdownCause: string | null; breakdowns: number; id: string; node: string; position?: Point; state: string; capacity: number; passengers: string[]; used: number; assigned: string[]; meeting: string | null; shelter: string | null; route: string[]; trips: number; distance: number }
 export interface Shelter { id: string; name: string; node: string; position?: Point; capacity: number; occupied: number; reserved: number; available: number; state: string; assigned: string[] }
 export interface Zombie { id: string; node: string; position?: Point; type: 'caminante' | 'corredor' | 'horda' }
 export interface Route { id: string; owner: string; kind: 'survivor' | 'truck'; points: Point[] }

@@ -2,6 +2,15 @@
 import math
 from app.models.domain import FOOT_STATES, living
 
+
+def nearby_origins(graph, target, max_edges):
+    """Conservative directed hop bound; weighted routes are still checked below."""
+    nearby=frontier={target}
+    for _ in range(max_edges):
+        frontier={origin for node in frontier for origin in graph.predecessors(node)}
+        nearby=nearby|frontier
+    return nearby
+
 class FleetPlanner:
     def cancel(self,world,vehicle,reason):
         people={s.id:s for s in world.survivors}
@@ -10,6 +19,7 @@ class FleetPlanner:
             if s and s.status in FOOT_STATES and s.vehicle_id==vehicle.id:
                 s.status="CAMINANDO"
                 s.vehicle_id=None
+                if reason=="averia": s.planned_route=[s.node]
                 world.metrics.rescues_cancelled+=1
                 world.history.append(dict(id=f"cancelacion-{world.turn}-{vehicle.id}-{sid}",turno=world.turn,
                     tipo="rescate_cancelado",sobrevivienteId=sid,camionetaId=vehicle.id,motivo=reason))
@@ -24,6 +34,10 @@ class FleetPlanner:
         shelters={r.id:r for r in world.shelters}
         assigned=set()
         settings=world.settings
+        for vehicle in world.vehicles:
+            if vehicle.repair_turns_remaining:
+                self.cancel(world,vehicle,"averia")
+                vehicle.status="AVERIADA"
 
         def destination(s):
             r=shelters.get(s.assigned_shelter)
@@ -44,6 +58,7 @@ class FleetPlanner:
         candidates=candidates[:settings.pickup_candidates]
 
         for v in sorted(world.vehicles,key=lambda v:v.id):
+            if v.repair_turns_remaining: continue
             v.passengers=[sid for sid in v.passengers if sid in people and people[sid].status=="EN_CAMIONETA"]
             viable=[sid for sid in v.assigned if sid in people and people[sid].status in FOOT_STATES and
                     people[sid].vehicle_id==v.id and destination(people[sid])]
@@ -166,13 +181,15 @@ class FleetPlanner:
             primary.planned_route=foot_path
             primary.status="ESPERANDO_RESCATE" if primary.node==point else "HACIA_ENCUENTRO"
             # Group nearby people sharing the same reserved destination; no duplicate assignments.
+            max_walk=min(2,settings.meeting_max_wait)
+            nearby=nearby_origins(state.graph,point,max_walk)
             for s in sorted(people.values(),key=lambda s:s.id):
                 if len(v.assigned)>=v.capacity:
                     break
-                if s.id in assigned or s.status not in FOOT_STATES or s.vehicle_id is not None or s.assigned_shelter!=v.shelter_id:
+                if s.id in assigned or s.status not in FOOT_STATES or s.vehicle_id is not None or s.assigned_shelter!=v.shelter_id or s.node not in nearby:
                     continue
                 choice=routes.path_between(s.node,point)
-                if choice and len(choice[1])-1<=min(2,settings.meeting_max_wait):
+                if choice and len(choice[1])-1<=max_walk:
                     v.assigned.append(s.id)
                     assigned.add(s.id)
                     s.vehicle_id=v.id

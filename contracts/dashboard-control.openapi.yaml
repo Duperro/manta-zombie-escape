@@ -110,7 +110,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SimulationRequest'
+              $ref: '#/components/schemas/SimulationRequest-Input'
         required: true
       responses:
         '200':
@@ -129,6 +129,41 @@ paths:
       - APIKeyHeader: []
 components:
   schemas:
+    BreakdownConfig:
+      properties:
+        activadas:
+          type: boolean
+          title: Activadas
+          default: false
+        caminante:
+          $ref: '#/components/schemas/BreakdownRule'
+        corredor:
+          $ref: '#/components/schemas/BreakdownRule'
+        horda:
+          $ref: '#/components/schemas/BreakdownRule'
+        dormido:
+          $ref: '#/components/schemas/BreakdownRule'
+      additionalProperties: false
+      type: object
+      title: BreakdownConfig
+    BreakdownRule:
+      properties:
+        probabilidad:
+          type: number
+          maximum: 1.0
+          minimum: 0.0
+          title: Probabilidad
+        turnos:
+          type: integer
+          maximum: 30.0
+          minimum: 1.0
+          title: Turnos
+      additionalProperties: false
+      type: object
+      required:
+      - probabilidad
+      - turnos
+      title: BreakdownRule
     EdgeView:
       properties:
         id:
@@ -334,7 +369,7 @@ components:
       - plazas_reservadas
       - estado
       title: ShelterView
-    SimulationRequest:
+    SimulationRequest-Input:
       properties:
         ronda:
           type: integer
@@ -380,6 +415,59 @@ components:
           type: boolean
           title: Bloqueos
           default: true
+        averias:
+          $ref: '#/components/schemas/BreakdownConfig'
+      additionalProperties: false
+      type: object
+      title: SimulationRequest
+    SimulationRequest-Output:
+      properties:
+        ronda:
+          type: integer
+          maximum: 3.0
+          minimum: 1.0
+          title: Ronda
+          default: 1
+        sobrevivientes:
+          type: integer
+          maximum: 500.0
+          minimum: 1.0
+          title: Sobrevivientes
+          default: 20
+        zombies:
+          $ref: '#/components/schemas/ZombieCounts'
+        turnos:
+          type: integer
+          maximum: 150.0
+          minimum: 1.0
+          title: Turnos
+          default: 150
+        semilla:
+          type: integer
+          maximum: 2147483647.0
+          minimum: 0.0
+          title: Semilla
+          default: 7
+        estrategia:
+          type: string
+          enum:
+          - base
+          - pro
+          title: Estrategia
+          default: pro
+        distribucion:
+          type: string
+          enum:
+          - equilibrada
+          - aleatoria
+          title: Distribucion
+          default: equilibrada
+        bloqueos:
+          type: boolean
+          title: Bloqueos
+          default: true
+        averias:
+          $ref: '#/components/schemas/BreakdownConfig'
       additionalProperties: false
       type: object
       title: SimulationRequest
@@ -393,7 +481,7 @@ components:
           title: Ejecutando
         configuracion:
           anyOf:
-          - $ref: '#/components/schemas/SimulationRequest'
+          - $ref: '#/components/schemas/SimulationRequest-Output'
           - type: 'null'
         error:
           anyOf:
@@ -644,6 +732,21 @@ components:
       title: ValidationError
     VehicleView:
       properties:
+        turnosReparacionRestantes:
+          type: integer
+          minimum: 0.0
+          title: Turnosreparacionrestantes
+          default: 0
+        causaAveria:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Causaaveria
+        averiasSufridas:
+          type: integer
+          minimum: 0.0
+          title: Averiassufridas
+          default: 0
         id:
           type: string
           title: Id

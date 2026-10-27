@@ -1,5 +1,6 @@
 import asyncio
 import time
+import logging
 import httpx
 from app.routing.strategies import make_strategy, PlanningContext
 from app.models.domain import FOOT_STATES, living
@@ -51,6 +52,9 @@ class Coordinator:
             w.move_zombies()
             self.snapshot = w.observation()
             self.precompute()
+            # Planning is synchronous CPU work. Let pending socket completions and
+            # expired keep-alive callbacks run before dispatching the next batch.
+            await asyncio.sleep(0)
             semaphore = asyncio.Semaphore(self.concurrency)
             metrics = w.metrics
 
@@ -67,8 +71,11 @@ class Coordinator:
                             if not isinstance(payload,dict) or set(payload)!={"siguienteNodo"}:
                                 raise ValueError("Contrato de respuesta inválido")
                             target = PasoResponse.model_validate(payload,strict=True).siguienteNodo
-                    except (httpx.HTTPError,TimeoutError):
+                    except (httpx.HTTPError,TimeoutError) as exc:
                         metrics.http_errors += 1
+                        logging.getLogger(__name__).warning(
+                            'HTTP decision failed: turn=%s survivor=%s error=%s elapsed_ms=%.2f',
+                            w.turn,sid,type(exc).__name__,(time.perf_counter()-before)*1000)
                     except (ValueError,KeyError,TypeError):
                         metrics.invalid_responses += 1
                     finally:
@@ -79,7 +86,20 @@ class Coordinator:
                             target=node
                     return sid,target
 
-            decisions=dict(await asyncio.gather(*(request(sid,node) for sid,node in self.snapshot.survivors)))
+            # Keep only the bounded workers alive instead of allocating one Task
+            # and semaphore waiter per actor at every turn. Each actor still
+            # makes a genuine HTTP request, timed after acquiring its slot.
+            actors=iter(self.snapshot.survivors)
+
+            async def worker():
+                results=[]
+                for sid,node in actors:
+                    results.append(await request(sid,node))
+                return results
+
+            batches=await asyncio.gather(*(worker() for _ in
+                range(min(self.concurrency,len(self.snapshot.survivors)))))
+            decisions=dict(result for batch in batches for result in batch)
             w.resolve(decisions)
             # A published route begins at the current position, after this turn's movement.
             for survivor in w.survivors:

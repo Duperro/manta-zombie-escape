@@ -70,6 +70,9 @@ class Vehicle:
     trips: int = 0
     distance_m: float = 0.0
     waiting_turns: int = 0
+    repair_turns_remaining: int = 0
+    breakdown_cause: str | None = None
+    breakdowns: int = 0
 
 
 class NodeView(BaseModel):
@@ -130,6 +133,9 @@ class ShelterView(BaseModel):
     idAnterior: str | None = None
 
 class VehicleView(BaseModel):
+    turnosReparacionRestantes: int = Field(default=0, ge=0)
+    causaAveria: str | None = None
+    averiasSufridas: int = Field(default=0, ge=0)
     id: str
     nodoActual: str
     estado: str

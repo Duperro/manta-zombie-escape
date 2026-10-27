@@ -57,4 +57,15 @@ describe('fire test controls', () => {
     expect(screen.getByRole('dialog', { name: 'Pruebas de fuego' })).toBeVisible();
   });
 
+  it('sends configurable breakdown chances as fractions and repair durations as turns', async () => {
+    const fetcher = vi.fn().mockResolvedValueOnce(reply(status)).mockResolvedValue(reply({ ...status, ejecutando: true, configuracion: {} }));
+    vi.stubGlobal('fetch', fetcher); await open();
+    fireEvent.click(screen.getByRole('checkbox', { name: 'Averías temporales de furgonetas' }));
+    fireEvent.change(screen.getByLabelText('Probabilidad de avería por Corredores'), { target: { value: '100' } });
+    fireEvent.change(screen.getByLabelText('Turnos de reparación por Corredores'), { target: { value: '6' } });
+    fireEvent.submit(screen.getByRole('form', { name: 'Configurar prueba de fuego' }));
+    await screen.findByText('Simulación iniciada.');
+    expect(JSON.parse(fetcher.mock.calls.at(-1)![1].body).averias).toMatchObject({ activadas: true, corredor: { probabilidad: 1, turnos: 6 } });
+  });
+
 });
