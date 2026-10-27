@@ -73,9 +73,9 @@ Cargar /mapa una vez por mapaVersion y consultar /estado por polling. /estado co
 
 ## Mapa y refugios
 
-data/maps/manta_graph.json contiene **306 nodos y 571 aristas dirigidas**, fuertemente conectados antes de eventos, con cobertura de Tarqui, Los Esteros, Barbasquillo y Jocay mediante anclas Nominatim. Conserva identificadores OSM, geometrías GeoJSON [lng,lat], sentidos únicos y calles paralelas. Sus 14 aristas de tipo puente son direcciones/segmentos etiquetados OSM, no 14 puentes físicos distintos.
+data/maps/manta_graph.json contiene **1.507 nodos y 3.319 aristas dirigidas**, fuertemente conectados antes de eventos, con cobertura de Tarqui, Los Esteros, Barbasquillo y Jocay mediante anclas Nominatim. Conserva identificadores OSM, geometrías GeoJSON [lng,lat], sentidos únicos y calles paralelas. Sus 49 aristas de tipo puente son direcciones/segmentos etiquetados OSM, no 49 puentes físicos distintos.
 
-Es una selección de la red, no la totalidad de Manta. Se priorizó cobertura y conectividad sobre llegar exactamente a 300; la expansión final de caminos llevó a 306. Los sectores se asignan por proximidad a anclas, no por límites administrativos. Detalles y limitaciones en docs/mapa.md. Atribución: © OpenStreetMap contributors, ODbL.
+Es una selección de la red, no la totalidad de Manta. La ampliación conserva la red anterior de 306 nodos y añade cobertura mediante una cuadrícula territorial y caminos reales hasta 1.507 nodos. Los sectores se asignan por proximidad a anclas, no por límites administrativos. Detalles y limitaciones en docs/mapa.md. Atribución: © OpenStreetMap contributors, ODbL.
 
 Cuatro refugios de simulación (no refugios oficiales) en data/scenarios/shelters.json: Tarqui 40, Los Esteros 50, Barbasquillo 60 y Jocay 70 plazas. Pro realiza asignación min-cost flow y reservas atómicas en memoria. IDs R-001…R-004; idAnterior permite migrar desde R-1…R-4. Nunca se excede la capacidad.
 
@@ -83,7 +83,7 @@ Regenerar desde backend/:
 
 ```bash
 python -m pip install -e '.[maps]'
-python scripts/generate_manta_graph.py --target 300
+python scripts/generate_manta_graph.py --target 1500 --coverage-grid 4 --preserve ../data/maps/archive/manta_graph_306.json
 python -m app.export_contract
 ```
 
@@ -167,3 +167,5 @@ Validación, ejecución detallada, arquitectura, variables y entrega AWS: [front
 ## Organización de Git
 
 main integra las entregas de feat/backend-simulator, feat/frontend-dashboard y chore/docs-contracts. Los commits agrupan backend/datos, frontend y documentación/contratos/evidencias; los merges conservan su historia. Guía en [docs/organizacion_git.md](docs/organizacion_git.md).
+
+La ampliación actual conserva refugios y flota, actualiza ejemplos y demo, y aumenta la envolvente geográfica unas 2,9 veces. Los reportes previos de Fase 3 corresponden al mapa archivado de 306 nodos. Ver docs/mapa.md y reports/map_expansion.json para la comparación.

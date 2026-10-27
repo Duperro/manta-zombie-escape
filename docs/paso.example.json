@@ -1,10 +1,10 @@
 {
   "peticion": {
     "sobrevivienteId": "S-R1-0001",
-    "nodoActual": "N-1349201358",
+    "nodoActual": "N-2499224190",
     "turno": 0
   },
   "respuesta": {
-    "siguienteNodo": "N-5397077933"
+    "siguienteNodo": "N-2499224111"
   }
 }

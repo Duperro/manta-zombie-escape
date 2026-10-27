@@ -36,3 +36,6 @@ El dashboard añade un modal para configurar ronda, población, zombies, turnos,
 
 
 Ampliación autorizada: capa Dormidos (solo pruebas), opt-in y separada. GET /control/dormidos autenticado, sin cache y con runId/ronda/turno. No se añade a /estado, Observation, proveedor público ni planificador. SleeperDebugLayer valida el frame y aborta al desactivar. Ver docs/pruebas_fuego.md.
+
+
+Mapa ampliado: 1.507 nodos y 3.319 aristas reales, con toda la red anterior conservada. Geometrías/sentidos/paralelas y ubicaciones de refugios/flota se mantienen. El dashboard y la demo consumen la nueva mapaVersion sin tamaños fijos; ver docs/mapa.md.
