@@ -1,0 +1,32 @@
+[
+  {
+    "id": "V-001",
+    "nodo": "N-363643278",
+    "sector": "Tarqui",
+    "criterio": "Despliegue estático por beneficio marginal de rescate en saltos, sin posiciones de zombies ni semilla."
+  },
+  {
+    "id": "V-002",
+    "nodo": "N-363665356",
+    "sector": "Los Esteros",
+    "criterio": "Despliegue estático por beneficio marginal de rescate en saltos, sin posiciones de zombies ni semilla."
+  },
+  {
+    "id": "V-003",
+    "nodo": "N-3173813183",
+    "sector": "Barbasquillo",
+    "criterio": "Despliegue estático por beneficio marginal de rescate en saltos, sin posiciones de zombies ni semilla."
+  },
+  {
+    "id": "V-004",
+    "nodo": "N-363711184",
+    "sector": "Jocay",
+    "criterio": "Despliegue estático por beneficio marginal de rescate en saltos, sin posiciones de zombies ni semilla."
+  },
+  {
+    "id": "V-005",
+    "nodo": "N-363677087",
+    "sector": "Los Esteros",
+    "criterio": "Despliegue estático por beneficio marginal de rescate en saltos, sin posiciones de zombies ni semilla."
+  }
+]

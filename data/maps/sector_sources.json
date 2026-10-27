@@ -1,0 +1,22 @@
+{
+  "Tarqui": {
+    "lat": -0.9784464,
+    "lng": -80.7243193,
+    "query": "Tarqui, Manta, Ecuador"
+  },
+  "Los Esteros": {
+    "lat": -0.9585425,
+    "lng": -80.6846573,
+    "query": "Los Esteros, Manta, Ecuador"
+  },
+  "Barbasquillo": {
+    "lat": -0.9515404,
+    "lng": -80.7527254,
+    "query": "Barbasquillo, Manta, Ecuador"
+  },
+  "Jocay": {
+    "lat": -0.9598756,
+    "lng": -80.7161161,
+    "query": "Jocay, Manta, Ecuador"
+  }
+}

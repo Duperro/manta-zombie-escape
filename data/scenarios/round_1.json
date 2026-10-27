@@ -1,0 +1,5 @@
+{
+  "ronda":1,"nombre":"Anochecer","turnos":150,"sobrevivientes":20,
+  "zombies":{"caminante":12,"corredor":0,"horda":0,"dormido":0},
+  "distribucion":"equilibrada","eventos":[]
+}

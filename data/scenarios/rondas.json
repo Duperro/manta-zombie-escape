@@ -1,0 +1,5 @@
+{
+  "version": 2,
+  "archivos": ["round_1.json", "round_2.json", "round_3.json"],
+  "nota": "Índice de escenarios de Fase 2. Cada round_N.json es ejecutable con --scenario; --round all ejecuta los tres."
+}
