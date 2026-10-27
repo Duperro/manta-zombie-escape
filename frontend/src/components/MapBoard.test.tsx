@@ -1,11 +1,33 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, fireEvent } from '@testing-library/react';
-import { Browser, Map as LeafletMap } from 'leaflet';
+import { act, render, fireEvent } from '@testing-library/react';
+import { Browser, Map as LeafletMap, TileLayer as LeafletTileLayer } from 'leaflet';
 import { MapBoard, initialLayers, selectionPosition } from './MapBoard';
 import { adaptState, prepareMap } from '../services/adapter';
 import { frameFixtures, mapFixture } from '../test/fixtures';
 
 describe('Leaflet component smoke (jsdom, not visual QA)', () => {
+  it('removes a failed external tile layer while preserving real streets and entities', () => {
+    const oldCanvas = Browser.canvas, oldSvg = Browser.svg;
+    Reflect.set(Browser, 'canvas', false); Reflect.set(Browser, 'svg', true);
+    const added = vi.spyOn(LeafletMap.prototype, 'addLayer');
+    const removed = vi.spyOn(LeafletMap.prototype, 'removeLayer');
+    try {
+      const state = adaptState(frameFixtures[0], prepareMap(mapFixture));
+      const view = render(<MapBoard state={state} selected={null} onSelect={vi.fn()} layers={initialLayers}/>);
+      const tileLayer = added.mock.calls.map(([layer]) => layer).find(layer => layer instanceof LeafletTileLayer);
+      expect(tileLayer).toBeDefined();
+      act(() => { tileLayer!.fire('tileerror'); });
+      expect(view.getByText('Fondo no disponible · red vial local')).toBeInTheDocument();
+      expect(removed).toHaveBeenCalledWith(tileLayer);
+      expect(view.container.querySelectorAll('svg path').length).toBeGreaterThan(100);
+      expect(view.container.querySelectorAll('.truck-pin')).toHaveLength(5);
+      expect(view.container.querySelectorAll('.shelter-pin')).toHaveLength(4);
+      view.unmount();
+    } finally {
+      added.mockRestore(); removed.mockRestore();
+      Reflect.set(Browser, 'canvas', oldCanvas); Reflect.set(Browser, 'svg', oldSvg);
+    }
+  });
   it('mounts the real Leaflet layers, keeps the map through updates and selects a truck', () => {
     const oldCanvas = Browser.canvas, oldSvg = Browser.svg;
     Reflect.set(Browser, 'canvas', false); Reflect.set(Browser, 'svg', true);

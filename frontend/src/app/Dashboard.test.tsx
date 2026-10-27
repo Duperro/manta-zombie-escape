@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Dashboard } from './Dashboard';
 import { SimulationContext } from './SimulationContext';
 import type { SimulationProvider } from '../providers/SimulationProvider';
@@ -17,6 +17,18 @@ function fixture(demo = false, disconnected = false) {
   return { state, provider };
 }
 describe('operations dashboard', () => {
+  afterEach(() => { vi.unstubAllEnvs(); vi.restoreAllMocks(); });
+
+  it('keeps production read-only without controls, sleeper option or private fetches', () => {
+    vi.stubEnv('DEV', false);
+    const fetcher = vi.spyOn(globalThis, 'fetch');
+    const { provider } = fixture();
+    render(<SimulationContext provider={provider}><Dashboard/></SimulationContext>);
+    expect(screen.getByText('DATOS REALES')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Pruebas de fuego/ })).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Dormidos (solo pruebas)')).not.toBeInTheDocument();
+    expect(fetcher).not.toHaveBeenCalled();
+  });
   it('renders real metrics, 4 shelters, 5 selectable trucks and the exact vehicle details', () => {
     const { provider, state } = fixture(); const result = render(<SimulationContext provider={provider}><Dashboard/></SimulationContext>);
     expect(screen.getByRole('heading', { name: /MANTA/ })).toBeInTheDocument();
