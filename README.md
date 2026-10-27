@@ -128,7 +128,7 @@ Un solo worker y usuario sin privilegios. No incluye caches OSM, secretos, entor
 
 Persistencia y coordinación son de un solo proceso. No desplegar múltiples workers hasta implementar repositorio compartido de mundo/snapshots/RNG, decisiones atómicas y elección de coordinador. La API standalone publica el estado inicial; para avanzar usar la CLI, que es el dueño del reloj. No hay endpoints públicos para mutar turnos.
 
-CORS GET configurable y dashboard React integrado. GET públicos sin autenticación; POST /paso protegido. No hay WebSockets. No se hizo push, merge ni despliegue. Rama feat/backend-simulator, HEAD a2126a4; entregables anteriores y cambios de traspaso permanecen locales sin seguimiento.
+CORS GET configurable y dashboard React integrado. GET públicos sin autenticación; POST /paso protegido. No hay WebSockets. No se hizo push, merge ni despliegue. El trabajo está organizado por categoría y consolidado en main; ver docs/organizacion_git.md.
 
 Fase 3 implementada: predicción, reservas y camionetas se ejecutan en el mismo mundo que Base. Para comparar se usan las mismas condiciones iniciales y generadores separados por entidad/evento. Se conservan los reportes históricos de Fase 2; no son la línea base emparejada del motor actualizado. No se inicia despliegue ni una nueva fase sin revisión.
 
@@ -162,3 +162,8 @@ La demo reproduce 15 estados preparados por ronda, tiene controles locales y no 
 
 Validación, ejecución detallada, arquitectura, variables y entrega AWS: [frontend/README.md](frontend/README.md), [informe de traspaso](docs/traspaso_kiro.md) y [entrega AWS](docs/entrega_aws.md). La integración HTTP/React pasó las tres rondas; revisión visual final y capturas pendientes por bloqueo de Computer Use. No se declara cerrado ese criterio.
 
+
+
+## Organización de Git
+
+main integra las entregas de feat/backend-simulator, feat/frontend-dashboard y chore/docs-contracts. Los commits agrupan backend/datos, frontend y documentación/contratos/evidencias; los merges conservan su historia. Guía en [docs/organizacion_git.md](docs/organizacion_git.md).

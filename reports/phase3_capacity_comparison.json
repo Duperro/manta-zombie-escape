@@ -1,0 +1,101 @@
+{
+  "fechaUTC": "2026-10-27T15:12:18.654733+00:00",
+  "comparaciones": [
+    {
+      "semilla": 7,
+      "ronda": 3,
+      "experimento": "pro",
+      "evacuadosBase": 160,
+      "evacuadosPro": 200,
+      "mejoraEvacuacionPP": 20.0,
+      "mejoraEvacuadosPorcentual": 25.0,
+      "supervivenciaBase": 100.0,
+      "supervivenciaPro": 100.0,
+      "mejoraSupervivenciaPP": 0.0,
+      "p95BaseMs": 13.79263200033165,
+      "p95ProMs": 34.38821800045844,
+      "evacuadosCamioneta": 15,
+      "rescatesCancelados": 0
+    },
+    {
+      "semilla": 7,
+      "ronda": 3,
+      "experimento": "pro_sin_prediccion",
+      "evacuadosBase": 160,
+      "evacuadosPro": 200,
+      "mejoraEvacuacionPP": 20.0,
+      "mejoraEvacuadosPorcentual": 25.0,
+      "supervivenciaBase": 100.0,
+      "supervivenciaPro": 100.0,
+      "mejoraSupervivenciaPP": 0.0,
+      "p95BaseMs": 13.79263200033165,
+      "p95ProMs": 21.060449999822595,
+      "evacuadosCamioneta": 15,
+      "rescatesCancelados": 0
+    },
+    {
+      "semilla": 7,
+      "ronda": 3,
+      "experimento": "pro_sin_reservas",
+      "evacuadosBase": 160,
+      "evacuadosPro": 160,
+      "mejoraEvacuacionPP": 0.0,
+      "mejoraEvacuadosPorcentual": 0.0,
+      "supervivenciaBase": 100.0,
+      "supervivenciaPro": 100.0,
+      "mejoraSupervivenciaPP": 0.0,
+      "p95BaseMs": 13.79263200033165,
+      "p95ProMs": 25.498141000753094,
+      "evacuadosCamioneta": 28,
+      "rescatesCancelados": 0
+    },
+    {
+      "semilla": 7,
+      "ronda": 3,
+      "experimento": "pro_sin_flota",
+      "evacuadosBase": 160,
+      "evacuadosPro": 200,
+      "mejoraEvacuacionPP": 20.0,
+      "mejoraEvacuadosPorcentual": 25.0,
+      "supervivenciaBase": 100.0,
+      "supervivenciaPro": 100.0,
+      "mejoraSupervivenciaPP": 0.0,
+      "p95BaseMs": 13.79263200033165,
+      "p95ProMs": 13.918370999817853,
+      "evacuadosCamioneta": 0,
+      "rescatesCancelados": 0
+    }
+  ],
+  "estimaciones": [
+    {
+      "semilla": 7,
+      "experimento": "base",
+      "puntuacionTotal": null,
+      "motivo": "Se necesitan las tres rondas"
+    },
+    {
+      "semilla": 7,
+      "experimento": "pro",
+      "puntuacionTotal": null,
+      "motivo": "Se necesitan las tres rondas"
+    },
+    {
+      "semilla": 7,
+      "experimento": "pro_sin_prediccion",
+      "puntuacionTotal": null,
+      "motivo": "Se necesitan las tres rondas"
+    },
+    {
+      "semilla": 7,
+      "experimento": "pro_sin_reservas",
+      "puntuacionTotal": null,
+      "motivo": "Se necesitan las tres rondas"
+    },
+    {
+      "semilla": 7,
+      "experimento": "pro_sin_flota",
+      "puntuacionTotal": null,
+      "motivo": "Se necesitan las tres rondas"
+    }
+  ]
+}

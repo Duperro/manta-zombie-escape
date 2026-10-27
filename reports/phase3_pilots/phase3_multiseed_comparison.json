@@ -1,0 +1,155 @@
+{
+  "fechaUTC": "2026-10-27T14:41:09.187507+00:00",
+  "comparaciones": [
+    {
+      "semilla": 11,
+      "ronda": 1,
+      "experimento": "pro",
+      "evacuadosBase": 16,
+      "evacuadosPro": 20,
+      "mejoraEvacuacionPP": 20.0,
+      "mejoraEvacuadosPorcentual": 25.0,
+      "supervivenciaBase": 90.0,
+      "supervivenciaPro": 100.0,
+      "mejoraSupervivenciaPP": 10.0,
+      "p95BaseMs": 26.93610000096669,
+      "p95ProMs": 29.742099999566562,
+      "evacuadosCamioneta": 4,
+      "rescatesCancelados": 2
+    },
+    {
+      "semilla": 11,
+      "ronda": 2,
+      "experimento": "pro",
+      "evacuadosBase": 19,
+      "evacuadosPro": 25,
+      "mejoraEvacuacionPP": 7.5,
+      "mejoraEvacuadosPorcentual": 31.57894736842105,
+      "supervivenciaBase": 28.75,
+      "supervivenciaPro": 36.25,
+      "mejoraSupervivenciaPP": 7.5,
+      "p95BaseMs": 44.568199999048375,
+      "p95ProMs": 60.780799998610746,
+      "evacuadosCamioneta": 1,
+      "rescatesCancelados": 32
+    },
+    {
+      "semilla": 11,
+      "ronda": 3,
+      "experimento": "pro",
+      "evacuadosBase": 32,
+      "evacuadosPro": 43,
+      "mejoraEvacuacionPP": 5.5,
+      "mejoraEvacuadosPorcentual": 34.375,
+      "supervivenciaBase": 18.5,
+      "supervivenciaPro": 21.5,
+      "mejoraSupervivenciaPP": 3.0,
+      "p95BaseMs": 24.829200001477147,
+      "p95ProMs": 35.0429999998596,
+      "evacuadosCamioneta": 3,
+      "rescatesCancelados": 11
+    },
+    {
+      "semilla": 23,
+      "ronda": 1,
+      "experimento": "pro",
+      "evacuadosBase": 13,
+      "evacuadosPro": 13,
+      "mejoraEvacuacionPP": 0.0,
+      "mejoraEvacuadosPorcentual": 0.0,
+      "supervivenciaBase": 65.0,
+      "supervivenciaPro": 65.0,
+      "mejoraSupervivenciaPP": 0.0,
+      "p95BaseMs": 29.136700000890414,
+      "p95ProMs": 75.43660000010277,
+      "evacuadosCamioneta": 2,
+      "rescatesCancelados": 0
+    },
+    {
+      "semilla": 23,
+      "ronda": 2,
+      "experimento": "pro",
+      "evacuadosBase": 23,
+      "evacuadosPro": 41,
+      "mejoraEvacuacionPP": 22.5,
+      "mejoraEvacuadosPorcentual": 78.26086956521739,
+      "supervivenciaBase": 28.75,
+      "supervivenciaPro": 51.25,
+      "mejoraSupervivenciaPP": 22.5,
+      "p95BaseMs": 24.481899999955203,
+      "p95ProMs": 32.67810000033933,
+      "evacuadosCamioneta": 12,
+      "rescatesCancelados": 28
+    },
+    {
+      "semilla": 23,
+      "ronda": 3,
+      "experimento": "pro",
+      "evacuadosBase": 60,
+      "evacuadosPro": 62,
+      "mejoraEvacuacionPP": 1.0,
+      "mejoraEvacuadosPorcentual": 3.3333333333333335,
+      "supervivenciaBase": 30.0,
+      "supervivenciaPro": 31.0,
+      "mejoraSupervivenciaPP": 1.0,
+      "p95BaseMs": 51.02380000062112,
+      "p95ProMs": 59.49660000078438,
+      "evacuadosCamioneta": 7,
+      "rescatesCancelados": 9
+    }
+  ],
+  "estimaciones": [
+    {
+      "semilla": 11,
+      "experimento": "base",
+      "supervivenciaPonderada": 33.833333333333336,
+      "componenteSupervivenciaSobre50": 16.916666666666668,
+      "puntuacionTotal": null,
+      "componentesSinFormulaOficial": [
+        "eficiencia_20",
+        "latencia_15",
+        "disponibilidad_15"
+      ],
+      "nota": "Estimación parcial, sin puntuación oficial total; vivos incluye no evacuados."
+    },
+    {
+      "semilla": 11,
+      "experimento": "pro",
+      "supervivenciaPonderada": 39.5,
+      "componenteSupervivenciaSobre50": 19.75,
+      "puntuacionTotal": null,
+      "componentesSinFormulaOficial": [
+        "eficiencia_20",
+        "latencia_15",
+        "disponibilidad_15"
+      ],
+      "nota": "Estimación parcial, sin puntuación oficial total; vivos incluye no evacuados."
+    },
+    {
+      "semilla": 23,
+      "experimento": "base",
+      "supervivenciaPonderada": 35.416666666666664,
+      "componenteSupervivenciaSobre50": 17.708333333333332,
+      "puntuacionTotal": null,
+      "componentesSinFormulaOficial": [
+        "eficiencia_20",
+        "latencia_15",
+        "disponibilidad_15"
+      ],
+      "nota": "Estimación parcial, sin puntuación oficial total; vivos incluye no evacuados."
+    },
+    {
+      "semilla": 23,
+      "experimento": "pro",
+      "supervivenciaPonderada": 43.416666666666664,
+      "componenteSupervivenciaSobre50": 21.708333333333332,
+      "puntuacionTotal": null,
+      "componentesSinFormulaOficial": [
+        "eficiencia_20",
+        "latencia_15",
+        "disponibilidad_15"
+      ],
+      "nota": "Estimación parcial, sin puntuación oficial total; vivos incluye no evacuados."
+    }
+  ]
+}

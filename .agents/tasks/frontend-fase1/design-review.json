@@ -1,0 +1,48 @@
+{
+  "verdict": "CHANGES_REQUESTED",
+  "findings": [
+    {
+      "id": "HIGH-1",
+      "severity": "HIGH",
+      "location": "design.md (RawTruck, normalizeTruck, R6, AC5/AC9, Campos pendientes #1); requirements.md R6/R15/R16; tasks.md T10",
+      "problem": "Design asserts /estado sends camionetas as [] until Fase 3 and that the schema is 'additionalProperties: true (sin esquema)'. This is sourced from the stale OpenAPI and docs/integracion.md. The actual backend code contradicts it: domain.py defines a full VehicleView model and types StateView.camionetas: list[VehicleView]; scenario_config.py build_world() requires exactly 5 trucks from fleet.json and appends them to world.vehicles; world.view() serializes 5 populated VehicleView objects with field names (nodoActual, pasajeros as string[], refugioDestino, rutaPlanificada, capacidadUtilizada, sobrevivientesAsignados, puntoEncuentro, etc.) that do not match normalizeTruck's assumptions (nodo, lat+lng, pasajeros as number, destino, ruta). In real mode the truck layer would resolve no coordinates and popups would show wrong/missing data. The OpenAPI is stale (missing the VehicleView $ref); estado.example.json showing [] is also stale.",
+      "fix": "Align RawTruck/RawVehicle to the actual VehicleView (nodoActual, pasajeros: string[], refugioDestino, rutaPlanificada, capacidadUtilizada, sobrevivientesAsignados, puntoEncuentro, aristasRecorridasEnTurno, viajesRealizados, distanciaRecorrida_m); normalizeTruck resolves coords via nodeMap.get(nodoActual), uses pasajeros.length (or capacidadUtilizada), refugioDestino, rutaPlanificada. State the truck layer is populated in real mode (5 trucks). Remove '[] hasta Fase 3' stated as fact. Flag that contracts/openapi.yaml and docs/estado.example.json are stale and must be regenerated; treat domain.py + world.view() as authoritative. Alternatively, if the backend confirms [] is intended, document that decision and make normalizeTruck defensive against both key sets."
+    },
+    {
+      "id": "MEDIUM-1",
+      "severity": "MEDIUM",
+      "location": "design.md (SurvivorState enum, asSurvivorState, R9); requirements.md R9",
+      "problem": "Design declares SurvivorState = 'ACTIVO'|'EVACUADO'|'ELIMINADO' ('igual que el backend') and degrades unknowns to 'ACTIVO'. domain.py defines 7 states: ACTIVO, CAMINANDO, HACIA_ENCUENTRO, ESPERANDO_RESCATE (FOOT_STATES), EN_CAMIONETA (set in world.resolve), EVACUADO, ELIMINADO. world.view() sets estado=s.status, so /estado carries all 7. The four omitted states are the 'estado de rescate' the brief requires the DetailsPanel to show; collapsing them to ACTIVO hides the rescue state. The 'igual que el backend' claim is false (the design followed docs/integracion.md, which is itself incomplete vs domain.py).",
+      "fix": "Extend SurvivorState to include 'CAMINANDO'|'HACIA_ENCUENTRO'|'ESPERANDO_RESCATE'|'EN_CAMIONETA' (keep case-insensitive mapping and safe degrade to ACTIVO for unknowns). Show rescue/transit states with readable labels in the DetailsPanel per R9/brief. Metric counts are unaffected (they use metricas.activos/evacuados/eliminados)."
+    },
+    {
+      "id": "MEDIUM-2",
+      "severity": "MEDIUM",
+      "location": "design.md (RawMetrics, Campos pendientes #1, R8, R20); requirements.md R8/R20",
+      "problem": "RawMetrics declares 18 keys and claims 1:1 alignment to metrics.py. metrics.summary() actually returns 25 keys; the design omits vivosFinales, evacuadosCaminando, evacuadosCamioneta, rescatesCompletados, rescatesCancelados, distanciaCaminada_m, distanciaTransportada_m. Several are rescue-outcome metrics relevant to R20 (Rescate Pro). The Campos pendientes list treats camionetas/rescate as pending, but rescue metrics (rescatesCompletados, evacuadosCamioneta, rescatesCancelados) are already provided by the backend now. The '1:1 a metrics.py (fuente de verdad)' claim is inaccurate and the pending classification understates what is available.",
+      "fix": "Add the 7 missing keys to RawMetrics. Surface rescue metrics (rescatesCompletados, evacuadosCamioneta, rescatesCancelados) in the UI per R20. Remove rescue-metrics from the pending list; keep only genuinely pending items there. metricas is additionalProperties: true / dict, so extra keys are safe to carry."
+    },
+    {
+      "id": "NIT-1",
+      "severity": "NIT",
+      "location": "design.md (Tipos centralizados intro, RawStateView, RawSurvivor, RawShelter)",
+      "problem": "raw.ts is described as 'alineado 1:1 a contracts/openapi.yaml + backend/app/models/domain.py (fuente de verdad)' but tracks the stale OpenAPI and omits domain.py-only fields: StateView.estrategia/funcionalidadesPro/riesgo; SurvivorView.camionetaId/distanciaCaminada_m/distanciaEnCamioneta_m/modoEvacuacion; ShelterView.plazas_disponibles/sobrevivientesAsignados/idAnterior. The '1:1 / fuente de verdad' claim is false and is the same root cause as HIGH-1 (trusting the OpenAPI over domain.py). modoEvacuacion/camionetaId could enrich the R9/R20 rescue display.",
+      "fix": "Either carry these fields in raw.ts to honor the 1:1 claim, or retract the '1:1 a domain.py' wording and document raw.ts as 'OpenAPI subset plus Fase-1 consumed fields, rest intentionally omitted'. Recommend flagging to the backend that contracts/openapi.yaml and docs/estado.example.json are stale and must be regenerated."
+    },
+    {
+      "id": "NIT-2",
+      "severity": "NIT",
+      "location": "design.md (adapter availableRefuges filter r.estado !== 'CERRADO')",
+      "problem": "domain.py defines Shelter.status default 'ABIERTO' with no 'CERRADO' literal; world.view()/ShelterView.estado carries whatever r.status is. The !== 'CERRADO' guard assumes a state that may never occur. Defensive but unverified.",
+      "fix": "Confirm the full set of shelter states with the backend, or base availability solely on disponible > 0 / the computed llena flag and drop the 'CERRADO' clause (or keep it but document it as a defensive guard against a future state)."
+    },
+    {
+      "id": "NIT-3",
+      "severity": "NIT",
+      "location": "design.md (adapter disponible = capacidad_maxima - ocupacion - plazas_reservadas)",
+      "problem": "ShelterView (domain.py) already provides plazas_disponibles = capacity - occupied - reserved. The design recomputes the same value client-side. Harmless but duplicates backend logic and could drift.",
+      "fix": "Consume r.plazas_disponibles directly for disponible (keep the overflow cap as a defensive fallback), or document that the recomputation is intentional."
+    }
+  ],
+  "reviewDoc": "c:/xampp/htdocs/manta-zombie-escape/.agents/tasks/frontend-fase1/design-review.md"
+}

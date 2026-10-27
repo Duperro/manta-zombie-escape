@@ -1,0 +1,16 @@
+{
+  "estrategia": "pro",
+  "actores": 200,
+  "lotes": 10,
+  "concurrencia": 4,
+  "solicitudes": 2000,
+  "errores": 0,
+  "sobre500ms": 0,
+  "promedioMs": 8.900360144008118,
+  "p50Ms": 8.074502999988908,
+  "p95Ms": 14.03812199987442,
+  "p99Ms": 17.718721999699483,
+  "colaP95Ms": 453.54820900047343,
+  "disponibilidad": 1.0,
+  "metodologia": "HTTP TCP real; cola del sem\u00e1foro separada. Reintentos del turno 0 sobre 200 actores, sin avanzar el mundo."
+}

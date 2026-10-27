@@ -1,0 +1,4 @@
+semilla,ronda,experimento,evacuadosBase,evacuadosPro,mejoraEvacuacionPP,mejoraEvacuadosPorcentual,supervivenciaBase,supervivenciaPro,mejoraSupervivenciaPP,p95BaseMs,p95ProMs,evacuadosCamioneta,rescatesCancelados
+7,1,pro,17,18,5.0,5.882352941176471,85.0,90.0,5.0,56.62579999989248,24.37129999998433,3,1
+7,2,pro,39,46,8.75,17.94871794871795,50.0,57.5,7.5,22.93939999981376,22.218899999643327,4,10
+7,3,pro,73,76,1.5,4.109589041095891,36.5,38.0,1.5,22.13300000039453,36.56339999906777,1,11

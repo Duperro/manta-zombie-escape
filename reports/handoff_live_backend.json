@@ -1,0 +1,5289 @@
+{
+  "metodologia": "Métricas locales; no equivalen a puntuación oficial. Percentiles nearest-rank sobre HTTP real, sin espera de semáforo.",
+  "rondas": [
+    {
+      "ronda": 1,
+      "semilla": 7,
+      "algoritmo": "Pro",
+      "versionAlgoritmo": "3.2.0",
+      "fechaUTC": "2026-10-27T15:59:52.931034+00:00",
+      "configuracion": {
+        "seed": 7,
+        "turn_seconds": 0.25,
+        "horde_move_probability": 0.0,
+        "http_concurrency": 4,
+        "routing_strategy": "pro",
+        "pro_prediction": true,
+        "pro_reservations": true,
+        "pro_fleet": true,
+        "risk_weight": 180.0,
+        "reassignment_improvement": 0.25,
+        "vehicle_edges_per_turn": 2,
+        "meeting_candidates": 8,
+        "pickup_candidates": 24,
+        "meeting_max_wait": 8,
+        "rescue_min_benefit": 1.0,
+        "rescue_risk_weight": 8.0,
+        "meeting_risk_threshold": 0.7,
+        "retreat_risk_threshold": 0.7,
+        "retreat_min_improvement": 0.25,
+        "cors_origins": [],
+        "speeds": {
+          "avenida": 1.5,
+          "calle": 1.2,
+          "callejón": 0.9,
+          "puente": 1.0
+        }
+      },
+      "escenario": {
+        "ronda": 1,
+        "nombre": "Anochecer",
+        "turnos": 150,
+        "sobrevivientes": 20,
+        "zombies": {
+          "caminante": 12,
+          "corredor": 0,
+          "horda": 0,
+          "dormido": 0
+        },
+        "distribucion": "equilibrada",
+        "pesosSectores": {
+          "Tarqui": 1.0,
+          "Los Esteros": 1.0,
+          "Barbasquillo": 1.0,
+          "Jocay": 1.0
+        },
+        "eventos": []
+      },
+      "huellaInicial": "bc29825d63be56665e6ced2f45664304a5eba97385be8ad614a7fb317bbc5800",
+      "firmaFinal": "191809022e5ccd3584506408e0e48bcdedb525723af4885d2b8ef01164381033",
+      "concurrenciaHTTP": 4,
+      "turnos": 150,
+      "duracionS": 38.063285399999586,
+      "mapaVersion": "manta-bb3023537eb6eb6f",
+      "sobrevivientesIniciales": 20,
+      "evacuados": 19,
+      "eliminados": 0,
+      "activos": 1,
+      "porcentajeSupervivencia": 100.0,
+      "tasaEvacuacion": 95.0,
+      "turnosPromedioEvacuacion": 42.26315789473684,
+      "rutasValidas": 789,
+      "rutasInvalidas": 0,
+      "solicitudesHTTP": 953,
+      "erroresHTTP": 0,
+      "respuestasInvalidas": 0,
+      "solicitudesSobre500ms": 0,
+      "latenciaPromedioMs": 25.965584994751744,
+      "latenciaP50Ms": 23.692100001426297,
+      "latenciaP95Ms": 43.09819999980391,
+      "latenciaP99Ms": 66.40300000071875,
+      "disponibilidadEndpoint": 1.0,
+      "vivosFinales": 20,
+      "evacuadosCaminando": 14,
+      "evacuadosCamioneta": 5,
+      "rescatesCompletados": 5,
+      "rescatesCancelados": 0,
+      "distanciaCaminada_m": 22063.968521613195,
+      "distanciaTransportada_m": 18528.139571527514,
+      "ocupacionRefugios": {
+        "R-001": {
+          "ocupacion": 3,
+          "reservas": 0,
+          "capacidad": 40
+        },
+        "R-002": {
+          "ocupacion": 8,
+          "reservas": 0,
+          "capacidad": 50
+        },
+        "R-003": {
+          "ocupacion": 4,
+          "reservas": 0,
+          "capacidad": 60
+        },
+        "R-004": {
+          "ocupacion": 4,
+          "reservas": 0,
+          "capacidad": 70
+        }
+      },
+      "viajesCamionetas": {
+        "V-001": 1,
+        "V-002": 1,
+        "V-003": 2,
+        "V-004": 1,
+        "V-005": 0
+      },
+      "distanciaCamionetas_m": 21158.10441204716,
+      "eventos": [
+        {
+          "id": "evacuacion-S-R1-0011",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0011",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R1-0018",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0018",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "embarque-2-S-R1-0014",
+          "turno": 2,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R1-0014",
+          "camionetaId": "V-003",
+          "nodo": "N-775527757",
+          "refugioId": "R-001"
+        },
+        {
+          "id": "embarque-5-S-R1-0016",
+          "turno": 5,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R1-0016",
+          "camionetaId": "V-001",
+          "nodo": "N-363643465",
+          "refugioId": "R-001"
+        },
+        {
+          "id": "evacuacion-S-R1-0010",
+          "turno": 6,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0010",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "embarque-7-S-R1-0006",
+          "turno": 7,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R1-0006",
+          "camionetaId": "V-002",
+          "nodo": "N-1364014006",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "evacuacion-S-R1-0007",
+          "turno": 8,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0007",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R1-0013",
+          "turno": 8,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0013",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R1-0015",
+          "turno": 9,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0015",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R1-0005",
+          "turno": 14,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0005",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R1-0012",
+          "turno": 14,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0012",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R1-0014",
+          "turno": 14,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0014",
+          "refugioId": "R-001",
+          "modo": "camioneta"
+        },
+        {
+          "id": "embarque-17-S-R1-0017",
+          "turno": 17,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R1-0017",
+          "camionetaId": "V-004",
+          "nodo": "N-5791184441",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "evacuacion-S-R1-0009",
+          "turno": 27,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0009",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "embarque-33-S-R1-0020",
+          "turno": 33,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R1-0020",
+          "camionetaId": "V-003",
+          "nodo": "N-511104309",
+          "refugioId": "R-001"
+        },
+        {
+          "id": "evacuacion-S-R1-0001",
+          "turno": 35,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0001",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R1-0017",
+          "turno": 42,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0017",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R1-0006",
+          "turno": 43,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0006",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R1-0016",
+          "turno": 46,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0016",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R1-0019",
+          "turno": 55,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0019",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R1-0020",
+          "turno": 83,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0020",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R1-0004",
+          "turno": 129,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0004",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R1-0003",
+          "turno": 133,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0003",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R1-0002",
+          "turno": 134,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R1-0002",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        }
+      ],
+      "metricasTurnos": [
+        {
+          "turno": 1,
+          "duracionMs": 258.75860000087414,
+          "activos": 19
+        },
+        {
+          "turno": 2,
+          "duracionMs": 217.94880000015837,
+          "activos": 18
+        },
+        {
+          "turno": 3,
+          "duracionMs": 204.87839999987045,
+          "activos": 18
+        },
+        {
+          "turno": 4,
+          "duracionMs": 145.92249999986961,
+          "activos": 18
+        },
+        {
+          "turno": 5,
+          "duracionMs": 133.71819999883883,
+          "activos": 18
+        },
+        {
+          "turno": 6,
+          "duracionMs": 136.77300000017567,
+          "activos": 17
+        },
+        {
+          "turno": 7,
+          "duracionMs": 186.88939999992726,
+          "activos": 17
+        },
+        {
+          "turno": 8,
+          "duracionMs": 143.8201000000845,
+          "activos": 15
+        },
+        {
+          "turno": 9,
+          "duracionMs": 153.95560000069963,
+          "activos": 14
+        },
+        {
+          "turno": 10,
+          "duracionMs": 115.11789999894972,
+          "activos": 14
+        },
+        {
+          "turno": 11,
+          "duracionMs": 124.22300000071118,
+          "activos": 14
+        },
+        {
+          "turno": 12,
+          "duracionMs": 122.8421999985585,
+          "activos": 14
+        },
+        {
+          "turno": 13,
+          "duracionMs": 113.13349999909406,
+          "activos": 14
+        },
+        {
+          "turno": 14,
+          "duracionMs": 101.72410000086529,
+          "activos": 11
+        },
+        {
+          "turno": 15,
+          "duracionMs": 84.79239999905985,
+          "activos": 11
+        },
+        {
+          "turno": 16,
+          "duracionMs": 137.00910000079602,
+          "activos": 11
+        },
+        {
+          "turno": 17,
+          "duracionMs": 116.89399999886518,
+          "activos": 11
+        },
+        {
+          "turno": 18,
+          "duracionMs": 103.09779999988677,
+          "activos": 11
+        },
+        {
+          "turno": 19,
+          "duracionMs": 100.8177000003343,
+          "activos": 11
+        },
+        {
+          "turno": 20,
+          "duracionMs": 103.45870000128343,
+          "activos": 11
+        },
+        {
+          "turno": 21,
+          "duracionMs": 84.91929999945569,
+          "activos": 11
+        },
+        {
+          "turno": 22,
+          "duracionMs": 134.62230000004638,
+          "activos": 11
+        },
+        {
+          "turno": 23,
+          "duracionMs": 97.68459999941115,
+          "activos": 11
+        },
+        {
+          "turno": 24,
+          "duracionMs": 103.85330000099202,
+          "activos": 11
+        },
+        {
+          "turno": 25,
+          "duracionMs": 109.16010000073584,
+          "activos": 11
+        },
+        {
+          "turno": 26,
+          "duracionMs": 176.593000000139,
+          "activos": 11
+        },
+        {
+          "turno": 27,
+          "duracionMs": 175.04960000042047,
+          "activos": 10
+        },
+        {
+          "turno": 28,
+          "duracionMs": 94.4273000004614,
+          "activos": 10
+        },
+        {
+          "turno": 29,
+          "duracionMs": 95.1599999989412,
+          "activos": 10
+        },
+        {
+          "turno": 30,
+          "duracionMs": 119.31820000063453,
+          "activos": 10
+        },
+        {
+          "turno": 31,
+          "duracionMs": 99.97219999968365,
+          "activos": 10
+        },
+        {
+          "turno": 32,
+          "duracionMs": 97.80700000010256,
+          "activos": 10
+        },
+        {
+          "turno": 33,
+          "duracionMs": 193.84089999948628,
+          "activos": 10
+        },
+        {
+          "turno": 34,
+          "duracionMs": 148.21290000145382,
+          "activos": 10
+        },
+        {
+          "turno": 35,
+          "duracionMs": 128.88000000020838,
+          "activos": 9
+        },
+        {
+          "turno": 36,
+          "duracionMs": 166.45539999990433,
+          "activos": 9
+        },
+        {
+          "turno": 37,
+          "duracionMs": 148.2713999994303,
+          "activos": 9
+        },
+        {
+          "turno": 38,
+          "duracionMs": 328.3188000004884,
+          "activos": 9
+        },
+        {
+          "turno": 39,
+          "duracionMs": 150.39989999968384,
+          "activos": 9
+        },
+        {
+          "turno": 40,
+          "duracionMs": 113.6222999994061,
+          "activos": 9
+        },
+        {
+          "turno": 41,
+          "duracionMs": 115.98359999879904,
+          "activos": 9
+        },
+        {
+          "turno": 42,
+          "duracionMs": 179.57399999977497,
+          "activos": 8
+        },
+        {
+          "turno": 43,
+          "duracionMs": 136.83769999988726,
+          "activos": 7
+        },
+        {
+          "turno": 44,
+          "duracionMs": 116.03360000117391,
+          "activos": 7
+        },
+        {
+          "turno": 45,
+          "duracionMs": 82.90350000061153,
+          "activos": 7
+        },
+        {
+          "turno": 46,
+          "duracionMs": 193.28140000106941,
+          "activos": 6
+        },
+        {
+          "turno": 47,
+          "duracionMs": 83.66729999943345,
+          "activos": 6
+        },
+        {
+          "turno": 48,
+          "duracionMs": 106.60599999937403,
+          "activos": 6
+        },
+        {
+          "turno": 49,
+          "duracionMs": 83.46019999953569,
+          "activos": 6
+        },
+        {
+          "turno": 50,
+          "duracionMs": 83.02920000096492,
+          "activos": 6
+        },
+        {
+          "turno": 51,
+          "duracionMs": 74.16480000028969,
+          "activos": 6
+        },
+        {
+          "turno": 52,
+          "duracionMs": 74.21849999991537,
+          "activos": 6
+        },
+        {
+          "turno": 53,
+          "duracionMs": 73.00500000019383,
+          "activos": 6
+        },
+        {
+          "turno": 54,
+          "duracionMs": 76.20689999930619,
+          "activos": 6
+        },
+        {
+          "turno": 55,
+          "duracionMs": 103.84690000137198,
+          "activos": 5
+        },
+        {
+          "turno": 56,
+          "duracionMs": 68.4227000001556,
+          "activos": 5
+        },
+        {
+          "turno": 57,
+          "duracionMs": 85.6485000003886,
+          "activos": 5
+        },
+        {
+          "turno": 58,
+          "duracionMs": 94.76059999906283,
+          "activos": 5
+        },
+        {
+          "turno": 59,
+          "duracionMs": 100.33139999904961,
+          "activos": 5
+        },
+        {
+          "turno": 60,
+          "duracionMs": 77.85890000013751,
+          "activos": 5
+        },
+        {
+          "turno": 61,
+          "duracionMs": 77.74769999923592,
+          "activos": 5
+        },
+        {
+          "turno": 62,
+          "duracionMs": 66.86289999925066,
+          "activos": 5
+        },
+        {
+          "turno": 63,
+          "duracionMs": 98.90880000057223,
+          "activos": 5
+        },
+        {
+          "turno": 64,
+          "duracionMs": 69.26709999970626,
+          "activos": 5
+        },
+        {
+          "turno": 65,
+          "duracionMs": 63.99579999924754,
+          "activos": 5
+        },
+        {
+          "turno": 66,
+          "duracionMs": 54.42189999848779,
+          "activos": 5
+        },
+        {
+          "turno": 67,
+          "duracionMs": 48.407599999336526,
+          "activos": 5
+        },
+        {
+          "turno": 68,
+          "duracionMs": 60.39570000029926,
+          "activos": 5
+        },
+        {
+          "turno": 69,
+          "duracionMs": 56.890200001362246,
+          "activos": 5
+        },
+        {
+          "turno": 70,
+          "duracionMs": 57.8083999989758,
+          "activos": 5
+        },
+        {
+          "turno": 71,
+          "duracionMs": 89.50540000114415,
+          "activos": 5
+        },
+        {
+          "turno": 72,
+          "duracionMs": 60.718099999576225,
+          "activos": 5
+        },
+        {
+          "turno": 73,
+          "duracionMs": 76.20590000078664,
+          "activos": 5
+        },
+        {
+          "turno": 74,
+          "duracionMs": 64.84879999879922,
+          "activos": 5
+        },
+        {
+          "turno": 75,
+          "duracionMs": 66.38919999932114,
+          "activos": 5
+        },
+        {
+          "turno": 76,
+          "duracionMs": 60.464199999842094,
+          "activos": 5
+        },
+        {
+          "turno": 77,
+          "duracionMs": 57.68720000014582,
+          "activos": 5
+        },
+        {
+          "turno": 78,
+          "duracionMs": 93.5750000007829,
+          "activos": 5
+        },
+        {
+          "turno": 79,
+          "duracionMs": 90.94879999975092,
+          "activos": 5
+        },
+        {
+          "turno": 80,
+          "duracionMs": 63.46560000019963,
+          "activos": 5
+        },
+        {
+          "turno": 81,
+          "duracionMs": 54.678999998941435,
+          "activos": 5
+        },
+        {
+          "turno": 82,
+          "duracionMs": 69.3451000006462,
+          "activos": 5
+        },
+        {
+          "turno": 83,
+          "duracionMs": 52.15200000020559,
+          "activos": 4
+        },
+        {
+          "turno": 84,
+          "duracionMs": 52.133700000922545,
+          "activos": 4
+        },
+        {
+          "turno": 85,
+          "duracionMs": 54.492499999469146,
+          "activos": 4
+        },
+        {
+          "turno": 86,
+          "duracionMs": 57.119999999486026,
+          "activos": 4
+        },
+        {
+          "turno": 87,
+          "duracionMs": 54.17149999993853,
+          "activos": 4
+        },
+        {
+          "turno": 88,
+          "duracionMs": 82.00990000113961,
+          "activos": 4
+        },
+        {
+          "turno": 89,
+          "duracionMs": 53.29680000068038,
+          "activos": 4
+        },
+        {
+          "turno": 90,
+          "duracionMs": 49.73980000067968,
+          "activos": 4
+        },
+        {
+          "turno": 91,
+          "duracionMs": 51.02000000078988,
+          "activos": 4
+        },
+        {
+          "turno": 92,
+          "duracionMs": 51.534000000174274,
+          "activos": 4
+        },
+        {
+          "turno": 93,
+          "duracionMs": 47.91539999860106,
+          "activos": 4
+        },
+        {
+          "turno": 94,
+          "duracionMs": 52.64549999992596,
+          "activos": 4
+        },
+        {
+          "turno": 95,
+          "duracionMs": 49.60159999973257,
+          "activos": 4
+        },
+        {
+          "turno": 96,
+          "duracionMs": 82.1563999998034,
+          "activos": 4
+        },
+        {
+          "turno": 97,
+          "duracionMs": 72.13790000059817,
+          "activos": 4
+        },
+        {
+          "turno": 98,
+          "duracionMs": 103.41939999852912,
+          "activos": 4
+        },
+        {
+          "turno": 99,
+          "duracionMs": 71.91419999981008,
+          "activos": 4
+        },
+        {
+          "turno": 100,
+          "duracionMs": 67.11549999999988,
+          "activos": 4
+        },
+        {
+          "turno": 101,
+          "duracionMs": 61.458299998776056,
+          "activos": 4
+        },
+        {
+          "turno": 102,
+          "duracionMs": 75.58310000058555,
+          "activos": 4
+        },
+        {
+          "turno": 103,
+          "duracionMs": 70.4332000004797,
+          "activos": 4
+        },
+        {
+          "turno": 104,
+          "duracionMs": 64.99149999945075,
+          "activos": 4
+        },
+        {
+          "turno": 105,
+          "duracionMs": 55.4984999998851,
+          "activos": 4
+        },
+        {
+          "turno": 106,
+          "duracionMs": 80.73909999984608,
+          "activos": 4
+        },
+        {
+          "turno": 107,
+          "duracionMs": 60.71970000084548,
+          "activos": 4
+        },
+        {
+          "turno": 108,
+          "duracionMs": 106.74939999989874,
+          "activos": 4
+        },
+        {
+          "turno": 109,
+          "duracionMs": 65.77410000136297,
+          "activos": 4
+        },
+        {
+          "turno": 110,
+          "duracionMs": 58.278900000004796,
+          "activos": 4
+        },
+        {
+          "turno": 111,
+          "duracionMs": 49.19309999968391,
+          "activos": 4
+        },
+        {
+          "turno": 112,
+          "duracionMs": 49.69550000168965,
+          "activos": 4
+        },
+        {
+          "turno": 113,
+          "duracionMs": 58.33560000064608,
+          "activos": 4
+        },
+        {
+          "turno": 114,
+          "duracionMs": 49.96930000015709,
+          "activos": 4
+        },
+        {
+          "turno": 115,
+          "duracionMs": 49.092199998995056,
+          "activos": 4
+        },
+        {
+          "turno": 116,
+          "duracionMs": 55.97639999905368,
+          "activos": 4
+        },
+        {
+          "turno": 117,
+          "duracionMs": 118.69990000013786,
+          "activos": 4
+        },
+        {
+          "turno": 118,
+          "duracionMs": 42.58340000160388,
+          "activos": 4
+        },
+        {
+          "turno": 119,
+          "duracionMs": 40.246599999591126,
+          "activos": 4
+        },
+        {
+          "turno": 120,
+          "duracionMs": 39.28550000091491,
+          "activos": 4
+        },
+        {
+          "turno": 121,
+          "duracionMs": 54.374199999074335,
+          "activos": 4
+        },
+        {
+          "turno": 122,
+          "duracionMs": 40.956099999675644,
+          "activos": 4
+        },
+        {
+          "turno": 123,
+          "duracionMs": 38.705999999365304,
+          "activos": 4
+        },
+        {
+          "turno": 124,
+          "duracionMs": 40.5244000012317,
+          "activos": 4
+        },
+        {
+          "turno": 125,
+          "duracionMs": 51.97749999933876,
+          "activos": 4
+        },
+        {
+          "turno": 126,
+          "duracionMs": 51.30229999849689,
+          "activos": 4
+        },
+        {
+          "turno": 127,
+          "duracionMs": 65.06989999979851,
+          "activos": 4
+        },
+        {
+          "turno": 128,
+          "duracionMs": 40.34920000049169,
+          "activos": 4
+        },
+        {
+          "turno": 129,
+          "duracionMs": 53.47549999896728,
+          "activos": 3
+        },
+        {
+          "turno": 130,
+          "duracionMs": 39.087600000129896,
+          "activos": 3
+        },
+        {
+          "turno": 131,
+          "duracionMs": 44.372399999701884,
+          "activos": 3
+        },
+        {
+          "turno": 132,
+          "duracionMs": 30.128399999739486,
+          "activos": 3
+        },
+        {
+          "turno": 133,
+          "duracionMs": 44.025899998814566,
+          "activos": 2
+        },
+        {
+          "turno": 134,
+          "duracionMs": 25.904600001013023,
+          "activos": 1
+        },
+        {
+          "turno": 135,
+          "duracionMs": 21.201399998972192,
+          "activos": 1
+        },
+        {
+          "turno": 136,
+          "duracionMs": 20.973499998945044,
+          "activos": 1
+        },
+        {
+          "turno": 137,
+          "duracionMs": 21.522899998672074,
+          "activos": 1
+        },
+        {
+          "turno": 138,
+          "duracionMs": 47.18210000100953,
+          "activos": 1
+        },
+        {
+          "turno": 139,
+          "duracionMs": 20.59509999889997,
+          "activos": 1
+        },
+        {
+          "turno": 140,
+          "duracionMs": 19.95330000136164,
+          "activos": 1
+        },
+        {
+          "turno": 141,
+          "duracionMs": 19.356799999513896,
+          "activos": 1
+        },
+        {
+          "turno": 142,
+          "duracionMs": 21.135499999218155,
+          "activos": 1
+        },
+        {
+          "turno": 143,
+          "duracionMs": 17.71810000172991,
+          "activos": 1
+        },
+        {
+          "turno": 144,
+          "duracionMs": 19.65349999954924,
+          "activos": 1
+        },
+        {
+          "turno": 145,
+          "duracionMs": 21.03210000132094,
+          "activos": 1
+        },
+        {
+          "turno": 146,
+          "duracionMs": 22.666700000627316,
+          "activos": 1
+        },
+        {
+          "turno": 147,
+          "duracionMs": 19.952299999204115,
+          "activos": 1
+        },
+        {
+          "turno": 148,
+          "duracionMs": 20.334900000307243,
+          "activos": 1
+        },
+        {
+          "turno": 149,
+          "duracionMs": 17.372500000419677,
+          "activos": 1
+        },
+        {
+          "turno": 150,
+          "duracionMs": 20.446399999855203,
+          "activos": 1
+        }
+      ]
+    },
+    {
+      "ronda": 2,
+      "semilla": 7,
+      "algoritmo": "Pro",
+      "versionAlgoritmo": "3.2.0",
+      "fechaUTC": "2026-10-27T16:00:33.610543+00:00",
+      "configuracion": {
+        "seed": 7,
+        "turn_seconds": 0.25,
+        "horde_move_probability": 0.0,
+        "http_concurrency": 4,
+        "routing_strategy": "pro",
+        "pro_prediction": true,
+        "pro_reservations": true,
+        "pro_fleet": true,
+        "risk_weight": 180.0,
+        "reassignment_improvement": 0.25,
+        "vehicle_edges_per_turn": 2,
+        "meeting_candidates": 8,
+        "pickup_candidates": 24,
+        "meeting_max_wait": 8,
+        "rescue_min_benefit": 1.0,
+        "rescue_risk_weight": 8.0,
+        "meeting_risk_threshold": 0.7,
+        "retreat_risk_threshold": 0.7,
+        "retreat_min_improvement": 0.25,
+        "cors_origins": [],
+        "speeds": {
+          "avenida": 1.5,
+          "calle": 1.2,
+          "callejón": 0.9,
+          "puente": 1.0
+        }
+      },
+      "escenario": {
+        "ronda": 2,
+        "nombre": "Medianoche",
+        "turnos": 150,
+        "sobrevivientes": 80,
+        "zombies": {
+          "caminante": 16,
+          "corredor": 6,
+          "horda": 3,
+          "dormido": 0
+        },
+        "distribucion": "equilibrada",
+        "pesosSectores": {
+          "Tarqui": 1.0,
+          "Los Esteros": 1.0,
+          "Barbasquillo": 1.0,
+          "Jocay": 1.0
+        },
+        "eventos": [
+          {
+            "id": "colapso-puente",
+            "tipo": "colapso_puente",
+            "turno": 75,
+            "turnoAleatorio": null,
+            "tipoCalle": "puente",
+            "aristas": null
+          }
+        ]
+      },
+      "huellaInicial": "03f74b25fee2f98b1d2cdb498afafc8c02a669817f98d4f0e8bdf1602feec766",
+      "firmaFinal": "7cf7de08a52c647ded2d9e8caf32b024f1b8f8350dc55327dae3f61e01b65ce4",
+      "concurrenciaHTTP": 4,
+      "turnos": 150,
+      "duracionS": 40.61205940000036,
+      "mapaVersion": "manta-bb3023537eb6eb6f",
+      "sobrevivientesIniciales": 80,
+      "evacuados": 47,
+      "eliminados": 29,
+      "activos": 4,
+      "porcentajeSupervivencia": 63.75,
+      "tasaEvacuacion": 58.75,
+      "turnosPromedioEvacuacion": 30.872340425531913,
+      "rutasValidas": 2384,
+      "rutasInvalidas": 0,
+      "solicitudesHTTP": 2724,
+      "erroresHTTP": 0,
+      "respuestasInvalidas": 0,
+      "solicitudesSobre500ms": 0,
+      "latenciaPromedioMs": 20.879278781163727,
+      "latenciaP50Ms": 19.64379999844823,
+      "latenciaP95Ms": 30.83130000050005,
+      "latenciaP99Ms": 42.53960000096413,
+      "disponibilidadEndpoint": 1.0,
+      "vivosFinales": 51,
+      "evacuadosCaminando": 38,
+      "evacuadosCamioneta": 9,
+      "rescatesCompletados": 9,
+      "rescatesCancelados": 0,
+      "distanciaCaminada_m": 82469.73360994944,
+      "distanciaTransportada_m": 27931.038478165323,
+      "ocupacionRefugios": {
+        "R-001": {
+          "ocupacion": 9,
+          "reservas": 2,
+          "capacidad": 40
+        },
+        "R-002": {
+          "ocupacion": 28,
+          "reservas": 0,
+          "capacidad": 50
+        },
+        "R-003": {
+          "ocupacion": 5,
+          "reservas": 0,
+          "capacidad": 60
+        },
+        "R-004": {
+          "ocupacion": 5,
+          "reservas": 0,
+          "capacidad": 70
+        }
+      },
+      "viajesCamionetas": {
+        "V-001": 1,
+        "V-002": 1,
+        "V-003": 0,
+        "V-004": 1,
+        "V-005": 0
+      },
+      "distanciaCamionetas_m": 14033.656309514652,
+      "eventos": [
+        {
+          "id": "mordida-1-S-R2-0007",
+          "turno": 1,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0007",
+          "nodo": "N-363646113",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-1-S-R2-0015",
+          "turno": 1,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0015",
+          "nodo": "N-363646187",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-1-S-R2-0048",
+          "turno": 1,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0048",
+          "nodo": "N-1734728599",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R2-0033",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0033",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0047",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0047",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0049",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0049",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0052",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0052",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0053",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0053",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-2-S-R2-0058",
+          "turno": 2,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0058",
+          "nodo": "N-1349201498",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R2-0018",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0018",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0050",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0050",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "embarque-2-S-R2-0067",
+          "turno": 2,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0067",
+          "camionetaId": "V-001",
+          "nodo": "N-363643320",
+          "refugioId": "R-001"
+        },
+        {
+          "id": "mordida-3-S-R2-0017",
+          "turno": 3,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0017",
+          "nodo": "N-363649599",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R2-0016",
+          "turno": 3,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0016",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0035",
+          "turno": 6,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0035",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0061",
+          "turno": 7,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0061",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "embarque-7-S-R2-0026",
+          "turno": 7,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0026",
+          "camionetaId": "V-002",
+          "nodo": "N-1364014006",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "embarque-7-S-R2-0024",
+          "turno": 7,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0024",
+          "camionetaId": "V-002",
+          "nodo": "N-1364014006",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "embarque-7-S-R2-0030",
+          "turno": 7,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0030",
+          "camionetaId": "V-002",
+          "nodo": "N-1364014006",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "embarque-7-S-R2-0034",
+          "turno": 7,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0034",
+          "camionetaId": "V-002",
+          "nodo": "N-1364014006",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "embarque-7-S-R2-0062",
+          "turno": 7,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0062",
+          "camionetaId": "V-004",
+          "nodo": "N-363665414",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "embarque-7-S-R2-0068",
+          "turno": 7,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0068",
+          "camionetaId": "V-004",
+          "nodo": "N-363665414",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "embarque-7-S-R2-0069",
+          "turno": 7,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0069",
+          "camionetaId": "V-004",
+          "nodo": "N-363665414",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "embarque-7-S-R2-0072",
+          "turno": 7,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0072",
+          "camionetaId": "V-004",
+          "nodo": "N-363665414",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "evacuacion-S-R2-0005",
+          "turno": 9,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0005",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0019",
+          "turno": 9,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0019",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0063",
+          "turno": 9,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0063",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-10-S-R2-0040",
+          "turno": 10,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0040",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-11-S-R2-0041",
+          "turno": 11,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0041",
+          "nodo": "N-775527757",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-11-S-R2-0042",
+          "turno": 11,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0042",
+          "nodo": "N-775527757",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-11-S-R2-0054",
+          "turno": 11,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0054",
+          "nodo": "N-775527757",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R2-0021",
+          "turno": 11,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0021",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0031",
+          "turno": 11,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0031",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-12-S-R2-0001",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0001",
+          "nodo": "N-2499223061",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R2-0002",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0002",
+          "nodo": "N-2499223061",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R2-0011",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0011",
+          "nodo": "N-2499223061",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R2-0013",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0013",
+          "nodo": "N-2499223061",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R2-0025",
+          "turno": 12,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0025",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0071",
+          "turno": 12,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0071",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0075",
+          "turno": 15,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0075",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "embarque-16-S-R2-0056",
+          "turno": 16,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0056",
+          "camionetaId": "V-003",
+          "nodo": "N-3173813183",
+          "refugioId": "R-003"
+        },
+        {
+          "id": "embarque-16-S-R2-0046",
+          "turno": 16,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0046",
+          "camionetaId": "V-003",
+          "nodo": "N-3173813183",
+          "refugioId": "R-003"
+        },
+        {
+          "id": "embarque-16-S-R2-0051",
+          "turno": 16,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0051",
+          "camionetaId": "V-003",
+          "nodo": "N-3173813183",
+          "refugioId": "R-003"
+        },
+        {
+          "id": "evacuacion-S-R2-0022",
+          "turno": 17,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0022",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0039",
+          "turno": 17,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0039",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "embarque-17-S-R2-0055",
+          "turno": 17,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R2-0055",
+          "camionetaId": "V-003",
+          "nodo": "N-3173813183",
+          "refugioId": "R-003"
+        },
+        {
+          "id": "evacuacion-S-R2-0036",
+          "turno": 18,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0036",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-21-S-R2-0056",
+          "turno": 21,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0056",
+          "nodo": "N-3173813183",
+          "causa": "coincidencia_nodo_camioneta"
+        },
+        {
+          "id": "mordida-21-S-R2-0046",
+          "turno": 21,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0046",
+          "nodo": "N-3173813183",
+          "causa": "coincidencia_nodo_camioneta"
+        },
+        {
+          "id": "mordida-21-S-R2-0051",
+          "turno": 21,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0051",
+          "nodo": "N-3173813183",
+          "causa": "coincidencia_nodo_camioneta"
+        },
+        {
+          "id": "mordida-21-S-R2-0055",
+          "turno": 21,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0055",
+          "nodo": "N-3173813183",
+          "causa": "coincidencia_nodo_camioneta"
+        },
+        {
+          "id": "evacuacion-S-R2-0009",
+          "turno": 23,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0009",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0027",
+          "turno": 26,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0027",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-29-S-R2-0045",
+          "turno": 29,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0045",
+          "nodo": "N-4130212615",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-29-S-R2-0057",
+          "turno": 29,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0057",
+          "nodo": "N-4130212615",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-29-S-R2-0060",
+          "turno": 29,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0060",
+          "nodo": "N-4130212615",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R2-0062",
+          "turno": 31,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0062",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R2-0068",
+          "turno": 31,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0068",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R2-0069",
+          "turno": 31,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0069",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R2-0072",
+          "turno": 31,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0072",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R2-0003",
+          "turno": 33,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0003",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0006",
+          "turno": 33,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0006",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0038",
+          "turno": 35,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0038",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0037",
+          "turno": 39,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0037",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-42-S-R2-0066",
+          "turno": 42,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0066",
+          "nodo": "N-363643366",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-42-S-R2-0073",
+          "turno": 42,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0073",
+          "nodo": "N-363643366",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-42-S-R2-0077",
+          "turno": 42,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0077",
+          "nodo": "N-363643366",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-42-S-R2-0078",
+          "turno": 42,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0078",
+          "nodo": "N-363643366",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R2-0028",
+          "turno": 42,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0028",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0026",
+          "turno": 43,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0026",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R2-0024",
+          "turno": 43,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0024",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R2-0030",
+          "turno": 43,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0030",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R2-0034",
+          "turno": 43,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0034",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "mordida-47-S-R2-0004",
+          "turno": 47,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0004",
+          "nodo": "N-1349201498",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-47-S-R2-0008",
+          "turno": 47,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0008",
+          "nodo": "N-1349201498",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-47-S-R2-0043",
+          "turno": 47,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0043",
+          "nodo": "N-1349201498",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-47-S-R2-0044",
+          "turno": 47,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0044",
+          "nodo": "N-1349201498",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-47-S-R2-0059",
+          "turno": 47,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R2-0059",
+          "nodo": "N-1349201498",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R2-0079",
+          "turno": 47,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0079",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0010",
+          "turno": 51,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0010",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0012",
+          "turno": 51,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0012",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0080",
+          "turno": 51,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0080",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0070",
+          "turno": 52,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0070",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0064",
+          "turno": 53,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0064",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0023",
+          "turno": 56,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0023",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "colapso-puente",
+          "turno": 75,
+          "tipo": "colapso_puente",
+          "aristas": [
+            "E-363644992-363711015-0",
+            "E-363711015-363644992-0"
+          ],
+          "versionGrafo": 1
+        },
+        {
+          "id": "evacuacion-S-R2-0076",
+          "turno": 83,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0076",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0067",
+          "turno": 83,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0067",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R2-0074",
+          "turno": 104,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0074",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R2-0065",
+          "turno": 128,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R2-0065",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        }
+      ],
+      "metricasTurnos": [
+        {
+          "turno": 1,
+          "duracionMs": 423.2449000010092,
+          "activos": 72
+        },
+        {
+          "turno": 2,
+          "duracionMs": 396.75030000034894,
+          "activos": 69
+        },
+        {
+          "turno": 3,
+          "duracionMs": 408.06509999856644,
+          "activos": 67
+        },
+        {
+          "turno": 4,
+          "duracionMs": 382.6450000015029,
+          "activos": 67
+        },
+        {
+          "turno": 5,
+          "duracionMs": 555.0292000007175,
+          "activos": 67
+        },
+        {
+          "turno": 6,
+          "duracionMs": 506.69679999919026,
+          "activos": 66
+        },
+        {
+          "turno": 7,
+          "duracionMs": 415.0042000001122,
+          "activos": 65
+        },
+        {
+          "turno": 8,
+          "duracionMs": 381.2147999997251,
+          "activos": 65
+        },
+        {
+          "turno": 9,
+          "duracionMs": 427.1595000009256,
+          "activos": 62
+        },
+        {
+          "turno": 10,
+          "duracionMs": 380.31149999915215,
+          "activos": 61
+        },
+        {
+          "turno": 11,
+          "duracionMs": 373.42700000044715,
+          "activos": 56
+        },
+        {
+          "turno": 12,
+          "duracionMs": 341.39669999967737,
+          "activos": 50
+        },
+        {
+          "turno": 13,
+          "duracionMs": 277.79710000140767,
+          "activos": 50
+        },
+        {
+          "turno": 14,
+          "duracionMs": 310.9196000004886,
+          "activos": 50
+        },
+        {
+          "turno": 15,
+          "duracionMs": 297.5764999991952,
+          "activos": 49
+        },
+        {
+          "turno": 16,
+          "duracionMs": 314.2496000000392,
+          "activos": 49
+        },
+        {
+          "turno": 17,
+          "duracionMs": 309.82980000044336,
+          "activos": 47
+        },
+        {
+          "turno": 18,
+          "duracionMs": 337.25090000007185,
+          "activos": 46
+        },
+        {
+          "turno": 19,
+          "duracionMs": 291.932000000088,
+          "activos": 46
+        },
+        {
+          "turno": 20,
+          "duracionMs": 271.08270000098855,
+          "activos": 46
+        },
+        {
+          "turno": 21,
+          "duracionMs": 274.6227000006911,
+          "activos": 42
+        },
+        {
+          "turno": 22,
+          "duracionMs": 355.5605999990803,
+          "activos": 42
+        },
+        {
+          "turno": 23,
+          "duracionMs": 282.50649999972666,
+          "activos": 41
+        },
+        {
+          "turno": 24,
+          "duracionMs": 251.4727000016137,
+          "activos": 41
+        },
+        {
+          "turno": 25,
+          "duracionMs": 290.86829999869224,
+          "activos": 41
+        },
+        {
+          "turno": 26,
+          "duracionMs": 258.8872000014817,
+          "activos": 40
+        },
+        {
+          "turno": 27,
+          "duracionMs": 257.8763000001345,
+          "activos": 40
+        },
+        {
+          "turno": 28,
+          "duracionMs": 228.45710000001418,
+          "activos": 40
+        },
+        {
+          "turno": 29,
+          "duracionMs": 242.8198000015982,
+          "activos": 37
+        },
+        {
+          "turno": 30,
+          "duracionMs": 238.6688000005961,
+          "activos": 37
+        },
+        {
+          "turno": 31,
+          "duracionMs": 261.214199999813,
+          "activos": 33
+        },
+        {
+          "turno": 32,
+          "duracionMs": 218.86070000073232,
+          "activos": 33
+        },
+        {
+          "turno": 33,
+          "duracionMs": 235.06600000109756,
+          "activos": 31
+        },
+        {
+          "turno": 34,
+          "duracionMs": 203.10389999940526,
+          "activos": 31
+        },
+        {
+          "turno": 35,
+          "duracionMs": 200.69510000030277,
+          "activos": 30
+        },
+        {
+          "turno": 36,
+          "duracionMs": 221.0240000003978,
+          "activos": 30
+        },
+        {
+          "turno": 37,
+          "duracionMs": 213.48000000034517,
+          "activos": 30
+        },
+        {
+          "turno": 38,
+          "duracionMs": 207.9290999990917,
+          "activos": 30
+        },
+        {
+          "turno": 39,
+          "duracionMs": 187.33109999993758,
+          "activos": 29
+        },
+        {
+          "turno": 40,
+          "duracionMs": 181.1202000008052,
+          "activos": 29
+        },
+        {
+          "turno": 41,
+          "duracionMs": 194.7889999992185,
+          "activos": 29
+        },
+        {
+          "turno": 42,
+          "duracionMs": 228.07169999941834,
+          "activos": 24
+        },
+        {
+          "turno": 43,
+          "duracionMs": 242.90250000012747,
+          "activos": 20
+        },
+        {
+          "turno": 44,
+          "duracionMs": 152.36840000034135,
+          "activos": 20
+        },
+        {
+          "turno": 45,
+          "duracionMs": 146.43249999971886,
+          "activos": 20
+        },
+        {
+          "turno": 46,
+          "duracionMs": 146.10180000090622,
+          "activos": 20
+        },
+        {
+          "turno": 47,
+          "duracionMs": 121.06780000067374,
+          "activos": 14
+        },
+        {
+          "turno": 48,
+          "duracionMs": 125.34260000029462,
+          "activos": 14
+        },
+        {
+          "turno": 49,
+          "duracionMs": 101.87089999999444,
+          "activos": 14
+        },
+        {
+          "turno": 50,
+          "duracionMs": 95.80740000092192,
+          "activos": 14
+        },
+        {
+          "turno": 51,
+          "duracionMs": 125.54619999900751,
+          "activos": 11
+        },
+        {
+          "turno": 52,
+          "duracionMs": 83.59629999904428,
+          "activos": 10
+        },
+        {
+          "turno": 53,
+          "duracionMs": 126.63559999964491,
+          "activos": 9
+        },
+        {
+          "turno": 54,
+          "duracionMs": 145.8143999989261,
+          "activos": 9
+        },
+        {
+          "turno": 55,
+          "duracionMs": 118.4198999999353,
+          "activos": 9
+        },
+        {
+          "turno": 56,
+          "duracionMs": 71.82579999971495,
+          "activos": 8
+        },
+        {
+          "turno": 57,
+          "duracionMs": 68.9156999997067,
+          "activos": 8
+        },
+        {
+          "turno": 58,
+          "duracionMs": 65.31449999965844,
+          "activos": 8
+        },
+        {
+          "turno": 59,
+          "duracionMs": 62.501300000803894,
+          "activos": 8
+        },
+        {
+          "turno": 60,
+          "duracionMs": 64.30150000051071,
+          "activos": 8
+        },
+        {
+          "turno": 61,
+          "duracionMs": 74.38749999892025,
+          "activos": 8
+        },
+        {
+          "turno": 62,
+          "duracionMs": 92.43279999827791,
+          "activos": 8
+        },
+        {
+          "turno": 63,
+          "duracionMs": 67.29020000057062,
+          "activos": 8
+        },
+        {
+          "turno": 64,
+          "duracionMs": 66.57390000145824,
+          "activos": 8
+        },
+        {
+          "turno": 65,
+          "duracionMs": 72.82800000029965,
+          "activos": 8
+        },
+        {
+          "turno": 66,
+          "duracionMs": 58.74480000056792,
+          "activos": 8
+        },
+        {
+          "turno": 67,
+          "duracionMs": 58.12619999960589,
+          "activos": 8
+        },
+        {
+          "turno": 68,
+          "duracionMs": 63.60099999983504,
+          "activos": 8
+        },
+        {
+          "turno": 69,
+          "duracionMs": 72.66399999934947,
+          "activos": 8
+        },
+        {
+          "turno": 70,
+          "duracionMs": 83.40330000100948,
+          "activos": 8
+        },
+        {
+          "turno": 71,
+          "duracionMs": 60.28449999939767,
+          "activos": 8
+        },
+        {
+          "turno": 72,
+          "duracionMs": 63.52049999986775,
+          "activos": 8
+        },
+        {
+          "turno": 73,
+          "duracionMs": 82.61949999905482,
+          "activos": 8
+        },
+        {
+          "turno": 74,
+          "duracionMs": 62.21879999975499,
+          "activos": 8
+        },
+        {
+          "turno": 75,
+          "duracionMs": 62.680400000317604,
+          "activos": 8
+        },
+        {
+          "turno": 76,
+          "duracionMs": 57.61979999988398,
+          "activos": 8
+        },
+        {
+          "turno": 77,
+          "duracionMs": 69.19469999957073,
+          "activos": 8
+        },
+        {
+          "turno": 78,
+          "duracionMs": 86.77890000035404,
+          "activos": 8
+        },
+        {
+          "turno": 79,
+          "duracionMs": 57.74840000049153,
+          "activos": 8
+        },
+        {
+          "turno": 80,
+          "duracionMs": 59.900299998844275,
+          "activos": 8
+        },
+        {
+          "turno": 81,
+          "duracionMs": 57.98569999933534,
+          "activos": 8
+        },
+        {
+          "turno": 82,
+          "duracionMs": 60.43689999933122,
+          "activos": 8
+        },
+        {
+          "turno": 83,
+          "duracionMs": 57.84749999838823,
+          "activos": 6
+        },
+        {
+          "turno": 84,
+          "duracionMs": 48.896400001467555,
+          "activos": 6
+        },
+        {
+          "turno": 85,
+          "duracionMs": 48.92350000045553,
+          "activos": 6
+        },
+        {
+          "turno": 86,
+          "duracionMs": 72.55179999992833,
+          "activos": 6
+        },
+        {
+          "turno": 87,
+          "duracionMs": 51.75699999927019,
+          "activos": 6
+        },
+        {
+          "turno": 88,
+          "duracionMs": 53.01049999980023,
+          "activos": 6
+        },
+        {
+          "turno": 89,
+          "duracionMs": 56.00630000117235,
+          "activos": 6
+        },
+        {
+          "turno": 90,
+          "duracionMs": 48.821600001247134,
+          "activos": 6
+        },
+        {
+          "turno": 91,
+          "duracionMs": 46.65890000069339,
+          "activos": 6
+        },
+        {
+          "turno": 92,
+          "duracionMs": 60.4801999998017,
+          "activos": 6
+        },
+        {
+          "turno": 93,
+          "duracionMs": 55.43480000051204,
+          "activos": 6
+        },
+        {
+          "turno": 94,
+          "duracionMs": 53.7002000000939,
+          "activos": 6
+        },
+        {
+          "turno": 95,
+          "duracionMs": 45.69000000083179,
+          "activos": 6
+        },
+        {
+          "turno": 96,
+          "duracionMs": 72.76280000041879,
+          "activos": 6
+        },
+        {
+          "turno": 97,
+          "duracionMs": 51.05550000007497,
+          "activos": 6
+        },
+        {
+          "turno": 98,
+          "duracionMs": 54.06799999946088,
+          "activos": 6
+        },
+        {
+          "turno": 99,
+          "duracionMs": 46.88250000072003,
+          "activos": 6
+        },
+        {
+          "turno": 100,
+          "duracionMs": 47.575499998856685,
+          "activos": 6
+        },
+        {
+          "turno": 101,
+          "duracionMs": 65.18449999930453,
+          "activos": 6
+        },
+        {
+          "turno": 102,
+          "duracionMs": 88.61700000124983,
+          "activos": 6
+        },
+        {
+          "turno": 103,
+          "duracionMs": 64.33020000076795,
+          "activos": 6
+        },
+        {
+          "turno": 104,
+          "duracionMs": 49.06210000081046,
+          "activos": 5
+        },
+        {
+          "turno": 105,
+          "duracionMs": 85.90739999999641,
+          "activos": 5
+        },
+        {
+          "turno": 106,
+          "duracionMs": 123.10169999909704,
+          "activos": 5
+        },
+        {
+          "turno": 107,
+          "duracionMs": 81.35270000093442,
+          "activos": 5
+        },
+        {
+          "turno": 108,
+          "duracionMs": 45.57840000052238,
+          "activos": 5
+        },
+        {
+          "turno": 109,
+          "duracionMs": 100.33409999959986,
+          "activos": 5
+        },
+        {
+          "turno": 110,
+          "duracionMs": 60.04629999915778,
+          "activos": 5
+        },
+        {
+          "turno": 111,
+          "duracionMs": 42.51429999931133,
+          "activos": 5
+        },
+        {
+          "turno": 112,
+          "duracionMs": 45.34869999952207,
+          "activos": 5
+        },
+        {
+          "turno": 113,
+          "duracionMs": 49.92149999998219,
+          "activos": 5
+        },
+        {
+          "turno": 114,
+          "duracionMs": 52.68859999887354,
+          "activos": 5
+        },
+        {
+          "turno": 115,
+          "duracionMs": 42.72479999963252,
+          "activos": 5
+        },
+        {
+          "turno": 116,
+          "duracionMs": 76.11800000086077,
+          "activos": 5
+        },
+        {
+          "turno": 117,
+          "duracionMs": 49.78579999988142,
+          "activos": 5
+        },
+        {
+          "turno": 118,
+          "duracionMs": 52.53970000012487,
+          "activos": 5
+        },
+        {
+          "turno": 119,
+          "duracionMs": 43.47140000027139,
+          "activos": 5
+        },
+        {
+          "turno": 120,
+          "duracionMs": 41.96789999878092,
+          "activos": 5
+        },
+        {
+          "turno": 121,
+          "duracionMs": 46.1765000000014,
+          "activos": 5
+        },
+        {
+          "turno": 122,
+          "duracionMs": 50.03409999881114,
+          "activos": 5
+        },
+        {
+          "turno": 123,
+          "duracionMs": 42.3958000010316,
+          "activos": 5
+        },
+        {
+          "turno": 124,
+          "duracionMs": 42.61849999966216,
+          "activos": 5
+        },
+        {
+          "turno": 125,
+          "duracionMs": 47.62479999953939,
+          "activos": 5
+        },
+        {
+          "turno": 126,
+          "duracionMs": 80.53209999889077,
+          "activos": 5
+        },
+        {
+          "turno": 127,
+          "duracionMs": 41.669399999591406,
+          "activos": 5
+        },
+        {
+          "turno": 128,
+          "duracionMs": 44.49000000022352,
+          "activos": 4
+        },
+        {
+          "turno": 129,
+          "duracionMs": 43.08379999929457,
+          "activos": 4
+        },
+        {
+          "turno": 130,
+          "duracionMs": 41.272500000559376,
+          "activos": 4
+        },
+        {
+          "turno": 131,
+          "duracionMs": 37.188700000115205,
+          "activos": 4
+        },
+        {
+          "turno": 132,
+          "duracionMs": 42.13230000095791,
+          "activos": 4
+        },
+        {
+          "turno": 133,
+          "duracionMs": 41.05789999994158,
+          "activos": 4
+        },
+        {
+          "turno": 134,
+          "duracionMs": 80.74839999972028,
+          "activos": 4
+        },
+        {
+          "turno": 135,
+          "duracionMs": 38.344300000972,
+          "activos": 4
+        },
+        {
+          "turno": 136,
+          "duracionMs": 68.1605000008858,
+          "activos": 4
+        },
+        {
+          "turno": 137,
+          "duracionMs": 44.108000000051106,
+          "activos": 4
+        },
+        {
+          "turno": 138,
+          "duracionMs": 49.62109999905806,
+          "activos": 4
+        },
+        {
+          "turno": 139,
+          "duracionMs": 39.688200000455254,
+          "activos": 4
+        },
+        {
+          "turno": 140,
+          "duracionMs": 46.65449999993143,
+          "activos": 4
+        },
+        {
+          "turno": 141,
+          "duracionMs": 39.82040000119014,
+          "activos": 4
+        },
+        {
+          "turno": 142,
+          "duracionMs": 45.65130000082718,
+          "activos": 4
+        },
+        {
+          "turno": 143,
+          "duracionMs": 36.276200000429526,
+          "activos": 4
+        },
+        {
+          "turno": 144,
+          "duracionMs": 77.05609999902663,
+          "activos": 4
+        },
+        {
+          "turno": 145,
+          "duracionMs": 39.346400000795256,
+          "activos": 4
+        },
+        {
+          "turno": 146,
+          "duracionMs": 70.57050000003073,
+          "activos": 4
+        },
+        {
+          "turno": 147,
+          "duracionMs": 38.018699999156524,
+          "activos": 4
+        },
+        {
+          "turno": 148,
+          "duracionMs": 38.277000001471606,
+          "activos": 4
+        },
+        {
+          "turno": 149,
+          "duracionMs": 41.0585000008723,
+          "activos": 4
+        },
+        {
+          "turno": 150,
+          "duracionMs": 40.76100000020233,
+          "activos": 4
+        }
+      ]
+    },
+    {
+      "ronda": 3,
+      "semilla": 7,
+      "algoritmo": "Pro",
+      "versionAlgoritmo": "3.2.0",
+      "fechaUTC": "2026-10-27T16:01:21.413471+00:00",
+      "configuracion": {
+        "seed": 7,
+        "turn_seconds": 0.25,
+        "horde_move_probability": 0.0,
+        "http_concurrency": 4,
+        "routing_strategy": "pro",
+        "pro_prediction": true,
+        "pro_reservations": true,
+        "pro_fleet": true,
+        "risk_weight": 180.0,
+        "reassignment_improvement": 0.25,
+        "vehicle_edges_per_turn": 2,
+        "meeting_candidates": 8,
+        "pickup_candidates": 24,
+        "meeting_max_wait": 8,
+        "rescue_min_benefit": 1.0,
+        "rescue_risk_weight": 8.0,
+        "meeting_risk_threshold": 0.7,
+        "retreat_risk_threshold": 0.7,
+        "retreat_min_improvement": 0.25,
+        "cors_origins": [],
+        "speeds": {
+          "avenida": 1.5,
+          "calle": 1.2,
+          "callejón": 0.9,
+          "puente": 1.0
+        }
+      },
+      "escenario": {
+        "ronda": 3,
+        "nombre": "Apocalipsis",
+        "turnos": 150,
+        "sobrevivientes": 200,
+        "zombies": {
+          "caminante": 24,
+          "corredor": 12,
+          "horda": 4,
+          "dormido": 8
+        },
+        "distribucion": "equilibrada",
+        "pesosSectores": {
+          "Tarqui": 1.0,
+          "Los Esteros": 1.0,
+          "Barbasquillo": 1.0,
+          "Jocay": 1.0
+        },
+        "eventos": [
+          {
+            "id": "bloqueo-calle-1",
+            "tipo": "bloqueo_calle",
+            "turno": 50,
+            "turnoAleatorio": null,
+            "tipoCalle": "calle",
+            "aristas": null
+          },
+          {
+            "id": "bloqueo-calle-2",
+            "tipo": "bloqueo_calle",
+            "turno": null,
+            "turnoAleatorio": [
+              90,
+              120
+            ],
+            "tipoCalle": "avenida",
+            "aristas": null
+          }
+        ]
+      },
+      "huellaInicial": "ddc08dc6dc8f9e6e4ee2b81258bd5c0eedc2c389ce22fd09a6030f06beca021d",
+      "firmaFinal": "247ce560459218958459d181c6498655c85c3c65a8249688eb67bc957bcbbfac",
+      "concurrenciaHTTP": 4,
+      "turnos": 150,
+      "duracionS": 47.74350460000096,
+      "mapaVersion": "manta-bb3023537eb6eb6f",
+      "sobrevivientesIniciales": 200,
+      "evacuados": 86,
+      "eliminados": 106,
+      "activos": 8,
+      "porcentajeSupervivencia": 47.0,
+      "tasaEvacuacion": 43.0,
+      "turnosPromedioEvacuacion": 22.290697674418606,
+      "rutasValidas": 5101,
+      "rutasInvalidas": 0,
+      "solicitudesHTTP": 5238,
+      "erroresHTTP": 0,
+      "respuestasInvalidas": 0,
+      "solicitudesSobre500ms": 0,
+      "latenciaPromedioMs": 20.064828484153864,
+      "latenciaP50Ms": 17.479099999036407,
+      "latenciaP95Ms": 32.92839999994612,
+      "latenciaP99Ms": 47.778899999684654,
+      "disponibilidadEndpoint": 1.0,
+      "vivosFinales": 94,
+      "evacuadosCaminando": 82,
+      "evacuadosCamioneta": 4,
+      "rescatesCompletados": 4,
+      "rescatesCancelados": 7,
+      "distanciaCaminada_m": 161220.49989672046,
+      "distanciaTransportada_m": 7182.845282943855,
+      "ocupacionRefugios": {
+        "R-001": {
+          "ocupacion": 8,
+          "reservas": 0,
+          "capacidad": 40
+        },
+        "R-002": {
+          "ocupacion": 34,
+          "reservas": 0,
+          "capacidad": 50
+        },
+        "R-003": {
+          "ocupacion": 30,
+          "reservas": 0,
+          "capacidad": 60
+        },
+        "R-004": {
+          "ocupacion": 14,
+          "reservas": 0,
+          "capacidad": 70
+        }
+      },
+      "viajesCamionetas": {
+        "V-001": 0,
+        "V-002": 0,
+        "V-003": 0,
+        "V-004": 1,
+        "V-005": 0
+      },
+      "distanciaCamionetas_m": 2436.095094369871,
+      "eventos": [
+        {
+          "id": "cancelacion-1-V-001-S-R3-0158",
+          "turno": 1,
+          "tipo": "rescate_cancelado",
+          "sobrevivienteId": "S-R3-0158",
+          "camionetaId": "V-001",
+          "motivo": "encuentro_inviable_o_peligroso"
+        },
+        {
+          "id": "cancelacion-1-V-001-S-R3-0159",
+          "turno": 1,
+          "tipo": "rescate_cancelado",
+          "sobrevivienteId": "S-R3-0159",
+          "camionetaId": "V-001",
+          "motivo": "encuentro_inviable_o_peligroso"
+        },
+        {
+          "id": "cancelacion-1-V-001-S-R3-0180",
+          "turno": 1,
+          "tipo": "rescate_cancelado",
+          "sobrevivienteId": "S-R3-0180",
+          "camionetaId": "V-001",
+          "motivo": "encuentro_inviable_o_peligroso"
+        },
+        {
+          "id": "cancelacion-1-V-001-S-R3-0186",
+          "turno": 1,
+          "tipo": "rescate_cancelado",
+          "sobrevivienteId": "S-R3-0186",
+          "camionetaId": "V-001",
+          "motivo": "encuentro_inviable_o_peligroso"
+        },
+        {
+          "id": "despertar-Z-0041",
+          "turno": 1,
+          "tipo": "despertar",
+          "zombieId": "Z-0041",
+          "nodo": "N-8267326903"
+        },
+        {
+          "id": "despertar-Z-0042",
+          "turno": 1,
+          "tipo": "despertar",
+          "zombieId": "Z-0042",
+          "nodo": "N-363643504"
+        },
+        {
+          "id": "despertar-Z-0043",
+          "turno": 1,
+          "tipo": "despertar",
+          "zombieId": "Z-0043",
+          "nodo": "N-2499222949"
+        },
+        {
+          "id": "despertar-Z-0044",
+          "turno": 1,
+          "tipo": "despertar",
+          "zombieId": "Z-0044",
+          "nodo": "N-8269413943"
+        },
+        {
+          "id": "despertar-Z-0045",
+          "turno": 1,
+          "tipo": "despertar",
+          "zombieId": "Z-0045",
+          "nodo": "N-363643619"
+        },
+        {
+          "id": "despertar-Z-0046",
+          "turno": 1,
+          "tipo": "despertar",
+          "zombieId": "Z-0046",
+          "nodo": "N-363710427"
+        },
+        {
+          "id": "despertar-Z-0048",
+          "turno": 1,
+          "tipo": "despertar",
+          "zombieId": "Z-0048",
+          "nodo": "N-776248526"
+        },
+        {
+          "id": "mordida-1-S-R3-0036",
+          "turno": 1,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0036",
+          "nodo": "N-2499222949",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-1-S-R3-0153",
+          "turno": 1,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0153",
+          "nodo": "N-8267326903",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-1-S-R3-0162",
+          "turno": 1,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0162",
+          "nodo": "N-8267326903",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-1-S-R3-0190",
+          "turno": 1,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0190",
+          "nodo": "N-363710427",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0002",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0002",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0045",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0045",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0059",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0059",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0065",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0065",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0079",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0079",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0102",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0102",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0106",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0106",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0126",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0126",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0141",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0141",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0143",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0143",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0152",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0152",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0157",
+          "turno": 1,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0157",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-2-S-R3-0038",
+          "turno": 2,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0038",
+          "nodo": "N-363643005",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-2-S-R3-0041",
+          "turno": 2,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0041",
+          "nodo": "N-363643005",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-2-S-R3-0110",
+          "turno": 2,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0110",
+          "nodo": "N-1734733952",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-2-S-R3-0115",
+          "turno": 2,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0115",
+          "nodo": "N-1734733952",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-2-S-R3-0117",
+          "turno": 2,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0117",
+          "nodo": "N-1734733952",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-2-S-R3-0131",
+          "turno": 2,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0131",
+          "nodo": "N-1734733952",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0034",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0034",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0046",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0046",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0101",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0101",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0111",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0111",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0114",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0114",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0120",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0120",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0125",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0125",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0130",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0130",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0132",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0132",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0177",
+          "turno": 2,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0177",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-3-S-R3-0033",
+          "turno": 3,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0033",
+          "nodo": "N-3173813185",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-3-S-R3-0066",
+          "turno": 3,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0066",
+          "nodo": "N-776248526",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-3-S-R3-0086",
+          "turno": 3,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0086",
+          "nodo": "N-776248526",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-3-S-R3-0108",
+          "turno": 3,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0108",
+          "nodo": "N-3173813185",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-3-S-R3-0112",
+          "turno": 3,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0112",
+          "nodo": "N-1734728613",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-3-S-R3-0116",
+          "turno": 3,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0116",
+          "nodo": "N-3173813185",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-3-S-R3-0119",
+          "turno": 3,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0119",
+          "nodo": "N-3173813185",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-3-S-R3-0137",
+          "turno": 3,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0137",
+          "nodo": "N-3173813185",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-3-S-R3-0142",
+          "turno": 3,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0142",
+          "nodo": "N-3173813185",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-3-S-R3-0150",
+          "turno": 3,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0150",
+          "nodo": "N-3173813185",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0107",
+          "turno": 3,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0107",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0128",
+          "turno": 3,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0128",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0138",
+          "turno": 3,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0138",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0170",
+          "turno": 3,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0170",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0184",
+          "turno": 3,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0184",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-4-S-R3-0029",
+          "turno": 4,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0029",
+          "nodo": "N-2499222412",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-4-S-R3-0040",
+          "turno": 4,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0040",
+          "nodo": "N-2499222412",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0118",
+          "turno": 4,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0118",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0124",
+          "turno": 4,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0124",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0185",
+          "turno": 4,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0185",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0192",
+          "turno": 4,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0192",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0193",
+          "turno": 4,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0193",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-5-S-R3-0104",
+          "turno": 5,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0104",
+          "nodo": "N-1734728598",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-5-S-R3-0122",
+          "turno": 5,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0122",
+          "nodo": "N-1734728598",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0164",
+          "turno": 5,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0164",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0189",
+          "turno": 5,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0189",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-6-S-R3-0165",
+          "turno": 6,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0165",
+          "nodo": "N-3766220839",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-6-S-R3-0172",
+          "turno": 6,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0172",
+          "nodo": "N-3766220839",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0191",
+          "turno": 6,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0191",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "embarque-6-S-R3-0171",
+          "turno": 6,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R3-0171",
+          "camionetaId": "V-004",
+          "nodo": "N-363665444",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "embarque-6-S-R3-0151",
+          "turno": 6,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R3-0151",
+          "camionetaId": "V-004",
+          "nodo": "N-363665444",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "embarque-6-S-R3-0176",
+          "turno": 6,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R3-0176",
+          "camionetaId": "V-004",
+          "nodo": "N-363665444",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "mordida-7-S-R3-0113",
+          "turno": 7,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0113",
+          "nodo": "N-1349201117",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-7-S-R3-0121",
+          "turno": 7,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0121",
+          "nodo": "N-1349201117",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-7-S-R3-0123",
+          "turno": 7,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0123",
+          "nodo": "N-1349201117",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-7-S-R3-0134",
+          "turno": 7,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0134",
+          "nodo": "N-1349201117",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0182",
+          "turno": 7,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0182",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "embarque-7-S-R3-0161",
+          "turno": 7,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R3-0161",
+          "camionetaId": "V-004",
+          "nodo": "N-363665444",
+          "refugioId": "R-002"
+        },
+        {
+          "id": "mordida-8-S-R3-0004",
+          "turno": 8,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0004",
+          "nodo": "N-363646415",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-8-S-R3-0016",
+          "turno": 8,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0016",
+          "nodo": "N-363646415",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-8-S-R3-0030",
+          "turno": 8,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0030",
+          "nodo": "N-363646415",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-8-S-R3-0037",
+          "turno": 8,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0037",
+          "nodo": "N-363646415",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-8-S-R3-0043",
+          "turno": 8,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0043",
+          "nodo": "N-363646415",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-8-S-R3-0091",
+          "turno": 8,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0091",
+          "nodo": "N-363673591",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0160",
+          "turno": 8,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0160",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0199",
+          "turno": 8,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0199",
+          "refugioId": "R-004",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-9-S-R3-0007",
+          "turno": 9,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0007",
+          "nodo": "N-363649613",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-9-S-R3-0009",
+          "turno": 9,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0009",
+          "nodo": "N-363643246",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-9-S-R3-0017",
+          "turno": 9,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0017",
+          "nodo": "N-363643246",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-9-S-R3-0026",
+          "turno": 9,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0026",
+          "nodo": "N-363643246",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-9-S-R3-0028",
+          "turno": 9,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0028",
+          "nodo": "N-363649613",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-9-S-R3-0042",
+          "turno": 9,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0042",
+          "nodo": "N-363649613",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0021",
+          "turno": 9,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0021",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0035",
+          "turno": 9,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0035",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-11-S-R3-0020",
+          "turno": 11,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0020",
+          "nodo": "N-2499222999",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R3-0006",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0006",
+          "nodo": "N-363643325",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R3-0071",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0071",
+          "nodo": "N-11055226220",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R3-0154",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0154",
+          "nodo": "N-363643325",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R3-0163",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0163",
+          "nodo": "N-363643325",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R3-0166",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0166",
+          "nodo": "N-363643325",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R3-0168",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0168",
+          "nodo": "N-363643325",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R3-0178",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0178",
+          "nodo": "N-363643325",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R3-0196",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0196",
+          "nodo": "N-363643325",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-12-S-R3-0197",
+          "turno": 12,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0197",
+          "nodo": "N-363643325",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-14-S-R3-0003",
+          "turno": 14,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0003",
+          "nodo": "N-8267351974",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-14-S-R3-0005",
+          "turno": 14,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0005",
+          "nodo": "N-8267351974",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-14-S-R3-0039",
+          "turno": 14,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0039",
+          "nodo": "N-8267351974",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-14-S-R3-0047",
+          "turno": 14,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0047",
+          "nodo": "N-8267351974",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-14-S-R3-0057",
+          "turno": 14,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0057",
+          "nodo": "N-11088595686",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-14-S-R3-0060",
+          "turno": 14,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0060",
+          "nodo": "N-11088595686",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-14-S-R3-0095",
+          "turno": 14,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0095",
+          "nodo": "N-11088595686",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-14-S-R3-0188",
+          "turno": 14,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0188",
+          "nodo": "N-6441637174",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0064",
+          "turno": 19,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0064",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0077",
+          "turno": 19,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0077",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-20-S-R3-0140",
+          "turno": 20,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0140",
+          "nodo": "N-4131783615",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0055",
+          "turno": 22,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0055",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-23-S-R3-0051",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0051",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0052",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0052",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0053",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0053",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0054",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0054",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0056",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0056",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0061",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0061",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0062",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0062",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0063",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0063",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0067",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0067",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0068",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0068",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0069",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0069",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0072",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0072",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0074",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0074",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0075",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0075",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0076",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0076",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0078",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0078",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0081",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0081",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0085",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0085",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0088",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0088",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0094",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0094",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-23-S-R3-0100",
+          "turno": 23,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0100",
+          "nodo": "N-363712459",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "cancelacion-24-V-001-S-R3-0001",
+          "turno": 24,
+          "tipo": "rescate_cancelado",
+          "sobrevivienteId": "S-R3-0001",
+          "camionetaId": "V-001",
+          "motivo": "encuentro_inviable_o_peligroso"
+        },
+        {
+          "id": "despertar-Z-0047",
+          "turno": 24,
+          "tipo": "despertar",
+          "zombieId": "Z-0047",
+          "nodo": "N-2499222658"
+        },
+        {
+          "id": "evacuacion-S-R3-0090",
+          "turno": 26,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0090",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-28-S-R3-0008",
+          "turno": 28,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0008",
+          "nodo": "N-4136403208",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-28-S-R3-0012",
+          "turno": 28,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0012",
+          "nodo": "N-9316004106",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-28-S-R3-0013",
+          "turno": 28,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0013",
+          "nodo": "N-4136403208",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-28-S-R3-0015",
+          "turno": 28,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0015",
+          "nodo": "N-9316004106",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-28-S-R3-0031",
+          "turno": 28,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0031",
+          "nodo": "N-9316004106",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0109",
+          "turno": 28,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0109",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0139",
+          "turno": 28,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0139",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0145",
+          "turno": 28,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0145",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0146",
+          "turno": 28,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0146",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0147",
+          "turno": 28,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0147",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0148",
+          "turno": 28,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0148",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0103",
+          "turno": 29,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0103",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0127",
+          "turno": 29,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0127",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0129",
+          "turno": 29,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0129",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0135",
+          "turno": 29,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0135",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0136",
+          "turno": 29,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0136",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0144",
+          "turno": 29,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0144",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0149",
+          "turno": 29,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0149",
+          "refugioId": "R-003",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0083",
+          "turno": 30,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0083",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "cancelacion-31-V-001-S-R3-0001",
+          "turno": 31,
+          "tipo": "rescate_cancelado",
+          "sobrevivienteId": "S-R3-0001",
+          "camionetaId": "V-001",
+          "motivo": "encuentro_inviable_o_peligroso"
+        },
+        {
+          "id": "mordida-31-S-R3-0084",
+          "turno": 31,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0084",
+          "nodo": "N-11946660071",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-31-S-R3-0087",
+          "turno": 31,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0087",
+          "nodo": "N-11946660071",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-31-S-R3-0089",
+          "turno": 31,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0089",
+          "nodo": "N-11946660071",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-31-S-R3-0099",
+          "turno": 31,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0099",
+          "nodo": "N-11946660071",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0092",
+          "turno": 31,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0092",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0093",
+          "turno": 31,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0093",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0098",
+          "turno": 31,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0098",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-32-S-R3-0158",
+          "turno": 32,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0158",
+          "nodo": "N-363643518",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-32-S-R3-0159",
+          "turno": 32,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0159",
+          "nodo": "N-363643518",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-32-S-R3-0180",
+          "turno": 32,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0180",
+          "nodo": "N-363643518",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-32-S-R3-0186",
+          "turno": 32,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0186",
+          "nodo": "N-363643518",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-32-S-R3-0187",
+          "turno": 32,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0187",
+          "nodo": "N-363643518",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "evacuacion-S-R3-0027",
+          "turno": 35,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0027",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "cancelacion-37-V-001-S-R3-0001",
+          "turno": 37,
+          "tipo": "rescate_cancelado",
+          "sobrevivienteId": "S-R3-0001",
+          "camionetaId": "V-001",
+          "motivo": "encuentro_inviable_o_peligroso"
+        },
+        {
+          "id": "evacuacion-S-R3-0171",
+          "turno": 38,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0171",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R3-0151",
+          "turno": 38,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0151",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R3-0176",
+          "turno": 38,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0176",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R3-0161",
+          "turno": 38,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0161",
+          "refugioId": "R-002",
+          "modo": "camioneta"
+        },
+        {
+          "id": "evacuacion-S-R3-0032",
+          "turno": 39,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0032",
+          "refugioId": "R-001",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0070",
+          "turno": 42,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0070",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "embarque-42-S-R3-0001",
+          "turno": 42,
+          "tipo": "embarque",
+          "sobrevivienteId": "S-R3-0001",
+          "camionetaId": "V-001",
+          "nodo": "N-363643653",
+          "refugioId": "R-001"
+        },
+        {
+          "id": "evacuacion-S-R3-0058",
+          "turno": 43,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0058",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0080",
+          "turno": 43,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0080",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0073",
+          "turno": 44,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0073",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0097",
+          "turno": 44,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0097",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0082",
+          "turno": 46,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0082",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0096",
+          "turno": 46,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0096",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0198",
+          "turno": 48,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0198",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0200",
+          "turno": 48,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0200",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0179",
+          "turno": 49,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0179",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "bloqueo-calle-1",
+          "turno": 50,
+          "tipo": "bloqueo_calle",
+          "aristas": [
+            "E-363647019-363647168-0",
+            "E-363647168-363647019-0"
+          ],
+          "versionGrafo": 1
+        },
+        {
+          "id": "evacuacion-S-R3-0183",
+          "turno": 51,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0183",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-52-S-R3-0001",
+          "turno": 52,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0001",
+          "nodo": "N-363643673",
+          "causa": "coincidencia_nodo_camioneta"
+        },
+        {
+          "id": "evacuacion-S-R3-0174",
+          "turno": 57,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0174",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0169",
+          "turno": 59,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0169",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0195",
+          "turno": 60,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0195",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0155",
+          "turno": 61,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0155",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0173",
+          "turno": 61,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0173",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0194",
+          "turno": 61,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0194",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0156",
+          "turno": 62,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0156",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "evacuacion-S-R3-0175",
+          "turno": 62,
+          "tipo": "evacuacion",
+          "sobrevivienteId": "S-R3-0175",
+          "refugioId": "R-002",
+          "modo": "caminando"
+        },
+        {
+          "id": "mordida-67-S-R3-0018",
+          "turno": 67,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0018",
+          "nodo": "N-363643518",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-67-S-R3-0023",
+          "turno": 67,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0023",
+          "nodo": "N-363643518",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-73-S-R3-0011",
+          "turno": 73,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0011",
+          "nodo": "N-1349201358",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-73-S-R3-0022",
+          "turno": 73,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0022",
+          "nodo": "N-1349201358",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-73-S-R3-0044",
+          "turno": 73,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0044",
+          "nodo": "N-1349201358",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-77-S-R3-0167",
+          "turno": 77,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0167",
+          "nodo": "N-2499222329",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-77-S-R3-0181",
+          "turno": 77,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0181",
+          "nodo": "N-2499222329",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-99-S-R3-0010",
+          "turno": 99,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0010",
+          "nodo": "N-2499222658",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "mordida-99-S-R3-0024",
+          "turno": 99,
+          "tipo": "mordida",
+          "sobrevivienteId": "S-R3-0024",
+          "nodo": "N-2499222658",
+          "causa": "coincidencia_nodo"
+        },
+        {
+          "id": "bloqueo-calle-2",
+          "turno": 116,
+          "tipo": "bloqueo_calle",
+          "aristas": [
+            "E-363642966-363642989-0",
+            "E-363642989-363642966-0"
+          ],
+          "versionGrafo": 2
+        }
+      ],
+      "metricasTurnos": [
+        {
+          "turno": 1,
+          "duracionMs": 951.078599999164,
+          "activos": 184
+        },
+        {
+          "turno": 2,
+          "duracionMs": 915.6973999997717,
+          "activos": 168
+        },
+        {
+          "turno": 3,
+          "duracionMs": 778.1537999999273,
+          "activos": 153
+        },
+        {
+          "turno": 4,
+          "duracionMs": 739.2254999995203,
+          "activos": 146
+        },
+        {
+          "turno": 5,
+          "duracionMs": 706.9339000008767,
+          "activos": 142
+        },
+        {
+          "turno": 6,
+          "duracionMs": 667.5948000010976,
+          "activos": 139
+        },
+        {
+          "turno": 7,
+          "duracionMs": 652.7871999987838,
+          "activos": 134
+        },
+        {
+          "turno": 8,
+          "duracionMs": 673.1734000004508,
+          "activos": 126
+        },
+        {
+          "turno": 9,
+          "duracionMs": 607.1811000001617,
+          "activos": 118
+        },
+        {
+          "turno": 10,
+          "duracionMs": 561.0767999987729,
+          "activos": 118
+        },
+        {
+          "turno": 11,
+          "duracionMs": 555.9860000012122,
+          "activos": 117
+        },
+        {
+          "turno": 12,
+          "duracionMs": 570.4404000007344,
+          "activos": 108
+        },
+        {
+          "turno": 13,
+          "duracionMs": 489.85129999891797,
+          "activos": 108
+        },
+        {
+          "turno": 14,
+          "duracionMs": 694.8245000003226,
+          "activos": 100
+        },
+        {
+          "turno": 15,
+          "duracionMs": 660.0632999998197,
+          "activos": 100
+        },
+        {
+          "turno": 16,
+          "duracionMs": 665.003500000239,
+          "activos": 100
+        },
+        {
+          "turno": 17,
+          "duracionMs": 566.0444000004645,
+          "activos": 100
+        },
+        {
+          "turno": 18,
+          "duracionMs": 607.5205000015558,
+          "activos": 100
+        },
+        {
+          "turno": 19,
+          "duracionMs": 539.547100001073,
+          "activos": 98
+        },
+        {
+          "turno": 20,
+          "duracionMs": 506.18150000082096,
+          "activos": 97
+        },
+        {
+          "turno": 21,
+          "duracionMs": 461.80249999997613,
+          "activos": 97
+        },
+        {
+          "turno": 22,
+          "duracionMs": 477.04909999993106,
+          "activos": 96
+        },
+        {
+          "turno": 23,
+          "duracionMs": 471.7099999998027,
+          "activos": 75
+        },
+        {
+          "turno": 24,
+          "duracionMs": 375.0462999996671,
+          "activos": 75
+        },
+        {
+          "turno": 25,
+          "duracionMs": 390.71879999937664,
+          "activos": 75
+        },
+        {
+          "turno": 26,
+          "duracionMs": 381.8057000007684,
+          "activos": 74
+        },
+        {
+          "turno": 27,
+          "duracionMs": 350.62379999908444,
+          "activos": 74
+        },
+        {
+          "turno": 28,
+          "duracionMs": 367.5376999999571,
+          "activos": 63
+        },
+        {
+          "turno": 29,
+          "duracionMs": 363.63389999860374,
+          "activos": 56
+        },
+        {
+          "turno": 30,
+          "duracionMs": 299.62309999973513,
+          "activos": 55
+        },
+        {
+          "turno": 31,
+          "duracionMs": 278.03449999919394,
+          "activos": 48
+        },
+        {
+          "turno": 32,
+          "duracionMs": 245.18370000077994,
+          "activos": 43
+        },
+        {
+          "turno": 33,
+          "duracionMs": 207.15300000119896,
+          "activos": 43
+        },
+        {
+          "turno": 34,
+          "duracionMs": 249.29940000038187,
+          "activos": 43
+        },
+        {
+          "turno": 35,
+          "duracionMs": 237.24480000055337,
+          "activos": 42
+        },
+        {
+          "turno": 36,
+          "duracionMs": 227.82959999858576,
+          "activos": 42
+        },
+        {
+          "turno": 37,
+          "duracionMs": 215.14550000028976,
+          "activos": 42
+        },
+        {
+          "turno": 38,
+          "duracionMs": 259.2004999987694,
+          "activos": 38
+        },
+        {
+          "turno": 39,
+          "duracionMs": 245.187900000019,
+          "activos": 37
+        },
+        {
+          "turno": 40,
+          "duracionMs": 194.4352999998955,
+          "activos": 37
+        },
+        {
+          "turno": 41,
+          "duracionMs": 186.5524999993795,
+          "activos": 37
+        },
+        {
+          "turno": 42,
+          "duracionMs": 205.31839999966905,
+          "activos": 36
+        },
+        {
+          "turno": 43,
+          "duracionMs": 188.04020000061428,
+          "activos": 34
+        },
+        {
+          "turno": 44,
+          "duracionMs": 179.13799999951152,
+          "activos": 32
+        },
+        {
+          "turno": 45,
+          "duracionMs": 159.71650000028603,
+          "activos": 32
+        },
+        {
+          "turno": 46,
+          "duracionMs": 163.64160000011907,
+          "activos": 30
+        },
+        {
+          "turno": 47,
+          "duracionMs": 320.50170000002254,
+          "activos": 30
+        },
+        {
+          "turno": 48,
+          "duracionMs": 272.87509999951,
+          "activos": 28
+        },
+        {
+          "turno": 49,
+          "duracionMs": 198.92570000047272,
+          "activos": 27
+        },
+        {
+          "turno": 50,
+          "duracionMs": 182.61680000068736,
+          "activos": 27
+        },
+        {
+          "turno": 51,
+          "duracionMs": 172.68409999996948,
+          "activos": 26
+        },
+        {
+          "turno": 52,
+          "duracionMs": 204.1574999984732,
+          "activos": 25
+        },
+        {
+          "turno": 53,
+          "duracionMs": 162.80019999976503,
+          "activos": 25
+        },
+        {
+          "turno": 54,
+          "duracionMs": 166.01690000061353,
+          "activos": 25
+        },
+        {
+          "turno": 55,
+          "duracionMs": 165.05209999922954,
+          "activos": 25
+        },
+        {
+          "turno": 56,
+          "duracionMs": 189.00870000106806,
+          "activos": 25
+        },
+        {
+          "turno": 57,
+          "duracionMs": 164.64169999926526,
+          "activos": 24
+        },
+        {
+          "turno": 58,
+          "duracionMs": 162.52430000167806,
+          "activos": 24
+        },
+        {
+          "turno": 59,
+          "duracionMs": 176.97939999925438,
+          "activos": 23
+        },
+        {
+          "turno": 60,
+          "duracionMs": 155.1009000013437,
+          "activos": 22
+        },
+        {
+          "turno": 61,
+          "duracionMs": 147.9365000013786,
+          "activos": 19
+        },
+        {
+          "turno": 62,
+          "duracionMs": 131.610800000999,
+          "activos": 17
+        },
+        {
+          "turno": 63,
+          "duracionMs": 121.24040000162495,
+          "activos": 17
+        },
+        {
+          "turno": 64,
+          "duracionMs": 123.4760000006645,
+          "activos": 17
+        },
+        {
+          "turno": 65,
+          "duracionMs": 118.30030000055558,
+          "activos": 17
+        },
+        {
+          "turno": 66,
+          "duracionMs": 120.64029999964987,
+          "activos": 17
+        },
+        {
+          "turno": 67,
+          "duracionMs": 218.69209999931627,
+          "activos": 15
+        },
+        {
+          "turno": 68,
+          "duracionMs": 126.48070000068401,
+          "activos": 15
+        },
+        {
+          "turno": 69,
+          "duracionMs": 112.61319999903208,
+          "activos": 15
+        },
+        {
+          "turno": 70,
+          "duracionMs": 134.00350000119943,
+          "activos": 15
+        },
+        {
+          "turno": 71,
+          "duracionMs": 145.07969999976922,
+          "activos": 15
+        },
+        {
+          "turno": 72,
+          "duracionMs": 110.57789999904344,
+          "activos": 15
+        },
+        {
+          "turno": 73,
+          "duracionMs": 107.16789999969478,
+          "activos": 12
+        },
+        {
+          "turno": 74,
+          "duracionMs": 92.73130000110541,
+          "activos": 12
+        },
+        {
+          "turno": 75,
+          "duracionMs": 128.64169999920705,
+          "activos": 12
+        },
+        {
+          "turno": 76,
+          "duracionMs": 102.5311999983387,
+          "activos": 12
+        },
+        {
+          "turno": 77,
+          "duracionMs": 273.07870000004186,
+          "activos": 10
+        },
+        {
+          "turno": 78,
+          "duracionMs": 100.2466000009008,
+          "activos": 10
+        },
+        {
+          "turno": 79,
+          "duracionMs": 87.64549999978044,
+          "activos": 10
+        },
+        {
+          "turno": 80,
+          "duracionMs": 88.797299998987,
+          "activos": 10
+        },
+        {
+          "turno": 81,
+          "duracionMs": 85.56409999982861,
+          "activos": 10
+        },
+        {
+          "turno": 82,
+          "duracionMs": 90.97990000009304,
+          "activos": 10
+        },
+        {
+          "turno": 83,
+          "duracionMs": 83.30609999939043,
+          "activos": 10
+        },
+        {
+          "turno": 84,
+          "duracionMs": 119.6142000007967,
+          "activos": 10
+        },
+        {
+          "turno": 85,
+          "duracionMs": 80.73409999997239,
+          "activos": 10
+        },
+        {
+          "turno": 86,
+          "duracionMs": 90.1557999986835,
+          "activos": 10
+        },
+        {
+          "turno": 87,
+          "duracionMs": 92.21230000002834,
+          "activos": 10
+        },
+        {
+          "turno": 88,
+          "duracionMs": 125.28750000092259,
+          "activos": 10
+        },
+        {
+          "turno": 89,
+          "duracionMs": 94.12950000114506,
+          "activos": 10
+        },
+        {
+          "turno": 90,
+          "duracionMs": 87.67000000079861,
+          "activos": 10
+        },
+        {
+          "turno": 91,
+          "duracionMs": 82.76190000105998,
+          "activos": 10
+        },
+        {
+          "turno": 92,
+          "duracionMs": 94.81910000067728,
+          "activos": 10
+        },
+        {
+          "turno": 93,
+          "duracionMs": 125.72220000038214,
+          "activos": 10
+        },
+        {
+          "turno": 94,
+          "duracionMs": 92.185999999856,
+          "activos": 10
+        },
+        {
+          "turno": 95,
+          "duracionMs": 93.85809999912453,
+          "activos": 10
+        },
+        {
+          "turno": 96,
+          "duracionMs": 94.21380000094359,
+          "activos": 10
+        },
+        {
+          "turno": 97,
+          "duracionMs": 82.8337000002648,
+          "activos": 10
+        },
+        {
+          "turno": 98,
+          "duracionMs": 90.67570000115666,
+          "activos": 10
+        },
+        {
+          "turno": 99,
+          "duracionMs": 124.14559999888297,
+          "activos": 8
+        },
+        {
+          "turno": 100,
+          "duracionMs": 81.94139999977779,
+          "activos": 8
+        },
+        {
+          "turno": 101,
+          "duracionMs": 106.62889999912295,
+          "activos": 8
+        },
+        {
+          "turno": 102,
+          "duracionMs": 118.57720000080008,
+          "activos": 8
+        },
+        {
+          "turno": 103,
+          "duracionMs": 133.91779999983555,
+          "activos": 8
+        },
+        {
+          "turno": 104,
+          "duracionMs": 100.81199999876844,
+          "activos": 8
+        },
+        {
+          "turno": 105,
+          "duracionMs": 131.57870000031835,
+          "activos": 8
+        },
+        {
+          "turno": 106,
+          "duracionMs": 89.1604999997071,
+          "activos": 8
+        },
+        {
+          "turno": 107,
+          "duracionMs": 138.07230000020354,
+          "activos": 8
+        },
+        {
+          "turno": 108,
+          "duracionMs": 78.9225999997143,
+          "activos": 8
+        },
+        {
+          "turno": 109,
+          "duracionMs": 111.83470000105444,
+          "activos": 8
+        },
+        {
+          "turno": 110,
+          "duracionMs": 116.363299999648,
+          "activos": 8
+        },
+        {
+          "turno": 111,
+          "duracionMs": 159.33419999964826,
+          "activos": 8
+        },
+        {
+          "turno": 112,
+          "duracionMs": 105.23600000124134,
+          "activos": 8
+        },
+        {
+          "turno": 113,
+          "duracionMs": 96.83550000045216,
+          "activos": 8
+        },
+        {
+          "turno": 114,
+          "duracionMs": 90.47410000130185,
+          "activos": 8
+        },
+        {
+          "turno": 115,
+          "duracionMs": 78.02210000045307,
+          "activos": 8
+        },
+        {
+          "turno": 116,
+          "duracionMs": 99.4180999987293,
+          "activos": 8
+        },
+        {
+          "turno": 117,
+          "duracionMs": 254.17240000024321,
+          "activos": 8
+        },
+        {
+          "turno": 118,
+          "duracionMs": 108.31540000071982,
+          "activos": 8
+        },
+        {
+          "turno": 119,
+          "duracionMs": 114.97799999960989,
+          "activos": 8
+        },
+        {
+          "turno": 120,
+          "duracionMs": 136.14889999917068,
+          "activos": 8
+        },
+        {
+          "turno": 121,
+          "duracionMs": 82.77190000080736,
+          "activos": 8
+        },
+        {
+          "turno": 122,
+          "duracionMs": 97.2684999997,
+          "activos": 8
+        },
+        {
+          "turno": 123,
+          "duracionMs": 191.36910000088392,
+          "activos": 8
+        },
+        {
+          "turno": 124,
+          "duracionMs": 128.8103000006231,
+          "activos": 8
+        },
+        {
+          "turno": 125,
+          "duracionMs": 109.55580000154441,
+          "activos": 8
+        },
+        {
+          "turno": 126,
+          "duracionMs": 122.11240000033285,
+          "activos": 8
+        },
+        {
+          "turno": 127,
+          "duracionMs": 158.28379999948083,
+          "activos": 8
+        },
+        {
+          "turno": 128,
+          "duracionMs": 132.04819999918982,
+          "activos": 8
+        },
+        {
+          "turno": 129,
+          "duracionMs": 168.1285000013304,
+          "activos": 8
+        },
+        {
+          "turno": 130,
+          "duracionMs": 109.02420000093116,
+          "activos": 8
+        },
+        {
+          "turno": 131,
+          "duracionMs": 172.76630000014848,
+          "activos": 8
+        },
+        {
+          "turno": 132,
+          "duracionMs": 155.42180000011285,
+          "activos": 8
+        },
+        {
+          "turno": 133,
+          "duracionMs": 109.37239999839221,
+          "activos": 8
+        },
+        {
+          "turno": 134,
+          "duracionMs": 120.882299999721,
+          "activos": 8
+        },
+        {
+          "turno": 135,
+          "duracionMs": 154.23999999984517,
+          "activos": 8
+        },
+        {
+          "turno": 136,
+          "duracionMs": 126.14039999971283,
+          "activos": 8
+        },
+        {
+          "turno": 137,
+          "duracionMs": 108.67320000033942,
+          "activos": 8
+        },
+        {
+          "turno": 138,
+          "duracionMs": 151.58770000016375,
+          "activos": 8
+        },
+        {
+          "turno": 139,
+          "duracionMs": 114.29069999940111,
+          "activos": 8
+        },
+        {
+          "turno": 140,
+          "duracionMs": 117.646099999547,
+          "activos": 8
+        },
+        {
+          "turno": 141,
+          "duracionMs": 109.2263999998977,
+          "activos": 8
+        },
+        {
+          "turno": 142,
+          "duracionMs": 97.64779999932216,
+          "activos": 8
+        },
+        {
+          "turno": 143,
+          "duracionMs": 109.70830000042042,
+          "activos": 8
+        },
+        {
+          "turno": 144,
+          "duracionMs": 120.6123000010848,
+          "activos": 8
+        },
+        {
+          "turno": 145,
+          "duracionMs": 151.88099999977567,
+          "activos": 8
+        },
+        {
+          "turno": 146,
+          "duracionMs": 67.2379000006913,
+          "activos": 8
+        },
+        {
+          "turno": 147,
+          "duracionMs": 126.33749999986321,
+          "activos": 8
+        },
+        {
+          "turno": 148,
+          "duracionMs": 99.46999999920081,
+          "activos": 8
+        },
+        {
+          "turno": 149,
+          "duracionMs": 61.97310000061407,
+          "activos": 8
+        },
+        {
+          "turno": 150,
+          "duracionMs": 97.445899999002,
+          "activos": 8
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "evidence": {
+    "zombieMoved": true,
+    "survivorMoved": true,
+    "truckMoved": true,
+    "passengersObserved": true,
+    "shelterChanged": true,
+    "routesChanged": true,
+    "blockedStreetsObserved": true,
+    "riskObserved": true
+  },
+  "rounds": [
+    1,
+    2,
+    3
+  ],
+  "framesObserved": 126,
+  "survivorStatesObserved": [
+    "CAMINANDO",
+    "EVACUADO",
+    "EN_CAMIONETA",
+    "HACIA_ENCUENTRO",
+    "ESPERANDO_RESCATE",
+    "ELIMINADO"
+  ],
+  "calls": {
+    "/api/health": 1,
+    "/api/estado": 126,
+    "/api/mapa": 1
+  },
+  "finalMetrics": {
+    "sobrevivientesIniciales": 200,
+    "evacuados": 86,
+    "eliminados": 106,
+    "activos": 8,
+    "porcentajeSupervivencia": 47,
+    "tasaEvacuacion": 43,
+    "turnosPromedioEvacuacion": 22.290697674418606,
+    "rutasValidas": 5101,
+    "rutasInvalidas": 0,
+    "solicitudesHTTP": 5238,
+    "erroresHTTP": 0,
+    "respuestasInvalidas": 0,
+    "solicitudesSobre500ms": 0,
+    "latenciaPromedioMs": 20.064828484153864,
+    "latenciaP50Ms": 17.479099999036407,
+    "latenciaP95Ms": 32.92839999994612,
+    "latenciaP99Ms": 47.778899999684654,
+    "disponibilidadEndpoint": 1,
+    "vivosFinales": 94,
+    "evacuadosCaminando": 82,
+    "evacuadosCamioneta": 4,
+    "rescatesCompletados": 4,
+    "rescatesCancelados": 7,
+    "distanciaCaminada_m": 161220.49989672046,
+    "distanciaTransportada_m": 7182.845282943855
+  },
+  "note": "Real HTTP + React/RTL. Leaflet renderer mocked in jsdom; this is not a visual browser check."
+}
