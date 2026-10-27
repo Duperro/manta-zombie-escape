@@ -1,0 +1,4 @@
+ronda,semilla,algoritmo,concurrenciaHTTP,turnos,duracionS,mapaVersion,sobrevivientesIniciales,evacuados,eliminados,activos,porcentajeSupervivencia,tasaEvacuacion,turnosPromedioEvacuacion,rutasValidas,rutasInvalidas,solicitudesHTTP,erroresHTTP,respuestasInvalidas,solicitudesSobre500ms,latenciaPromedioMs,latenciaP50Ms,latenciaP95Ms,latenciaP99Ms,disponibilidadEndpoint
+1,7,Base,4,150,3.676063258000113,manta-bb3023537eb6eb6f,20,19,0,1,100.0,95.0,39.26315789473684,896,0,896,0,0,0,5.493013407365664,5.388132999996742,7.742450000023382,10.524970000005851,1.0
+2,7,Base,4,150,5.477850243000148,manta-bb3023537eb6eb6f,80,41,39,0,51.25,51.25,31.097560975609756,1904,0,1904,0,0,0,5.650554111869873,5.435376000150427,7.367095000063273,9.124377000034656,1.0
+3,7,Base,4,150,5.563119698000037,manta-bb3023537eb6eb6f,200,39,161,0,19.5,19.5,2.8461538461538463,1926,0,1926,0,0,0,5.574595661473633,5.48545199990258,7.579838000083328,9.236258000100861,1.0

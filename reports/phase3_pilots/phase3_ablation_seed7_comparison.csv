@@ -1,0 +1,5 @@
+semilla,ronda,experimento,evacuadosBase,evacuadosPro,mejoraEvacuacionPP,mejoraEvacuadosPorcentual,supervivenciaBase,supervivenciaPro,mejoraSupervivenciaPP,p95BaseMs,p95ProMs,evacuadosCamioneta,rescatesCancelados
+7,3,pro,73,76,1.5,4.109589041095891,36.5,38.0,1.5,41.67830000005779,24.30619999904593,1,11
+7,3,pro_sin_prediccion,73,76,1.5,4.109589041095891,36.5,38.0,1.5,41.67830000005779,23.694999999861466,0,0
+7,3,pro_sin_reservas,73,76,1.5,4.109589041095891,36.5,38.0,1.5,41.67830000005779,23.811900000509922,1,11
+7,3,pro_sin_flota,73,76,1.5,4.109589041095891,36.5,38.0,1.5,41.67830000005779,28.93430000040098,0,0

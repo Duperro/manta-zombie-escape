@@ -1,0 +1,22 @@
+
+> manta-operations-dashboard@1.0.0 build
+> tsc -b && vite build && node scripts/check-bundle.mjs
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 1992 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.54 kB │ gzip:   0.35 kB
+dist/assets/index-DXJKwx7w.css   41.30 kB │ gzip:  12.67 kB
+dist/assets/index-CZKTLLRe.js   414.43 kB │ gzip: 128.95 kB
+
+✓ built in 22.98s
+[PLUGIN_TIMINGS] JavaScript callbacks ran for 6.8s of this 22.9s build (30%).
+The slowest callbacks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits is included):
+  - plugin vite:css transform (17%, 3.9s, 2 calls)
+  - plugin vite:css-post renderChunk (11%, 2.5s, 1 call)
+Additional callback time came from callbacks under 1s.
+See https://rolldown.rs/reference/InputOptions.checks#bundlertimings for more details.
+
+Bundle check: no backend credential markers or private request headers.

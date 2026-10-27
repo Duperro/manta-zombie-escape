@@ -1,0 +1,6067 @@
+{
+  "turno": 6,
+  "fase": "publicado",
+  "ronda": 3,
+  "estadoSimulacion": "EN_CURSO",
+  "versionGrafo": 0,
+  "mapaVersion": "manta-bb3023537eb6eb6f",
+  "sobrevivientes": [
+    {
+      "id": "S-R3-0001",
+      "nodo": "N-363714688",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363714688",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [
+        "N-363714688",
+        "N-363643642",
+        "N-363643653",
+        "N-363643660",
+        "N-363643673",
+        "N-363643688",
+        "N-363643693",
+        "N-363643694",
+        "N-363643701",
+        "N-363710171",
+        "N-363710175",
+        "N-4129807971",
+        "N-4128508226",
+        "N-4128508227",
+        "N-365289939",
+        "N-2499223089",
+        "N-2499222999",
+        "N-2499222907",
+        "N-367334480"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 141.2191730376131,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0002",
+      "nodo": "N-367334480",
+      "estado": "EVACUADO",
+      "nodoActual": "N-367334480",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 17.697666320357026,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0003",
+      "nodo": "N-4139823424",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4139823424",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4139823424"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 1027.5311961074397,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0004",
+      "nodo": "N-511153970",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-511153970",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-511153970"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 56.85244504072881,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0005",
+      "nodo": "N-4128508223",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4128508223",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4128508223"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0006",
+      "nodo": "N-363643211",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643211",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643211"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0007",
+      "nodo": "N-363649613",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363649613",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363649613"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 70.3215729081232,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0008",
+      "nodo": "N-4136403208",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4136403208",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4136403208"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0009",
+      "nodo": "N-363643810",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643810",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643810"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 74.63650121801196,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0010",
+      "nodo": "N-363646667",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363646667",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363646667"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 78.13497598238209,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0011",
+      "nodo": "N-1349201514",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201514",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201514"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 144.5483878732343,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0012",
+      "nodo": "N-363646080",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363646080",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363646080"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0013",
+      "nodo": "N-363647174",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363647174",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363647174"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0014",
+      "nodo": "N-1349201278",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201278",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201278"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 1099.4761763108584,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0015",
+      "nodo": "N-363647168",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363647168",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363647168"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0016",
+      "nodo": "N-511153970",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-511153970",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-511153970"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 21.396324354722594,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0017",
+      "nodo": "N-363643810",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643810",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643810"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 149.27300243602392,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0018",
+      "nodo": "N-363643673",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643673",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [
+        "N-363643673",
+        "N-363643688",
+        "N-363643693",
+        "N-363643694",
+        "N-363643701",
+        "N-363710171",
+        "N-363710175",
+        "N-4129807971",
+        "N-4128508226",
+        "N-4128508227",
+        "N-365289939",
+        "N-2499223089",
+        "N-2499222999",
+        "N-2499222907",
+        "N-367334480"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 89.05890810773245,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0019",
+      "nodo": "N-365289814",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-365289814",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-365289814"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 793.0146018022831,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0020",
+      "nodo": "N-8013864010",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-8013864010",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [
+        "N-8013864010",
+        "N-8267351983",
+        "N-365289939",
+        "N-2499223089",
+        "N-2499222999",
+        "N-2499222907",
+        "N-367334480"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 127.61306869235439,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0021",
+      "nodo": "N-2499223089",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-2499223089",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [
+        "N-2499223089",
+        "N-2499222999",
+        "N-2499222907",
+        "N-367334480"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 151.50448166879778,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0022",
+      "nodo": "N-1349201514",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201514",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201514"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 144.5483878732343,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0023",
+      "nodo": "N-363643673",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643673",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [
+        "N-363643673",
+        "N-363643688",
+        "N-363643693",
+        "N-363643694",
+        "N-363643701",
+        "N-363710171",
+        "N-363710175",
+        "N-4129807971",
+        "N-4128508226",
+        "N-4128508227",
+        "N-365289939",
+        "N-2499223089",
+        "N-2499222999",
+        "N-2499222907",
+        "N-367334480"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 89.05890810773245,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0024",
+      "nodo": "N-363646667",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363646667",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363646667"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 135.67514339566526,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0025",
+      "nodo": "N-1349201278",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201278",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201278"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 1470.9453058201266,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0026",
+      "nodo": "N-363643810",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643810",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643810"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 149.27300243602392,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0027",
+      "nodo": "N-4128508226",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4128508226",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [
+        "N-4128508226",
+        "N-4128508227",
+        "N-365289939",
+        "N-2499223089",
+        "N-2499222999",
+        "N-2499222907",
+        "N-367334480"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 72.19388015419395,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0028",
+      "nodo": "N-363649613",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363649613",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363649613"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 70.3215729081232,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0029",
+      "nodo": "N-2499222412",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-2499222412",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 4,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 62.25841905875728,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0030",
+      "nodo": "N-511153970",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-511153970",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-511153970"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0031",
+      "nodo": "N-363647019",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363647019",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363647019"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0032",
+      "nodo": "N-363710171",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363710171",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [
+        "N-363710171",
+        "N-363710175",
+        "N-4129807971",
+        "N-4128508226",
+        "N-4128508227",
+        "N-365289939",
+        "N-2499223089",
+        "N-2499222999",
+        "N-2499222907",
+        "N-367334480"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 140.76198031897837,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0033",
+      "nodo": "N-3173813185",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-3173813185",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 341.75635784187784,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0034",
+      "nodo": "N-367334480",
+      "estado": "EVACUADO",
+      "nodoActual": "N-367334480",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": 2,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 114.34327768415973,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0035",
+      "nodo": "N-2499223089",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-2499223089",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [
+        "N-2499223089",
+        "N-2499222999",
+        "N-2499222907",
+        "N-367334480"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 275.2327689752841,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0036",
+      "nodo": "N-2499222949",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-2499222949",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 42.93867482570715,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0037",
+      "nodo": "N-363646415",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363646415",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363646415"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0038",
+      "nodo": "N-363643005",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-363643005",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 69.81079031360129,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0039",
+      "nodo": "N-4139823424",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4139823424",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4139823424"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 276.4368712798373,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0040",
+      "nodo": "N-2499222412",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-2499222412",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 4,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 62.25841905875728,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0041",
+      "nodo": "N-363643005",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-363643005",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 70.62027170399233,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0042",
+      "nodo": "N-363649613",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363649613",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363649613"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0043",
+      "nodo": "N-363646415",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363646415",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363646415"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0044",
+      "nodo": "N-1349201514",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201514",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201514"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 124.00323100641974,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0045",
+      "nodo": "N-367334480",
+      "estado": "EVACUADO",
+      "nodoActual": "N-367334480",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 7.098683899024274,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0046",
+      "nodo": "N-367334480",
+      "estado": "EVACUADO",
+      "nodoActual": "N-367334480",
+      "refugioAsignado": "R-001",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": 2,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 114.34327768415973,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0047",
+      "nodo": "N-4139823424",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4139823424",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4139823424"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 249.10451381836057,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0048",
+      "nodo": "N-365289815",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-365289815",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-365289815"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0049",
+      "nodo": "N-1349201278",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201278",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201278"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 1470.9453058201266,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0050",
+      "nodo": "N-365289814",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-365289814",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-365289814"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 793.0146018022831,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0051",
+      "nodo": "N-363677087",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363677087",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363677087"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0052",
+      "nodo": "N-363677094",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363677094",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363677094"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0053",
+      "nodo": "N-4137420947",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4137420947",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4137420947"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 118.01699216118875,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0054",
+      "nodo": "N-363677109",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363677109",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363677109"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0055",
+      "nodo": "N-4136501007",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4136501007",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 99.66699817223727,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0056",
+      "nodo": "N-363711455",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363711455",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363711455"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0057",
+      "nodo": "N-11088595647",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-11088595647",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-11088595647",
+        "N-10971388299",
+        "N-776248526",
+        "N-11088595686",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 255.98740971475075,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0058",
+      "nodo": "N-4132506671",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4132506671",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 57.48360829760225,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0059",
+      "nodo": "N-365404297",
+      "estado": "EVACUADO",
+      "nodoActual": "N-365404297",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 14.984578479992766,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0060",
+      "nodo": "N-11088595647",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-11088595647",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-11088595647",
+        "N-10971388299",
+        "N-776248526",
+        "N-11088595686",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 101.30221533557312,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0061",
+      "nodo": "N-363673977",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363673977",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363673977"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0062",
+      "nodo": "N-363711404",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363711404",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363711404"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0063",
+      "nodo": "N-4137420947",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4137420947",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4137420947"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 118.01699216118875,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0064",
+      "nodo": "N-4130376258",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4130376258",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 199.83137730233761,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0065",
+      "nodo": "N-365404297",
+      "estado": "EVACUADO",
+      "nodoActual": "N-365404297",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 14.984578479992766,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0066",
+      "nodo": "N-776248526",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-776248526",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 443.98847484549606,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0067",
+      "nodo": "N-4138398576",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4138398576",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4138398576"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0068",
+      "nodo": "N-4137420947",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4137420947",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4137420947"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 118.01699216118875,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0069",
+      "nodo": "N-363677066",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363677066",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363677066"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0070",
+      "nodo": "N-4132506669",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4132506669",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 41.41216139787356,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0071",
+      "nodo": "N-365405845",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-365405845",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 93.7499912779947,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0072",
+      "nodo": "N-4137417077",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4137417077",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4137417077"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0073",
+      "nodo": "N-363711249",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363711249",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 74.62685605644424,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0074",
+      "nodo": "N-4137420947",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4137420947",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4137420947"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 276.87149228060537,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0075",
+      "nodo": "N-4137420947",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4137420947",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4137420947"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0076",
+      "nodo": "N-363680538",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363680538",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363680538"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0077",
+      "nodo": "N-4130376258",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4130376258",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 199.83137730233761,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0078",
+      "nodo": "N-363677109",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363677109",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363677109"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0079",
+      "nodo": "N-365404297",
+      "estado": "EVACUADO",
+      "nodoActual": "N-365404297",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 53.71027168641732,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0080",
+      "nodo": "N-4132506671",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4132506671",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 57.48360829760225,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0081",
+      "nodo": "N-363677109",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363677109",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363677109"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0082",
+      "nodo": "N-363665493",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363665493",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 109.83170833522487,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0083",
+      "nodo": "N-363708015",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363708015",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 50.5276989229521,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0084",
+      "nodo": "N-1364014006",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1364014006",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1364014006"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0085",
+      "nodo": "N-363711455",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363711455",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363711455"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0086",
+      "nodo": "N-776248526",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-776248526",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 443.98847484549606,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0087",
+      "nodo": "N-363665867",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363665867",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363665867"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0088",
+      "nodo": "N-4137420947",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4137420947",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4137420947"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 276.87149228060537,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0089",
+      "nodo": "N-1364014008",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1364014008",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1364014008"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0090",
+      "nodo": "N-363708019",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363708019",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 153.40348009709157,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0091",
+      "nodo": "N-363673591",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363673591",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363673591"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0092",
+      "nodo": "N-4132506665",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4132506665",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 49.48579038608528,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0093",
+      "nodo": "N-4132506665",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4132506665",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 49.48579038608528,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0094",
+      "nodo": "N-363711455",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363711455",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363711455"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0095",
+      "nodo": "N-11088595647",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-11088595647",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-11088595647",
+        "N-10971388299",
+        "N-776248526",
+        "N-11088595686",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 101.30221533557312,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0096",
+      "nodo": "N-363665493",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363665493",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 109.83170833522487,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0097",
+      "nodo": "N-363711249",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363711249",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 74.62685605644424,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0098",
+      "nodo": "N-4132506665",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4132506665",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 49.48579038608528,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0099",
+      "nodo": "N-3753251349",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-3753251349",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-3753251349"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0100",
+      "nodo": "N-363673977",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363673977",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363673977"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0101",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": 2,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 449.47268843151664,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0102",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 162.9897564160032,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0103",
+      "nodo": "N-4131463058",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4131463058",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4131463058"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 139.17810737726444,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0104",
+      "nodo": "N-1734728598",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-1734728598",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 5,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0105",
+      "nodo": "N-1349201358",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201358",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201358"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 471.798885088746,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0106",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 162.9897564160032,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0107",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": 3,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 469.8434373685339,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0108",
+      "nodo": "N-3173813185",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-3173813185",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 52.99221532390615,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0109",
+      "nodo": "N-1744541861",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1744541861",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1744541861"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0110",
+      "nodo": "N-1734733952",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-1734733952",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 19.64180390681269,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0111",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": 2,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 449.47268843151664,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0112",
+      "nodo": "N-1734728613",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-1734728613",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 67.13412857138135,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0113",
+      "nodo": "N-1349201117",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201117",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201117"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0114",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": 2,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 449.47268843151664,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0115",
+      "nodo": "N-1734733952",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-1734733952",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 19.64180390681269,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0116",
+      "nodo": "N-3173813185",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-3173813185",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 52.99221532390615,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0117",
+      "nodo": "N-1734733952",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-1734733952",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 19.64180390681269,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0118",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 4,
+      "turnoEvacuacion": 4,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 495.2155528322156,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0119",
+      "nodo": "N-3173813185",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-3173813185",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0120",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": 2,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 365.51002101508124,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0121",
+      "nodo": "N-1349201117",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201117",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201117"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0122",
+      "nodo": "N-1734728598",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-1734728598",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 5,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0123",
+      "nodo": "N-1349201117",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201117",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201117"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 35.24964201534754,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0124",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 4,
+      "turnoEvacuacion": 4,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 495.2155528322156,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0125",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": 2,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 449.47268843151664,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0126",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 162.9897564160032,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0127",
+      "nodo": "N-4131463058",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4131463058",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4131463058"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 139.17810737726444,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0128",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": 3,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 469.8434373685339,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0129",
+      "nodo": "N-4131463058",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4131463058",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4131463058"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0130",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": 2,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 365.51002101508124,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0131",
+      "nodo": "N-1734733952",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-1734733952",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0132",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": 2,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 449.47268843151664,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0133",
+      "nodo": "N-1349201358",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201358",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201358"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 471.798885088746,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0134",
+      "nodo": "N-1349201117",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1349201117",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1349201117"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 34.46574554660876,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0135",
+      "nodo": "N-4131463058",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4131463058",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4131463058"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0136",
+      "nodo": "N-4131463058",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4131463058",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4131463058"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 287.21999702304265,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0137",
+      "nodo": "N-3173813185",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-3173813185",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 52.99221532390615,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0138",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": 3,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 525.1764686472652,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0139",
+      "nodo": "N-1744541861",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1744541861",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1744541861"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 28.44424387065068,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0140",
+      "nodo": "N-1734728599",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1734728599",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1734728599"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 111.13774758052622,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0141",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 359.1133869616102,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0142",
+      "nodo": "N-3173813185",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-3173813185",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 52.99221532390615,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0143",
+      "nodo": "N-12038298017",
+      "estado": "EVACUADO",
+      "nodoActual": "N-12038298017",
+      "refugioAsignado": "R-003",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 223.29144208257506,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0144",
+      "nodo": "N-4131463058",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-4131463058",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-4131463058"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 139.17810737726444,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0145",
+      "nodo": "N-1744541861",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1744541861",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1744541861"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0146",
+      "nodo": "N-1744541861",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1744541861",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1744541861"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0147",
+      "nodo": "N-1744541861",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1744541861",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1744541861"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0148",
+      "nodo": "N-1744541861",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-1744541861",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-1744541861"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0149",
+      "nodo": "N-12133332638",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-12133332638",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-12133332638"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0150",
+      "nodo": "N-3173813185",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-3173813185",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0151",
+      "nodo": "N-363665444",
+      "estado": "EN_CAMIONETA",
+      "nodoActual": "N-363665444",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": "V-004",
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0152",
+      "nodo": "N-363647862",
+      "estado": "EVACUADO",
+      "nodoActual": "N-363647862",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 101.8034609293321,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0153",
+      "nodo": "N-8267326903",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-8267326903",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 67.79498945374984,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0154",
+      "nodo": "N-363643366",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643366",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643366"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 98.02601955051897,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0155",
+      "nodo": "N-363642740",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363642740",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363642740",
+        "N-6352840852",
+        "N-363666108",
+        "N-5492722690",
+        "N-363666000",
+        "N-363666024",
+        "N-5791184441",
+        "N-363665414",
+        "N-363665430",
+        "N-363665444",
+        "N-363711184",
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 62.87067654846193,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0156",
+      "nodo": "N-363644992",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363644992",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363644992",
+        "N-363711015",
+        "N-6352789429",
+        "N-363666047",
+        "N-5492722690",
+        "N-363666000",
+        "N-363666024",
+        "N-5791184441",
+        "N-363665414",
+        "N-363665430",
+        "N-363665444",
+        "N-363711184",
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 230.01889563686467,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0157",
+      "nodo": "N-363647862",
+      "estado": "EVACUADO",
+      "nodoActual": "N-363647862",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": 1,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 102.33532590079648,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0158",
+      "nodo": "N-363643360",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643360",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643360"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0159",
+      "nodo": "N-363643320",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643320",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643320"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0160",
+      "nodo": "N-363647655",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363647655",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [
+        "N-363647655",
+        "N-363647731",
+        "N-363647862"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 585.639604883589,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0161",
+      "nodo": "N-363665430",
+      "estado": "HACIA_ENCUENTRO",
+      "nodoActual": "N-363665430",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363665430",
+        "N-363665444"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": "V-004",
+      "distanciaCaminada_m": 61.99710855103041,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0162",
+      "nodo": "N-8267326903",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-8267326903",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 67.79498945374984,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0163",
+      "nodo": "N-363643305",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643305",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643305"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0164",
+      "nodo": "N-363647862",
+      "estado": "EVACUADO",
+      "nodoActual": "N-363647862",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 5,
+      "turnoEvacuacion": 5,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 626.0749501034194,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0165",
+      "nodo": "N-3766220839",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-3766220839",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 10.49444989119919,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0166",
+      "nodo": "N-363643345",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643345",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643345"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0167",
+      "nodo": "N-6441637170",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-6441637170",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-6441637170"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 105.87945494724215,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0168",
+      "nodo": "N-363643305",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643305",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643305"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0169",
+      "nodo": "N-363666108",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363666108",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363666108",
+        "N-5492722690",
+        "N-363666000",
+        "N-363666024",
+        "N-5791184441",
+        "N-363665414",
+        "N-363665430",
+        "N-363665444",
+        "N-363711184",
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 78.89910380354166,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0170",
+      "nodo": "N-363647862",
+      "estado": "EVACUADO",
+      "nodoActual": "N-363647862",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": 3,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 356.29721790174926,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0171",
+      "nodo": "N-363665444",
+      "estado": "EN_CAMIONETA",
+      "nodoActual": "N-363665444",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": "V-004",
+      "distanciaCaminada_m": 29.95438231624703,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0172",
+      "nodo": "N-3766220839",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-3766220839",
+      "refugioAsignado": null,
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 116.88661798758449,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0173",
+      "nodo": "N-363642740",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363642740",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363642740",
+        "N-6352840852",
+        "N-363666108",
+        "N-5492722690",
+        "N-363666000",
+        "N-363666024",
+        "N-5791184441",
+        "N-363665414",
+        "N-363665430",
+        "N-363665444",
+        "N-363711184",
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 62.87067654846193,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0174",
+      "nodo": "N-363666000",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363666000",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363666000",
+        "N-363666024",
+        "N-5791184441",
+        "N-363665414",
+        "N-363665430",
+        "N-363665444",
+        "N-363711184",
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 68.46108136976423,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0175",
+      "nodo": "N-363644992",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363644992",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363644992",
+        "N-363711015",
+        "N-6352789429",
+        "N-363666047",
+        "N-5492722690",
+        "N-363666000",
+        "N-363666024",
+        "N-5791184441",
+        "N-363665414",
+        "N-363665430",
+        "N-363665444",
+        "N-363711184",
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 230.01889563686467,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0176",
+      "nodo": "N-363665444",
+      "estado": "EN_CAMIONETA",
+      "nodoActual": "N-363665444",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": "V-004",
+      "distanciaCaminada_m": 29.95438231624703,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0177",
+      "nodo": "N-363647862",
+      "estado": "EVACUADO",
+      "nodoActual": "N-363647862",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 2,
+      "turnoEvacuacion": 2,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 236.57170711204185,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0178",
+      "nodo": "N-363643345",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643345",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643345"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0179",
+      "nodo": "N-363711184",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363711184",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363711184",
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 35.778301373636275,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0180",
+      "nodo": "N-363643543",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643543",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643543"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0181",
+      "nodo": "N-6441637170",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-6441637170",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-6441637170"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 28.343555858605022,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0182",
+      "nodo": "N-363647731",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363647731",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [
+        "N-363647731",
+        "N-363647862"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 655.0216256641473,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0183",
+      "nodo": "N-363665430",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363665430",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363665430",
+        "N-363665444",
+        "N-363711184",
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 61.99710855103041,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0184",
+      "nodo": "N-363647862",
+      "estado": "EVACUADO",
+      "nodoActual": "N-363647862",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 3,
+      "turnoEvacuacion": 3,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 356.29721790174926,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0185",
+      "nodo": "N-363647862",
+      "estado": "EVACUADO",
+      "nodoActual": "N-363647862",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 4,
+      "turnoEvacuacion": 4,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 490.40252094109223,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0186",
+      "nodo": "N-363643320",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643320",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643320"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0187",
+      "nodo": "N-363643320",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643320",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643320"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0188",
+      "nodo": "N-511094613",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-511094613",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-511094613"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 21.86230982836811,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0189",
+      "nodo": "N-363647862",
+      "estado": "EVACUADO",
+      "nodoActual": "N-363647862",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 5,
+      "turnoEvacuacion": 5,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 410.9040854914042,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0190",
+      "nodo": "N-363710427",
+      "estado": "ELIMINADO",
+      "nodoActual": "N-363710427",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 1,
+      "turnoEvacuacion": null,
+      "causaEliminacion": "coincidencia_nodo",
+      "camionetaId": null,
+      "distanciaCaminada_m": 201.83497533894177,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0191",
+      "nodo": "N-363647862",
+      "estado": "EVACUADO",
+      "nodoActual": "N-363647862",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": 6,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 634.2929669320273,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0192",
+      "nodo": "N-363647862",
+      "estado": "EVACUADO",
+      "nodoActual": "N-363647862",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 4,
+      "turnoEvacuacion": 4,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 490.40252094109223,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0193",
+      "nodo": "N-363647862",
+      "estado": "EVACUADO",
+      "nodoActual": "N-363647862",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [],
+      "turnosTranscurridos": 4,
+      "turnoEvacuacion": 4,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 490.40252094109223,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": "caminando"
+    },
+    {
+      "id": "S-R3-0194",
+      "nodo": "N-363711015",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363711015",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363711015",
+        "N-6352789429",
+        "N-363666047",
+        "N-5492722690",
+        "N-363666000",
+        "N-363666024",
+        "N-5791184441",
+        "N-363665414",
+        "N-363665430",
+        "N-363665444",
+        "N-363711184",
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 102.9351376696863,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0195",
+      "nodo": "N-6352840852",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-6352840852",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-6352840852",
+        "N-363666108",
+        "N-5492722690",
+        "N-363666000",
+        "N-363666024",
+        "N-5791184441",
+        "N-363665414",
+        "N-363665430",
+        "N-363665444",
+        "N-363711184",
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 65.43546916565197,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0196",
+      "nodo": "N-363643345",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643345",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643345"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0197",
+      "nodo": "N-363643305",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363643305",
+      "refugioAsignado": null,
+      "rutaPlanificada": [
+        "N-363643305"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 0.0,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0198",
+      "nodo": "N-363665680",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363665680",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 83.66684226876666,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0199",
+      "nodo": "N-363647655",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363647655",
+      "refugioAsignado": "R-004",
+      "rutaPlanificada": [
+        "N-363647655",
+        "N-363647731",
+        "N-363647862"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 585.639604883589,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    },
+    {
+      "id": "S-R3-0200",
+      "nodo": "N-363665680",
+      "estado": "CAMINANDO",
+      "nodoActual": "N-363665680",
+      "refugioAsignado": "R-002",
+      "rutaPlanificada": [
+        "N-363665680",
+        "N-363665477",
+        "N-363665493",
+        "N-363711240",
+        "N-363711249",
+        "N-4132506671",
+        "N-4132506669",
+        "N-363677325",
+        "N-363708013",
+        "N-4132506665",
+        "N-363708015",
+        "N-8267351879",
+        "N-363708019",
+        "N-4132506664",
+        "N-4136501007",
+        "N-4130376258",
+        "N-365405845",
+        "N-13668174589",
+        "N-13668174588",
+        "N-11055226220",
+        "N-365404297"
+      ],
+      "turnosTranscurridos": 6,
+      "turnoEvacuacion": null,
+      "causaEliminacion": null,
+      "camionetaId": null,
+      "distanciaCaminada_m": 83.66684226876666,
+      "distanciaEnCamioneta_m": 0.0,
+      "modoEvacuacion": null
+    }
+  ],
+  "zombies": [
+    {
+      "id": "Z-0001",
+      "nodo": "N-363673552",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0002",
+      "nodo": "N-363643246",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0003",
+      "nodo": "N-1349201319",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0004",
+      "nodo": "N-4130203878",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0005",
+      "nodo": "N-11113075323",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0006",
+      "nodo": "N-6196403184",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0007",
+      "nodo": "N-363646199",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0008",
+      "nodo": "N-363646409",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0009",
+      "nodo": "N-4130496382",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0010",
+      "nodo": "N-363673992",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0011",
+      "nodo": "N-5307122206",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0012",
+      "nodo": "N-363650210",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0013",
+      "nodo": "N-1349201538",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0014",
+      "nodo": "N-11002831976",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0015",
+      "nodo": "N-3766220839",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0016",
+      "nodo": "N-1349201498",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0017",
+      "nodo": "N-12060152875",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0018",
+      "nodo": "N-363709998",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0019",
+      "nodo": "N-2499222414",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0020",
+      "nodo": "N-12060152875",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0021",
+      "nodo": "N-4128508220",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0022",
+      "nodo": "N-7911458786",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0023",
+      "nodo": "N-8267351890",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0024",
+      "nodo": "N-363643390",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0025",
+      "nodo": "N-363646124",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0026",
+      "nodo": "N-1349201538",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0027",
+      "nodo": "N-6196404887",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0028",
+      "nodo": "N-775527661",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0029",
+      "nodo": "N-775527661",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0030",
+      "nodo": "N-3173813185",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0031",
+      "nodo": "N-363646124",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0032",
+      "nodo": "N-1349201556",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0033",
+      "nodo": "N-4137420946",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0034",
+      "nodo": "N-363643051",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0035",
+      "nodo": "N-3766220839",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0036",
+      "nodo": "N-363642905",
+      "tipo": "corredor"
+    },
+    {
+      "id": "Z-0037",
+      "nodo": "N-775527667",
+      "tipo": "horda"
+    },
+    {
+      "id": "Z-0038",
+      "nodo": "N-3173813181",
+      "tipo": "horda"
+    },
+    {
+      "id": "Z-0039",
+      "nodo": "N-8267351972",
+      "tipo": "horda"
+    },
+    {
+      "id": "Z-0040",
+      "nodo": "N-363665356",
+      "tipo": "horda"
+    },
+    {
+      "id": "Z-0041",
+      "nodo": "N-2499222329",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0042",
+      "nodo": "N-363643404",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0043",
+      "nodo": "N-2499222925",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0044",
+      "nodo": "N-803712100",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0045",
+      "nodo": "N-511104309",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0046",
+      "nodo": "N-6441637174",
+      "tipo": "caminante"
+    },
+    {
+      "id": "Z-0048",
+      "nodo": "N-8269413945",
+      "tipo": "caminante"
+    }
+  ],
+  "refugios": [
+    {
+      "id": "R-001",
+      "nodo": "N-367334480",
+      "capacidad": 40,
+      "ocupacion": 4,
+      "nombre": "Refugio Tarqui",
+      "lat": -0.9786032,
+      "lng": -80.7218461,
+      "capacidad_maxima": 40,
+      "plazas_reservadas": 8,
+      "estado": "ABIERTO",
+      "plazas_disponibles": 28,
+      "sobrevivientesAsignados": [
+        "S-R3-0001",
+        "S-R3-0018",
+        "S-R3-0020",
+        "S-R3-0021",
+        "S-R3-0023",
+        "S-R3-0027",
+        "S-R3-0032",
+        "S-R3-0035"
+      ],
+      "idAnterior": "R-1"
+    },
+    {
+      "id": "R-002",
+      "nodo": "N-365404297",
+      "capacidad": 50,
+      "ocupacion": 3,
+      "nombre": "Refugio Los Esteros",
+      "lat": -0.9609187,
+      "lng": -80.6878315,
+      "capacidad_maxima": 50,
+      "plazas_reservadas": 35,
+      "estado": "ABIERTO",
+      "plazas_disponibles": 12,
+      "sobrevivientesAsignados": [
+        "S-R3-0055",
+        "S-R3-0057",
+        "S-R3-0058",
+        "S-R3-0060",
+        "S-R3-0064",
+        "S-R3-0070",
+        "S-R3-0071",
+        "S-R3-0073",
+        "S-R3-0077",
+        "S-R3-0080",
+        "S-R3-0082",
+        "S-R3-0083",
+        "S-R3-0090",
+        "S-R3-0092",
+        "S-R3-0093",
+        "S-R3-0095",
+        "S-R3-0096",
+        "S-R3-0097",
+        "S-R3-0098",
+        "S-R3-0151",
+        "S-R3-0155",
+        "S-R3-0156",
+        "S-R3-0161",
+        "S-R3-0169",
+        "S-R3-0171",
+        "S-R3-0173",
+        "S-R3-0174",
+        "S-R3-0175",
+        "S-R3-0176",
+        "S-R3-0179",
+        "S-R3-0183",
+        "S-R3-0194",
+        "S-R3-0195",
+        "S-R3-0198",
+        "S-R3-0200"
+      ],
+      "idAnterior": "R-2"
+    },
+    {
+      "id": "R-003",
+      "nodo": "N-12038298017",
+      "capacidad": 60,
+      "ocupacion": 17,
+      "nombre": "Refugio Barbasquillo",
+      "lat": -0.9524091,
+      "lng": -80.7523474,
+      "capacidad_maxima": 60,
+      "plazas_reservadas": 0,
+      "estado": "ABIERTO",
+      "plazas_disponibles": 43,
+      "sobrevivientesAsignados": [],
+      "idAnterior": "R-3"
+    },
+    {
+      "id": "R-004",
+      "nodo": "N-363647862",
+      "capacidad": 70,
+      "ocupacion": 11,
+      "nombre": "Refugio Jocay",
+      "lat": -0.9595718,
+      "lng": -80.7155873,
+      "capacidad_maxima": 70,
+      "plazas_reservadas": 3,
+      "estado": "ABIERTO",
+      "plazas_disponibles": 56,
+      "sobrevivientesAsignados": [
+        "S-R3-0160",
+        "S-R3-0182",
+        "S-R3-0199"
+      ],
+      "idAnterior": "R-4"
+    }
+  ],
+  "nodosBloqueados": [
+    "N-10981152565",
+    "N-3173813181",
+    "N-3173813183",
+    "N-363665351",
+    "N-363665356",
+    "N-363665358",
+    "N-365288762",
+    "N-3753263473",
+    "N-3753263475",
+    "N-4115188365",
+    "N-5307122206",
+    "N-775527667",
+    "N-8267351972"
+  ],
+  "camionetas": [
+    {
+      "id": "V-001",
+      "nodoActual": "N-363643278",
+      "estado": "DISPONIBLE",
+      "capacidad": 4,
+      "pasajeros": [],
+      "capacidadUtilizada": 0,
+      "sobrevivientesAsignados": [],
+      "puntoEncuentro": null,
+      "refugioDestino": null,
+      "rutaPlanificada": [
+        "N-363643278"
+      ],
+      "aristasRecorridasEnTurno": [],
+      "viajesRealizados": 0,
+      "distanciaRecorrida_m": 0.0
+    },
+    {
+      "id": "V-002",
+      "nodoActual": "N-363665356",
+      "estado": "DISPONIBLE",
+      "capacidad": 4,
+      "pasajeros": [],
+      "capacidadUtilizada": 0,
+      "sobrevivientesAsignados": [],
+      "puntoEncuentro": null,
+      "refugioDestino": null,
+      "rutaPlanificada": [
+        "N-363665356"
+      ],
+      "aristasRecorridasEnTurno": [],
+      "viajesRealizados": 0,
+      "distanciaRecorrida_m": 0.0
+    },
+    {
+      "id": "V-003",
+      "nodoActual": "N-3173813183",
+      "estado": "DISPONIBLE",
+      "capacidad": 4,
+      "pasajeros": [],
+      "capacidadUtilizada": 0,
+      "sobrevivientesAsignados": [],
+      "puntoEncuentro": null,
+      "refugioDestino": null,
+      "rutaPlanificada": [
+        "N-3173813183"
+      ],
+      "aristasRecorridasEnTurno": [],
+      "viajesRealizados": 0,
+      "distanciaRecorrida_m": 0.0
+    },
+    {
+      "id": "V-004",
+      "nodoActual": "N-363665444",
+      "estado": "HACIA_RECOGIDA",
+      "capacidad": 4,
+      "pasajeros": [
+        "S-R3-0171",
+        "S-R3-0151",
+        "S-R3-0176"
+      ],
+      "capacidadUtilizada": 3,
+      "sobrevivientesAsignados": [
+        "S-R3-0161"
+      ],
+      "puntoEncuentro": "N-363665444",
+      "refugioDestino": "R-002",
+      "rutaPlanificada": [
+        "N-363665444"
+      ],
+      "aristasRecorridasEnTurno": [
+        {
+          "origen": "N-363711184",
+          "destino": "N-363665444",
+          "aristaId": "E-363711184-363665444-0",
+          "distancia_m": 35.778301373636275
+        }
+      ],
+      "viajesRealizados": 0,
+      "distanciaRecorrida_m": 35.778301373636275
+    },
+    {
+      "id": "V-005",
+      "nodoActual": "N-363677087",
+      "estado": "DISPONIBLE",
+      "capacidad": 4,
+      "pasajeros": [],
+      "capacidadUtilizada": 0,
+      "sobrevivientesAsignados": [],
+      "puntoEncuentro": null,
+      "refugioDestino": null,
+      "rutaPlanificada": [
+        "N-363677087"
+      ],
+      "aristasRecorridasEnTurno": [],
+      "viajesRealizados": 0,
+      "distanciaRecorrida_m": 0.0
+    }
+  ],
+  "aristasBloqueadas": [],
+  "rutas": {
+    "S-R3-0001": [
+      "N-363714688",
+      "N-363643642",
+      "N-363643653",
+      "N-363643660",
+      "N-363643673",
+      "N-363643688",
+      "N-363643693",
+      "N-363643694",
+      "N-363643701",
+      "N-363710171",
+      "N-363710175",
+      "N-4129807971",
+      "N-4128508226",
+      "N-4128508227",
+      "N-365289939",
+      "N-2499223089",
+      "N-2499222999",
+      "N-2499222907",
+      "N-367334480"
+    ],
+    "S-R3-0003": [
+      "N-4139823424"
+    ],
+    "S-R3-0004": [
+      "N-511153970"
+    ],
+    "S-R3-0005": [
+      "N-4128508223"
+    ],
+    "S-R3-0006": [
+      "N-363643211"
+    ],
+    "S-R3-0007": [
+      "N-363649613"
+    ],
+    "S-R3-0008": [
+      "N-4136403208"
+    ],
+    "S-R3-0009": [
+      "N-363643810"
+    ],
+    "S-R3-0010": [
+      "N-363646667"
+    ],
+    "S-R3-0011": [
+      "N-1349201514"
+    ],
+    "S-R3-0012": [
+      "N-363646080"
+    ],
+    "S-R3-0013": [
+      "N-363647174"
+    ],
+    "S-R3-0014": [
+      "N-1349201278"
+    ],
+    "S-R3-0015": [
+      "N-363647168"
+    ],
+    "S-R3-0016": [
+      "N-511153970"
+    ],
+    "S-R3-0017": [
+      "N-363643810"
+    ],
+    "S-R3-0018": [
+      "N-363643673",
+      "N-363643688",
+      "N-363643693",
+      "N-363643694",
+      "N-363643701",
+      "N-363710171",
+      "N-363710175",
+      "N-4129807971",
+      "N-4128508226",
+      "N-4128508227",
+      "N-365289939",
+      "N-2499223089",
+      "N-2499222999",
+      "N-2499222907",
+      "N-367334480"
+    ],
+    "S-R3-0019": [
+      "N-365289814"
+    ],
+    "S-R3-0020": [
+      "N-8013864010",
+      "N-8267351983",
+      "N-365289939",
+      "N-2499223089",
+      "N-2499222999",
+      "N-2499222907",
+      "N-367334480"
+    ],
+    "S-R3-0021": [
+      "N-2499223089",
+      "N-2499222999",
+      "N-2499222907",
+      "N-367334480"
+    ],
+    "S-R3-0022": [
+      "N-1349201514"
+    ],
+    "S-R3-0023": [
+      "N-363643673",
+      "N-363643688",
+      "N-363643693",
+      "N-363643694",
+      "N-363643701",
+      "N-363710171",
+      "N-363710175",
+      "N-4129807971",
+      "N-4128508226",
+      "N-4128508227",
+      "N-365289939",
+      "N-2499223089",
+      "N-2499222999",
+      "N-2499222907",
+      "N-367334480"
+    ],
+    "S-R3-0024": [
+      "N-363646667"
+    ],
+    "S-R3-0025": [
+      "N-1349201278"
+    ],
+    "S-R3-0026": [
+      "N-363643810"
+    ],
+    "S-R3-0027": [
+      "N-4128508226",
+      "N-4128508227",
+      "N-365289939",
+      "N-2499223089",
+      "N-2499222999",
+      "N-2499222907",
+      "N-367334480"
+    ],
+    "S-R3-0028": [
+      "N-363649613"
+    ],
+    "S-R3-0030": [
+      "N-511153970"
+    ],
+    "S-R3-0031": [
+      "N-363647019"
+    ],
+    "S-R3-0032": [
+      "N-363710171",
+      "N-363710175",
+      "N-4129807971",
+      "N-4128508226",
+      "N-4128508227",
+      "N-365289939",
+      "N-2499223089",
+      "N-2499222999",
+      "N-2499222907",
+      "N-367334480"
+    ],
+    "S-R3-0035": [
+      "N-2499223089",
+      "N-2499222999",
+      "N-2499222907",
+      "N-367334480"
+    ],
+    "S-R3-0037": [
+      "N-363646415"
+    ],
+    "S-R3-0039": [
+      "N-4139823424"
+    ],
+    "S-R3-0042": [
+      "N-363649613"
+    ],
+    "S-R3-0043": [
+      "N-363646415"
+    ],
+    "S-R3-0044": [
+      "N-1349201514"
+    ],
+    "S-R3-0047": [
+      "N-4139823424"
+    ],
+    "S-R3-0048": [
+      "N-365289815"
+    ],
+    "S-R3-0049": [
+      "N-1349201278"
+    ],
+    "S-R3-0050": [
+      "N-365289814"
+    ],
+    "S-R3-0051": [
+      "N-363677087"
+    ],
+    "S-R3-0052": [
+      "N-363677094"
+    ],
+    "S-R3-0053": [
+      "N-4137420947"
+    ],
+    "S-R3-0054": [
+      "N-363677109"
+    ],
+    "S-R3-0055": [
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0056": [
+      "N-363711455"
+    ],
+    "S-R3-0057": [
+      "N-11088595647",
+      "N-10971388299",
+      "N-776248526",
+      "N-11088595686",
+      "N-365404297"
+    ],
+    "S-R3-0058": [
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0060": [
+      "N-11088595647",
+      "N-10971388299",
+      "N-776248526",
+      "N-11088595686",
+      "N-365404297"
+    ],
+    "S-R3-0061": [
+      "N-363673977"
+    ],
+    "S-R3-0062": [
+      "N-363711404"
+    ],
+    "S-R3-0063": [
+      "N-4137420947"
+    ],
+    "S-R3-0064": [
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0067": [
+      "N-4138398576"
+    ],
+    "S-R3-0068": [
+      "N-4137420947"
+    ],
+    "S-R3-0069": [
+      "N-363677066"
+    ],
+    "S-R3-0070": [
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0071": [
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0072": [
+      "N-4137417077"
+    ],
+    "S-R3-0073": [
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0074": [
+      "N-4137420947"
+    ],
+    "S-R3-0075": [
+      "N-4137420947"
+    ],
+    "S-R3-0076": [
+      "N-363680538"
+    ],
+    "S-R3-0077": [
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0078": [
+      "N-363677109"
+    ],
+    "S-R3-0080": [
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0081": [
+      "N-363677109"
+    ],
+    "S-R3-0082": [
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0083": [
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0084": [
+      "N-1364014006"
+    ],
+    "S-R3-0085": [
+      "N-363711455"
+    ],
+    "S-R3-0087": [
+      "N-363665867"
+    ],
+    "S-R3-0088": [
+      "N-4137420947"
+    ],
+    "S-R3-0089": [
+      "N-1364014008"
+    ],
+    "S-R3-0090": [
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0091": [
+      "N-363673591"
+    ],
+    "S-R3-0092": [
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0093": [
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0094": [
+      "N-363711455"
+    ],
+    "S-R3-0095": [
+      "N-11088595647",
+      "N-10971388299",
+      "N-776248526",
+      "N-11088595686",
+      "N-365404297"
+    ],
+    "S-R3-0096": [
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0097": [
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0098": [
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0099": [
+      "N-3753251349"
+    ],
+    "S-R3-0100": [
+      "N-363673977"
+    ],
+    "S-R3-0103": [
+      "N-4131463058"
+    ],
+    "S-R3-0105": [
+      "N-1349201358"
+    ],
+    "S-R3-0109": [
+      "N-1744541861"
+    ],
+    "S-R3-0113": [
+      "N-1349201117"
+    ],
+    "S-R3-0121": [
+      "N-1349201117"
+    ],
+    "S-R3-0123": [
+      "N-1349201117"
+    ],
+    "S-R3-0127": [
+      "N-4131463058"
+    ],
+    "S-R3-0129": [
+      "N-4131463058"
+    ],
+    "S-R3-0133": [
+      "N-1349201358"
+    ],
+    "S-R3-0134": [
+      "N-1349201117"
+    ],
+    "S-R3-0135": [
+      "N-4131463058"
+    ],
+    "S-R3-0136": [
+      "N-4131463058"
+    ],
+    "S-R3-0139": [
+      "N-1744541861"
+    ],
+    "S-R3-0140": [
+      "N-1734728599"
+    ],
+    "S-R3-0144": [
+      "N-4131463058"
+    ],
+    "S-R3-0145": [
+      "N-1744541861"
+    ],
+    "S-R3-0146": [
+      "N-1744541861"
+    ],
+    "S-R3-0147": [
+      "N-1744541861"
+    ],
+    "S-R3-0148": [
+      "N-1744541861"
+    ],
+    "S-R3-0149": [
+      "N-12133332638"
+    ],
+    "S-R3-0154": [
+      "N-363643366"
+    ],
+    "S-R3-0155": [
+      "N-363642740",
+      "N-6352840852",
+      "N-363666108",
+      "N-5492722690",
+      "N-363666000",
+      "N-363666024",
+      "N-5791184441",
+      "N-363665414",
+      "N-363665430",
+      "N-363665444",
+      "N-363711184",
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0156": [
+      "N-363644992",
+      "N-363711015",
+      "N-6352789429",
+      "N-363666047",
+      "N-5492722690",
+      "N-363666000",
+      "N-363666024",
+      "N-5791184441",
+      "N-363665414",
+      "N-363665430",
+      "N-363665444",
+      "N-363711184",
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0158": [
+      "N-363643360"
+    ],
+    "S-R3-0159": [
+      "N-363643320"
+    ],
+    "S-R3-0160": [
+      "N-363647655",
+      "N-363647731",
+      "N-363647862"
+    ],
+    "S-R3-0161": [
+      "N-363665430",
+      "N-363665444"
+    ],
+    "S-R3-0163": [
+      "N-363643305"
+    ],
+    "S-R3-0166": [
+      "N-363643345"
+    ],
+    "S-R3-0167": [
+      "N-6441637170"
+    ],
+    "S-R3-0168": [
+      "N-363643305"
+    ],
+    "S-R3-0169": [
+      "N-363666108",
+      "N-5492722690",
+      "N-363666000",
+      "N-363666024",
+      "N-5791184441",
+      "N-363665414",
+      "N-363665430",
+      "N-363665444",
+      "N-363711184",
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0173": [
+      "N-363642740",
+      "N-6352840852",
+      "N-363666108",
+      "N-5492722690",
+      "N-363666000",
+      "N-363666024",
+      "N-5791184441",
+      "N-363665414",
+      "N-363665430",
+      "N-363665444",
+      "N-363711184",
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0174": [
+      "N-363666000",
+      "N-363666024",
+      "N-5791184441",
+      "N-363665414",
+      "N-363665430",
+      "N-363665444",
+      "N-363711184",
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0175": [
+      "N-363644992",
+      "N-363711015",
+      "N-6352789429",
+      "N-363666047",
+      "N-5492722690",
+      "N-363666000",
+      "N-363666024",
+      "N-5791184441",
+      "N-363665414",
+      "N-363665430",
+      "N-363665444",
+      "N-363711184",
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0178": [
+      "N-363643345"
+    ],
+    "S-R3-0179": [
+      "N-363711184",
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0180": [
+      "N-363643543"
+    ],
+    "S-R3-0181": [
+      "N-6441637170"
+    ],
+    "S-R3-0182": [
+      "N-363647731",
+      "N-363647862"
+    ],
+    "S-R3-0183": [
+      "N-363665430",
+      "N-363665444",
+      "N-363711184",
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0186": [
+      "N-363643320"
+    ],
+    "S-R3-0187": [
+      "N-363643320"
+    ],
+    "S-R3-0188": [
+      "N-511094613"
+    ],
+    "S-R3-0194": [
+      "N-363711015",
+      "N-6352789429",
+      "N-363666047",
+      "N-5492722690",
+      "N-363666000",
+      "N-363666024",
+      "N-5791184441",
+      "N-363665414",
+      "N-363665430",
+      "N-363665444",
+      "N-363711184",
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0195": [
+      "N-6352840852",
+      "N-363666108",
+      "N-5492722690",
+      "N-363666000",
+      "N-363666024",
+      "N-5791184441",
+      "N-363665414",
+      "N-363665430",
+      "N-363665444",
+      "N-363711184",
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0196": [
+      "N-363643345"
+    ],
+    "S-R3-0197": [
+      "N-363643305"
+    ],
+    "S-R3-0198": [
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ],
+    "S-R3-0199": [
+      "N-363647655",
+      "N-363647731",
+      "N-363647862"
+    ],
+    "S-R3-0200": [
+      "N-363665680",
+      "N-363665477",
+      "N-363665493",
+      "N-363711240",
+      "N-363711249",
+      "N-4132506671",
+      "N-4132506669",
+      "N-363677325",
+      "N-363708013",
+      "N-4132506665",
+      "N-363708015",
+      "N-8267351879",
+      "N-363708019",
+      "N-4132506664",
+      "N-4136501007",
+      "N-4130376258",
+      "N-365405845",
+      "N-13668174589",
+      "N-13668174588",
+      "N-11055226220",
+      "N-365404297"
+    ]
+  },
+  "metricas": {
+    "sobrevivientesIniciales": 200,
+    "evacuados": 35,
+    "eliminados": 26,
+    "activos": 139,
+    "porcentajeSupervivencia": 87.0,
+    "tasaEvacuacion": 17.5,
+    "turnosPromedioEvacuacion": 2.3714285714285714,
+    "rutasValidas": 993,
+    "rutasInvalidas": 0,
+    "solicitudesHTTP": 993,
+    "erroresHTTP": 0,
+    "respuestasInvalidas": 0,
+    "solicitudesSobre500ms": 0,
+    "latenciaPromedioMs": 45.60539637461311,
+    "latenciaP50Ms": 27.22170000015467,
+    "latenciaP95Ms": 128.93850000000384,
+    "latenciaP99Ms": 188.19389999953273,
+    "disponibilidadEndpoint": 1.0,
+    "vivosFinales": 174,
+    "evacuadosCaminando": 35,
+    "evacuadosCamioneta": 0,
+    "rescatesCompletados": 0,
+    "rescatesCancelados": 4,
+    "distanciaCaminada_m": 31028.286606748494,
+    "distanciaTransportada_m": 0.0
+  },
+  "eventosRecientes": [
+    {
+      "id": "evacuacion-S-R3-0152",
+      "turno": 1,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0152",
+      "refugioId": "R-004",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0157",
+      "turno": 1,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0157",
+      "refugioId": "R-004",
+      "modo": "caminando"
+    },
+    {
+      "id": "mordida-2-S-R3-0038",
+      "turno": 2,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0038",
+      "nodo": "N-363643005",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-2-S-R3-0041",
+      "turno": 2,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0041",
+      "nodo": "N-363643005",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-2-S-R3-0110",
+      "turno": 2,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0110",
+      "nodo": "N-1734733952",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-2-S-R3-0115",
+      "turno": 2,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0115",
+      "nodo": "N-1734733952",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-2-S-R3-0117",
+      "turno": 2,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0117",
+      "nodo": "N-1734733952",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-2-S-R3-0131",
+      "turno": 2,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0131",
+      "nodo": "N-1734733952",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "evacuacion-S-R3-0034",
+      "turno": 2,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0034",
+      "refugioId": "R-001",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0046",
+      "turno": 2,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0046",
+      "refugioId": "R-001",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0101",
+      "turno": 2,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0101",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0111",
+      "turno": 2,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0111",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0114",
+      "turno": 2,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0114",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0120",
+      "turno": 2,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0120",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0125",
+      "turno": 2,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0125",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0130",
+      "turno": 2,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0130",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0132",
+      "turno": 2,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0132",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0177",
+      "turno": 2,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0177",
+      "refugioId": "R-004",
+      "modo": "caminando"
+    },
+    {
+      "id": "mordida-3-S-R3-0033",
+      "turno": 3,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0033",
+      "nodo": "N-3173813185",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-3-S-R3-0066",
+      "turno": 3,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0066",
+      "nodo": "N-776248526",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-3-S-R3-0086",
+      "turno": 3,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0086",
+      "nodo": "N-776248526",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-3-S-R3-0108",
+      "turno": 3,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0108",
+      "nodo": "N-3173813185",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-3-S-R3-0112",
+      "turno": 3,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0112",
+      "nodo": "N-1734728613",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-3-S-R3-0116",
+      "turno": 3,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0116",
+      "nodo": "N-3173813185",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-3-S-R3-0119",
+      "turno": 3,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0119",
+      "nodo": "N-3173813185",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-3-S-R3-0137",
+      "turno": 3,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0137",
+      "nodo": "N-3173813185",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-3-S-R3-0142",
+      "turno": 3,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0142",
+      "nodo": "N-3173813185",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-3-S-R3-0150",
+      "turno": 3,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0150",
+      "nodo": "N-3173813185",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "evacuacion-S-R3-0107",
+      "turno": 3,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0107",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0128",
+      "turno": 3,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0128",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0138",
+      "turno": 3,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0138",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0170",
+      "turno": 3,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0170",
+      "refugioId": "R-004",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0184",
+      "turno": 3,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0184",
+      "refugioId": "R-004",
+      "modo": "caminando"
+    },
+    {
+      "id": "mordida-4-S-R3-0029",
+      "turno": 4,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0029",
+      "nodo": "N-2499222412",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-4-S-R3-0040",
+      "turno": 4,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0040",
+      "nodo": "N-2499222412",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "evacuacion-S-R3-0118",
+      "turno": 4,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0118",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0124",
+      "turno": 4,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0124",
+      "refugioId": "R-003",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0185",
+      "turno": 4,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0185",
+      "refugioId": "R-004",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0192",
+      "turno": 4,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0192",
+      "refugioId": "R-004",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0193",
+      "turno": 4,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0193",
+      "refugioId": "R-004",
+      "modo": "caminando"
+    },
+    {
+      "id": "mordida-5-S-R3-0104",
+      "turno": 5,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0104",
+      "nodo": "N-1734728598",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-5-S-R3-0122",
+      "turno": 5,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0122",
+      "nodo": "N-1734728598",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "evacuacion-S-R3-0164",
+      "turno": 5,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0164",
+      "refugioId": "R-004",
+      "modo": "caminando"
+    },
+    {
+      "id": "evacuacion-S-R3-0189",
+      "turno": 5,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0189",
+      "refugioId": "R-004",
+      "modo": "caminando"
+    },
+    {
+      "id": "mordida-6-S-R3-0165",
+      "turno": 6,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0165",
+      "nodo": "N-3766220839",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "mordida-6-S-R3-0172",
+      "turno": 6,
+      "tipo": "mordida",
+      "sobrevivienteId": "S-R3-0172",
+      "nodo": "N-3766220839",
+      "causa": "coincidencia_nodo"
+    },
+    {
+      "id": "evacuacion-S-R3-0191",
+      "turno": 6,
+      "tipo": "evacuacion",
+      "sobrevivienteId": "S-R3-0191",
+      "refugioId": "R-004",
+      "modo": "caminando"
+    },
+    {
+      "id": "embarque-6-S-R3-0171",
+      "turno": 6,
+      "tipo": "embarque",
+      "sobrevivienteId": "S-R3-0171",
+      "camionetaId": "V-004",
+      "nodo": "N-363665444",
+      "refugioId": "R-002"
+    },
+    {
+      "id": "embarque-6-S-R3-0151",
+      "turno": 6,
+      "tipo": "embarque",
+      "sobrevivienteId": "S-R3-0151",
+      "camionetaId": "V-004",
+      "nodo": "N-363665444",
+      "refugioId": "R-002"
+    },
+    {
+      "id": "embarque-6-S-R3-0176",
+      "turno": 6,
+      "tipo": "embarque",
+      "sobrevivienteId": "S-R3-0176",
+      "camionetaId": "V-004",
+      "nodo": "N-363665444",
+      "refugioId": "R-002"
+    }
+  ],
+  "estrategia": "Pro",
+  "funcionalidadesPro": {
+    "prediccion": true,
+    "reservas": true,
+    "flota": true
+  },
+  "riesgo": {
+    "turnoObservado": 6,
+    "turnoPredicho": 7,
+    "nodos": {
+      "N-363646124": 0.45,
+      "N-363646115": 0.7,
+      "N-511153970": 0.7,
+      "N-2499222414": 0.45,
+      "N-363646415": 0.45,
+      "N-1349201538": 0.2,
+      "N-1349201117": 0.7,
+      "N-365288915": 0.7,
+      "N-4131783615": 0.45,
+      "N-6196404887": 0.45,
+      "N-4139823424": 0.7,
+      "N-6196403184": 0.7,
+      "N-4131553251": 0.45,
+      "N-7137787878": 0.45,
+      "N-775527661": 0.45,
+      "N-1349201278": 0.7,
+      "N-775527736": 0.7,
+      "N-1349201358": 0.45,
+      "N-365289814": 0.45,
+      "N-3173813185": 0.2,
+      "N-1349201556": 0.2,
+      "N-1349201514": 0.7,
+      "N-365290010": 0.7,
+      "N-6662797653": 0.45,
+      "N-775527752": 0.45,
+      "N-4137420946": 0.2,
+      "N-4137420947": 0.7,
+      "N-4138398576": 0.45,
+      "N-363643051": 0.45,
+      "N-4129830518": 0.7,
+      "N-8013864010": 0.7,
+      "N-363643043": 0.45,
+      "N-8267351983": 0.45,
+      "N-3766220839": 0.45,
+      "N-363649577": 0.7,
+      "N-3766220840": 0.7,
+      "N-3766220836": 0.45,
+      "N-363649582": 0.45,
+      "N-363642905": 0.45,
+      "N-363710655": 1.0,
+      "N-4135782635": 0.7,
+      "N-363643810": 0.45,
+      "N-363642942": 0.45
+    },
+    "aristas": [
+      {
+        "origen": "N-1349201278",
+        "destino": "N-1349201358",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-1349201514",
+        "destino": "N-6662797653",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-1349201538",
+        "destino": "N-1349201117",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-1349201538",
+        "destino": "N-365288915",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-1349201556",
+        "destino": "N-1349201514",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-1349201556",
+        "destino": "N-365290010",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-363642905",
+        "destino": "N-363710655",
+        "nivel": 1.0
+      },
+      {
+        "origen": "N-363642905",
+        "destino": "N-4135782635",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-363643051",
+        "destino": "N-4129830518",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-363643051",
+        "destino": "N-8013864010",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-363646115",
+        "destino": "N-2499222414",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-363646115",
+        "destino": "N-363646124",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-363646124",
+        "destino": "N-363646115",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-363646124",
+        "destino": "N-511153970",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-363649577",
+        "destino": "N-3766220836",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-363649577",
+        "destino": "N-3766220839",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-363710655",
+        "destino": "N-363642905",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-363710655",
+        "destino": "N-363643810",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-365288915",
+        "destino": "N-1349201117",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-365288915",
+        "destino": "N-4131783615",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-365290010",
+        "destino": "N-775527752",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-3766220839",
+        "destino": "N-363649577",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-3766220839",
+        "destino": "N-3766220840",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-3766220840",
+        "destino": "N-363649582",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-3766220840",
+        "destino": "N-3766220839",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-4129830518",
+        "destino": "N-363643043",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-4129830518",
+        "destino": "N-363643051",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-4135782635",
+        "destino": "N-363642905",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-4135782635",
+        "destino": "N-363642942",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-4137420946",
+        "destino": "N-4137420947",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-4137420947",
+        "destino": "N-4138398576",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-4139823424",
+        "destino": "N-4131553251",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-4139823424",
+        "destino": "N-6196404887",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-511153970",
+        "destino": "N-363646124",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-511153970",
+        "destino": "N-363646415",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-6196403184",
+        "destino": "N-6196404887",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-6196403184",
+        "destino": "N-7137787878",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-6196404887",
+        "destino": "N-4139823424",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-6196404887",
+        "destino": "N-6196403184",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-775527661",
+        "destino": "N-1349201278",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-775527661",
+        "destino": "N-775527736",
+        "nivel": 0.7
+      },
+      {
+        "origen": "N-775527736",
+        "destino": "N-365289814",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-775527736",
+        "destino": "N-775527661",
+        "nivel": 0.45
+      },
+      {
+        "origen": "N-8013864010",
+        "destino": "N-8267351983",
+        "nivel": 0.45
+      }
+    ]
+  }
+}

@@ -1,0 +1,766 @@
+openapi: 3.1.0
+info:
+  title: Manta Zombie Escape
+  version: 0.3.0
+paths:
+  /health:
+    get:
+      summary: Health
+      operationId: health_health_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+                title: Response Health Health Get
+  /estado:
+    get:
+      summary: Estado
+      operationId: estado_estado_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StateView'
+  /mapa:
+    get:
+      summary: Mapa
+      operationId: mapa_mapa_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapView'
+  /paso:
+    post:
+      summary: Paso
+      operationId: paso_paso_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasoRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasoResponse'
+        '401':
+          description: API key inválida
+        '409':
+          description: Turno o posición incompatible
+        '404':
+          description: Sobreviviente desconocido
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - APIKeyHeader: []
+  /control/estado:
+    get:
+      tags:
+      - Control local
+      summary: Status
+      operationId: status_control_estado_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimulationStatus'
+      security:
+      - APIKeyHeader: []
+  /control/dormidos:
+    get:
+      tags:
+      - Control local
+      summary: Sleeper Debug
+      operationId: sleeper_debug_control_dormidos_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SleeperDebugView'
+      security:
+      - APIKeyHeader: []
+  /control/iniciar:
+    post:
+      tags:
+      - Control local
+      summary: Start
+      operationId: start_control_iniciar_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimulationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimulationStatus'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - APIKeyHeader: []
+components:
+  schemas:
+    EdgeView:
+      properties:
+        id:
+          type: string
+          title: Id
+        origen:
+          type: string
+          title: Origen
+        destino:
+          type: string
+          title: Destino
+        distancia_m:
+          type: number
+          title: Distancia M
+        tipo:
+          type: string
+          title: Tipo
+        velocidad_m_s:
+          type: number
+          title: Velocidad M S
+        bloqueada:
+          type: boolean
+          title: Bloqueada
+        tiempo_estimado_s:
+          type: number
+          title: Tiempo Estimado S
+        geometria:
+          items:
+            items:
+              type: number
+            type: array
+          type: array
+          title: Geometria
+        osmids:
+          items:
+            type: string
+          type: array
+          title: Osmids
+      type: object
+      required:
+      - id
+      - origen
+      - destino
+      - distancia_m
+      - tipo
+      - velocidad_m_s
+      - bloqueada
+      - tiempo_estimado_s
+      - geometria
+      title: EdgeView
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    MapView:
+      properties:
+        version:
+          type: string
+          title: Version
+        atribucion:
+          type: string
+          title: Atribucion
+        nodos:
+          items:
+            $ref: '#/components/schemas/NodeView'
+          type: array
+          title: Nodos
+        aristas:
+          items:
+            $ref: '#/components/schemas/EdgeView'
+          type: array
+          title: Aristas
+        sectores:
+          additionalProperties: true
+          type: object
+          title: Sectores
+        metadata:
+          additionalProperties: true
+          type: object
+          title: Metadata
+      type: object
+      required:
+      - version
+      - atribucion
+      - nodos
+      - aristas
+      - sectores
+      - metadata
+      title: MapView
+    NodeView:
+      properties:
+        id:
+          type: string
+          title: Id
+        lat:
+          type: number
+          title: Lat
+        lng:
+          type: number
+          title: Lng
+        sector:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sector
+      type: object
+      required:
+      - id
+      - lat
+      - lng
+      title: NodeView
+    PasoRequest:
+      properties:
+        sobrevivienteId:
+          type: string
+          minLength: 1
+          title: Sobrevivienteid
+        nodoActual:
+          type: string
+          minLength: 1
+          title: Nodoactual
+        turno:
+          type: integer
+          minimum: 0.0
+          title: Turno
+      additionalProperties: false
+      type: object
+      required:
+      - sobrevivienteId
+      - nodoActual
+      - turno
+      title: PasoRequest
+    PasoResponse:
+      properties:
+        siguienteNodo:
+          type: string
+          title: Siguientenodo
+      type: object
+      required:
+      - siguienteNodo
+      title: PasoResponse
+    ShelterView:
+      properties:
+        id:
+          type: string
+          title: Id
+        nodo:
+          type: string
+          title: Nodo
+        capacidad:
+          type: integer
+          title: Capacidad
+        ocupacion:
+          type: integer
+          title: Ocupacion
+        nombre:
+          type: string
+          title: Nombre
+        lat:
+          type: number
+          title: Lat
+        lng:
+          type: number
+          title: Lng
+        capacidad_maxima:
+          type: integer
+          title: Capacidad Maxima
+        plazas_reservadas:
+          type: integer
+          title: Plazas Reservadas
+        estado:
+          type: string
+          title: Estado
+        plazas_disponibles:
+          type: integer
+          title: Plazas Disponibles
+          default: 0
+        sobrevivientesAsignados:
+          items:
+            type: string
+          type: array
+          title: Sobrevivientesasignados
+        idAnterior:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Idanterior
+      type: object
+      required:
+      - id
+      - nodo
+      - capacidad
+      - ocupacion
+      - nombre
+      - lat
+      - lng
+      - capacidad_maxima
+      - plazas_reservadas
+      - estado
+      title: ShelterView
+    SimulationRequest:
+      properties:
+        ronda:
+          type: integer
+          maximum: 3.0
+          minimum: 1.0
+          title: Ronda
+          default: 1
+        sobrevivientes:
+          type: integer
+          maximum: 500.0
+          minimum: 1.0
+          title: Sobrevivientes
+          default: 20
+        zombies:
+          $ref: '#/components/schemas/ZombieCounts'
+        turnos:
+          type: integer
+          maximum: 150.0
+          minimum: 1.0
+          title: Turnos
+          default: 150
+        semilla:
+          type: integer
+          maximum: 2147483647.0
+          minimum: 0.0
+          title: Semilla
+          default: 7
+        estrategia:
+          type: string
+          enum:
+          - base
+          - pro
+          title: Estrategia
+          default: pro
+        distribucion:
+          type: string
+          enum:
+          - equilibrada
+          - aleatoria
+          title: Distribucion
+          default: equilibrada
+        bloqueos:
+          type: boolean
+          title: Bloqueos
+          default: true
+      additionalProperties: false
+      type: object
+      title: SimulationRequest
+    SimulationStatus:
+      properties:
+        runId:
+          type: string
+          title: Runid
+        ejecutando:
+          type: boolean
+          title: Ejecutando
+        configuracion:
+          anyOf:
+          - $ref: '#/components/schemas/SimulationRequest'
+          - type: 'null'
+        error:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Error
+      type: object
+      required:
+      - runId
+      - ejecutando
+      - configuracion
+      - error
+      title: SimulationStatus
+    SleeperDebugItem:
+      properties:
+        id:
+          type: string
+          title: Id
+        nodo:
+          type: string
+          title: Nodo
+      type: object
+      required:
+      - id
+      - nodo
+      title: SleeperDebugItem
+    SleeperDebugView:
+      properties:
+        runId:
+          type: string
+          title: Runid
+        ronda:
+          type: integer
+          title: Ronda
+        turno:
+          type: integer
+          title: Turno
+        dormidos:
+          items:
+            $ref: '#/components/schemas/SleeperDebugItem'
+          type: array
+          title: Dormidos
+      type: object
+      required:
+      - runId
+      - ronda
+      - turno
+      - dormidos
+      title: SleeperDebugView
+    StateView:
+      properties:
+        runId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Runid
+        turnosTotales:
+          type: integer
+          title: Turnostotales
+          default: 150
+        segundosPorTurno:
+          type: number
+          title: Segundosporturno
+          default: 2.0
+        turno:
+          type: integer
+          title: Turno
+        fase:
+          type: string
+          title: Fase
+        ronda:
+          type: integer
+          title: Ronda
+        estadoSimulacion:
+          type: string
+          title: Estadosimulacion
+        versionGrafo:
+          type: integer
+          title: Versiongrafo
+        mapaVersion:
+          type: string
+          title: Mapaversion
+        sobrevivientes:
+          items:
+            $ref: '#/components/schemas/SurvivorView'
+          type: array
+          title: Sobrevivientes
+        zombies:
+          items:
+            $ref: '#/components/schemas/ZombieView'
+          type: array
+          title: Zombies
+        refugios:
+          items:
+            $ref: '#/components/schemas/ShelterView'
+          type: array
+          title: Refugios
+        nodosBloqueados:
+          items:
+            type: string
+          type: array
+          title: Nodosbloqueados
+        camionetas:
+          items:
+            $ref: '#/components/schemas/VehicleView'
+          type: array
+          title: Camionetas
+        aristasBloqueadas:
+          items:
+            type: string
+          type: array
+          title: Aristasbloqueadas
+        rutas:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+          title: Rutas
+        metricas:
+          additionalProperties: true
+          type: object
+          title: Metricas
+        eventosRecientes:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Eventosrecientes
+        estrategia:
+          type: string
+          title: Estrategia
+          default: Base
+        funcionalidadesPro:
+          additionalProperties:
+            type: boolean
+          type: object
+          title: Funcionalidadespro
+        riesgo:
+          additionalProperties: true
+          type: object
+          title: Riesgo
+      type: object
+      required:
+      - turno
+      - fase
+      - ronda
+      - estadoSimulacion
+      - versionGrafo
+      - mapaVersion
+      - sobrevivientes
+      - zombies
+      - refugios
+      - nodosBloqueados
+      - camionetas
+      - aristasBloqueadas
+      - rutas
+      - metricas
+      - eventosRecientes
+      title: StateView
+    SurvivorView:
+      properties:
+        id:
+          type: string
+          title: Id
+        nodo:
+          type: string
+          title: Nodo
+        estado:
+          type: string
+          title: Estado
+        nodoActual:
+          type: string
+          title: Nodoactual
+        refugioAsignado:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Refugioasignado
+        rutaPlanificada:
+          items:
+            type: string
+          type: array
+          title: Rutaplanificada
+        turnosTranscurridos:
+          type: integer
+          title: Turnostranscurridos
+        turnoEvacuacion:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Turnoevacuacion
+        causaEliminacion:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Causaeliminacion
+        camionetaId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Camionetaid
+        distanciaCaminada_m:
+          type: number
+          title: Distanciacaminada M
+          default: 0
+        distanciaEnCamioneta_m:
+          type: number
+          title: Distanciaencamioneta M
+          default: 0
+        modoEvacuacion:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Modoevacuacion
+      type: object
+      required:
+      - id
+      - nodo
+      - estado
+      - nodoActual
+      - refugioAsignado
+      - rutaPlanificada
+      - turnosTranscurridos
+      - turnoEvacuacion
+      - causaEliminacion
+      title: SurvivorView
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    VehicleView:
+      properties:
+        id:
+          type: string
+          title: Id
+        nodoActual:
+          type: string
+          title: Nodoactual
+        estado:
+          type: string
+          title: Estado
+        capacidad:
+          type: integer
+          title: Capacidad
+        pasajeros:
+          items:
+            type: string
+          type: array
+          title: Pasajeros
+        capacidadUtilizada:
+          type: integer
+          title: Capacidadutilizada
+        sobrevivientesAsignados:
+          items:
+            type: string
+          type: array
+          title: Sobrevivientesasignados
+        puntoEncuentro:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Puntoencuentro
+        refugioDestino:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Refugiodestino
+        rutaPlanificada:
+          items:
+            type: string
+          type: array
+          title: Rutaplanificada
+        aristasRecorridasEnTurno:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Aristasrecorridasenturno
+        viajesRealizados:
+          type: integer
+          title: Viajesrealizados
+        distanciaRecorrida_m:
+          type: number
+          title: Distanciarecorrida M
+      type: object
+      required:
+      - id
+      - nodoActual
+      - estado
+      - capacidad
+      - pasajeros
+      - capacidadUtilizada
+      - sobrevivientesAsignados
+      - puntoEncuentro
+      - refugioDestino
+      - rutaPlanificada
+      - aristasRecorridasEnTurno
+      - viajesRealizados
+      - distanciaRecorrida_m
+      title: VehicleView
+    ZombieCounts:
+      properties:
+        caminante:
+          type: integer
+          maximum: 200.0
+          minimum: 0.0
+          title: Caminante
+        corredor:
+          type: integer
+          maximum: 200.0
+          minimum: 0.0
+          title: Corredor
+        horda:
+          type: integer
+          maximum: 200.0
+          minimum: 0.0
+          title: Horda
+        dormido:
+          type: integer
+          maximum: 200.0
+          minimum: 0.0
+          title: Dormido
+      additionalProperties: false
+      type: object
+      required:
+      - caminante
+      - corredor
+      - horda
+      - dormido
+      title: ZombieCounts
+    ZombieView:
+      properties:
+        id:
+          type: string
+          title: Id
+        nodo:
+          type: string
+          title: Nodo
+        tipo:
+          type: string
+          title: Tipo
+      type: object
+      required:
+      - id
+      - nodo
+      - tipo
+      title: ZombieView
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: x-api-key

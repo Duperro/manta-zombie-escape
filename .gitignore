@@ -10,3 +10,9 @@ build/
 dist/
 data/maps/cache/
 data/maps/*.graphml
+
+# Artefactos locales de procesos; conservar informes reproducibles, no logs temporales.
+*.log
+reports/*_processes.json
+reports/*_previous_config.json
+reports/*git_status.txt
