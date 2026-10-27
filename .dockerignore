@@ -1,0 +1,13 @@
+.git
+**/.venv*
+**/__pycache__
+**/.pytest_cache
+**/*.egg-info
+data/maps/cache
+data/maps/*.graphml
+frontend
+infra
+reports
+docs
+.env
+backend/app/main.py

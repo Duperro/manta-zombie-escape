@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+.venv*/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.egg-info/
+build/
+dist/
+data/maps/cache/
+data/maps/*.graphml
