@@ -3,6 +3,7 @@
 Ámbito autorizado por el usuario: backend, frontend/, contratos, datos, documentación y correcciones de .kiro/. Preservar archivos históricos de Kiro en archive/. No modificar infra/ del responsable AWS ni sobrescribir trabajo ajeno.
 Organización autorizada por el usuario: main integra feat/backend-simulator (backend/datos), feat/frontend-dashboard (interfaz) y chore/docs-contracts (entrega). Trabajar en la rama de su categoría. La solicitud actual autoriza crear ramas, commits y merges de integración; no desplegar. Para cambios posteriores no hacer push/merge sin autorización.
 No incluir secretos, caches OSM ni entornos virtuales en Git. Preservar main.py y .venv originales; entrada correcta app.server:app.
+No versionar ni subir resultados generados por corridas, pruebas, benchmarks o capturas en reports/. Conservarlos localmente; versionar solo los README de ese directorio y resúmenes documentales en docs/. No forzar su inclusión con git add -f.
 
 Python 3.11/3.12. Desde backend/: python -m app.export_contract y python -m pytest -q --durations=5.
 El conjunto incluye tres rondas de 150 turnos por TCP real; requiere acceso localhost.

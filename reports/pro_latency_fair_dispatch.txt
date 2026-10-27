@@ -1,7 +1,0 @@
-.                                                                        [100%]
-============================= slowest 3 durations =============================
-283.27s call     tests/test_pro_integration.py::test_pro_reproducible_full_round_real_http
-0.01s setup    tests/test_pro_integration.py::test_pro_reproducible_full_round_real_http
-
-(1 durations < 0.005s hidden.  Use -vv to show these durations.)
-1 passed in 287.37s (0:04:47)

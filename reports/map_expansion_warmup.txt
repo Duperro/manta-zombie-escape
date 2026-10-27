@@ -1,4 +1,0 @@
-{"round": 1, "creationSeconds": 0.676, "turnSeconds": [0.905, 0.707, 0.625, 0.857], "note": "ASGI logic validation, not TCP latency"}
-{"round": 2, "creationSeconds": 0.606, "turnSeconds": [0.762, 0.887, 0.619, 0.468], "note": "ASGI logic validation, not TCP latency"}
-{"round": 3, "creationSeconds": 0.392, "turnSeconds": [0.767, 0.681, 0.67, 0.765], "note": "ASGI logic validation, not TCP latency"}
-{"before": {"version": "manta-bb3023537eb6eb6f", "nodes": 306, "edges": 571, "bounds": [-80.7529409, -0.9815718, -80.6836082, -0.9509498]}, "after": {"version": "manta-e14526d00c21d066", "nodes": 1507, "edges": 3319, "bounds": [-80.7776113, -0.9997772, -80.6700783, -0.9428075]}, "boundingBoxAreaRatio": 2.885453163882688, "allPreviousNodesPreserved": true, "allPreviousRoadsAndGeometryPreserved": true}

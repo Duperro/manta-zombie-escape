@@ -1,9 +1,0 @@
-{
-  "turns": 20,
-  "initialSurvivors": 200,
-  "breakdowns": 1,
-  "completedRepairs": 1,
-  "httpErrors": 0,
-  "reservationsValid": true,
-  "note": "ASGI functional stress with guaranteed damage on actual contacts; not a TCP latency benchmark"
-}

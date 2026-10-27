@@ -4,6 +4,8 @@ Simulador Base/Pro sobre calles reales de Manta, con FastAPI, NetworkX y HTTP re
 
 Diseño, reglas propias de vehículos, parámetros y comandos completos en [docs/fase3.md](docs/fase3.md). Resultados y límites reales en [docs/verificacion_fase3.md](docs/verificacion_fase3.md).
 
+Los archivos generados por cada corrida se guardan localmente en `reports/` y se excluyen de Git. En GitHub se conservan los comandos, reglas y resúmenes de validación de `docs/`; ver [política de reportes](reports/README.md).
+
 Desde backend/, con API_KEY definida:
 
 ```bash

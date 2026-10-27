@@ -1,6 +1,0 @@
-...................                                                      [100%]
-============================= slowest 3 durations =============================
-8.52s call     tests/test_fleet.py::test_grouping_hop_bound_preserves_unfiltered_planning_and_physics
-0.71s call     tests/test_dispatch.py::test_dispatch_calls_each_actor_once_and_preserves_concurrency[200-4]
-0.36s call     tests/test_fleet.py::test_five_configured_vehicles
-19 passed in 14.99s
