@@ -101,3 +101,5 @@ La configuración se abre en un diálogo modal nativo con foco contenido, cierre
 Visibilidad: dormidos ocultos por contrato hasta despertar; al despertar son caminantes y se registra despertar en eventos. Eliminados usan X blanca sobre rosa oscuro, capa independiente activada por defecto y prioridad sobre zombies en el mismo nodo. Tooltip muestra la causa publicada.
 
 Opción nueva: Capas → Dormidos (solo pruebas), apagada por defecto. Consulta un canal de control protegido y dibuja zZ azul sin incorporar datos al proveedor público ni al planificador. Solo acepta el mismo runId/ronda/turno; al despertar pasan a caminantes. Requiere dashboard_server actualizado.
+
+Mapa ampliado activo y demo: 1.507 nodos y 3.319 tramos dirigidos. El adaptador conserva las geometrías y detecta la nueva mapaVersion; Leaflet encuadra la cobertura completa sin asumir un número fijo de nodos. La red anterior se conserva en data/maps/archive/ para los resultados históricos.
