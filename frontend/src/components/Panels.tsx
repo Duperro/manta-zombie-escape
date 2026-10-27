@@ -1,0 +1,43 @@
+import { ArrowUpRight, BusFront, ChevronRight, Radio, ShieldPlus, Truck as TruckIcon, Users, X } from 'lucide-react';
+import type { Selection, VisualState } from '../types/visual';
+import type { RawMetrics } from '../types/raw';
+import { survivorLabels } from '../services/adapter';
+import { stateColors } from './MapBoard';
+export function number(value: unknown, decimals = 0) { return typeof value === 'number' && Number.isFinite(value) ? value.toLocaleString('es-EC', { maximumFractionDigits: decimals }) : '—'; }
+export const metricLabels: Record<keyof RawMetrics, string> = {
+  sobrevivientesIniciales: 'Sobrevivientes iniciales', evacuados: 'Personas evacuadas', eliminados: 'Personas eliminadas', activos: 'Personas aún activas', porcentajeSupervivencia: 'Supervivencia (%)', tasaEvacuacion: 'Evacuación (%)', turnosPromedioEvacuacion: 'Turno medio de evacuación', rutasValidas: 'Movimientos válidos', rutasInvalidas: 'Movimientos inválidos', solicitudesHTTP: 'Solicitudes HTTP', erroresHTTP: 'Errores HTTP', respuestasInvalidas: 'Respuestas inválidas', solicitudesSobre500ms: 'Solicitudes sobre 500 ms', latenciaPromedioMs: 'Latencia promedio (ms)', latenciaP50Ms: 'Latencia p50 (ms)', latenciaP95Ms: 'Latencia p95 (ms)', latenciaP99Ms: 'Latencia p99 (ms)', disponibilidadEndpoint: 'Disponibilidad (0–1)', vivosFinales: 'Personas vivas', evacuadosCaminando: 'Evacuados caminando', evacuadosCamioneta: 'Evacuados en camioneta', rescatesCompletados: 'Rescates completados', rescatesCancelados: 'Rescates cancelados', distanciaCaminada_m: 'Distancia caminada (m)', distanciaTransportada_m: 'Distancia transportada (m)',
+};
+export function MetricsPanel({ state }: { state: VisualState | null }) {
+  const m = state?.metrics;
+  const items = [{ label: 'PERSONAS VIVAS', value: m?.vivosFinales, icon: Users, color: 'blue', note: `${number(m?.activos)} aún en operación` },
+    { label: 'EVACUADOS', value: m?.evacuados, icon: ShieldPlus, color: 'lime', note: `${number(m?.tasaEvacuacion, 1)} % de evacuación` },
+    { label: 'ELIMINADOS', value: m?.eliminados, icon: Radio, color: 'red', note: '' },
+    { label: 'RESPUESTA p95', value: m?.latenciaP95Ms, icon: ArrowUpRight, color: 'neutral', note: '', suffix: 'ms' }];
+  return <section className="metrics-grid" aria-label="Métricas principales">{items.map(({ label, value, icon: Icon, color, note, suffix }) => <article className={`metric-card ${color}`} key={label}><div className="eyebrow">{label}<Icon size={16}/></div><strong>{number(value, suffix ? 1 : 0)}{suffix && <small>{suffix}</small>}</strong>{note && <p>{note}</p>}</article>)}</section>;
+}
+export function RefugesPanel({ state, onSelect }: { state: VisualState; onSelect: (s: Selection) => void }) {
+  return <section className="panel"><div className="section-heading"><h2><ShieldPlus size={16}/> Refugios</h2><span>{state.shelters.reduce((s, r) => s + r.capacity, 0)} plazas</span></div><div className="refuge-list">{state.shelters.map(r => <button key={r.id} className="refuge-row" onClick={() => onSelect({ kind: 'shelter', id: r.id })}><div><b>{r.name.replace('Refugio ', '')}</b><span>{r.available > 0 && r.state === 'ABIERTO' ? `${r.available} libres` : 'Sin disponibilidad'}</span></div><div className="capacity-bar"><i style={{ width: `${Math.min(100, Math.max(0, r.occupied / r.capacity * 100))}%` }}/><em style={{ width: `${Math.min(100, Math.max(0, r.reserved / r.capacity * 100))}%` }}/></div><div className="refuge-caption"><span>{r.occupied}/{r.capacity} ocupadas</span><span>{r.reserved} reservas <ChevronRight size={12}/></span></div></button>)}</div><div className="capacity-key"><i/> Ocupación <em/> Reservas</div></section>;
+}
+export function FleetPanel({ state, selected, onSelect }: { state: VisualState; selected: Selection; onSelect: (s: Selection) => void }) {
+  return <section className="panel"><div className="section-heading"><h2><TruckIcon size={16}/> Camionetas</h2><span>{state.trucks.length} unidades</span></div><div className="fleet-list">{state.trucks.map(v => <button className={`fleet-row ${selected?.id === v.id ? 'selected' : ''}`} key={v.id} onClick={() => onSelect({ kind: 'truck', id: v.id })}><TruckIcon size={18}/><div><b>{v.id}</b><small>{v.state.replaceAll('_', ' ').toLowerCase()}</small></div><span className="seat-count">{v.passengers.length}<small>/{v.capacity}</small></span><ChevronRight size={13}/></button>)}</div></section>;
+}
+function Field({ label, children }: { label: string; children: React.ReactNode }) { return <div className="detail-field"><dt>{label}</dt><dd>{children ?? '—'}</dd></div>; }
+export function DetailsPanel({ state, selected, close }: { state: VisualState; selected: Selection; close: () => void }) {
+  const entity = selected?.kind === 'survivor' ? state.survivors.find(e => e.id === selected.id) : selected?.kind === 'truck' ? state.trucks.find(e => e.id === selected.id) : selected?.kind === 'shelter' ? state.shelters.find(e => e.id === selected.id) : state.zombies.find(e => e.id === selected?.id);
+  if (!selected || !entity) return null;
+  const survivor = selected.kind === 'survivor' ? state.survivors.find(s => s.id === selected.id) : null;
+  const truck = selected.kind === 'truck' ? state.trucks.find(s => s.id === selected.id) : null;
+  const shelter = selected.kind === 'shelter' ? state.shelters.find(s => s.id === selected.id) : null;
+  return <section className="panel details-panel" aria-label="Detalle de entidad"><div className="section-heading"><h2>{selected.kind === 'truck' ? <TruckIcon size={16}/> : <Users size={16}/>} {entity.id}</h2><button aria-label="Cerrar detalle" className="icon-button" onClick={close}><X size={15}/></button></div><dl>
+    {survivor && <><Field label="Estado"><span className="entity-state" style={{ color: stateColors[survivor.state] }}>{survivorLabels[survivor.state]}{survivor.state === 'DESCONOCIDO' ? ` (${survivor.rawState})` : ''}</span></Field><Field label="Refugio asignado">{survivor.shelter}</Field><Field label="Camioneta asignada">{survivor.truck}</Field><Field label="Modo de evacuación">{survivor.evacuationMode}</Field><Field label="Turno de evacuación">{survivor.evacuationTurn}</Field><Field label="Causa de eliminación">{survivor.cause}</Field></>}
+    {truck && <><Field label="Estado">{truck.state.replaceAll('_', ' ')}</Field><Field label="Pasajeros">{truck.passengers.length}/{truck.capacity}</Field><Field label="Identificadores de pasajeros">{truck.passengers.join(', ') || 'Sin pasajeros'}</Field><Field label="Refugio destino">{truck.shelter}</Field><Field label="Punto de encuentro">{truck.meeting}</Field><Field label="Personas asignadas">{truck.assigned.join(', ') || 'Sin asignaciones'}</Field><Field label="Viajes realizados">{truck.trips}</Field><Field label="Distancia recorrida">{number(truck.distance, 1)} m</Field></>}
+    {shelter && <><Field label="Nombre">{shelter.name}</Field><Field label="Estado del backend">{shelter.state}</Field><Field label="Capacidad máxima">{shelter.capacity}</Field><Field label="Ocupación confirmada">{shelter.occupied}</Field><Field label="Reservas activas">{shelter.reserved}</Field><Field label="Plazas disponibles">{shelter.available}</Field><Field label="Personas asignadas">{shelter.assigned.join(', ') || 'Sin reservas'}</Field></>}
+    {selected.kind === 'zombie' && <Field label="Tipo">{state.zombies.find(z => z.id === selected.id)?.type}</Field>}
+  </dl><details className="entity-more"><summary>Más detalles</summary><dl><Field label="Nodo actual">{entity.node}</Field>{(survivor || truck) && <Field label="Ruta"><span className="route-text">{(survivor?.route ?? truck?.route ?? []).join(' → ') || '—'}</span></Field>}</dl></details></section>;
+}
+export function RescueMetrics({ state }: { state: VisualState }) {
+  return <section className="rescue-strip" aria-label="Métricas de rescate">{(['rescatesCompletados', 'rescatesCancelados', 'evacuadosCaminando', 'evacuadosCamioneta'] as const).map(key => <div key={key}><small>{metricLabels[key]}</small><b>{number(state.metrics[key])}</b></div>)}</section>;
+}
+export function Telemetry({ state }: { state: VisualState }) {
+  return <section className="panel telemetry"><div className="section-heading"><h2><BusFront size={17}/> Telemetría de la operación</h2></div><dl>{Object.entries(metricLabels).map(([key, label]) => <Field key={key} label={label}>{number(state.metrics[key as keyof RawMetrics], 2)}</Field>)}</dl></section>;
+}
