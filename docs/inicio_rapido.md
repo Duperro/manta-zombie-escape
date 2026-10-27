@@ -1,6 +1,10 @@
 # Inicio rápido para compañeros
 
 Esta guía ejecuta el dashboard y el simulador completo en cada computadora.
+
+Alternativa sin instalar Python ni Node en el host: [Docker Compose](docker-local.md).
+Ese modo usa un dashboard público de lectura y comandos privados del operador;
+el modal descrito aquí corresponde al desarrollo local con Vite.
 No necesita XAMPP, una base de datos ni AWS. Cada computadora mantiene su propia
 ejecución en memoria. El mapa vial está incluido; las imágenes del mapa de fondo
 requieren Internet.
@@ -31,7 +35,7 @@ py -3.12 -m venv backend/.venv312
 cd backend
 .\.venv312\Scripts\python.exe -m pip install -e ".[test]"
 cd ..\frontend
-npm ci
+npm.cmd ci
 cd ..
 ```
 
@@ -59,7 +63,7 @@ Terminal 2, desde la carpeta principal del proyecto:
 cd frontend
 $env:API_KEY='mi-clave-local'
 $env:VITE_DATA_SOURCE='api'
-npm run dev
+npm.cmd run dev
 ```
 
 Cada compañero puede elegir su propia clave local. Debe ser la misma en ambas
@@ -158,6 +162,7 @@ excluidos de Git. Solo se incluyen las guías README de ese directorio. Los
 resúmenes y comandos reproducibles están en `docs/`; no se necesita descargar
 reportes para ejecutar el programa.
 
-Última validación en Windows: 103 pruebas del backend y 36 del frontend aprobadas,
+Validación de la entrega previa en Windows: 103 pruebas del backend y 36 del frontend aprobadas,
 build correcto y dos ejecuciones de Pro por TCP sin errores ni peticiones mayores
 de 500 ms. Detalles y límites en [latencia_pro.md](latencia_pro.md).
+La validación posterior de Compose se resume en [validacion_docker.md](validacion_docker.md).

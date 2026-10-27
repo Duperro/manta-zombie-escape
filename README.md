@@ -4,6 +4,8 @@ Simulador Base/Pro sobre calles reales de Manta, con FastAPI, NetworkX y HTTP re
 
 **Para instalar y utilizar la versión completa desde `main`, seguir la [guía de inicio rápido para compañeros](docs/inicio_rapido.md).** Incluye instalación, arranque del dashboard con controles, actualización y solución de problemas para Windows y comandos para Linux/macOS.
 
+**Ejecución con Docker:** seguir [docker-local.md](docs/docker-local.md). Dos servicios (backend persistente + Nginx), sin instalar Python/Node en el host, dashboard público en `http://127.0.0.1:8080` y operación privada mediante Compose. Preparación EC2 y requisitos pendientes de HTTPS en [aws-predeploy.md](docs/aws-predeploy.md).
+
 Diseño, reglas propias de vehículos, parámetros y comandos completos en [docs/fase3.md](docs/fase3.md). Resultados y límites reales en [docs/verificacion_fase3.md](docs/verificacion_fase3.md).
 
 Los archivos generados por cada corrida se guardan localmente en `reports/` y se excluyen de Git. En GitHub se conservan los comandos, reglas y resúmenes de validación de `docs/`; ver [política de reportes](reports/README.md).
@@ -118,15 +120,16 @@ Resultados históricos en docs/verificacion_fase2.md; verificación actual en do
 
 ## Docker
 
-Desde la raíz (el contexto debe incluir data/):
+Preparar `.env` y el archivo secreto siguiendo [docker-local.md](docs/docker-local.md). Desde la raíz:
 
 ```bash
-docker build -f backend/Dockerfile -t manta-backend .
-docker run --rm -p 8000:8000 -e API_KEY manta-backend
-docker run --rm -e API_KEY manta-backend python -m app.simulator.cli --round all --fast --output /tmp/base
+docker compose build
+docker compose up -d
+docker compose ps
+docker compose exec -T backend python -m app.operator start --round 3
 ```
 
-Un solo worker y usuario sin privilegios. No incluye caches OSM, secretos, entornos virtuales ni frontend/infra. La verificación de Docker depende de que Docker Desktop esté iniciado.
+El dashboard público se abre en `http://127.0.0.1:8080`. El backend no publica puerto al host. Las imágenes no contienen la clave; Compose la monta solo en el backend. En producción se ocultan el modal de pruebas y la depuración de dormidos; el operador usa `app.operator` por acceso Docker/SSH. Los turnos reales siguen a dos segundos y el estado final se conserva hasta reiniciar una ronda o el proceso. Un worker, una réplica y un coordinador; no hay persistencia compartida. Ver [validacion_docker.md](docs/validacion_docker.md) para resultados reales y pendientes. No se despliega AWS en esta fase.
 
 ## Límites y siguiente fase
 

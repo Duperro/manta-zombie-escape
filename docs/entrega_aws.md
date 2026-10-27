@@ -1,5 +1,18 @@
 # Entrega al responsable AWS
 
+**Procedimiento vigente:** [Docker local](docker-local.md), [preparación EC2 y
+HTTPS](aws-predeploy.md) e [informe de validación Docker](validacion_docker.md).
+La nueva entrega usa Compose, Nginx y `app.container_server`; el operador usa
+`docker compose exec` y la clave montada. El backend no publica puerto al host y
+el dashboard de producción es público de lectura. No hay cuenta ni despliegue
+AWS configurado. La región, dominio, certificado y mediciones EC2 siguen pendientes.
+
+## Referencia histórica del traspaso anterior
+
+El contenido siguiente conserva el contexto de la entrega previa. Sus comandos
+Docker individuales y sus límites sobre la CLI/runId no sustituyen el
+procedimiento Compose vigente enlazado arriba.
+
 No se crearon recursos, no se desplegó y no se modificó infra/. Esta entrega define requisitos; el responsable AWS decide los recursos y configura hosting/ingress.
 
 ## Artefactos

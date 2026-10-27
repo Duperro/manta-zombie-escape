@@ -5,6 +5,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { Biohazard, Check, Crosshair, Layers, Minus, PersonStanding, Plus, ShieldPlus, Skull, Truck as TruckIcon, Wrench, X, Zap } from 'lucide-react';
 import type { Point, Selection, VisualState } from '../types/visual';
 import { SleeperDebugLayer } from './SleeperDebugLayer';
+import { localOperatorControlsEnabled } from '../utils/operator';
 import { survivorLabels } from '../services/adapter';
 export const layerNames = { streets: 'Red vial', survivors: 'Sobrevivientes', eliminated: 'Personas eliminadas', zombies: 'Zombies visibles', sleepers: 'Dormidos (solo pruebas)', hordes: 'Bloqueo por hordas', shelters: 'Refugios', trucks: 'Camionetas y encuentros', blocked: 'Calles bloqueadas', routes: 'Rutas planificadas', risk: 'Predicción de corredores' };
 export type LayersState = Record<keyof typeof layerNames, boolean>;
@@ -80,8 +81,8 @@ export const MapBoard = memo(function MapBoard({ state, selected, onSelect, laye
       <Fit points={state.map.bounds} version={state.map.version} fitKey={fitKey}/>
       <SelectionFocus position={target} selectionKey={selectionKey}/>
       <MapNavigation/>
-      <SleeperDebugLayer state={state} enabled={layers.sleepers === true}/>
-      <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' eventHandlers={{ tileerror: () => setTileError(true) }}/>
+      <SleeperDebugLayer state={state} enabled={localOperatorControlsEnabled() && layers.sleepers === true}/>
+      {!tileError && <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' eventHandlers={{ tileerror: () => setTileError(true) }}/>}
       {layers.streets && <Polyline positions={baseRoads} pathOptions={{ color: '#8aa8b8', weight: 1.7, opacity: 0.5 }} interactive={false}/>}
       {layers.risk && state.riskNodes.map(n => <CircleMarker key={`risk-${n.node}`} center={n.position} radius={9 + n.level * 7} pathOptions={{ color: '#ffbf62', fillColor: '#ffad47', fillOpacity: 0.09, opacity: 0.25, weight: 1 }} interactive={false}/>)}
       {layers.risk && state.riskEdges.map((e, i) => <Polyline key={`riskedge-${i}`} positions={e.points} pathOptions={{ color: '#de9e49', weight: 4, opacity: 0.18 }} interactive={false}/>)}
@@ -99,10 +100,10 @@ export const MapBoard = memo(function MapBoard({ state, selected, onSelect, laye
     </MapContainer>
     {children}
     <div className="map-topline"><button className="icon-button" aria-label="Centrar mapa" title="Centrar mapa" onClick={() => setFitKey(x => x + 1)}><Crosshair size={18}/></button></div>
-    {tileError && <div className="map-bottomline"><span>Mapa base sin conexión</span></div>}
+    {tileError && <div className="map-bottomline"><span>Fondo no disponible · red vial local</span></div>}
     {state.demo && <div className="map-watermark">DEMOSTRACIÓN</div>}
   </div>;
 });
 export function LayerControl({ layers, onChange }: { layers: LayersState; onChange: (next: LayersState) => void }) {
-  return <details className="layer-control"><summary><Layers size={15}/> Capas <span>{Object.values(layers).filter(Boolean).length}</span></summary><div>{Object.entries(layerNames).map(([key, label]) => <label key={key}><input type="checkbox" checked={layers[key as keyof LayersState]} onChange={() => onChange({ ...layers, [key]: !layers[key as keyof LayersState] })}/>{label}</label>)}</div></details>;
+  return <details className="layer-control"><summary><Layers size={15}/> Capas <span>{Object.entries(layers).filter(([key, value]) => value && (key !== 'sleepers' || localOperatorControlsEnabled())).length}</span></summary><div>{Object.entries(layerNames).filter(([key]) => key !== 'sleepers' || localOperatorControlsEnabled()).map(([key, label]) => <label key={key}><input type="checkbox" checked={layers[key as keyof LayersState]} onChange={() => onChange({ ...layers, [key]: !layers[key as keyof LayersState] })}/>{label}</label>)}</div></details>;
 }
