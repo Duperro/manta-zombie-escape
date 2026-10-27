@@ -1,0 +1,7 @@
+{
+  "ronda":3,"nombre":"Diagnóstico de capacidad, no ronda oficial","turnos":150,"sobrevivientes":200,
+  "zombies":{"caminante":0,"corredor":0,"horda":0,"dormido":0},
+  "distribucion":"desigual",
+  "pesosSectores":{"Tarqui":0,"Los Esteros":1,"Barbasquillo":0,"Jocay":0},
+  "eventos":[]
+}

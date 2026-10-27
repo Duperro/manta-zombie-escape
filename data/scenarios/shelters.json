@@ -1,0 +1,38 @@
+[
+  {
+    "id": "R-001",
+    "nombre": "Refugio Tarqui",
+    "nodo": "N-367334480",
+    "lat": -0.9786032,
+    "lng": -80.7218461,
+    "capacidad_maxima": 40,
+    "motivo": "Nodo vial de Tarqui, cercano al ancla del sector, con 6 aristas incidentes; ubicación de simulación, no refugio oficial."
+  },
+  {
+    "id": "R-002",
+    "nombre": "Refugio Los Esteros",
+    "nodo": "N-365404297",
+    "lat": -0.9609187,
+    "lng": -80.6878315,
+    "capacidad_maxima": 50,
+    "motivo": "Nodo vial de Los Esteros, cercano al ancla del sector, con 6 aristas incidentes; ubicación de simulación, no refugio oficial."
+  },
+  {
+    "id": "R-003",
+    "nombre": "Refugio Barbasquillo",
+    "nodo": "N-12038298017",
+    "lat": -0.9524091,
+    "lng": -80.7523474,
+    "capacidad_maxima": 60,
+    "motivo": "Nodo vial de Barbasquillo, cercano al ancla del sector, con 6 aristas incidentes; ubicación de simulación, no refugio oficial."
+  },
+  {
+    "id": "R-004",
+    "nombre": "Refugio Jocay",
+    "nodo": "N-363647862",
+    "lat": -0.9595718,
+    "lng": -80.7155873,
+    "capacidad_maxima": 70,
+    "motivo": "Nodo vial de Jocay, cercano al ancla del sector, con 6 aristas incidentes; ubicación de simulación, no refugio oficial."
+  }
+]

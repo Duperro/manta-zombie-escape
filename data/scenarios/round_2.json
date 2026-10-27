@@ -1,0 +1,6 @@
+{
+  "ronda":2,"nombre":"Medianoche","turnos":150,"sobrevivientes":80,
+  "zombies":{"caminante":16,"corredor":6,"horda":3,"dormido":0},
+  "distribucion":"equilibrada",
+  "eventos":[{"id":"colapso-puente","tipo":"colapso_puente","turno":75,"tipoCalle":"puente"}]
+}

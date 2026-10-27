@@ -1,0 +1,9 @@
+{
+  "ronda":3,"nombre":"Apocalipsis","turnos":150,"sobrevivientes":200,
+  "zombies":{"caminante":24,"corredor":12,"horda":4,"dormido":8},
+  "distribucion":"equilibrada",
+  "eventos":[
+    {"id":"bloqueo-calle-1","tipo":"bloqueo_calle","turno":50,"tipoCalle":"calle"},
+    {"id":"bloqueo-calle-2","tipo":"bloqueo_calle","turnoAleatorio":[90,120],"tipoCalle":"avenida"}
+  ]
+}
