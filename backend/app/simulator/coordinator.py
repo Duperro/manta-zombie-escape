@@ -40,21 +40,40 @@ class Coordinator:
             self.precompute()
             self.published_state = world.view()
 
+    @staticmethod
+    async def cpu_phase(action):
+        """One serialized writer; cancellation drains it before releasing the lock.
+
+        A thread frees the HTTP event loop, not another process/clock/World.
+        Never abandon a running phase and let reset race with its mutations.
+        """
+        work=asyncio.create_task(asyncio.to_thread(action), name='coordinator-cpu-phase')
+        try:
+            return await asyncio.shield(work)
+        except asyncio.CancelledError:
+            while not work.done():
+                try:
+                    await asyncio.shield(work)
+                except asyncio.CancelledError:
+                    continue
+            work.result()
+            raise
+
     async def step(self, client: httpx.AsyncClient):
         async with self.lock:
             w = self.world
             if w.turn >= w.max_turns:
                 raise ValueError("Ronda finalizada")
             start = time.perf_counter()
-            w.turn += 1
-            w.phase = "decision"
-            apply_events(w)
-            w.move_zombies()
-            self.snapshot = w.observation()
-            self.precompute()
-            # Planning is synchronous CPU work. Let pending socket completions and
-            # expired keep-alive callbacks run before dispatching the next batch.
-            await asyncio.sleep(0)
+            def prepare():
+                w.turn += 1
+                w.phase = "decision"
+                apply_events(w)
+                w.move_zombies()
+                self.snapshot = w.observation()
+                self.precompute()
+
+            await self.cpu_phase(prepare)
             semaphore = asyncio.Semaphore(self.concurrency)
             metrics = w.metrics
 
@@ -100,14 +119,17 @@ class Coordinator:
             batches=await asyncio.gather(*(worker() for _ in
                 range(min(self.concurrency,len(self.snapshot.survivors)))))
             decisions=dict(result for batch in batches for result in batch)
-            w.resolve(decisions)
-            # A published route begins at the current position, after this turn's movement.
-            for survivor in w.survivors:
-                if survivor.status in FOOT_STATES and survivor.node in survivor.planned_route:
-                    survivor.planned_route=survivor.planned_route[survivor.planned_route.index(survivor.node):]
-            w.phase="publicado"
-            w.assert_invariants()
-            metrics.turn_records.append(dict(turno=w.turn,duracionMs=(time.perf_counter()-start)*1000,
-                                             activos=sum(living(s.status) for s in w.survivors)))
-            self.published_state=w.view()
-            return self.published_state
+            def finish():
+                w.resolve(decisions)
+                # Publish only a complete, invariant-checked turn.
+                for survivor in w.survivors:
+                    if survivor.status in FOOT_STATES and survivor.node in survivor.planned_route:
+                        survivor.planned_route=survivor.planned_route[survivor.planned_route.index(survivor.node):]
+                w.phase="publicado"
+                w.assert_invariants()
+                metrics.turn_records.append(dict(turno=w.turn,duracionMs=(time.perf_counter()-start)*1000,
+                                                 activos=sum(living(s.status) for s in w.survivors)))
+                self.published_state=w.view()
+                return self.published_state
+
+            return await self.cpu_phase(finish)
