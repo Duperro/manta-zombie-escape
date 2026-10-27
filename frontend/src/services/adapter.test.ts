@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { adaptState, normalizeTruck, prepareMap, resolveRoute, survivorLabels, survivorState } from './adapter';
 import { mapFixture, frameFixtures, clone } from '../test/fixtures';
+import { decodeState } from './decode';
 import { metricLabels } from '../components/Panels';
 describe('FastAPI → visual contract', () => {
   const map = prepareMap(mapFixture);
@@ -49,4 +50,19 @@ describe('FastAPI → visual contract', () => {
     const all = new Set(map.pairs.get(`${edge.from}\0${edge.to}`)!.map(e => e.id));
     expect(resolveRoute([edge.from, edge.to], map, all)).toEqual([]);
   });
+  it('preserves backend repair status and countdown, with safe defaults for older frames', () => {
+    const raw = clone(frameFixtures[0].camionetas[0]);
+    Object.assign(raw, { estado: 'AVERIADA', turnosReparacionRestantes: 5, causaAveria: 'horda', averiasSufridas: 2 });
+    expect(normalizeTruck(raw, map)).toMatchObject({ state: 'AVERIADA', repairTurns: 5, breakdownCause: 'horda', breakdowns: 2 });
+    expect(normalizeTruck(frameFixtures[0].camionetas[0], map).repairTurns).toBe(0);
+  });
+
+  it('rejects a broken vehicle without a valid repair countdown', () => {
+    const raw = clone(frameFixtures[0]); raw.camionetas[0].estado = 'AVERIADA';
+    delete raw.camionetas[0].turnosReparacionRestantes;
+    expect(() => decodeState(raw)).toThrow('camionetas.reparacion');
+    raw.camionetas[0].turnosReparacionRestantes = 3;
+    expect(decodeState(raw).camionetas[0].turnosReparacionRestantes).toBe(3);
+  });
+
 });

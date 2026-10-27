@@ -103,3 +103,9 @@ Visibilidad: dormidos ocultos por contrato hasta despertar; al despertar son cam
 Opción nueva: Capas → Dormidos (solo pruebas), apagada por defecto. Consulta un canal de control protegido y dibuja zZ azul sin incorporar datos al proveedor público ni al planificador. Solo acepta el mismo runId/ronda/turno; al despertar pasan a caminantes. Requiere dashboard_server actualizado.
 
 Mapa ampliado activo y demo: 1.507 nodos y 3.319 tramos dirigidos. El adaptador conserva las geometrías y detecta la nueva mapaVersion; Leaflet encuadra la cobertura completa sin asumir un número fijo de nodos. La red anterior se conserva en data/maps/archive/ para los resultados históricos.
+
+Vista centrada en el mapa: sin panel lateral permanente. La búsqueda por ID, tipo o nombre vive sobre el mapa; seleccionar una entidad abre una tarjeta flotante con datos reales, cierre por X/Escape y scroll interno en móvil. El mapa conserva el zoom suave y gana todo el ancho disponible. Refugios y camionetas se consultan seleccionando sus iconos o buscándolos.
+
+Validación de tarjetas: 31 pruebas frontend y build aprobados. Navegador desktop: selección de camioneta, zoom, tarjeta dentro del mapa, búsqueda y cierre por X verificados; mapa de 1.189 px sin columna lateral ni desbordamiento horizontal. Evidencia en reports/map_cards_visual_check.json y map_card_desktop.jpg. Sin afirmar revisión visual móvil en esta comprobación.
+
+Averías temporales: activar la opción en el modal y configurar porcentaje y turnos para cada tipo de zombie. Vehículo rojo con herramienta y Nt, tarjeta con reparación y segundos aproximados, eventos de avería/reparación. Los contadores provienen de VehicleView; no hay simulación local ni acceso del algoritmo a posiciones ocultas. Ver ../docs/averias.md.

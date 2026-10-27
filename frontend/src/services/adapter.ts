@@ -39,7 +39,7 @@ export function resolveRoute(ids: string[], map: PreparedMap, blocked: Set<strin
   return points;
 }
 export function normalizeTruck(v: RawVehicle, map: PreparedMap): Truck {
-  return { id: v.id, node: v.nodoActual, position: map.nodes.get(v.nodoActual), state: v.estado,
+  return { repairTurns: v.turnosReparacionRestantes ?? 0, breakdownCause: v.causaAveria ?? null, breakdowns: v.averiasSufridas ?? 0, id: v.id, node: v.nodoActual, position: map.nodes.get(v.nodoActual), state: v.estado,
     capacity: v.capacidad, passengers: [...v.pasajeros], used: v.capacidadUtilizada, assigned: v.sobrevivientesAsignados,
     meeting: v.puntoEncuentro, shelter: v.refugioDestino, route: v.rutaPlanificada, trips: v.viajesRealizados, distance: v.distanciaRecorrida_m };
 }

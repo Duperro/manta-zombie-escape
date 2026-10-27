@@ -7,6 +7,9 @@ export function decodeState(value: unknown): RawState {
   for (const name of ['sobrevivientes', 'zombies', 'refugios', 'camionetas', 'aristasBloqueadas', 'nodosBloqueados', 'eventosRecientes']) requireContract(Array.isArray(value[name]), name);
   requireContract(record(value.metricas) && record(value.rutas), 'metricas/rutas');
   for (const v of value.camionetas as unknown[]) requireContract(record(v) && typeof v.id === 'string' && typeof v.nodoActual === 'string' && Array.isArray(v.pasajeros) && Array.isArray(v.rutaPlanificada) && Array.isArray(v.sobrevivientesAsignados), 'camionetas');
+  for (const v of value.camionetas as Record<string, unknown>[]) {
+    if (v.estado === 'AVERIADA') requireContract(Number.isInteger(v.turnosReparacionRestantes) && Number(v.turnosReparacionRestantes) > 0, 'camionetas.reparacion');
+  }
   for (const s of value.sobrevivientes as unknown[]) requireContract(record(s) && typeof s.id === 'string' && typeof s.nodoActual === 'string' && typeof s.estado === 'string' && Array.isArray(s.rutaPlanificada), 'sobrevivientes');
   return value as unknown as RawState;
 }

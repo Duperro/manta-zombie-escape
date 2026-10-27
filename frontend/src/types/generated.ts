@@ -68,6 +68,9 @@ export interface ShelterView {
 }
 
 export interface VehicleView {
+  turnosReparacionRestantes?: number;
+  causaAveria?: string | null;
+  averiasSufridas?: number;
   id: string;
   nodoActual: string;
   estado: string;

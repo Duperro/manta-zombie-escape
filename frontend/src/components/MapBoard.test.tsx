@@ -12,9 +12,12 @@ describe('Leaflet component smoke (jsdom, not visual QA)', () => {
     try {
       const map = prepareMap(mapFixture), select = vi.fn();
       const props = { selected: null, onSelect: select, layers: initialLayers };
-      const view = render(<MapBoard {...props} state={adaptState(frameFixtures[0], map)}/>);
+      const view = render(<MapBoard {...props} state={adaptState(frameFixtures[0], map)}><div data-testid="overlay-probe">Detalle dentro del mapa</div></MapBoard>);
       const container = view.container.querySelector('.leaflet-container');
       expect(container).toBeTruthy();
+      const overlay = view.getByTestId('overlay-probe');
+      expect(view.getByTestId('map-shell')).toContainElement(overlay);
+      expect(container).not.toContainElement(overlay);
       expect(view.container.querySelectorAll('.truck-pin')).toHaveLength(5);
       expect(view.container.querySelectorAll('.shelter-pin')).toHaveLength(4);
       expect(view.container.querySelectorAll('svg path').length).toBeGreaterThan(100);
@@ -73,6 +76,21 @@ describe('Leaflet component smoke (jsdom, not visual QA)', () => {
       expect(view.container.querySelector('.person-pin:not(.eliminated)')).toBeNull();
       view.rerender(<MapBoard {...props} layers={{ ...initialLayers, survivors: false, eliminated: false }}/>);
       expect(view.container.querySelector('.person-pin.eliminated')).toBeNull();
+      view.unmount();
+    } finally { Reflect.set(Browser, 'canvas', oldCanvas); Reflect.set(Browser, 'svg', oldSvg); }
+  });
+
+  it('renders a repair badge from backend turns and removes it after recovery', () => {
+    const oldCanvas = Browser.canvas, oldSvg = Browser.svg;
+    Reflect.set(Browser, 'canvas', false); Reflect.set(Browser, 'svg', true);
+    try {
+      const state = adaptState(frameFixtures[0], prepareMap(mapFixture));
+      state.trucks[0] = { ...state.trucks[0], state: 'AVERIADA', repairTurns: 4, breakdownCause: 'horda', breakdowns: 1 };
+      const props = { selected: null, onSelect: vi.fn(), layers: initialLayers };
+      const view = render(<MapBoard {...props} state={state}/>);
+      expect(view.container.querySelector('.truck-broken em')).toHaveTextContent('4t');
+      view.rerender(<MapBoard {...props} state={{ ...state, trucks: state.trucks.map(v => ({ ...v, repairTurns: 0, state: 'DISPONIBLE' })) }}/>);
+      expect(view.container.querySelector('.truck-broken')).toBeNull();
       view.unmount();
     } finally { Reflect.set(Browser, 'canvas', oldCanvas); Reflect.set(Browser, 'svg', oldSvg); }
   });
