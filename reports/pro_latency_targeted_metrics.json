@@ -1,0 +1,26 @@
+[
+  {
+    "turnos": 150,
+    "solicitudesHTTP": 7704,
+    "erroresHTTP": 0,
+    "respuestasInvalidas": 0,
+    "solicitudesSobre500ms": 0,
+    "latenciaP95Ms": 81.22130000265315,
+    "latenciaP99Ms": 137.97859999976936,
+    "huellaInicial": "04660558191a7eb867d8418d40d1a9232d12e412ecd0c88de62de288e5ef5a7e",
+    "firmaFinal": "fcce7444f1dd8cf6b1cdb453a6b4d34f25f609620b7bc2fa77d475bd5f563381",
+    "duracionS": 147.93952490000083
+  },
+  {
+    "turnos": 150,
+    "solicitudesHTTP": 7704,
+    "erroresHTTP": 0,
+    "respuestasInvalidas": 0,
+    "solicitudesSobre500ms": 0,
+    "latenciaP95Ms": 64.94150000071386,
+    "latenciaP99Ms": 104.23269999955664,
+    "huellaInicial": "04660558191a7eb867d8418d40d1a9232d12e412ecd0c88de62de288e5ef5a7e",
+    "firmaFinal": "fcce7444f1dd8cf6b1cdb453a6b4d34f25f609620b7bc2fa77d475bd5f563381",
+    "duracionS": 130.5906163999971
+  }
+]

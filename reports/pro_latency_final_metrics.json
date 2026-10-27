@@ -1,0 +1,77 @@
+{
+  "pro": [
+    {
+      "ronda": 3,
+      "turnos": 150,
+      "solicitudesHTTP": 7704,
+      "erroresHTTP": 0,
+      "respuestasInvalidas": 0,
+      "solicitudesSobre500ms": 0,
+      "latenciaP95Ms": 11.10559999506222,
+      "latenciaP99Ms": 17.29400000476744,
+      "huellaInicial": "04660558191a7eb867d8418d40d1a9232d12e412ecd0c88de62de288e5ef5a7e",
+      "firmaFinal": "fcce7444f1dd8cf6b1cdb453a6b4d34f25f609620b7bc2fa77d475bd5f563381",
+      "rutasInvalidas": 0,
+      "duracionS": 58.42113779999636
+    },
+    {
+      "ronda": 3,
+      "turnos": 150,
+      "solicitudesHTTP": 7704,
+      "erroresHTTP": 0,
+      "respuestasInvalidas": 0,
+      "solicitudesSobre500ms": 0,
+      "latenciaP95Ms": 11.880800004291814,
+      "latenciaP99Ms": 20.33520000259159,
+      "huellaInicial": "04660558191a7eb867d8418d40d1a9232d12e412ecd0c88de62de288e5ef5a7e",
+      "firmaFinal": "fcce7444f1dd8cf6b1cdb453a6b4d34f25f609620b7bc2fa77d475bd5f563381",
+      "rutasInvalidas": 0,
+      "duracionS": 60.655731200000446
+    }
+  ],
+  "method": "Final full backend suite, real local TCP; default 500 ms threshold and concurrency 4 unchanged. No instrumentation. Wall times excluded from deterministic signatures.",
+  "base": [
+    {
+      "ronda": 1,
+      "turnos": 150,
+      "solicitudesHTTP": 412,
+      "erroresHTTP": 0,
+      "respuestasInvalidas": 0,
+      "solicitudesSobre500ms": 0,
+      "latenciaP95Ms": 21.474100001796614,
+      "latenciaP99Ms": 29.758600001514424,
+      "huellaInicial": "28c7a2f2e6f3bfcb62ca07bdeb69d5e9d61d0ca487950d738556692a83f1625a",
+      "firmaFinal": "47a84acf0fee53501eee50217a65be552aa01f43ae2626b6b30eb56e97e2b4d2",
+      "rutasInvalidas": 0,
+      "duracionS": 53.32666430000245
+    },
+    {
+      "ronda": 2,
+      "turnos": 150,
+      "solicitudesHTTP": 1455,
+      "erroresHTTP": 0,
+      "respuestasInvalidas": 0,
+      "solicitudesSobre500ms": 0,
+      "latenciaP95Ms": 15.94679999834625,
+      "latenciaP99Ms": 31.241900000168243,
+      "huellaInicial": "d5549863671f6c25a68c76b6de27946a61b5f5964234363f91fe61cd739f7150",
+      "firmaFinal": "d90f00b5e6bea48758cbaf2d9043e055e0ba6d082b72136ed928aabbd5f48a78",
+      "rutasInvalidas": 0,
+      "duracionS": 41.93462539999746
+    },
+    {
+      "ronda": 3,
+      "turnos": 150,
+      "solicitudesHTTP": 4766,
+      "erroresHTTP": 0,
+      "respuestasInvalidas": 0,
+      "solicitudesSobre500ms": 0,
+      "latenciaP95Ms": 10.102500003995374,
+      "latenciaP99Ms": 14.789599998039193,
+      "huellaInicial": "04660558191a7eb867d8418d40d1a9232d12e412ecd0c88de62de288e5ef5a7e",
+      "firmaFinal": "c689b275c25441d45e5d10e6457ef40dbf69b5f5e2173658906002af8a301521",
+      "rutasInvalidas": 0,
+      "duracionS": 37.15121929999805
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "stateRunMatches": true,
+  "estrategia": "pro",
+  "health": "ok",
+  "error": null,
+  "averias": false,
+  "supervivientes": 80,
+  "ronda": 2,
+  "ejecutando": true
+}

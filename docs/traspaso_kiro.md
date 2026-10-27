@@ -104,3 +104,7 @@ Rama feat/backend-simulator, HEAD a2126a4 (Inicialización de proyecto). El back
 ## Ampliación posterior: panel de pruebas de fuego
 
 El usuario autorizó configurar e iniciar/reiniciar desde el dashboard. Ver pruebas_fuego.md. Se añade servidor local persistente app.dashboard_server y controles opt-in protegidos vía proxy de servidor; la CLI y /paso se conservan. runId permite detectar reinicios sin recargar. Los resultados posteriores sustituyen el conteo de tests del traspaso inicial: 72 backend y 25 frontend aprobados, build aprobado, aceptación por HTTP real en dashboard_control_live.json. La restricción anterior de dashboard exclusivamente GET se amplía solo a estos controles locales; la clave nunca entra al navegador. No hay despliegue ni cambios de infra/.
+
+## Validación posterior de averías y latencia (2026-10-27)
+
+Estado actualizado: 103 pruebas del backend y 36 del frontend aprobadas, contratos regenerados y build correcto. La regresión intermitente HTTP de Pro quedó corregida mediante la dependencia explícita sniffio, junto con optimizaciones de validación, agrupación y despacho. Dos ejecuciones de Pro de 150 turnos: 15.408 peticiones medidas, cero errores o excesos de 500 ms, p95 de 11,11/11,88 ms y firmas idénticas. Base también completó las tres rondas. Estos resultados locales sustituyen los conteos anteriores y no acreditan un SLA de producción. Ver [latencia_pro.md](latencia_pro.md) y [averias.md](averias.md), con evidencia visual de averías y reportes finales. Sin cambios en infra/ ni despliegues.
