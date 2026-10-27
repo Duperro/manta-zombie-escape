@@ -108,7 +108,14 @@ class World:
     def valid(self,origin,dest):
         if not isinstance(dest,str) or origin not in self.graph or dest not in self.graph:
             return False
-        return dest==origin or (traversable(self.graph).has_edge(origin,dest) and dest not in self.horde_nodes())
+        if dest==origin:
+            return True
+        if not self.graph.has_edge(origin,dest) or dest in self.horde_nodes():
+            return False
+        # Existence of an open directed parallel edge is enough for validity.
+        # Do not materialize the entire traversable graph for a single segment.
+        attrs=self.graph[origin][dest]
+        return any(not edge['bloqueada'] for edge in attrs.values()) if self.graph.is_multigraph() else not attrs['bloqueada']
 
     def activate_sleepers(self):
         usable=traversable(self.graph)

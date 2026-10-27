@@ -5,6 +5,9 @@ from app.core.config import Settings
 from app.core.scenario_config import build_world,read_scenario,default_scenario
 from app.routing.strategies import ProStrategy,PlanningContext
 from app.simulator.world import demo_world
+from app.simulator.events import apply_events
+from app.models.domain import FOOT_STATES
+from app.rescue import fleet
 
 def world():
     w=demo_world(Settings(api_key='test',routing_strategy='pro'))
@@ -18,6 +21,34 @@ def test_five_configured_vehicles():
     w=build_world(Settings(api_key='test',routing_strategy='pro'))
     assert len(w.vehicles)==5 and len({v.id for v in w.vehicles})==5
     assert all(v.capacity==4 and v.node in w.graph for v in w.vehicles)
+
+
+def test_grouping_hop_bound_preserves_unfiltered_planning_and_physics(monkeypatch):
+    settings=Settings(api_key='test',routing_strategy='pro')
+    config=read_scenario(default_scenario(3))
+    original=fleet.nearby_origins
+
+    def simulate(filter_origins):
+        monkeypatch.setattr(fleet,'nearby_origins',filter_origins)
+        w=build_world(settings,config)
+        strategy=ProStrategy()
+        frames=[]
+        for turn in range(4):
+            w.turn=turn
+            apply_events(w)
+            w.move_zombies()
+            context=PlanningContext(w.survivors,w.shelters,w.vehicles,w.reservations,
+                                    w.settings,w.turn,w.history,w.metrics)
+            strategy.plan(context,w.observation())
+            w.risk_view=strategy.risk.view()
+            decisions={s.id:s.planned_route[1] if len(s.planned_route)>1 else s.node
+                       for s in w.survivors if s.status in FOOT_STATES}
+            w.resolve(decisions)
+            w.assert_invariants()
+            frames.append(w.view().model_dump(exclude={'metricas'}))
+        return frames
+
+    assert simulate(original)==simulate(lambda graph,target,limit:set(graph))
 
 def test_no_pickup_at_distance_then_physical_pickup_and_delivery():
     w=world()
