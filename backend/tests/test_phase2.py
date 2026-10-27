@@ -28,7 +28,7 @@ def settings():
 def test_local_map_and_routes_to_all_shelters(settings):
     graph=load_map()
     assert graph.is_multigraph() and graph.is_directed()
-    assert 300<=len(graph)<400
+    assert len(graph)>=1500
     assert graph.graph["metadata"]["nodosFinales"]==len(graph)
     assert graph.graph["metadata"]["aristasFinales"]==graph.number_of_edges()
     assert nx.is_strongly_connected(graph)
@@ -38,8 +38,9 @@ def test_local_map_and_routes_to_all_shelters(settings):
             assert nx.has_path(graph,source["nodo"],target["nodo"])
     shelters=build_world(settings).shelters
     assert [r.capacity for r in shelters]==[40,50,60,70]
-    for n in graph:
-        assert all(nx.has_path(graph,n,r.node) for r in shelters)
+    for shelter in shelters:
+        reachable=nx.descendants(graph.reverse(copy=False),shelter.node)|{shelter.node}
+        assert reachable==set(graph)
 
 @pytest.mark.parametrize("defect",["duplicate-node","duplicate-edge","missing-node","negative-distance","nan-coordinate","wrong-time","disconnected"])
 def test_map_rejects_corrupt_data(defect):
