@@ -729,62 +729,74 @@
     {
       "id": "Z-0001",
       "nodo": "N-363666108",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     },
     {
       "id": "Z-0002",
       "nodo": "N-2499222949",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     },
     {
       "id": "Z-0003",
       "nodo": "N-363704203",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     },
     {
       "id": "Z-0004",
       "nodo": "N-7335048154",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     },
     {
       "id": "Z-0005",
       "nodo": "N-11946404718",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     },
     {
       "id": "Z-0006",
       "nodo": "N-1349201500",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     },
     {
       "id": "Z-0007",
       "nodo": "N-4132074934",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     },
     {
       "id": "Z-0008",
       "nodo": "N-1734726673",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     },
     {
       "id": "Z-0009",
       "nodo": "N-363681503",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     },
     {
       "id": "Z-0010",
       "nodo": "N-5069690098",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     },
     {
       "id": "Z-0011",
       "nodo": "N-12137037405",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     },
     {
       "id": "Z-0012",
       "nodo": "N-4130334289",
-      "tipo": "caminante"
+      "tipo": "caminante",
+      "aristasRecorridasEnTurno": []
     }
   ],
   "refugios": [

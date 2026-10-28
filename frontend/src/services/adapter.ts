@@ -1,5 +1,6 @@
 import type { MapView, RawState, RawVehicle } from '../types/raw';
 import type { PreparedMap, Point, Street, SurvivorState, Truck, VisualState } from '../types/visual';
+import { readTraversedEdges } from './movement';
 export const survivorLabels: Record<SurvivorState | 'DESCONOCIDO', string> = {
   ACTIVO: 'Activo', CAMINANDO: 'Caminando', HACIA_ENCUENTRO: 'Dirigiéndose al encuentro',
   ESPERANDO_RESCATE: 'Esperando rescate', EN_CAMIONETA: 'En camioneta', EVACUADO: 'Evacuado',
@@ -41,7 +42,8 @@ export function resolveRoute(ids: string[], map: PreparedMap, blocked: Set<strin
 export function normalizeTruck(v: RawVehicle, map: PreparedMap): Truck {
   return { repairTurns: v.turnosReparacionRestantes ?? 0, breakdownCause: v.causaAveria ?? null, breakdowns: v.averiasSufridas ?? 0, id: v.id, node: v.nodoActual, position: map.nodes.get(v.nodoActual), state: v.estado,
     capacity: v.capacidad, passengers: [...v.pasajeros], used: v.capacidadUtilizada, assigned: v.sobrevivientesAsignados,
-    meeting: v.puntoEncuentro, shelter: v.refugioDestino, route: v.rutaPlanificada, trips: v.viajesRealizados, distance: v.distanciaRecorrida_m };
+    meeting: v.puntoEncuentro, shelter: v.refugioDestino, route: v.rutaPlanificada,
+    traversed: readTraversedEdges(v.aristasRecorridasEnTurno), trips: v.viajesRealizados, distance: v.distanciaRecorrida_m };
 }
 export function adaptState(raw: RawState, map: PreparedMap, demo = false): VisualState {
   const warnings: string[] = [];
@@ -59,7 +61,8 @@ export function adaptState(raw: RawState, map: PreparedMap, demo = false): Visua
       capacity: r.capacidad_maxima, occupied: r.ocupacion, reserved: r.plazas_reservadas, available, state: r.estado, assigned: r.sobrevivientesAsignados ?? [] };
   });
   const zombies = raw.zombies.filter(z => ['caminante', 'corredor', 'horda'].includes(z.tipo)).map(z => ({
-    id: z.id, node: z.nodo, position: map.nodes.get(z.nodo), type: z.tipo as 'caminante' | 'corredor' | 'horda' }));
+    id: z.id, node: z.nodo, position: map.nodes.get(z.nodo), type: z.tipo as 'caminante' | 'corredor' | 'horda',
+    traversed: readTraversedEdges(z.aristasRecorridasEnTurno ?? []) }));
   for (const entity of [...survivors, ...trucks, ...zombies, ...shelters]) if (!entity.position) warnings.push(`Nodo sin coordenadas: ${entity.id}`);
   const routes = [
     ...survivors.filter(s => s.state !== 'EN_CAMIONETA').map(s => ({ id: `p-${s.id}`, owner: s.id, kind: 'survivor' as const, points: resolveRoute(s.route, map, blockedEdges) })),

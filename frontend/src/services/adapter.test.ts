@@ -43,6 +43,13 @@ describe('FastAPI → visual contract', () => {
     expect(state.zombies.some(z => z.id === 'HIDDEN')).toBe(false); expect(state.trucks[0].position).toBeUndefined();
     expect(state.warnings).toContain('Nodo sin coordenadas: V-001');
   });
+  it('carries a visible runner’s actual street trace into the map view', () => {
+    const raw = clone(frameFixtures[0]);
+    const first = map.streets[0];
+    raw.zombies[0] = { id: 'Z-test', tipo: 'corredor', nodo: first.to,
+      aristasRecorridasEnTurno: [{ origen: first.from, destino: first.to, aristaId: first.id }] };
+    expect(adaptState(raw, map).zombies[0].traversed).toEqual([{ from: first.from, to: first.to, id: first.id }]);
+  });
   it('does not draw non-adjacent or blocked routes and preserves real street geometry', () => {
     const edge = map.streets[0];
     expect(resolveRoute([edge.from, edge.to], map, new Set()).length).toBeGreaterThanOrEqual(2);

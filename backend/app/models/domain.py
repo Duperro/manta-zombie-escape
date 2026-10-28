@@ -115,6 +115,7 @@ class ZombieView(BaseModel):
     id: str
     nodo: str
     tipo: str
+    aristasRecorridasEnTurno: list[dict[str, str]] = Field(default_factory=list)
 
 
 class ShelterView(BaseModel):
