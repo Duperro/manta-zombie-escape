@@ -2,7 +2,7 @@ import { Fragment, memo, useEffect, useMemo, useRef, useState, type ComponentPro
 import { CircleMarker, MapContainer, Marker, Polyline, TileLayer, Tooltip, useMap } from 'react-leaflet';
 import { divIcon, type Marker as LeafletMarker } from 'leaflet';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { Biohazard, Check, Crosshair, Layers, Minus, PersonStanding, Plus, ShieldPlus, Skull, Truck as TruckIcon, Wrench, X, Zap } from 'lucide-react';
+import { Check, Crosshair, Layers, Minus, PersonStanding, Plus, ShieldPlus, Truck as TruckIcon, Wrench, X } from 'lucide-react';
 import type { Point, Selection, VisualState } from '../types/visual';
 import { SleeperDebugLayer } from './SleeperDebugLayer';
 import { localOperatorControlsEnabled } from '../utils/operator';
@@ -122,12 +122,23 @@ function personIcon(status: string, selected: boolean) {
   return personIcons.get(key)!;
 }
 const threatIcons = new Map<string, ReturnType<typeof divIcon>>();
+// Íconos propios de infectado: cabeza encorvada con ojos que brillan (color por tipo).
+function infectedHead(x: number, y: number, s: number, eye: string) {
+  return `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-6 6 C-7 -2 -5 -8 0 -8 C5 -8 7 -2 6 6 L3 8 L1 6 L-1 8 L-3 6 Z" fill="#c9d2bd" stroke="#1b1f1a" stroke-width="1"/><circle cx="-2.4" cy="-1" r="1.5" fill="${eye}"/><circle cx="2.4" cy="-1" r="1.5" fill="${eye}"/><path d="M-2.5 3.5 L-1.2 2.6 L0 3.6 L1.2 2.6 L2.5 3.5" stroke="#1b1f1a" stroke-width=".9" fill="none"/></g>`;
+}
+function infectedGlyph(type: string) {
+  const body = type === 'horda'
+    ? infectedHead(-4.5, 1.5, .62, '#ffb347') + infectedHead(4.5, 1.5, .62, '#ffb347') + infectedHead(0, -2.5, .72, '#ffb347')
+    : type === 'corredor'
+      ? '<path d="M-11 -3h4M-12 1h5M-11 5h4" stroke="#ffd3c4" stroke-width="1.4" stroke-linecap="round"/>' + infectedHead(2, 0, .9, '#ff4b2b')
+      : infectedHead(0, 0, .95, '#d8f070');
+  return `<svg viewBox="-12 -11 24 22" width="100%" height="100%" aria-hidden="true">${body}</svg>`;
+}
 function threatIcon(type: string, selected: boolean) {
   const key = `${type}-${selected}`;
   if (!threatIcons.has(key)) {
-    const glyph = type === 'horda' ? <Biohazard size={16} strokeWidth={2.4}/> : type === 'corredor' ? <Zap size={13} fill="currentColor"/> : <Skull size={13} strokeWidth={2.4}/>;
-    const size = type === 'horda' ? 27 : 22;
-    threatIcons.set(key, divIcon({ className: 'entity-icon moving-entity-icon', html: `<span class="threat-pin threat-${type} ${selected ? 'is-selected' : ''}">${renderToStaticMarkup(glyph)}</span>`, iconSize: [size, size], iconAnchor: [size / 2, size / 2] }));
+    const size = type === 'horda' ? 30 : 24;
+    threatIcons.set(key, divIcon({ className: 'entity-icon moving-entity-icon', html: `<span class="threat-pin threat-${type} ${selected ? 'is-selected' : ''}">${infectedGlyph(type)}</span>`, iconSize: [size, size], iconAnchor: [size / 2, size / 2] }));
   }
   return threatIcons.get(key)!;
 }
