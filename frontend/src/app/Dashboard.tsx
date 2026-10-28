@@ -26,7 +26,7 @@ export function Dashboard() {
   const [layers, setLayers] = useState(initialLayers);
   const [tab, setTab] = useState<'map' | 'telemetry'>('map');
   const [query, setQuery] = useState('');
-  const [following, setFollowing] = useState<string | null>(null);
+  const [following, setFollowing] = useState<{ kind: 'survivor' | 'zombie'; id: string } | null>(null);
   useEffect(() => { select(null); setQuery(''); setFollowing(null); }, [state?.runId, state?.round]);
   useEffect(() => {
     const close = (event: KeyboardEvent) => {
@@ -59,6 +59,6 @@ export function Dashboard() {
       </>}
       {demo && <section className="demo-controls" aria-label="Controles de demostración"><div><span className="source-badge demo">DEMO</span><p>15 cuadros por ronda</p></div><div><select aria-label="Ronda de demostración" value={state?.round ?? 3} onChange={e => { select(null); provider.setRound?.(Number(e.target.value)); }}><option value="1">1 · Anochecer</option><option value="2">2 · Medianoche</option><option value="3">3 · Apocalipsis</option></select><button onClick={() => playing ? provider.pause?.() : provider.resume?.()} aria-label={playing ? 'Pausar demostración' : 'Reproducir demostración'}>{playing ? <Pause size={16}/> : <Play size={16}/>}</button><button onClick={() => provider.advance?.()} aria-label="Avanzar demostración"><SkipForward size={16}/></button><button onClick={() => provider.restart?.()} aria-label="Reiniciar demostración"><RotateCcw size={16}/></button></div></section>}
     </main><footer><span><i className="live-dot"/> {state?.simulation === 'FINALIZADA' ? 'RONDA FINALIZADA' : demo ? 'REPRODUCCIÓN DEMOSTRATIVA' : 'OBSERVACIÓN DEL SIMULADOR'}</span><span>{number(state?.zombies.length)} amenazas visibles <i/> {state?.blockedEdges.size ?? '—'} calles bloqueadas</span><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap <ExternalLink size={11}/></a></footer>
-    {following && <Suspense fallback={<div className="fp-overlay fp-loading">Cargando vista 3D…</div>}><FirstPersonView survivorId={following} onClose={() => setFollowing(null)}/></Suspense>}
+    {following && <Suspense fallback={<div className="fp-overlay fp-loading">Cargando vista 3D…</div>}><FirstPersonView target={following} onClose={() => setFollowing(null)}/></Suspense>}
   </div>;
 }

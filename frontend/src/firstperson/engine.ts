@@ -16,14 +16,19 @@ import { animateInfected, createInfected, type Infected } from './infected';
 import { createArms, type Arms } from './arms';
 import { alongPath, pathLength, restOfPath } from './path';
 import { sky } from './textures';
+import { spawnActor, type Actor, type Templates } from './models';
 
+export type FollowTarget = { kind: 'survivor' | 'zombie'; id: string };
 export interface Hud {
-  id: string; state: string; shelter: string | null; shelterDistance: number | null;
+  mode: 'survivor' | 'zombie'; id: string; state: string; shelter: string | null; shelterDistance: number | null;
   nearest: { type: string; distance: number } | null; turn: number; totalTurns: number; timeScale: number;
 }
 
 interface Track { path: THREE.Vector3[]; start: number; duration: number }
-interface ZombieView { figures: Infected[]; root: THREE.Group; node: string; track: Track | null; type: string; position: THREE.Vector3; heading: number }
+interface ZombieView { figures: Infected[]; actors: Actor[]; root: THREE.Group; node: string; track: Track | null; type: string; position: THREE.Vector3; heading: number; moving: boolean }
+interface PersonView { node: string; track: Track | null; position: THREE.Vector3; heading: number; actor: Actor | null; moving: boolean }
+const ON_FOOT = new Set(['ACTIVO', 'CAMINANDO', 'HACIA_ENCUENTRO', 'ESPERANDO_RESCATE']);
+const ZOMBIE_TINT: Record<string, number> = { caminante: 0xffffff, corredor: 0xffc7b8, horda: 0xe8e0c8 };
 
 const EYE_HEIGHT = 1.65;
 const RUN_SPEED = 4.5; // m/s de un sobreviviente corriendo
@@ -73,9 +78,19 @@ export class FirstPersonEngine {
   private minimap: HTMLCanvasElement | null = null;
   private minimapStreets: Array<{ id: string; pts: THREE.Vector3[]; type: string }> | null = null;
   private lastMinimap = 0;
+  private people = new Map<string, PersonView>();
+  private mode: 'survivor' | 'zombie';
+  private survivorId: string;
+  private targetId: string;
+  private chaseYaw = 0;
+  private lastFocus = new THREE.Vector3();
 
-  constructor(private container: HTMLElement, private survivorId: string, state: VisualState, private onHud: (hud: Hud) => void, private real: RealCity | null = null) {
+  constructor(private container: HTMLElement, target: FollowTarget, state: VisualState, private onHud: (hud: Hud) => void,
+    private real: RealCity | null = null, private models: Templates | null = null) {
     this.stateRef = state;
+    this.mode = target.kind;
+    this.targetId = target.id;
+    this.survivorId = target.kind === 'survivor' ? target.id : '';
     this.turnMs = (state.turnSeconds ?? 2) * 1000;
     this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
@@ -84,8 +99,9 @@ export class FirstPersonEngine {
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     container.appendChild(this.renderer.domElement);
 
-    const survivor = state.survivors.find(s => s.id === survivorId);
-    const origin: Point = survivor?.position ?? state.map.bounds[0] ?? [-0.95, -80.72];
+    const survivor = state.survivors.find(s => s.id === this.survivorId);
+    const zombie = state.zombies.find(z => z.id === this.targetId);
+    const origin: Point = (target.kind === 'zombie' ? zombie?.position : survivor?.position) ?? state.map.bounds[0] ?? [-0.95, -80.72];
     this.project = makeProjector(origin);
     this.coastZ = real?.coast?.length ? coastFromReal(real.coast, this.project) : approximateCoast(state.map, this.project);
     for (const key of state.map.pairs.keys()) {
@@ -254,9 +270,13 @@ export class FirstPersonEngine {
 
   update(state: VisualState) {
     this.stateRef = state;
-    const survivor = state.survivors.find(s => s.id === this.survivorId);
-    if (!survivor) return;
     const now = performance.now();
+    const followed = state.survivors.find(s => s.id === this.survivorId);
+    const followedZombie = state.zombies.find(z => z.id === this.targetId);
+    if (this.mode === 'survivor' && !followed) return;
+    if (this.mode === 'zombie' && !followedZombie && !this.zombies.has(this.targetId)) return;
+    // En vista de zombie no hay sobreviviente propio: se usa un "sobreviviente" vacío para reutilizar el código.
+    const survivor = followed ?? { node: followedZombie?.node ?? this.survivorNode, route: [] as string[], truck: null, state: 'CAMINANDO', id: '' };
 
     // Ritmo real de los turnos (por si el servidor va más lento que 2 s).
     if (state.turn !== this.survivorTurn) {
@@ -268,7 +288,7 @@ export class FirstPersonEngine {
     }
 
     // Sobreviviente: encadenar el tramo de este turno.
-    if (survivor.node !== this.survivorNode) {
+    if (this.mode === 'survivor' && survivor.node !== this.survivorNode) {
       const here = this.positionOf(this.track, this.nodePoint(this.survivorNode || survivor.node) ?? new THREE.Vector3(), now).position;
       if (this.survivorNode) {
         const truck = survivor.truck && survivor.state === 'EN_CAMIONETA' ? state.trucks.find(t => t.id === survivor.truck) : undefined;
@@ -278,6 +298,7 @@ export class FirstPersonEngine {
       }
       this.survivorNode = survivor.node;
     }
+    if (this.mode === 'zombie') this.survivorNode = survivor.node;
     this.survivorTurn = state.turn;
     const here = this.nodePoint(survivor.node) ?? new THREE.Vector3();
 
@@ -347,20 +368,24 @@ export class FirstPersonEngine {
       let view = this.zombies.get(z.id);
       if (!view) {
         const root = new THREE.Group();
-        const count = z.type === 'horda' ? 7 : 1;
-        const figures = Array.from({ length: count }, (_, i) => {
-          const figure = createInfected(z.type, hash01(`${z.id}:${i}`));
-          if (count > 1) figure.root.position.set(Math.cos(i * 2.4) * (1.2 + i * 0.45), 0, Math.sin(i * 2.4) * (1.2 + i * 0.45));
-          root.add(figure.root);
-          return figure;
-        });
+        const count = z.type === 'horda' ? 6 : 1;
+        const figures: Infected[] = [], actors: Actor[] = [];
+        for (let i = 0; i < count; i++) {
+          const seed = hash01(`${z.id}:${i}`);
+          // Modelo animado (glTF) si cargó; si no, figura procedural.
+          const body = this.models ? spawnActor(this.models, 'zombie', seed, ZOMBIE_TINT[z.type]) : null;
+          const object = body ? body.root : (figures[figures.push(createInfected(z.type, seed)) - 1]).root;
+          if (body) actors.push(body);
+          if (count > 1) object.position.set(Math.cos(i * 2.4) * (1.2 + i * 0.5), 0, Math.sin(i * 2.4) * (1.2 + i * 0.5));
+          root.add(object);
+        }
         if (z.type === 'horda') {
           const ring = new THREE.Mesh(new THREE.RingGeometry(7, 7.6, 40).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0xff3b2f, transparent: true, opacity: 0.3 }));
           ring.position.y = 0.06;
           root.add(ring);
         }
         const start = this.nodePoint(z.node) ?? new THREE.Vector3();
-        view = { figures, root, node: z.node, track: null, type: z.type, position: start, heading: hash01(z.id) * Math.PI * 2 };
+        view = { figures, actors, root, node: z.node, track: null, type: z.type, position: start, heading: hash01(z.id) * Math.PI * 2, moving: false };
         root.position.copy(start);
         this.scene.add(root);
         this.zombies.set(z.id, view);
@@ -371,6 +396,23 @@ export class FirstPersonEngine {
       }
     }
     for (const [id, view] of this.zombies) if (!alive.has(id)) { this.scene.remove(view.root); this.zombies.delete(id); }
+
+    // Otros sobrevivientes a pie (con modelo animado): huyen por las calles igual que en el mapa.
+    if (this.models) {
+      const present = new Set<string>();
+      for (const p of state.survivors) {
+        if (p.id === this.survivorId || !ON_FOOT.has(p.state)) continue;
+        present.add(p.id);
+        const view = this.people.get(p.id);
+        if (!view) {
+          this.people.set(p.id, { node: p.node, track: null, position: this.nodePoint(p.node) ?? new THREE.Vector3(), heading: 0, actor: null, moving: false });
+        } else if (view.node !== p.node) {
+          view.track = this.chain(view.track, view.position, this.streetPath(view.node, p.node, 'person'), now);
+          view.node = p.node;
+        }
+      }
+      for (const [id, view] of this.people) if (!present.has(id)) { if (view.actor) this.scene.remove(view.actor.root); this.people.delete(id); }
+    }
   }
 
   private loop = () => {
@@ -380,7 +422,6 @@ export class FirstPersonEngine {
     const now = performance.now();
     const state = this.stateRef;
     const survivor = state.survivors.find(s => s.id === this.survivorId);
-    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 
     const me = this.positionOf(this.track, this.nodePoint(this.survivorNode) ?? new THREE.Vector3(), now);
     if (this.track && !me.moving && now - this.track.start > this.track.duration * 1.5) this.track = null;
@@ -388,17 +429,82 @@ export class FirstPersonEngine {
 
     // Zombies: avanzar por su camino y animar el cuerpo.
     let nearest: { type: string; distance: number; at: THREE.Vector3 } | null = null;
+    const focusZombie = this.mode === 'zombie' ? this.zombies.get(this.targetId) : undefined;
+    const eye = focusZombie ? focusZombie.position : position; // desde dónde se mide la cercanía
     for (const view of this.zombies.values()) {
       const step = this.positionOf(view.track, view.position, now);
       view.position = step.position;
+      view.moving = step.moving;
       if (view.track && !step.moving) view.track = null;
       if (step.direction) view.heading = Math.atan2(step.direction.x, step.direction.z);
-      const distance = view.position.distanceTo(position);
-      if (distance < 18 && !step.moving) view.heading = Math.atan2(position.x - view.position.x, position.z - view.position.z); // te ve y gira hacia ti
+      const distance = view.position.distanceTo(eye);
+      if (this.mode === 'survivor' && distance < 18 && !step.moving) view.heading = Math.atan2(position.x - view.position.x, position.z - view.position.z); // te ve y gira hacia ti
       view.root.position.copy(view.position);
       view.root.rotation.y = view.heading;
-      if (distance < 140) for (const figure of view.figures) animateInfected(figure, t, step.moving);
-      if (!nearest || distance < nearest.distance) nearest = { type: view.type, distance, at: view.position };
+      if (distance < 140) {
+        for (const figure of view.figures) animateInfected(figure, t, step.moving);
+        const pose = step.moving ? (view.type === 'corredor' ? 'run' : 'walk') : this.mode === 'survivor' && distance < 3 ? 'attack' : 'idle';
+        for (const actor of view.actors) { actor.setPose(pose, view.type === 'caminante' ? 0.9 : 1.1); actor.mixer.update(dt); }
+      }
+      view.root.visible = distance < 220;
+      if (view !== focusZombie && (!nearest || distance < nearest.distance)) nearest = { type: view.type, distance, at: view.position };
+    }
+
+    // Otros sobrevivientes: solo se dibujan los 40 más cercanos (los modelos animados cuestan).
+    let nearestPerson: { distance: number; at: THREE.Vector3 } | null = null;
+    const ranked: Array<[number, PersonView]> = [];
+    for (const view of this.people.values()) {
+      const step = this.positionOf(view.track, view.position, now);
+      view.position = step.position;
+      view.moving = step.moving;
+      if (view.track && !step.moving) view.track = null;
+      if (step.direction) view.heading = Math.atan2(step.direction.x, step.direction.z);
+      const d = view.position.distanceTo(eye);
+      ranked.push([d, view]);
+      if (!nearestPerson || d < nearestPerson.distance) nearestPerson = { distance: d, at: view.position };
+    }
+    ranked.sort((x, y) => x[0] - y[0]);
+    ranked.forEach(([d, view], i) => {
+      const show = i < 40 && d < 160;
+      if (show && !view.actor && this.models) { view.actor = spawnActor(this.models, 'survivor', hash01(String(i) + view.node)); this.scene.add(view.actor.root); }
+      if (!view.actor) return;
+      view.actor.root.visible = show;
+      if (!show) return;
+      view.actor.root.position.copy(view.position);
+      view.actor.root.rotation.y = view.heading;
+      view.actor.setPose(view.moving ? 'run' : 'idle');
+      view.actor.mixer.update(dt);
+    });
+
+    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+    if (this.mode === 'zombie') {
+      // Tercera persona: cámara detrás y por encima del zombie, siguiéndolo.
+      const z = focusZombie;
+      const at = z ? z.position : this.lastFocus;
+      if (z) this.lastFocus.copy(z.position);
+      const targetYaw = z ? z.heading + Math.PI : this.chaseYaw;
+      this.chaseYaw += Math.atan2(Math.sin(targetYaw - this.chaseYaw), Math.cos(targetYaw - this.chaseYaw)) * Math.min(1, dt * 2.5);
+      if (!this.dragging && now - this.lastDrag > 1500) { this.lookYaw *= 1 - Math.min(1, dt * 2); this.lookPitch *= 1 - Math.min(1, dt * 2); }
+      const yaw = this.chaseYaw + this.lookYaw;
+      const distance = 4.6, height = 2.3 + this.lookPitch * -2;
+      this.camera.position.set(at.x + Math.sin(yaw) * distance, Math.max(0.6, height), at.z + Math.cos(yaw) * distance);
+      this.camera.lookAt(at.x, 1.15, at.z);
+      this.camera.fov = 62; this.camera.updateProjectionMatrix();
+      this.arms.root.visible = false;
+      this.yaw = Math.atan2(at.x - this.camera.position.x, at.z - this.camera.position.z) + Math.PI; // para la flecha del minimapa
+      this.apocalypse?.update(t, at);
+      this.skyDome.position.copy(this.camera.position);
+      this.moon.position.copy(this.camera.position).add(MOON_OFFSET);
+      this.moon.lookAt(this.camera.position);
+      if (now - this.lastHud > 200) {
+        this.lastHud = now;
+        this.onHud({ mode: 'zombie', id: this.targetId, state: z?.type ?? 'desconocido', shelter: null, shelterDistance: null,
+          nearest: nearestPerson ? { type: 'sobreviviente', distance: Math.round(nearestPerson.distance) } : null,
+          turn: state.turn, totalTurns: state.totalTurns ?? 150, timeScale: Math.round(this.timeScale) });
+      }
+      if (now - this.lastMinimap > 120) { this.lastMinimap = now; this.drawMinimap(at); }
+      this.renderer.render(this.scene, this.camera);
+      return;
     }
 
     // Hacia dónde mira: hacia donde corre; si está quieto, vigila al zombie más cercano.
@@ -434,7 +540,7 @@ export class FirstPersonEngine {
       const shelter = state.shelters.find(r => r.id === survivor.shelter);
       const shelterPoint = shelter?.position ? this.project(shelter.position) : null;
       this.onHud({
-        id: survivor.id, state: survivor.state, shelter: shelter?.name ?? survivor.shelter,
+        mode: 'survivor', id: survivor.id, state: survivor.state, shelter: shelter?.name ?? survivor.shelter,
         shelterDistance: shelterPoint ? Math.round(shelterPoint.distanceTo(position)) : null,
         nearest: nearest ? { type: nearest.type, distance: Math.round(nearest.distance) } : null,
         turn: state.turn, totalTurns: state.totalTurns ?? 150, timeScale: Math.round(this.timeScale),

@@ -14,7 +14,7 @@ export function LoadingScreen({ ready }: { ready: boolean }) {
   useEffect(() => {
     if (import.meta.env.MODE === 'test') return;
     import('../firstperson/FirstPersonView').catch(() => undefined).finally(() => setView3d(true));
-    import('../firstperson/cityData').then(m => m.loadCityData()).catch(() => null).finally(() => setCity(true));
+    Promise.all([import('../firstperson/cityData').then(m => m.loadCityData()), import('../firstperson/models').then(m => m.loadModels())]).catch(() => null).finally(() => setCity(true));
     const timer = setTimeout(() => setTimedOut(true), 15000); // nunca bloquear la página por la vista 3D
     return () => clearTimeout(timer);
   }, []);
@@ -23,7 +23,7 @@ export function LoadingScreen({ ready }: { ready: boolean }) {
     { label: 'Conectando con el centro de operaciones', done: ready },
     { label: 'Cargando el mapa de Manta', done: ready },
     { label: 'Preparando la vista en primera persona', done: view3d },
-    { label: 'Cargando calles y edificios de la ciudad', done: city },
+    { label: 'Cargando la ciudad y los modelos 3D', done: city },
   ];
   const progress = steps.filter(s => s.done).length / steps.length;
   const finished = (ready && view3d && city) || (ready && timedOut);
