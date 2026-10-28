@@ -1,0 +1,81 @@
+/* Visual skin for the evacuation console. Data layers and map geometry stay in MapBoard. */
+:root{--lime:#a6c797;--muted:#9aa69b;--line:#3b453e;--surface:#111713;color:#e7e3d8;background:#080c0b;color-scheme:dark}
+body{background:radial-gradient(ellipse at 50% -15%,#263027 0,#101713 39%,#080c0b 78%)}
+.quarantine-theme{min-height:100vh;background:linear-gradient(90deg,#040706 0,#101612 1.2%,#101612 98.8%,#040706 100%);box-shadow:0 0 0 1px #4b5143,inset 0 0 0 5px #080b09,inset 0 0 0 6px #2c352d}
+.quarantine-theme .app-header{height:116px;padding:10px 32px;display:grid;grid-template-columns:1fr minmax(0,2.6fr) 1fr;gap:18px;background:linear-gradient(180deg,#1a211c,#0c110e 65%,#171d17);border:1px solid #4c5248;border-bottom:4px double #545a4b;box-shadow:inset 0 1px #6a6b584a,0 4px 15px #0009}
+.quarantine-theme .brand{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;min-width:0;text-align:center}
+.quarantine-theme .brand h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;color:#e3dfd1;font-size:clamp(28px,3vw,43px);line-height:1;letter-spacing:2px;text-shadow:0 2px 0 #000,0 0 12px #c4bba02b;white-space:nowrap}
+.quarantine-theme .brand h1 span{font-size:inherit;color:#d1c9b3;font-weight:600}
+.quarantine-theme .header-status{display:flex;gap:20px;justify-content:center;width:auto}
+.quarantine-theme .source-badge{border:0;padding:0;background:none;color:#d6d2c4;font:500 10px var(--mono);letter-spacing:2.7px}
+.quarantine-theme .source-badge.demo{color:#d4b67e}
+.quarantine-theme .connection{font:500 10px var(--mono);letter-spacing:2px;text-transform:uppercase;color:#a5d29b}
+.quarantine-seal,.quarantine-plaque{display:flex;align-items:center;gap:10px;color:#b2b3a5;font:10px/1.45 var(--mono);letter-spacing:1px}
+.quarantine-seal svg{color:#a3bd9c}
+.quarantine-plaque{justify-self:end;justify-content:center;padding:8px 13px;border:1px solid #766b50;box-shadow:inset 0 0 0 2px #181b14,inset 0 0 0 3px #6d624a;background:linear-gradient(135deg,#504a38,#262b22 55%,#414035);color:#e2dac3;font-weight:600}
+.quarantine-plaque svg{color:#c7b482}
+.quarantine-theme main{padding:23px 32px 30px}
+.quarantine-theme .page-title{margin-bottom:17px}
+.quarantine-theme .page-title h2{font-family:Georgia,serif;font-size:32px;font-weight:600;color:#eee9d9;letter-spacing:-.6px;text-shadow:0 2px 5px #000}
+.quarantine-theme .page-title .operation-title{display:flex;align-items:baseline;flex-wrap:wrap;gap:.23em;margin:0;font-family:'Barlow Condensed',Impact,'Arial Narrow',sans-serif;font-size:clamp(32px,3.6vw,53px);font-weight:700;line-height:1;letter-spacing:1.4px;text-transform:uppercase}
+.operation-title-main,.operation-title-live{display:inline-block;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(1px 2px 0 #000)}
+.operation-title-main{background-image:repeating-linear-gradient(174deg,#eee7d7 0 4px,#a7a69a 4px 4.3px,#ece4d3 4.4px 10px,transparent 10px 10.35px,#d1c8b7 10.5px 15px);-webkit-text-stroke:.18px #e1d7c6}
+.operation-title-live{position:relative;background-image:repeating-linear-gradient(169deg,#b84941 0 3px,#712c2a 3px 3.4px,#bd5148 3.5px 8px,transparent 8px 8.55px,#9b3733 8.7px 13px);-webkit-text-stroke:.2px #9c3e38}
+.operation-title-live:after{content:'';position:absolute;left:2%;right:6%;bottom:-7px;height:7px;background:linear-gradient(90deg,transparent 0 8%,#7c2c2a 8% 9%,transparent 9% 31%,#8e302d 31% 32%,transparent 32% 61%,#632522 61% 62%,transparent 62% 100%);opacity:.8;pointer-events:none}
+.quarantine-theme .round-panel{background:linear-gradient(135deg,#1a221c,#0c130f);border:1px solid #465348;border-radius:2px;box-shadow:inset 0 1px #a3a89615,inset 0 -3px #0005}
+.quarantine-theme .round-panel span{color:#aaa99b}.quarantine-theme .round-panel b{color:#e6e0cd}
+.quarantine-theme .metrics-grid{gap:11px;margin-bottom:15px}
+.quarantine-theme .metric-card{position:relative;background:linear-gradient(135deg,#17201a,#0e1511 70%);border:1px solid #4a5a4c;border-radius:3px;box-shadow:inset 0 1px #a4b09b20,inset 0 -3px #060a07,0 4px 10px #0005;min-height:112px}
+.quarantine-theme .metric-card:before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:#778b72;opacity:.45}
+.quarantine-theme .metric-card.red:before{background:#9f685f}.quarantine-theme .metric-card.lime:before{background:#9ab78c}
+.quarantine-theme .metric-card .eyebrow{color:#c4c8b9;letter-spacing:1.3px}.quarantine-theme .metric-card .eyebrow svg{color:#b7b8a5}
+.quarantine-theme .metric-card>strong{color:#e8e2d2;font-size:39px}.quarantine-theme .metric-card.lime>strong{color:#b6d7a9}.quarantine-theme .metric-card.red>strong{color:#d9a59b}.quarantine-theme .metric-card.blue>strong{color:#d5ded4}
+.quarantine-theme .metric-card p{color:#9fa99d}
+.quarantine-theme .workspace-toolbar{position:relative;z-index:1200;margin-bottom:10px;padding:8px 11px;background:linear-gradient(#1b241c,#101611);border:1px solid #485548;border-radius:3px;box-shadow:inset 0 1px #bac0a01e}
+.quarantine-theme .workspace-toolbar nav{gap:7px}.quarantine-theme .workspace-toolbar nav button{border:1px solid #475347;border-radius:2px;background:#161d17;padding:8px 14px;color:#b9bcae;text-transform:uppercase;letter-spacing:1px;font:10px var(--mono);transition:background .16s,border-color .16s,color .16s,box-shadow .16s}
+.quarantine-theme .workspace-toolbar nav button.active,.quarantine-theme .workspace-toolbar nav button:hover{background:#2b392a;border-color:#a3c192;color:#f0efdf;box-shadow:inset 0 0 10px #8fba7c25,0 0 0 1px #a1c19122}
+.quarantine-theme .toolbar-meta{align-self:center;gap:9px}.quarantine-theme .strategy-tag{background:#223124;border-color:#4d684b;color:#b8d2ae}
+.quarantine-theme .layer-control summary{background:#161d17;border:1px solid #4b594c;border-radius:2px;padding:8px 10px;color:#e3e4d2;text-transform:uppercase;letter-spacing:1px;transition:background .16s,box-shadow .16s}
+.quarantine-theme .layer-control summary:hover,.quarantine-theme .layer-control[open] summary{background:#273829;box-shadow:0 0 0 1px #a6c79730}
+.quarantine-theme .layer-control summary>span{background:#344b34;color:#d4e9c5}
+.quarantine-theme .layer-control>div{top:39px;width:265px;max-height:min(70vh,510px);overflow:auto;background:#111913;border:1px solid #647264;border-radius:3px;box-shadow:0 18px 38px #000c,inset 0 1px #a0ae912a;animation:quarantine-open .18s ease-out both}
+.quarantine-theme .layer-control label{border-bottom:1px solid #344136;padding:7px 4px;color:#d0d5c7;transition:background .14s,color .14s}.quarantine-theme .layer-control label:hover{background:#304031;color:#fff}.quarantine-theme .layer-control input{accent-color:#a6c797}
+.quarantine-theme .map-shell{background:#080d0b;border:2px solid #69746a;border-radius:3px;box-shadow:inset 0 0 0 4px #0a0e0b,0 8px 20px #0009,0 0 0 1px #151b15}
+.quarantine-theme .map-shell:after{content:'';position:absolute;inset:0;z-index:550;pointer-events:none;box-shadow:inset 0 0 26px #0009,inset 0 0 0 5px #101712;border:1px solid #b5b4a84d}
+.quarantine-theme .leaflet-map{background:#0b1513}.quarantine-theme .leaflet-tile-pane{filter:grayscale(1) invert(1) hue-rotate(180deg) brightness(.58) contrast(1.08)}
+.quarantine-theme .map-search{background:#111a14f2;border:1px solid #697866;color:#e2e9d9}.quarantine-theme .map-search input{color:#e2e9d9}
+.quarantine-theme .map-detail-card{animation:quarantine-card .22s ease-out both}.quarantine-theme .map-detail-card .details-panel{background:#111a15f7;border:1px solid #7b8d78;border-radius:3px;box-shadow:inset 0 1px #d1d9ba24,0 12px 28px #000b}.quarantine-theme .map-detail-card .section-heading{background:#111a15}
+.quarantine-theme .icon-button{border-radius:2px;background:#17231b;border-color:#667767;color:#e2e6d7;transition:background .16s,border-color .16s,transform .16s}.quarantine-theme .icon-button:hover{background:#344a35;border-color:#a8c697;transform:translateY(-1px)}
+.quarantine-theme .legend{color:#bbc5b7}.quarantine-theme .legend small{color:#a6b1a4}
+.quarantine-theme .rescue-strip>div,.quarantine-theme .telemetry,.quarantine-theme .event-panel{background:linear-gradient(130deg,#172119,#0d140f);border-color:#4d5b4d;color:#d9decf;box-shadow:inset 0 1px #a7b49d1c}
+.quarantine-theme .event-panel{border:1px solid #4d5b4d;border-radius:3px;margin-top:15px;padding:12px 15px}.quarantine-theme .event-panel summary{color:#e3e5d6;font:12px var(--mono);letter-spacing:.5px}.quarantine-theme .event-panel[open]{border-top-color:#a4be95}.quarantine-theme .event-list{animation:quarantine-open .18s ease-out both}.quarantine-theme .event-row{border-color:#354437}
+.quarantine-theme .connection-notice.city-event{background:#33261b;border-color:#b39b66;color:#f1d5a1}
+.quarantine-theme footer{background:#0c120d;border-color:#49564b;color:#a2b4a1}
+.sound-toggle{display:flex;align-items:center;gap:7px;padding:7px 9px;background:#141b15;border:1px solid #4b594c;border-radius:2px;color:#c6cabb;font:9px var(--mono);letter-spacing:.5px;text-transform:uppercase;transition:background .16s,border-color .16s}
+.sound-toggle:hover,.sound-toggle.active{background:#26382a;border-color:#8dac82}.sound-toggle i{position:relative;display:block;width:25px;height:14px;border:1px solid #697769;border-radius:10px;background:#0b120d}.sound-toggle i:before{content:'';position:absolute;top:2px;left:2px;width:8px;height:8px;border-radius:50%;background:#aeb8a9;transition:transform .18s,background .18s}.sound-toggle.active i:before{transform:translateX(11px);background:#b5d5a3}
+.quarantine-click-ring{position:fixed;z-index:7000;width:12px;height:12px;pointer-events:none;border:1px solid #b3c8a0;border-radius:50%;transform:translate(-50%,-50%);animation:quarantine-ripple .38s ease-out forwards}
+@keyframes quarantine-ripple{to{width:40px;height:40px;opacity:0}}
+@keyframes quarantine-open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes quarantine-card{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.quarantine-theme .app-header{grid-template-columns:auto 1fr auto;padding:10px 18px}.quarantine-seal span{display:none}.quarantine-plaque{padding:6px}.quarantine-plaque span{display:none}.quarantine-theme .brand h1{font-size:30px}.quarantine-theme main{padding:18px}}
+@media(max-width:760px){.quarantine-theme .app-header{min-height:86px;height:auto;gap:8px}.quarantine-theme .brand h1{font-size:clamp(19px,5vw,29px);letter-spacing:.7px}.quarantine-theme .header-status{gap:10px}.quarantine-theme .source-badge,.quarantine-theme .connection{font-size:7px;letter-spacing:1px}.quarantine-theme main{padding:15px 12px}.quarantine-theme .page-title h2{font-size:25px}.quarantine-theme .metric-card{min-height:96px}.quarantine-theme .toolbar-meta{flex-wrap:wrap;justify-content:flex-end}.quarantine-theme .sound-toggle span{display:none}.quarantine-theme .sound-toggle{padding:8px}.quarantine-theme .workspace-toolbar nav button{padding:8px;font-size:9px}.quarantine-theme .layer-control>div{right:-38px;max-width:calc(100vw - 24px)}.quarantine-theme footer{padding:15px 12px}}
+@media(max-width:760px){.quarantine-theme .page-title .operation-title{font-size:clamp(29px,7vw,42px);gap:.17em}.operation-title-live:after{bottom:-5px;height:5px}}
+@media(prefers-reduced-motion:reduce){.quarantine-click-ring{display:none}.quarantine-theme .layer-control>div,.quarantine-theme .map-detail-card,.quarantine-theme .event-list{animation:none}.quarantine-theme button,.quarantine-theme summary,.sound-toggle i:before{transition:none}}
+
+/* The map spans the full console width. */
+.quarantine-theme .operations-grid.map-only{display:grid;grid-template-columns:minmax(0,1fr)}
+.quarantine-theme .page-title{min-height:69px;padding:1px 0 13px;border-bottom:1px solid #5b665a}
+.quarantine-theme .round-panel{border-color:#4c584c;background:linear-gradient(130deg,#172019,#101712);box-shadow:inset 0 1px #b5baa41c}
+.quarantine-theme .metrics-grid{gap:11px;margin-bottom:13px}
+.quarantine-theme .metric-card{min-height:94px;padding:13px 15px;background:linear-gradient(140deg,#152019,#101712 68%,#17221a);border-color:#4b594c;box-shadow:inset 0 1px #d5dbc41a,inset 0 -10px 18px #02060459}
+.quarantine-theme .metric-card>strong{font-size:34px;margin-top:6px}
+.quarantine-theme .metric-card .eyebrow{color:#d8d8c9}
+.quarantine-theme .map-only .map-shell{height:clamp(520px,58vh,760px);max-height:760px}
+.quarantine-theme .map-shell{border:8px solid #19221b;outline:1px solid #6c7160;box-shadow:inset 0 0 0 1px #757d6c,0 9px 24px #000b,0 0 0 4px #080c0a}
+.quarantine-theme .map-shell:after{inset:0;border:1px solid #8c968455;box-shadow:inset 0 0 32px #000b,inset 0 0 0 7px #090e0c55}
+.quarantine-theme .map-detail-card .details-panel{background:#0d1511f5;border-color:#5a6859}
+.quarantine-theme .workspace-toolbar{min-height:67px;margin:18px 0 0;padding:10px 18px;box-shadow:inset 0 1px #aeb5a02c,0 5px 15px #0008}
+.quarantine-theme .workspace-toolbar nav button{min-width:150px;justify-content:center;padding:10px 16px}
+.quarantine-theme .layer-control>div{top:auto;bottom:39px}
+.quarantine-theme .map-detail-card{border-radius:2px}
+@media(max-width:760px){.quarantine-theme .page-title{min-height:0}.quarantine-theme .workspace-toolbar{flex-wrap:wrap;gap:9px}.quarantine-theme .workspace-toolbar nav{width:100%}.quarantine-theme .workspace-toolbar nav button{min-width:0;flex:1}.quarantine-theme .toolbar-meta{width:100%;justify-content:space-between}.quarantine-theme .map-only .map-shell{height:72vh;min-height:480px}}

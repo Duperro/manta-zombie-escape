@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'leaflet/dist/leaflet.css';
 import './styles.css';
+import './quarantine.css';
 import { Dashboard } from './app/Dashboard';
 import { SimulationContext } from './app/SimulationContext';
 import { ApiSimulationProvider } from './providers/ApiSimulationProvider';
