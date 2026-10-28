@@ -12,14 +12,24 @@ from app.api.application import create_app
 from app.core.config import Settings
 from app.core.scenario_config import build_world,read_scenario,default_scenario
 from app.evaluation.evaluator import evaluate_round,export_results
+from app.evaluation.metrics import latency_score,availability_score
 
 def score_estimate(rows):
+    """Nota 0-10 de la prueba de fuego según el enunciado: supervivencia ponderada
+    R1x1, R2x2, R3x3 (50 %), eficiencia (20 %), p95 (15 %) y disponibilidad (15 %)."""
     if {r['ronda'] for r in rows}!={1,2,3}:
         return dict(puntuacionTotal=None,motivo="Se necesitan las tres rondas")
     weighted=sum(r['ronda']*r['porcentajeSupervivencia'] for r in rows)/6
-    return dict(supervivenciaPonderada=weighted,componenteSupervivenciaSobre50=weighted*.5,
-                puntuacionTotal=None,componentesSinFormulaOficial=['eficiencia_20','latencia_15','disponibilidad_15'],
-                nota="Estimación parcial, sin puntuación oficial total; vivos incluye no evacuados.")
+    efficiencies=[r['eficienciaPromedio'] for r in rows if r.get('eficienciaPromedio') is not None]
+    efficiency=sum(efficiencies)/len(efficiencies) if efficiencies else 0
+    p95=max(r['latenciaP95Ms'] or 0 for r in rows)
+    requests=sum(r['solicitudesHTTP'] for r in rows)
+    failures=sum(r['erroresHTTP']+r['respuestasInvalidas']+r['solicitudesSobre500ms'] for r in rows)/requests if requests else 1
+    lat,avail=latency_score(p95),availability_score(failures)
+    total=.5*weighted/10+.2*10*efficiency+.15*lat+.15*avail
+    return dict(supervivenciaPonderada=weighted,eficiencia=efficiency,p95MaxMs=p95,tasaFallos=failures,
+                notaLatencia=lat,notaDisponibilidad=avail,puntuacionTotal=round(total,2),
+                nota="Estimación local con la rúbrica del enunciado; supervivencia = no mordidos.")
 
 def comparison_table(rows):
     base={(r['semilla'],r['ronda']):r for r in rows if r['experimento']=='base'}

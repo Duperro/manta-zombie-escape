@@ -19,6 +19,16 @@ def road_identity(graph, u, v, attrs):
         return repr((tuple(sorted(attrs["osmids"])),min(geometry,tuple(reversed(geometry)))))
     return repr(tuple(sorted((u,v))))
 
+def optimal_turns(graph,survivors,shelters):
+    """Eficiencia (rúbrica): turnos mínimos de cada sobreviviente hasta un refugio
+    en el mapa SIN zombies ni bloqueos, un turno por calle. Se calcula al inicio."""
+    usable=traversable(graph)
+    targets=[r.node for r in shelters if r.node in usable]
+    if not targets:
+        return {}
+    hops=nx.multi_source_dijkstra_path_length(usable.reverse(copy=False),targets,weight=lambda *_:1)
+    return {s.id:hops[s.node] for s in survivors if s.node in hops}
+
 @dataclass
 class World:
     graph: nx.Graph
@@ -46,6 +56,7 @@ class World:
         self.zombie_movements=[]
         self.zombie_traversed={}
         self.reservations=MemoryReservations(self.shelters)
+        self.metrics.optimal_turns=optimal_turns(self.graph,self.survivors,self.shelters)
 
     def horde_nodes(self):
         blocked=set()
@@ -56,14 +67,25 @@ class World:
                     blocked.update(self.graph.predecessors(z.node))
         return blocked
 
+    def _blocked_key(self):
+        return frozenset((u,v,k) for u,v,k,a in edges(self.graph) if a["bloqueada"])
+
+    def usable(self):
+        """Grafo transitable (sin calles bloqueadas), reutilizado mientras no cambien los
+        bloqueos. Antes se reconstruía 4 veces por turno (~25 ms cada vez en Manta)."""
+        key=self._blocked_key()
+        if getattr(self,"_usable_cache",(None,))[0]!=key:
+            self._usable_cache=(key,traversable(self.graph),None)
+        return self._usable_cache[1]
+
     def near(self,a,b,radius):
-        return b in nx.single_source_shortest_path_length(traversable(self.graph),a,cutoff=radius)
+        return b in nx.single_source_shortest_path_length(self.usable(),a,cutoff=radius)
 
     def move_zombies(self):
         self.traversed=[]
         self.zombie_movements=[]
         self.zombie_traversed={}
-        usable=traversable(self.graph)
+        usable=self.usable()
         blocked=self.horde_nodes()
         ordinary=nx.subgraph_view(usable,filter_edge=lambda u,v:v not in blocked)
         for z in sorted(self.zombies,key=lambda z:z.id):
@@ -89,16 +111,23 @@ class World:
                 z.node=dest
 
     def observation(self):
-        graph=traversable(self.graph)
-        for u,v in list(graph.edges):
-            scalars={k:a for k,a in graph[u][v].items() if isinstance(a,(str,int,float,bool))}
-            scalars["road_token"]=road_identity(self.graph,u,v,graph[u][v])
-            attrs=MappingProxyType(scalars)
-            graph._succ[u][v]=attrs
-            graph._pred[v][u]=attrs
-        for n in graph:
-            graph._node[n]=MappingProxyType(dict(graph.nodes[n]))
-        nx.freeze(graph)
+        self.usable()
+        key,_,frozen=self._usable_cache
+        if frozen is None:
+            # Grafo de solo lectura para la estrategia; se reutiliza mientras no cambien los bloqueos.
+            graph=traversable(self.graph)
+            for u,v in list(graph.edges):
+                scalars={k:a for k,a in graph[u][v].items() if isinstance(a,(str,int,float,bool))}
+                scalars["road_token"]=road_identity(self.graph,u,v,graph[u][v])
+                attrs=MappingProxyType(scalars)
+                graph._succ[u][v]=attrs
+                graph._pred[v][u]=attrs
+            for n in graph:
+                graph._node[n]=MappingProxyType(dict(graph.nodes[n]))
+            nx.freeze(graph)
+            self._usable_cache=(key,self._usable_cache[1],graph)
+            frozen=graph
+        graph=frozen
         hordes=frozenset(self.horde_nodes())
         visible=tuple((z.id,z.node,z.kind) for z in self.zombies if z.kind!="dormido")
         forbidden=hordes|{node for _,node,_ in visible}
@@ -122,7 +151,7 @@ class World:
         return any(not edge['bloqueada'] for edge in attrs.values()) if self.graph.is_multigraph() else not attrs['bloqueada']
 
     def activate_sleepers(self):
-        usable=traversable(self.graph)
+        usable=self.usable()
         for z in self.zombies:
             if z.kind=="dormido":
                 nearby=nx.single_source_shortest_path_length(usable,z.node,cutoff=2)
@@ -148,7 +177,7 @@ class World:
 
     def resolve(self,decisions):
         repairing={v.id for v in self.vehicles if v.repair_turns_remaining>0}
-        usable,blocked=traversable(self.graph),self.horde_nodes()
+        usable,blocked=self.usable(),self.horde_nodes()
         foot=[s for s in self.survivors if s.status in FOOT_STATES]
         people={s.id:s for s in self.survivors}
         movements={}
