@@ -4,8 +4,13 @@ from app.routing.planner import Observation
 from app.routing.prediction import RiskMap
 
 class RiskRoutes:
-    def __init__(self, state: Observation, risk: RiskMap, weight: float):
+    def __init__(self, state: Observation, risk: RiskMap, weight: float, penalties=None):
         self.state,self.risk,self.weight=state,risk,weight
+        # Riesgo extra observable (caminantes, trampas, dormidos): ver threats.py
+        self.penalties=penalties or {}
+        # Calles por las que un zombie acaba de pasar: ir en sentido contrario = cruce (mordida).
+        self.crossing_roads={(b,a,road) for a,b,road in state.zombie_edges if road}
+        self.crossing_any={(b,a) for a,b,_ in state.zombie_edges}
         self.graph=nx.DiGraph()
         self.graph.add_nodes_from((n,a) for n,a in state.graph.nodes(data=True) if n not in state.forbidden)
         for u,v,a in state.graph.edges(data=True):
@@ -20,10 +25,13 @@ class RiskRoutes:
         if not self.state.graph.has_edge(u,v) or self.state.graph[u][v]["bloqueada"]:
             return False
         token=self.state.graph[u][v].get("road_token","")
-        return not any((a,b)==(v,u) and (not token or token==road) for a,b,road in self.state.zombie_edges)
+        if token:
+            return (u,v,token) not in self.crossing_roads
+        return (u,v) not in self.crossing_any
 
     def edge_cost(self,u,v):
-        return self.state.graph[u][v]["cost"]+self.weight*(self.risk.nodes.get(v,0)+.75*self.risk.edges.get((v,u),0))
+        return self.state.graph[u][v]["cost"]+self.weight*(self.risk.nodes.get(v,0)+.75*self.risk.edges.get((v,u),0)
+                                                           +self.penalties.get(v,0))
 
     def add_target(self,target):
         if target not in self.trees and target in self.graph:

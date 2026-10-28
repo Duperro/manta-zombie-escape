@@ -7,12 +7,14 @@ class Settings:
     api_key: str
     seed: int = 7
     turn_seconds: float = 2.0
-    horde_move_probability: float = 0.0
-    http_concurrency: int = 4
+    horde_move_probability: float = 0.02  # "casi inmóvil": ~1 paso cada 50 turnos
+    http_concurrency: int = 16
     routing_strategy: str = "base"
     pro_prediction: bool = True
     pro_reservations: bool = True
     pro_fleet: bool = True
+    pro_threats: bool = True
+    pro_unstick: bool = False  # experimental: +evacuados pero +mordidas (ver docs)
     risk_weight: float = 180.0
     reassignment_improvement: float = 0.25
     vehicle_edges_per_turn: int = 2
@@ -66,12 +68,14 @@ class Settings:
         defaults = cls(api_key=api_key_from_env())
         return cls(api_key=defaults.api_key, seed=int(os.getenv("SEED", "7")),
                    turn_seconds=float(os.getenv("TURN_SECONDS", "2")),
-                   horde_move_probability=float(os.getenv("HORDE_MOVE_PROBABILITY", "0")),
-                   http_concurrency=int(os.getenv("HTTP_CONCURRENCY","4")),
+                   horde_move_probability=float(os.getenv("HORDE_MOVE_PROBABILITY", "0.02")),
+                   http_concurrency=int(os.getenv("HTTP_CONCURRENCY","16")),
                    routing_strategy=os.getenv("ROUTING_STRATEGY","base").lower(),
                    pro_prediction=os.getenv("PRO_PREDICTION","true").lower() in {"true","1","yes"},
                    pro_reservations=os.getenv("PRO_RESERVATIONS","true").lower() in {"true","1","yes"},
                    pro_fleet=os.getenv("PRO_FLEET","true").lower() in {"true","1","yes"},
+                   pro_threats=os.getenv("PRO_THREATS","true").lower() in {"true","1","yes"},
+                   pro_unstick=os.getenv("PRO_UNSTICK","false").lower() in {"true","1","yes"},
                    risk_weight=float(os.getenv("RISK_WEIGHT","180")),
                    reassignment_improvement=float(os.getenv("REASSIGNMENT_IMPROVEMENT",".25")),
                    vehicle_edges_per_turn=int(os.getenv("VEHICLE_EDGES_PER_TURN","2")),

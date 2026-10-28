@@ -4,6 +4,8 @@ from app.models.domain import FOOT_STATES
 from app.routing.planner import RoutePlanner
 from app.routing.prediction import RunnerPredictor, RiskMap
 from app.routing.risk_routes import RiskRoutes
+from app.routing.threats import ThreatModel
+from app.routing.unstick import unstick
 from app.rescue.shelters import ShelterAllocator
 from app.rescue.fleet import FleetPlanner
 
@@ -40,12 +42,14 @@ class ProStrategy:
         self.predictor=RunnerPredictor()
         self.allocator=ShelterAllocator()
         self.fleet=FleetPlanner()
+        self.threats=ThreatModel()
         self.risk=RiskMap.empty(0)
 
     def plan(self,context,state):
         settings=context.settings
         self.risk=self.predictor.predict(state) if settings.pro_prediction else RiskMap.empty(state.turn)
-        routes=RiskRoutes(state,self.risk,settings.risk_weight)
+        penalties=self.threats.penalties(state) if settings.pro_threats else {}
+        routes=RiskRoutes(state,self.risk,settings.risk_weight,penalties)
         for s in context.survivors:
             if s.status=="ACTIVO": s.status="CAMINANDO"
         if settings.pro_reservations:
@@ -65,6 +69,8 @@ class ProStrategy:
                 s.planned_route=choice[1] if choice else [s.node]
         if settings.pro_fleet:
             self.fleet.plan(context,state,routes)
+        if settings.pro_unstick:
+            unstick(context,state,routes)
         if settings.pro_prediction:
             self.safety_retreat(context,state,routes)
 

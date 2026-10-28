@@ -2,6 +2,8 @@
 
 Simulador Base/Pro sobre calles reales de Manta, con FastAPI, NetworkX y HTTP real. Pro integra predicción de corredores, asignación global con reservas y cinco camionetas con encuentros dinámicos y embarques físicos. Anochecer, Medianoche y Apocalipsis duran 150 turnos cada una. Incluye dashboard React/TypeScript/Leaflet conectado a los datos reales y demo local explícita. No se crearon recursos AWS.
 
+**Mejoras recientes (rama `prueba`):** riesgo de trampas y zonas verificadas sin dormidos, turnos ~2× más rápidos, `HTTP_CONCURRENCY=16`, nota estimada con la rúbrica y botón **Pruebas de fuego** también en el sitio público (pide la clave de operador). Detalle y mediciones en [docs/mejoras_algoritmo.md](docs/mejoras_algoritmo.md).
+
 **Para instalar y utilizar la versión completa desde `main`, seguir la [guía de inicio rápido para compañeros](docs/inicio_rapido.md).** Incluye instalación, arranque del dashboard con controles, actualización y solución de problemas para Windows y comandos para Linux/macOS.
 
 **Ejecución con Docker:** seguir [docker-local.md](docs/docker-local.md). Dos servicios (backend persistente + Nginx), sin instalar Python/Node en el host, dashboard público en `http://127.0.0.1:8080` y operación privada mediante Compose. Preparación EC2 y requisitos pendientes de HTTPS en [aws-predeploy.md](docs/aws-predeploy.md).
@@ -105,7 +107,7 @@ Caminantes: una calle en turnos pares. Corredores: hasta dos calles, detección 
 
 El planificador recibe solo información observable, excluye bloqueos y peligro visible y comparte cuatro búsquedas Dijkstra inversas por snapshot como máximo. Coste distancia/velocidad. Sin camino o capacidad disponible devuelve el mismo nodo. Actores ya evacuados o eliminados permanecen quietos. Mordidas por nodo o cruce de la misma calle física; tienen prioridad sobre llegada al refugio. Los empates de plazas se resuelven por ID. Interpretaciones completas en docs/mapa.md.
 
-HTTP_CONCURRENCY=4 limita solicitudes; timeout total de 500 ms. Errores o respuestas tardías/incorrectas dejan al actor quieto. Los percentiles se miden desde el inicio del intercambio HTTP, excluyendo la espera previa del semáforo. La duración de turno sí incluye toda esa espera. No se promete un SLA a partir de una medición local.
+HTTP_CONCURRENCY=16 limita solicitudes; timeout total de 500 ms. Errores o respuestas tardías/incorrectas dejan al actor quieto. Los percentiles se miden desde el inicio del intercambio HTTP, excluyendo la espera previa del semáforo. La duración de turno sí incluye toda esa espera. No se promete un SLA a partir de una medición local.
 
 ## Pruebas y estructura
 
