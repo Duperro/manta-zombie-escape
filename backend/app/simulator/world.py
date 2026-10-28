@@ -9,6 +9,7 @@ from app.core.graph import traversable, edges
 from app.models.domain import Survivor, Zombie, Shelter, Vehicle, StateView, FOOT_STATES, SURVIVOR_STATES, living
 from app.routing.planner import Observation
 from app.simulator.collisions import Traversal, same_node, opposite_crossing, eliminate
+from app.simulator.events import collapse_bridges
 from app.simulator.breakdowns import try_breakdown, advance_repairs
 from app.evaluation.metrics import Metrics
 from app.storage.reservations import MemoryReservations
@@ -57,6 +58,7 @@ class World:
         self.zombie_traversed={}
         self.reservations=MemoryReservations(self.shelters)
         self.metrics.optimal_turns=optimal_turns(self.graph,self.survivors,self.shelters)
+        self.pending_collapses=[]  # puentes que colapsan durante el turno actual (events.py)
 
     def horde_nodes(self):
         blocked=set()
@@ -243,6 +245,8 @@ class World:
                         break
                 if not v.traversed and same_node(v.node,self.zombies):
                     causes[sid]="coincidencia_nodo_camioneta"
+        # Puente que colapsa en este turno: cae quien lo estaba cruzando (tiene prioridad).
+        causes.update(collapse_bridges(self,movements))
         self.activate_sleepers()
         for sid,cause in causes.items():
             self._bite(people[sid],cause)
@@ -320,7 +324,9 @@ class World:
                        people[sid].node==v.node for sid in v.passengers)
             assert all(people[sid].status in FOOT_STATES and people[sid].vehicle_id==v.id for sid in v.assigned)
             for track in v.traversed:
-                assert self.valid(track["origen"],track["destino"])
+                # Un puente que colapsó en este turno era válido cuando la camioneta lo cruzó.
+                if (track["origen"],track["destino"]) not in getattr(self,"collapsed_now",set()):
+                    assert self.valid(track["origen"],track["destino"])
         assert {s.id for s in self.survivors if s.status=="EN_CAMIONETA"}==set(riders)
         assert {s.id for s in self.survivors if s.status in FOOT_STATES and s.vehicle_id is not None}==set(assigned)
         reservations=self.reservations.snapshot()

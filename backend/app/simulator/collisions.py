@@ -28,5 +28,6 @@ def eliminate(survivor, cause, turn, history):
     survivor.status = "ELIMINADO"
     survivor.elimination_cause = cause
     survivor.planned_route = []
-    history.append({"id":f"mordida-{turn}-{survivor.id}","turno":turn,"tipo":"mordida",
+    kind = "caida_puente" if cause == "colapso_puente" else "mordida"
+    history.append({"id":f"{kind}-{turn}-{survivor.id}","turno":turn,"tipo":kind,
                     "sobrevivienteId":survivor.id,"nodo":survivor.node,"causa":cause})

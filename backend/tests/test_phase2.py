@@ -17,7 +17,7 @@ from app.evaluation.evaluator import evaluate_scenarios, export_results
 from app.models.domain import Survivor, Zombie
 from app.routing.planner import RoutePlanner
 from app.simulator.collisions import Traversal, opposite_crossing, eliminate
-from app.simulator.events import apply_events
+from app.simulator.events import apply_events, collapse_bridges
 from app.simulator.world import demo_world
 from test_backend import serve
 
@@ -131,11 +131,36 @@ def test_bridge_event_and_no_duplicate_application(settings):
     world=build_world(settings,read_scenario(default_scenario(2)))
     world.turn=75
     apply_events(world)
+    # El colapso ocurre durante el movimiento del turno, no antes de decidir.
+    assert not any(a["bloqueada"] for _,_,_,a in edges(world.graph)) and world.pending_collapses
+    assert collapse_bridges(world,{})=={}
     blocked=[a for _,_,_,a in edges(world.graph) if a["bloqueada"]]
     assert blocked and all(a["tipo"]=="puente" for a in blocked)
     assert world.graph_version==1
     apply_events(world)
+    assert collapse_bridges(world,{})=={}
     assert world.graph_version==1 and len(world.history)==1
+
+def test_bridge_collapse_drops_only_survivors_crossing_it(settings):
+    world=demo_world(settings)          # N-0005 -> N-0006 es un puente
+    survivor=world.survivors[0]
+    survivor.node="N-0005"
+    bystander=Survivor("S-0002","N-0004")
+    world.survivors.append(bystander)
+    world.zombies=[]                    # solo se prueba la caída, sin mordidas
+    world.graph["N-0005"]["N-0006"]["id"]="P-1"
+    world.events={3:[dict(id="colapso",tipo="colapso_puente",aristas=["P-1"])]}
+    world.turn=3
+    apply_events(world)
+    world.resolve({"S-0001":"N-0006","S-0002":"N-0004"})
+    assert survivor.status=="ELIMINADO" and survivor.elimination_cause=="colapso_puente"
+    assert bystander.status!="ELIMINADO"
+    assert world.graph["N-0005"]["N-0006"]["bloqueada"]
+    assert not world.valid("N-0005","N-0006")
+    event=[e for e in world.history if e["tipo"]=="colapso_puente"][0]
+    assert event["sobrevivientesEnPuente"]==["S-0001"]
+    assert any(e["tipo"]=="caida_puente" for e in world.history)
+    world.assert_invariants()
 
 def test_event_recalculates_alternative_and_invalidates_route(settings):
     world=demo_world(settings)

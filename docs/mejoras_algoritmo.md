@@ -69,3 +69,17 @@ cd backend
 API_KEY=x python -m app.evaluation.compare --seeds 7 11 23 --rounds 1 2 3
 PRO_THREATS=false API_KEY=x python -m app.simulator.cli --strategy pro --round 3 --fast --seed 7
 ```
+
+## 7. Eventos de ciudad
+
+Turnos del enunciado (en `data/scenarios`): ronda 2, colapso de un puente en el turno 75;
+ronda 3, bloqueo de una calle en el turno 50 y de una avenida entre los turnos 90 y 120.
+
+- **Bloqueo de calle/avenida:** se aplica al inicio del turno; desde ese turno nadie la usa.
+- **Colapso de puente:** ocurre mientras la gente se mueve. Quien cruzaba el puente en ese
+  turno (a pie o en camioneta) cae y queda eliminado con causa `colapso_puente` (evento
+  `caida_puente`). Los zombies no se ven afectados. En el mapa de Manta cada puente es un
+  único tramo entre dos intersecciones, así que solo cae quien lo estaba cruzando justo en
+  ese turno; quien espera en un extremo está en tierra firme.
+- En ambos casos la arista desaparece del mapa en vivo, se borran las rutas planificadas y
+  todas se recalculan; el panel muestra un aviso durante 15 turnos.
