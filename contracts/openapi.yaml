@@ -572,6 +572,13 @@ components:
         tipo:
           type: string
           title: Tipo
+        aristasRecorridasEnTurno:
+          items:
+            additionalProperties:
+              type: string
+            type: object
+          type: array
+          title: Aristasrecorridasenturno
       type: object
       required:
       - id

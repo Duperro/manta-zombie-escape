@@ -49,6 +49,7 @@ export interface ZombieView {
   id: string;
   nodo: string;
   tipo: string;
+  aristasRecorridasEnTurno?: Array<Record<string, string>>;
 }
 
 export interface ShelterView {

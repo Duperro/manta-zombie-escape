@@ -44,6 +44,7 @@ class World:
         self.rng=random.Random(self.settings.seed)  # Legacy demo handle; decisions never receive this.
         self.traversed=[]
         self.zombie_movements=[]
+        self.zombie_traversed={}
         self.reservations=MemoryReservations(self.shelters)
 
     def horde_nodes(self):
@@ -61,6 +62,7 @@ class World:
     def move_zombies(self):
         self.traversed=[]
         self.zombie_movements=[]
+        self.zombie_traversed={}
         usable=traversable(self.graph)
         blocked=self.horde_nodes()
         ordinary=nx.subgraph_view(usable,filter_edge=lambda u,v:v not in blocked)
@@ -82,6 +84,8 @@ class World:
                 track=Traversal(z.node,dest,road_identity(self.graph,z.node,dest,graph[z.node][dest]))
                 self.traversed.append(track)
                 self.zombie_movements.append((track,z.id,z.kind))
+                self.zombie_traversed.setdefault(z.id,[]).append(dict(
+                    origen=z.node,destino=dest,aristaId=graph[z.node][dest].get("id",f"E-{z.node}-{dest}")))
                 z.node=dest
 
     def observation(self):
@@ -315,7 +319,9 @@ class World:
                 turnosTranscurridos=s.elapsed_turns,turnoEvacuacion=s.evacuation_turn,causaEliminacion=s.elimination_cause,
                 camionetaId=s.vehicle_id,distanciaCaminada_m=s.walking_distance_m,
                 distanciaEnCamioneta_m=s.vehicle_distance_m,modoEvacuacion=s.evacuation_mode) for s in self.survivors],
-            zombies=[dict(id=z.id,nodo=z.node,tipo=z.kind) for z in self.zombies if z.kind!="dormido"],
+            zombies=[dict(id=z.id,nodo=z.node,tipo=z.kind,
+                          aristasRecorridasEnTurno=self.zombie_traversed.get(z.id,[]))
+                     for z in self.zombies if z.kind!="dormido"],
             refugios=[dict(id=r.id,nodo=r.node,capacidad=r.capacity,capacidad_maxima=r.capacity,ocupacion=r.occupied,
                 nombre=r.name,lat=self.graph.nodes[r.node]["lat"],lng=self.graph.nodes[r.node]["lng"],
                 plazas_reservadas=r.reserved,estado=r.status,plazas_disponibles=r.capacity-r.occupied-r.reserved,

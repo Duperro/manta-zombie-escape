@@ -65,9 +65,11 @@ def test_walker_every_two_turns(world):
     world.turn = 1
     world.move_zombies()
     assert world.zombies[0].node == "N-0009"
+    assert world.view().zombies[0].aristasRecorridasEnTurno == []
     world.turn = 2
     world.move_zombies()
     assert world.zombies[0].node == "N-0008"
+    assert len(world.view().zombies[0].aristasRecorridasEnTurno) == 1
 
 
 def test_runner_chases_and_records_two_edges(world):
@@ -75,6 +77,10 @@ def test_runner_chases_and_records_two_edges(world):
     world.turn = 1
     world.move_zombies()
     assert [(t.origin,t.destination) for t in world.traversed] == [("N-0003", "N-0002"), ("N-0002", "N-0001")]
+    assert world.view().zombies[0].aristasRecorridasEnTurno == [
+        {"origen":"N-0003","destino":"N-0002","aristaId":"E-N-0003-N-0002"},
+        {"origen":"N-0002","destino":"N-0001","aristaId":"E-N-0002-N-0001"},
+    ]
     world.survivors[0].node = "N-0002"
     world.resolve({"S-0001": "N-0003"})
     assert world.survivors[0].status == "ELIMINADO"
