@@ -77,7 +77,7 @@ export function createInfected(type: string, seed: number): Infected {
   }
   const arms: [Joint, Joint] = [joint(body, -0.2, 0.5, geo.upperArm, geo.foreArm, 0.33, cloth, skinMaterial), joint(body, 0.2, 0.5, geo.upperArm, geo.foreArm, 0.33, seed > 0.4 ? skinMaterial : cloth, skinMaterial)];
   for (const arm of arms) { const hand = new THREE.Mesh(geo.hand, skinMaterial); hand.position.set(0, -0.33, 0); arm.lower.add(hand); }
-  root.scale.setScalar(0.95 + seed * 0.12);
+  root.scale.setScalar((0.95 + seed * 0.12) * 1.2); // más alto que un humano
   return { root, body, head, legs, arms, type, phase: seed * Math.PI * 2, limp: 0.4 + seed * 0.5 };
 }
 

@@ -122,7 +122,7 @@ export class FirstPersonEngine {
     this.moon = new THREE.Mesh(new THREE.CircleGeometry(5, 32), new THREE.MeshBasicMaterial({ color: 0xd9cfc0, fog: false }));
     this.scene.add(this.moon);
 
-    this.arms = createArms();
+    this.arms = createArms(models?.hands ?? null);
     this.camera.add(this.arms.root);
     const flashlight = new THREE.SpotLight(0xfff1d6, 120, 70, 0.36, 0.7, 2);
     flashlight.position.set(0.27, -0.3, -0.6);
@@ -486,9 +486,9 @@ export class FirstPersonEngine {
       this.chaseYaw += Math.atan2(Math.sin(targetYaw - this.chaseYaw), Math.cos(targetYaw - this.chaseYaw)) * Math.min(1, dt * 2.5);
       if (!this.dragging && now - this.lastDrag > 1500) { this.lookYaw *= 1 - Math.min(1, dt * 2); this.lookPitch *= 1 - Math.min(1, dt * 2); }
       const yaw = this.chaseYaw + this.lookYaw;
-      const distance = 4.6, height = 2.3 + this.lookPitch * -2;
+      const distance = 5.4, height = 2.8 + this.lookPitch * -2; // el infectado mide ~2,15 m
       this.camera.position.set(at.x + Math.sin(yaw) * distance, Math.max(0.6, height), at.z + Math.cos(yaw) * distance);
-      this.camera.lookAt(at.x, 1.15, at.z);
+      this.camera.lookAt(at.x, 1.4, at.z);
       this.camera.fov = 62; this.camera.updateProjectionMatrix();
       this.arms.root.visible = false;
       this.yaw = Math.atan2(at.x - this.camera.position.x, at.z - this.camera.position.z) + Math.PI; // para la flecha del minimapa
