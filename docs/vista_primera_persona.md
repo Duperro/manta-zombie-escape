@@ -6,8 +6,11 @@ turno) que el mapa, con los mismos datos de `/estado`. No cambia el simulador ni
 
 | Pieza | Archivo | Qué hace |
 |---|---|---|
-| Ciudad | `frontend/src/firstperson/city.ts` | Calles reales del grafo (OSM), edificios, alumbrado, palmeras en avenidas, mar al norte y figuras de infectados |
-| Motor | `frontend/src/firstperson/engine.ts` | Cámara, linterna, animación de cada turno, HUD y caída al ser mordido |
+| Ciudad | `frontend/src/firstperson/city.ts` | Calles reales del grafo (OSM) con asfalto, veredas, bordillos y líneas; fachadas con ventanas, rejas y persianas; tinacos y varillas en techos; palmeras, alumbrado y mar |
+| Apocalipsis | `frontend/src/firstperson/apocalypse.ts` | Autos abandonados, volcados y quemados, patrulleros con baliza, incendios con humo, escombros, basura, sangre, barricadas (también en calles bloqueadas) y ceniza |
+| Infectados | `frontend/src/firstperson/infected.ts` | Figuras humanas delgadas (diseño propio) con rodillas y codos, piel y ropa con textura, ojos hundidos |
+| Brazos | `frontend/src/firstperson/arms.ts` | Brazos en primera persona que se balancean al correr; linterna en la mano derecha |
+| Motor | `frontend/src/firstperson/engine.ts` | Cámara, movimiento continuo entre turnos, minimapa, HUD y caída al ser mordido |
 | Vista | `frontend/src/firstperson/FirstPersonView.tsx` | Pantalla completa, HUD (refugio, zombie más cercano, turno) y fin (a salvo / no lo logró) |
 | Carga | `frontend/src/components/LoadingScreen.tsx` | Pantalla inicial que descarga la vista 3D y los datos de la ciudad antes de mostrar el panel |
 
@@ -19,6 +22,14 @@ WebGL (Chrome, Edge, Firefox, Safari; también en celular).
 calle son "falsas" (halo + charco de luz en el suelo), así que se ve creíble con muy pocos
 recursos. Los infectados tienen rodillas y codos: el caminante cojea y arrastra un pie, el
 corredor esprinta inclinado y las hordas son grupos con un anillo rojo (zona bloqueada).
+
+**Movimiento sin saltos:** cada turno se encadena al anterior desde la posición visual actual y
+dura lo mismo que el intervalo real entre turnos. Si el sobreviviente avanza más de una calle,
+se reconstruye el camino por el grafo. El simulador mueve una calle (50–150 m) cada 2 s, que a
+pie tomaría 20–40 s: por eso el HUD indica **"Cámara rápida ×N"**.
+
+**Minimapa** (arriba a la derecha): norte arriba, ~260 m alrededor; calles (bloqueadas en rojo),
+ruta planificada, refugios y zombies; la flecha es hacia donde mira el sobreviviente.
 
 ## Edificios reales de Manta (recomendado)
 

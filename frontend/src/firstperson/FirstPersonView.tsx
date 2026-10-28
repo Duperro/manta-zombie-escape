@@ -15,6 +15,7 @@ const zombieText: Record<string, string> = { caminante: 'Caminante', corredor: '
 export default function FirstPersonView({ survivorId, onClose }: { survivorId: string; onClose: () => void }) {
   const { state } = useSimulation();
   const mount = useRef<HTMLDivElement>(null);
+  const minimap = useRef<HTMLCanvasElement>(null);
   const engine = useRef<FirstPersonEngine | null>(null);
   const [hud, setHud] = useState<Hud | null>(null);
   const [error, setError] = useState('');
@@ -28,6 +29,7 @@ export default function FirstPersonView({ survivorId, onClose }: { survivorId: s
       if (cancelled || !mount.current) return;
       try {
         engine.current = new FirstPersonEngine(mount.current, survivorId, latest.current ?? state, setHud, real);
+        engine.current.setMinimap(minimap.current);
       } catch {
         setError('Tu navegador no permite gráficos 3D (WebGL). Prueba con Chrome o Edge actualizados.');
       }
@@ -54,9 +56,11 @@ export default function FirstPersonView({ survivorId, onClose }: { survivorId: s
       <div><small>SIGUIENDO</small><b>{survivorId}</b><span><Footprints size={13}/> {hud ? stateText[hud.state] ?? hud.state : 'Cargando…'}</span></div>
       <div><small>REFUGIO</small><b><ShieldPlus size={13}/> {hud?.shelter ?? 'Sin asignar'}</b><span>{hud?.shelterDistance != null ? `${hud.shelterDistance} m en línea recta` : '—'}</span></div>
       <div className={danger > 0.5 ? 'fp-alert' : ''}><small>ZOMBIE MÁS CERCANO</small><b><Skull size={13}/> {hud?.nearest ? zombieText[hud.nearest.type] ?? hud.nearest.type : 'Ninguno visible'}</b><span>{hud?.nearest ? `${hud.nearest.distance} m` : '—'}</span></div>
-      <div><small>TURNO</small><b>{hud?.turn ?? '—'} / {hud?.totalTurns ?? 150}</b><span>Arrastra para mirar alrededor</span></div>
+      <div><small>TURNO</small><b>{hud?.turn ?? '—'} / {hud?.totalTurns ?? 150}</b><span title="El simulador avanza una calle (50–150 m) cada 2 s; a pie tomaría mucho más, por eso la vista va acelerada.">{hud && hud.timeScale > 1 ? `Cámara rápida ×${hud.timeScale}` : 'Arrastra para mirar alrededor'}</span></div>
       <button className="icon-button" aria-label="Salir de la vista en primera persona" onClick={onClose}><X size={18}/></button>
     </header>
+    <figure className="fp-minimap" aria-label="Minimapa: norte arriba"><canvas ref={minimap} width={220} height={220}/><figcaption><i className="mm-route"/> Ruta <i className="mm-shelter"/> Refugio <i className="mm-zombie"/> Zombie</figcaption></figure>
+    {!hud && !error && <div className="fp-preparing"><div className="boot-bar"><i style={{ width: '70%' }}/></div><p>Preparando las calles de Manta…</p></div>}
     {over && <div className={`fp-end ${hud?.state === 'EVACUADO' ? 'safe' : 'dead'}`}>
       <h2>{hud?.state === 'EVACUADO' ? 'Llegó al refugio' : 'No lo logró'}</h2>
       <p>{hud?.state === 'EVACUADO' ? `${survivorId} está a salvo en ${hud?.shelter ?? 'el refugio'}.` : `${survivorId} fue alcanzado.`}</p>
