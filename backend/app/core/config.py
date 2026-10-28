@@ -14,6 +14,7 @@ class Settings:
     pro_reservations: bool = True
     pro_fleet: bool = True
     pro_threats: bool = True
+    contact_bite: bool = True  # zombie que llega al nodo de un sobreviviente lo muerde al instante
     pro_unstick: bool = False  # experimental: +evacuados pero +mordidas (ver docs)
     risk_weight: float = 180.0
     reassignment_improvement: float = 0.25
@@ -75,6 +76,7 @@ class Settings:
                    pro_reservations=os.getenv("PRO_RESERVATIONS","true").lower() in {"true","1","yes"},
                    pro_fleet=os.getenv("PRO_FLEET","true").lower() in {"true","1","yes"},
                    pro_threats=os.getenv("PRO_THREATS","true").lower() in {"true","1","yes"},
+                   contact_bite=os.getenv("CONTACT_BITE","true").lower() in {"true","1","yes"},
                    pro_unstick=os.getenv("PRO_UNSTICK","false").lower() in {"true","1","yes"},
                    risk_weight=float(os.getenv("RISK_WEIGHT","180")),
                    reassignment_improvement=float(os.getenv("REASSIGNMENT_IMPROVEMENT",".25")),

@@ -111,6 +111,24 @@ class World:
                 self.zombie_traversed.setdefault(z.id,[]).append(dict(
                     origen=z.node,destino=dest,aristaId=graph[z.node][dest].get("id",f"E-{z.node}-{dest}")))
                 z.node=dest
+        self.contact_bites()
+
+    def contact_bites(self):
+        """Contacto inmediato: si un zombie llega (o pasa, en el caso del corredor) por el
+        nodo donde está un sobreviviente a pie, lo muerde en ese instante, antes de que el
+        sobreviviente pueda moverse. Desactivable con CONTACT_BITE=false (regla literal:
+        solo al final del turno)."""
+        if not self.settings.contact_bite:
+            return
+        touched=set()
+        for z in self.zombies:
+            if z.kind!="dormido":
+                touched.add(z.node)
+        for track,_,kind in self.zombie_movements:
+            touched.add(track.destination)
+        for s in self.survivors:
+            if s.status in FOOT_STATES and s.node in touched:
+                self._bite(s,"contacto_zombie")
 
     def observation(self):
         self.usable()

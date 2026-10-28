@@ -255,3 +255,26 @@ def test_three_complete_rounds_real_http_and_report(settings,tmp_path):
     assert len(json.loads((tmp_path/"results.json").read_text(encoding="utf-8"))["rondas"])==3
     assert len((tmp_path/"results.csv").read_text(encoding="utf-8").splitlines())==4
     print("ROUND3 accelerated duration:",reports[-1]["duracionS"],"seconds; HTTP p95",reports[-1]["latenciaP95Ms"],"ms")
+
+def test_contact_bite_when_zombie_reaches_survivor(settings):
+    # El zombie se mueve primero: si llega al nodo del sobreviviente, lo muerde al instante.
+    world=demo_world(settings)
+    survivor=world.survivors[0]
+    survivor.node="N-0005"
+    world.zombies=[Zombie("Z-1","N-0006","caminante")]
+    for i in range(20):  # turnos pares: el caminante se mueve a un vecino al azar
+        if survivor.status=="ELIMINADO":
+            break
+        world.turn=2*(i+1)
+        world.zombies[0].node="N-0006"
+        world.move_zombies()
+    assert survivor.status=="ELIMINADO" and survivor.elimination_cause=="contacto_zombie"
+
+def test_contact_bite_can_be_disabled():
+    from dataclasses import replace
+    world=demo_world(replace(Settings(api_key="k"),contact_bite=False))
+    survivor=world.survivors[0]
+    survivor.node="N-0005"
+    world.zombies=[Zombie("Z-1","N-0005","caminante")]
+    world.move_zombies()
+    assert survivor.status!="ELIMINADO"

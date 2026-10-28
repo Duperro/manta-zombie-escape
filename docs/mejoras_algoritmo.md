@@ -83,3 +83,17 @@ ronda 3, bloqueo de una calle en el turno 50 y de una avenida entre los turnos 9
   ese turno; quien espera en un extremo está en tierra firme.
 - En ambos casos la arista desaparece del mapa en vivo, se borran las rutas planificadas y
   todas se recalculan; el panel muestra un aviso durante 15 turnos.
+
+## 8. Contacto inmediato con zombies (pedido del equipo)
+
+Además de la mordida al final del turno (mismo nodo o cruce), ahora un zombie que **llega o pasa**
+por el nodo de un sobreviviente a pie lo muerde en ese instante, antes de que pueda moverse
+(causa `contacto_zombie`). Se desactiva con `CONTACT_BITE=false` (regla literal del enunciado).
+
+Impacto medido (ronda 3, semillas 7/11/23): las mordidas suben de ~15–21 a ~80–87 por ronda;
+casi todas las causan **corredores** (detectan a 3 calles y corren 2, así que alcanzan a quien
+esté a 2 calles o menos). Para mitigarlo, `threats.py` ahora marca como peligroso el lugar donde
+terminará el turno: vecinos de un caminante que se moverá, y 1–4 calles alrededor de cada
+corredor; la retirada de seguridad también puede elegir quedarse quieto. Aun así la supervivencia
+de la ronda 3 queda en ~55–60 % (antes ~90 %). Como la supervivencia vale el 50 % de la nota,
+decidan con el equipo si la prueba de fuego se corre con o sin esta regla.

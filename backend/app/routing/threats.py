@@ -24,6 +24,8 @@ RIESGO_TRAMPA = .45              # nodo con pocas salidas y zombies cerca
 SALIDAS_TRAMPA = 2               # 1 = callejón sin salida; 2 = pasillo (un zombie por cada lado)
 RADIO_TRAMPA = {"caminante": 2, "corredor": 5, "horda": 1}  # corredor: detecta a 3 y corre 2
 RIESGO_NO_VERIFICADO = .03       # posible dormido oculto
+RIESGO_CAMINANTE = 1.4           # contacto: el caminante elige 1 de sus salidas al azar (en turno par)
+RIESGO_CORREDOR_2 = .9           # a 2 calles o menos de un corredor: puede alcanzarte el próximo turno
 RADIO_DORMIDO = 2                # regla del enunciado: despierta a 2 nodos o menos
 
 
@@ -49,6 +51,22 @@ class ThreatModel:
         def add(node, level):
             if level > risk.get(node, 0):
                 risk[node] = level
+
+        # Contacto en el próximo turno (los zombies se mueven antes que los sobrevivientes):
+        # el caminante, si le toca moverse, cae en una de sus salidas; el corredor llega a 2 calles.
+        walker_moves_next = (state.turn + 1) % 2 == 0
+        for _, node, kind in state.zombies:
+            if node not in graph:
+                continue
+            if kind == "caminante" and walker_moves_next:
+                exits = [n for n in graph.successors(node) if n not in state.horde_nodes]
+                for n in exits:
+                    add(n, min(0.95, RIESGO_CAMINANTE / len(exits)))
+            elif kind == "corredor":
+                # Detecta a 3 calles y corre 2: a ≤2 te alcanza ya; a 3-4 te empieza a perseguir.
+                for n, hops in nx.single_source_shortest_path_length(graph, node, cutoff=4).items():
+                    if hops:
+                        add(n, RIESGO_CORREDOR_2 if hops <= 2 else .6 if hops == 3 else .3)
 
         # Nodos con pocas salidas al alcance de algún zombie: ahí un zombie puede
         # acorralar (quedarse = mordida en el nodo; salir por su calle = cruce).

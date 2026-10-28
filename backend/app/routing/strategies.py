@@ -81,16 +81,21 @@ class ProStrategy:
                 continue
             path=s.planned_route or [s.node]
             intended=path[1] if len(path)>1 else s.node
-            intended_risk=self.risk.nodes.get(intended,0)+.75*self.risk.edges.get((intended,s.node),0)
+            # Riesgo del lugar donde terminará el turno: predicción de corredores + contacto (threats.py).
+            danger=lambda n: max(self.risk.nodes.get(n,0)+.75*self.risk.edges.get((n,s.node),0),routes.penalties.get(n,0))
+            intended_risk=danger(intended)
             if intended in state.forbidden:
                 intended_risk=float('inf')  # An observed collision outranks every uncertain future penalty.
             if intended_risk<context.settings.retreat_risk_threshold or s.node not in state.graph:
                 continue
             candidates=[]
+            if s.node not in state.forbidden and intended!=s.node and danger(s.node)<=intended_risk-context.settings.retreat_min_improvement:
+                best=routes.best(s.node)
+                candidates.append((danger(s.node),best[0] if best else 1e6,s.node))  # quedarse también es opción
             for n in sorted(state.graph.successors(s.node)):
                 if n not in routes.graph or not routes.allowed_edge(s.node,n):
                     continue
-                exposure=self.risk.nodes.get(n,0)+.75*self.risk.edges.get((n,s.node),0)
+                exposure=danger(n)
                 if exposure>intended_risk-context.settings.retreat_min_improvement:
                     continue
                 best=routes.best(n)
