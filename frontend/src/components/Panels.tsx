@@ -11,8 +11,8 @@ export function MetricsPanel({ state }: { state: VisualState | null }) {
   const m = state?.metrics;
   const items = [{ label: 'PERSONAS VIVAS', value: m?.vivosFinales, icon: Users, color: 'blue', note: `${number(m?.activos)} aún en operación` },
     { label: 'EVACUADOS', value: m?.evacuados, icon: ShieldPlus, color: 'lime', note: `${number(m?.tasaEvacuacion, 1)} % de evacuación` },
-    { label: 'ELIMINADOS', value: m?.eliminados, icon: Radio, color: 'red', note: '' },
-    { label: 'RESPUESTA p95', value: m?.latenciaP95Ms, icon: ArrowUpRight, color: 'neutral', note: m?.notaRondaEstimada != null ? `Nota estimada ${number(m.notaRondaEstimada, 1)} / 10` : '', suffix: 'ms' }];
+    { label: 'ELIMINADOS', value: m?.eliminados, icon: Radio, color: 'red', note: m?.eliminados === 0 ? 'Sin bajas hasta este turno' : '' },
+    { label: 'RESPUESTA p95', value: m?.latenciaP95Ms, icon: ArrowUpRight, color: 'neutral', note: '', suffix: 'ms' }];
   return <section className="metrics-grid" aria-label="Métricas principales">{items.map(({ label, value, icon: Icon, color, note, suffix }) => <article className={`metric-card ${color}`} key={label}><div className="eyebrow">{label}<Icon size={16}/></div><strong>{number(value, suffix ? 1 : 0)}{suffix && <small>{suffix}</small>}</strong>{note && <p>{note}</p>}</article>)}</section>;
 }
 export function RefugesPanel({ state, onSelect }: { state: VisualState; onSelect: (s: Selection) => void }) {
