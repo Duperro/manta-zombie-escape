@@ -6,7 +6,7 @@ import { adaptState, prepareMap } from '../services/adapter';
 import { frameFixtures, mapFixture } from '../test/fixtures';
 
 describe('Leaflet component smoke (jsdom, not visual QA)', () => {
-  it('removes a failed external tile layer while preserving real streets and entities', () => {
+  it('keeps the tile layer after a failed tile (one tile error must not hide the background) and preserves real streets and entities', () => {
     const oldCanvas = Browser.canvas, oldSvg = Browser.svg;
     Reflect.set(Browser, 'canvas', false); Reflect.set(Browser, 'svg', true);
     const added = vi.spyOn(LeafletMap.prototype, 'addLayer');
@@ -18,7 +18,7 @@ describe('Leaflet component smoke (jsdom, not visual QA)', () => {
       expect(tileLayer).toBeDefined();
       act(() => { tileLayer!.fire('tileerror'); });
       expect(view.getByText('Fondo no disponible · red vial local')).toBeInTheDocument();
-      expect(removed).toHaveBeenCalledWith(tileLayer);
+      expect(removed).not.toHaveBeenCalledWith(tileLayer);
       expect(view.container.querySelectorAll('svg path').length).toBeGreaterThan(100);
       expect(view.container.querySelectorAll('.truck-pin')).toHaveLength(5);
       expect(view.container.querySelectorAll('.shelter-pin')).toHaveLength(4);

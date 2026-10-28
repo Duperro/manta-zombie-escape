@@ -11,6 +11,7 @@ export interface RawMetrics {
   disponibilidadEndpoint: number | null; vivosFinales: number; evacuadosCaminando: number;
   evacuadosCamioneta: number; rescatesCompletados: number; rescatesCancelados: number;
   distanciaCaminada_m: number; distanciaTransportada_m: number;
+  eficienciaPromedio: number | null; tasaFallosEndpoint: number | null; notaRondaEstimada: number | null;
 }
 export interface RawRisk {
   turnoObservado?: number; turnoPredicho?: number;

@@ -18,7 +18,7 @@ export class ApiSimulationProvider extends ObservableProvider {
   private last: RawState | null = null;
   private map?: PreparedMap;
   private checkedHealth = false;
-  constructor(private base = '/api', private fetcher: typeof fetch = globalThis.fetch.bind(globalThis), private pollMs = 1000, private staleMs = 8000) { super(false); }
+  constructor(private base = '/api', private fetcher: typeof fetch = globalThis.fetch.bind(globalThis), private pollMs = 500, private staleMs = 8000) { super(false); }
   start() { if (this.running) return; this.running = true; const generation = ++this.generation; void this.tick(generation); }
   stop() { this.running = false; this.generation++; clearTimeout(this.timer); clearTimeout(this.deadline); this.controller?.abort(); }
   private async get(path: '/health' | '/estado' | '/mapa', signal: AbortSignal): Promise<unknown> {

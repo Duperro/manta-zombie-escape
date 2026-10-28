@@ -24,10 +24,10 @@ describe('FastAPI → visual contract', () => {
     expect(survivorState('new-server-state')).toBe('DESCONOCIDO');
     expect(survivorLabels.EN_CAMIONETA).toBe('En camioneta');
   });
-  it('carries all 25 metrics, the Pro extensions and 200 survivors', () => {
+  it('carries all 25 demo metrics (28 labels), the Pro extensions and 200 survivors', () => {
     const raw = frameFixtures[6]; const state = adaptState(raw, map);
     expect(state.survivors).toHaveLength(200); expect(state.metrics).toEqual(raw.metricas);
-    expect(Object.keys(metricLabels)).toHaveLength(25); expect(Object.keys(raw.metricas)).toHaveLength(25);
+    expect(Object.keys(metricLabels)).toHaveLength(28); expect(Object.keys(raw.metricas)).toHaveLength(25);
     expect(state.strategy).toBe(raw.estrategia); expect(state.riskTurn).toBe(raw.riesgo?.turnoPredicho);
   });
   it('prefers the supplied availability, retains unknown shelter status and has an explicit fallback', () => {

@@ -15,10 +15,17 @@ const presets = [
 const initial: Config = { averias: { activadas: false, caminante: { probabilidad: .25, turnos: 2 }, corredor: { probabilidad: .5, turnos: 3 }, horda: { probabilidad: .8, turnos: 5 }, dormido: { probabilidad: .35, turnos: 2 } }, ronda: 1, ...presets[0], turnos: 150, semilla: 7, estrategia: 'pro', distribucion: 'equilibrada', bloqueos: true };
 const countLabels: Record<keyof Counts, string> = { caminante: 'Caminantes', corredor: 'Corredores', horda: 'Hordas', dormido: 'Dormidos' };
 const base = parseConfig(import.meta.env).base;
-async function request(path: string, init?: RequestInit): Promise<Status> {
-  const response = await fetch(`${base}/control/${path}`, { ...init, cache: 'no-store', signal: init?.signal ?? AbortSignal.timeout(15000) });
+// En local (Vite) el proxy agrega la API key. En el servidor público no hay proxy con
+// la clave: el operador la escribe en el modal y viaja solo por HTTPS en x-api-key.
+const keyRequired = !import.meta.env.DEV;
+const KEY_STORAGE = 'manta-operador-clave';
+function readStoredKey() { try { return sessionStorage.getItem(KEY_STORAGE) ?? ''; } catch { return ''; } }
+function storeKey(value: string) { try { if (value) sessionStorage.setItem(KEY_STORAGE, value); else sessionStorage.removeItem(KEY_STORAGE); } catch { /* Sin almacenamiento: la clave vive solo en memoria. */ } }
+async function request(path: string, init?: RequestInit, apiKey = ''): Promise<Status> {
+  const headers = apiKey ? { ...(init?.headers as Record<string, string> | undefined), 'x-api-key': apiKey } : init?.headers;
+  const response = await fetch(`${base}/control/${path}`, { ...init, headers, cache: 'no-store', signal: init?.signal ?? AbortSignal.timeout(15000) });
   if (!response.ok) {
-    let message = response.status === 404 ? 'El backend actual no tiene controles. Inicia dashboard_server.' : `Control no disponible (${response.status}).`;
+    let message = response.status === 404 ? 'El backend actual no tiene controles. Inicia dashboard_server.' : response.status === 401 ? 'Clave de operador incorrecta.' : response.status === 429 ? 'Demasiados intentos. Espera un minuto.' : `Control no disponible (${response.status}).`;
     try { const data = await response.json(); if (typeof data.detail === 'string') message = data.detail; else if (Array.isArray(data.detail)) message = 'Revisa los valores: la configuración no es válida.'; } catch { /* Preserve the status message for non-JSON errors. */ }
     throw new Error(message);
   }
@@ -34,27 +41,36 @@ export function SimulationControls() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
+  const [apiKey, setApiKey] = useState(readStoredKey);
+  const [keyDraft, setKeyDraft] = useState(apiKey);
   useEffect(() => {
     if (open && !dialog.current?.open) dialog.current?.showModal();
     else if (!open && dialog.current?.open) { dialog.current.close(); trigger.current?.focus(); }
   }, [open]);
   useEffect(() => {
     if (!open) return;
+    if (keyRequired && !apiKey) { setStatus(null); setError(''); setLoading(false); return; }
     const controller = new AbortController();
     setLoading(true);
-    request('estado', { signal: controller.signal }).then(value => {
+    request('estado', { signal: controller.signal }, apiKey).then(value => {
       if (controller.signal.aborted) return;
       setStatus(value); if (value.configuracion) setConfig({ ...value.configuracion, averias: value.configuracion.averias ?? initial.averias }); setError(value.error ?? '');
     }).catch(e => { if (!controller.signal.aborted) setError(e.message); }).finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
-  }, [open]);
+  }, [open, apiKey]);
+  function saveKey(event: React.FormEvent) {
+    event.preventDefault();
+    const value = keyDraft.trim();
+    storeKey(value); setApiKey(value); setMessage(''); setError('');
+  }
   async function start(event: React.FormEvent) {
     event.preventDefault();
     if (busy || loading) return;
+    if (keyRequired && !apiKey) { setError('Ingresa la clave de operador.'); return; }
     if (Object.values(config.zombies).reduce((a, b) => a + b, 0) > 200) { setError('Máximo 200 zombies en total.'); return; }
     setBusy(true); setError(''); setMessage('');
     try {
-      const value = await request('iniciar', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(config) });
+      const value = await request('iniciar', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(config) }, apiKey);
       setStatus(value); setMessage('Simulación iniciada.');
     } catch (e) { setError(e instanceof Error ? e.message : 'No se pudo iniciar.'); }
     finally { setBusy(false); }
@@ -63,6 +79,11 @@ export function SimulationControls() {
     <button ref={trigger} type="button" className="simulation-control-trigger" aria-haspopup="dialog" onClick={() => setOpen(true)}><Flame size={16}/> Pruebas de fuego</button>
     <dialog ref={dialog} className="simulation-controls simulation-modal" aria-labelledby="fire-test-title" onCancel={e => { if (busy) e.preventDefault(); else setOpen(false); }} onClose={() => setOpen(false)} onClick={e => { if (e.target === e.currentTarget && !busy) setOpen(false); }}>
     <header className="simulation-modal-header"><h2 id="fire-test-title"><Flame size={19}/> Pruebas de fuego</h2><button type="button" className="icon-button" aria-label="Cerrar configuración" disabled={busy} onClick={() => setOpen(false)}><X size={18}/></button></header>
+    {keyRequired && <form className="operator-key" onSubmit={saveKey} aria-label="Clave de operador">
+      <label>Clave de operador<input type="password" autoComplete="current-password" value={keyDraft} onChange={e => setKeyDraft(e.target.value)} placeholder="API key del equipo"/></label>
+      <button type="submit">{apiKey ? 'Cambiar clave' : 'Usar clave'}</button>
+      <small>Solo el equipo puede iniciar rondas. La clave se guarda en esta pestaña y se envía cifrada (HTTPS).</small>
+    </form>}
     <form onSubmit={start} aria-label="Configurar prueba de fuego">
       <fieldset disabled={busy || loading}>
         <div className="control-fields">

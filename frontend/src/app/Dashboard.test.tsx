@@ -19,13 +19,13 @@ function fixture(demo = false, disconnected = false) {
 describe('operations dashboard', () => {
   afterEach(() => { vi.unstubAllEnvs(); vi.restoreAllMocks(); });
 
-  it('keeps production read-only without controls, sleeper option or private fetches', () => {
+  it('shows fire tests in production but keeps sleepers hidden and makes no private fetch without a key', () => {
     vi.stubEnv('DEV', false);
     const fetcher = vi.spyOn(globalThis, 'fetch');
     const { provider } = fixture();
     render(<SimulationContext provider={provider}><Dashboard/></SimulationContext>);
     expect(screen.getByText('DATOS REALES')).toBeInTheDocument();
-    expect(screen.queryByRole('button', { name: /Pruebas de fuego/ })).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Pruebas de fuego/ })).toBeInTheDocument();
     expect(screen.queryByLabelText('Dormidos (solo pruebas)')).not.toBeInTheDocument();
     expect(fetcher).not.toHaveBeenCalled();
   });
@@ -45,10 +45,10 @@ describe('operations dashboard', () => {
     expect(screen.getByTestId('map-shell')).toContainElement(screen.getByRole('region', { name: 'Detalle de entidad' }));
     result.unmount(); expect(provider.stop).toHaveBeenCalledTimes(1);
   });
-  it('renders all 25 telemetry fields and missing values as unavailable', () => {
+  it('renders all 28 telemetry fields and missing values as unavailable', () => {
     const { provider } = fixture(); render(<SimulationContext provider={provider}><Dashboard/></SimulationContext>);
     fireEvent.click(screen.getByRole('button', { name: 'Telemetría' }));
-    expect(document.querySelectorAll('.telemetry .detail-field')).toHaveLength(25);
+    expect(document.querySelectorAll('.telemetry .detail-field')).toHaveLength(28);
     expect(screen.getByText('Distancia transportada (m)')).toBeInTheDocument();
     expect(screen.getByText('Latencia p99 (ms)')).toBeInTheDocument();
   });

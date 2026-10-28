@@ -45,7 +45,7 @@ BACKEND_PROXY_TARGET solo configura desarrollo; no afecta dist/. CORS no sustitu
 
 ## Variables y operación
 
-API_KEY obligatoria en backend. ROUTING_STRATEGY=pro; SEED=7; TURN_SECONDS=2; HTTP_CONCURRENCY=4. Ver .env.example y backend/config/pro.env.example para parámetros de Pro. Las variables no se cargan automáticamente desde ejemplos. CORS_ORIGINS vacío por defecto. MANTA_DATA_DIR apunta a datos locales; Docker lo fija en /service/data.
+API_KEY obligatoria en backend. ROUTING_STRATEGY=pro; SEED=7; TURN_SECONDS=2; HTTP_CONCURRENCY=16. Ver .env.example y backend/config/pro.env.example para parámetros de Pro. Las variables no se cargan automáticamente desde ejemplos. CORS_ORIGINS vacío por defecto. MANTA_DATA_DIR apunta a datos locales; Docker lo fija en /service/data.
 
 Memoria local: mundo, reservas, ocupación, decisiones e historial se pierden al reiniciar. No escalar a varios workers/réplicas sin persistencia transaccional y coordinador líder. No existe runId público para detectar reinicios en la misma ronda: recargar frontend al iniciar otro run. CLI es una demo finita; servicio de ejecución continua requiere un responsable explícito del ciclo de simulación. No agregar un bucle por GET.
 

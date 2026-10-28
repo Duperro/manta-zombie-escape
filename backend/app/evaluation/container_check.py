@@ -44,13 +44,15 @@ async def run(url):
             response = await public.get(asset)
             assert response.status_code == 200
             assert settings.api_key not in response.text
-            assert 'x-api-key' not in response.text.lower() and 'API_KEY' not in response.text
-        for path in ['/api/control/estado','/api/control/dormidos','/control/estado',
+            assert 'API_KEY' not in response.text  # el bundle nunca contiene la clave
+        for path in ['/api/control/dormidos','/control/estado',
                      '/control/dormidos','/openapi.json','/docs','/.env']:
             assert (await public.get(path)).status_code == 404, path
-        for path in ['/api/control/iniciar','/control/iniciar']:
-            assert (await public.post(path, json={})).status_code == 404
-            assert (await public.post(path, json={}, headers=auth)).status_code == 404
+        # Pruebas de fuego desde la página: públicas solo con la clave de operador.
+        assert (await public.get('/api/control/estado')).status_code == 401
+        assert (await public.get('/api/control/estado', headers=auth)).status_code == 200
+        assert (await public.post('/api/control/iniciar', json={})).status_code == 401
+        assert (await public.post('/control/iniciar', json={}, headers=auth)).status_code == 404
         assert (await private.get('/control/estado')).status_code == 401
         assert (await private.get('/control/dormidos')).status_code == 401
         assert (await private.post('/control/iniciar', json={})).status_code == 401

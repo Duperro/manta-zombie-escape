@@ -5,7 +5,7 @@ import type { Selection } from '../types/visual';
 import { MapBoard, initialLayers, LayerControl } from '../components/MapBoard';
 import { SimulationControls } from '../components/SimulationControls';
 import { DetailsPanel, MetricsPanel, number, RescueMetrics, Telemetry } from '../components/Panels';
-import { localOperatorControlsEnabled } from '../utils/operator';
+import { fireTestControlsEnabled } from '../utils/operator';
 const roundNames: Record<number, string> = { 1: 'Anochecer', 2: 'Medianoche', 3: 'Apocalipsis' };
 const eventNames: Record<string, string> = { averia_camioneta: 'Avería de furgoneta', camioneta_reparada: 'Furgoneta reparada' };
 const connectionNames = { connecting: 'Conectando', connected: 'Conectado', disconnected: 'Sin conexión', stale: 'Sin cambio de turno' };
@@ -33,7 +33,7 @@ export function Dashboard() {
   return <div className="app-shell">
     <header className="app-header"><div className="brand"><div className="brand-mark"><RadioTower size={25}/></div><div><h1>MANTA <span>/ ZOMBIE ESCAPE</span></h1></div></div><div className="header-status"><span className={`source-badge ${demo ? 'demo' : ''}`}>{demo ? 'DEMOSTRACIÓN' : 'DATOS REALES'}</span><span className={`connection ${connection}`} role="status">{connection === 'disconnected' ? <WifiOff size={14}/> : <Wifi size={14}/>} {connectionNames[connection]}</span></div></header>
     <main><div className="page-title"><div><h2>{demo ? 'Simulación demo' : 'Evacuación en vivo'}</h2></div><div className="round-panel"><div><span>RONDA {state?.round ?? '—'} / 3</span><b>{state ? roundNames[state.round] || 'Sin identificar' : 'Esperando operación'}</b></div><div className="turn-counter"><strong>{state?.turn ?? '—'}<small>/{state?.totalTurns ?? 150}</small></strong><span>TURNO</span></div><div className="round-time"><Clock3 size={14}/><b>{`${Math.floor(remaining / 60)}`.padStart(2, '0')}:{`${remaining % 60}`.padStart(2, '0')}</b><small>restantes</small></div></div></div>
-      {!demo && localOperatorControlsEnabled() && <SimulationControls/>}
+      {!demo && fireTestControlsEnabled() && <SimulationControls/>}
       <MetricsPanel state={state}/>
       {connection === 'disconnected' && <div className="connection-notice" role="alert"><WifiOff size={17}/><div><b>Se perdió la conexión con el centro.</b><span>Último estado disponible. Reintentando…</span></div></div>}
       {connection === 'stale' && <div className="connection-notice stale" role="status"><Clock3 size={17}/> Turno sin cambios.</div>}

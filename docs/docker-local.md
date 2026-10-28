@@ -166,7 +166,7 @@ Este canal no requiere colocar la clave en argumentos ni en el navegador.
 En producción se ocultan **Pruebas de fuego** y la capa de dormidos de depuración.
 Esas opciones siguen disponibles en el desarrollo local con Vite. La imagen web
 no recibe ningún secreto. Nginx admite solo las tres lecturas `/api/*` y
-`POST /paso`; `/api/control/*`, `/control*`, `/docs` y `/openapi.json` devuelven 404.
+`POST /paso`, más `GET /api/control/estado` y `POST /api/control/iniciar` (botón **Pruebas de fuego**, exigen la clave de operador en `x-api-key` y tienen límite de 10 peticiones/min). `/api/control/dormidos`, `/control*`, `/docs` y `/openapi.json` devuelven 404.
 El backend sigue exigiendo la clave para todos los controles incluso dentro de
 la red privada. No hay protección de producción basada solamente en Host/Origin.
 
@@ -228,7 +228,7 @@ separado. Es validación Docker local, no rendimiento AWS.
 | `API_KEY` | Alternativa en el entorno para desarrollo; no combinar con `API_KEY_FILE`. No se pasa como valor en Compose. |
 | `ROUTING_STRATEGY`, `SEED` | Inicialización del backend y valores del operador; `start --seed` o JSON puede sobrescribirlos para la nueva ronda. |
 | `TURN_SECONDS` | Compose permite configurarla, pero el entrypoint rechaza cualquier valor distinto de 2. |
-| `HTTP_CONCURRENCY` | Límite de solicitudes simultáneas del coordinador; predeterminado 4. |
+| `HTTP_CONCURRENCY` | Límite de solicitudes simultáneas del coordinador; predeterminado 16. |
 | `PRO_PREDICTION`, `PRO_RESERVATIONS`, `PRO_FLEET` | Flags reales de Settings; se conservan al iniciar rondas Pro. |
 | `MANTA_DATA_DIR` | Fijada a `/service/data`, con mapa, refugios, flota y escenarios incluidos. |
 | `VITE_DATA_SOURCE`, `VITE_API_BASE_URL` | Fijadas a `api` y `/api` durante build; no cambian al editar el entorno de un contenedor ya construido. |
